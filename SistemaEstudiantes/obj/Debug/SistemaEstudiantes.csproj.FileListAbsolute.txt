@@ -1,0 +1,269 @@
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe.config
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.OpcionesBdNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.pdb
+C:\Users\Arteok\Desktop\Programacion\C#\Ejercicios Varios\SistemaEstudiantes\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe.config
+C:\Users\Arteok\Desktop\Programacion\C#\Ejercicios Varios\SistemaEstudiantes\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe
+C:\Users\Arteok\Desktop\Programacion\C#\Ejercicios Varios\SistemaEstudiantes\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.pdb
+C:\Users\Arteok\Desktop\Programacion\C#\Ejercicios Varios\SistemaEstudiantes\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.AssemblyReference.cache
+C:\Users\Arteok\Desktop\Programacion\C#\Ejercicios Varios\SistemaEstudiantes\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Arteok\Desktop\Programacion\C#\Ejercicios Varios\SistemaEstudiantes\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Arteok\Desktop\Programacion\C#\Ejercicios Varios\SistemaEstudiantes\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Arteok\Desktop\Programacion\C#\Ejercicios Varios\SistemaEstudiantes\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.OpcionesBdNorm.resources
+C:\Users\Arteok\Desktop\Programacion\C#\Ejercicios Varios\SistemaEstudiantes\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Arteok\Desktop\Programacion\C#\Ejercicios Varios\SistemaEstudiantes\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.GenerateResource.cache
+C:\Users\Arteok\Desktop\Programacion\C#\Ejercicios Varios\SistemaEstudiantes\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.CoreCompileInputs.cache
+C:\Users\Arteok\Desktop\Programacion\C#\Ejercicios Varios\SistemaEstudiantes\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.exe
+C:\Users\Arteok\Desktop\Programacion\C#\Ejercicios Varios\SistemaEstudiantes\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 01-11\SistemaEstudiantes 01-11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe.config
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 01-11\SistemaEstudiantes 01-11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 01-11\SistemaEstudiantes 01-11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 01-11\SistemaEstudiantes 01-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 01-11\SistemaEstudiantes 01-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 01-11\SistemaEstudiantes 01-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 01-11\SistemaEstudiantes 01-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 01-11\SistemaEstudiantes 01-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.OpcionesBdNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 01-11\SistemaEstudiantes 01-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 01-11\SistemaEstudiantes 01-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 01-11\SistemaEstudiantes 01-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 01-11\SistemaEstudiantes 01-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 01-11\SistemaEstudiantes 01-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 03-11\SistemaEstudiantes 01-11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe.config
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 03-11\SistemaEstudiantes 01-11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 03-11\SistemaEstudiantes 01-11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 03-11\SistemaEstudiantes 01-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 03-11\SistemaEstudiantes 01-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 03-11\SistemaEstudiantes 01-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 03-11\SistemaEstudiantes 01-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 03-11\SistemaEstudiantes 01-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.OpcionesBdNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 03-11\SistemaEstudiantes 01-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 03-11\SistemaEstudiantes 01-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 03-11\SistemaEstudiantes 01-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 03-11\SistemaEstudiantes 01-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 03-11\SistemaEstudiantes 01-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 05 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe.config
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 05 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 05 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 05 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 05 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 05 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 05 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 05 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.OpcionesBdNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 05 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 05 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 05 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 05 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 05 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.pdb
+C:\Users\Arteok\Desktop\Programacion\C#\Ejercicios Varios\SistemaEstudiantes 05 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe.config
+C:\Users\Arteok\Desktop\Programacion\C#\Ejercicios Varios\SistemaEstudiantes 05 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe
+C:\Users\Arteok\Desktop\Programacion\C#\Ejercicios Varios\SistemaEstudiantes 05 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.pdb
+C:\Users\Arteok\Desktop\Programacion\C#\Ejercicios Varios\SistemaEstudiantes 05 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.AssemblyReference.cache
+C:\Users\Arteok\Desktop\Programacion\C#\Ejercicios Varios\SistemaEstudiantes 05 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Arteok\Desktop\Programacion\C#\Ejercicios Varios\SistemaEstudiantes 05 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Arteok\Desktop\Programacion\C#\Ejercicios Varios\SistemaEstudiantes 05 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Arteok\Desktop\Programacion\C#\Ejercicios Varios\SistemaEstudiantes 05 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.OpcionesBdNorm.resources
+C:\Users\Arteok\Desktop\Programacion\C#\Ejercicios Varios\SistemaEstudiantes 05 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Arteok\Desktop\Programacion\C#\Ejercicios Varios\SistemaEstudiantes 05 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.GenerateResource.cache
+C:\Users\Arteok\Desktop\Programacion\C#\Ejercicios Varios\SistemaEstudiantes 05 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.CoreCompileInputs.cache
+C:\Users\Arteok\Desktop\Programacion\C#\Ejercicios Varios\SistemaEstudiantes 05 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.exe
+C:\Users\Arteok\Desktop\Programacion\C#\Ejercicios Varios\SistemaEstudiantes 05 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 07 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe.config
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 07 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 07 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 07 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 07 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 07 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 07 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 07 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.OpcionesBdNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 07 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 07 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 07 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 07 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 07 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 08 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe.config
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 08 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 08 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 08 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 08 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 08 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 08 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 08 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.OpcionesBdNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 08 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 08 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 08 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 08 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 08 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 12 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe.config
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 12 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 12 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 12 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 12 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 12 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 12 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 12 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.OpcionesBdNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 12 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 12 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 12 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 12 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 12 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 15 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe.config
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 15 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 15 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 15 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 15 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 15 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 15 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 15 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.OpcionesBdNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 15 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 15 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 15 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 15 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 15 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 17 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe.config
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 17 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 17 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 17 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 17 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 17 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 17 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 17 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 17 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 17 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 17 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 17 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 17 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Opciones.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 17 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Usuario.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 19 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe.config
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 19 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 19 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 19 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 19 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 19 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 19 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 19 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Opciones.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 19 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 19 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Usuario.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 19 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 19 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 19 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 19 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 23 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe.config
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 23 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 23 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 23 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 23 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 23 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 23 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 23 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Opciones.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 23 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 23 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Usuario.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 23 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 23 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 23 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 23 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 24 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe.config
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 24 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 24 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 24 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 24 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 24 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 24 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 24 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Opciones.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 24 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 24 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Usuario.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 24 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 24 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 24 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 24 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 25 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe.config
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 25 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 25 -11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 25 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 25 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 25 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.CrearEditar.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 25 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 25 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 25 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Opciones.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 25 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 25 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Usuario.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 25 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 25 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 25 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 25 -11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 26-11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe.config
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 26-11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 26-11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 26-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 26-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 26-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.CrearEditar.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 26-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 26-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 26-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Opciones.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 26-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 26-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Usuario.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 26-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 26-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 26-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 26-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 29-11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe.config
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 29-11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 29-11\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 29-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 29-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 29-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.CrearEditar.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 29-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 29-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 29-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Opciones.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 29-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 29-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Usuario.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 29-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 29-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 29-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 29-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 29-11\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Rutas.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 01-12\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 01-12\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 01-12\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.CrearEditar.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 01-12\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 01-12\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 01-12\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Opciones.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 01-12\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 01-12\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Rutas.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 01-12\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Usuario.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 01-12\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 01-12\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 01-12\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 01-12\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 01-12\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe.config
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 01-12\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 01-12\SistemaEstudiantes\bin\Debug\SistemaEstudiantes.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.CrearEditar.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Opciones.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Rutas.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Usuario.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\bin\Debug\SistemaEstudiantesPrueba.exe.config
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\bin\Debug\SistemaEstudiantesPrueba.exe.manifest
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\bin\Debug\SistemaEstudiantesPrueba.application
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\bin\Debug\SistemaEstudiantesPrueba.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\bin\Debug\SistemaEstudiantesPrueba.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantesPrueba.TrustInfo.xml
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantesPrueba.exe.manifest
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantesPrueba.application
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantesPrueba.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantesPrueba.pdb

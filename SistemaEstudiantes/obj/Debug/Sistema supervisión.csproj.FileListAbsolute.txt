@@ -1,0 +1,249 @@
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\bin\Debug\SistemaEstudiantesPrueba.exe.config
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\bin\Debug\SistemaEstudiantesPrueba.exe.manifest
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\bin\Debug\SistemaEstudiantesPrueba.application
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\bin\Debug\SistemaEstudiantesPrueba.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\bin\Debug\SistemaEstudiantesPrueba.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.CrearEditar.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Opciones.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Rutas.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Usuario.resources
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\Sistema supervisión.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\Sistema supervisión.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantesPrueba.TrustInfo.xml
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantesPrueba.exe.manifest
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantesPrueba.application
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantesPrueba.exe
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantesPrueba.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\obj\Debug\Sistema supervisión.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 10-12-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe.config
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 10-12-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe.manifest
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 10-12-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.application
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 10-12-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 10-12-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 10-12-2021\SistemaEstudiantes\obj\Debug\Sistema supervisión.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 10-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 10-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.CrearEditar.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 10-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 10-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 10-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Opciones.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 10-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 10-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Rutas.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 10-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Usuario.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 10-12-2021\SistemaEstudiantes\obj\Debug\Sistema supervisión.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 10-12-2021\SistemaEstudiantes\obj\Debug\Sistema supervisión.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 10-12-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.TrustInfo.xml
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 10-12-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.exe.manifest
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 10-12-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.application
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 10-12-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.exe
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 10-12-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-12-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe.config
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-12-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe.manifest
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-12-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.application
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-12-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-12-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-12-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.CrearEditar.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Opciones.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Rutas.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-12-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Usuario.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-12-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-12-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-12-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.TrustInfo.xml
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-12-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.exe.manifest
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-12-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.application
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-12-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.exe
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-12-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 16-02-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe.config
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 16-02-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe.manifest
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 16-02-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.application
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 16-02-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 16-02-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 16-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 16-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 16-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.CrearEditar.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 16-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 16-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 16-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Opciones.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 16-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 16-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Rutas.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 16-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Usuario.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 16-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 16-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 16-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.TrustInfo.xml
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 16-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.exe.manifest
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 16-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.application
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 16-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.exe
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 16-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 22-02-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe.config
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 22-02-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe.manifest
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 22-02-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.application
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 22-02-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 22-02-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 22-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 22-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 22-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.CrearEditar.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 22-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 22-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 22-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Opciones.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 22-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 22-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Rutas.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 22-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Usuario.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 22-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 22-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 22-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.TrustInfo.xml
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 22-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.exe.manifest
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 22-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.application
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 22-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.exe
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 22-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 23-02-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe.config
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 23-02-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe.manifest
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 23-02-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.application
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 23-02-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 23-02-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 23-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 23-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 23-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.CrearEditar.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 23-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.DepurarPDF.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 23-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 23-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 23-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Opciones.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 23-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 23-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Rutas.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 23-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Usuario.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 23-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 23-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 23-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.TrustInfo.xml
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 23-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.exe.manifest
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 23-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.application
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 23-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.exe
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 23-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 24-02-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe.config
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 24-02-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe.manifest
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 24-02-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.application
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 24-02-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 24-02-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 24-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 24-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 24-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.CrearEditar.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 24-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.DepurarPDF.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 24-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 24-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 24-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Opciones.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 24-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 24-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Rutas.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 24-02-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Usuario.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 24-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 24-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 24-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.TrustInfo.xml
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 24-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.exe.manifest
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 24-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.application
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 24-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.exe
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 24-02-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 08-03-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe.config
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 08-03-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe.manifest
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 08-03-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.application
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 08-03-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 08-03-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 08-03-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 08-03-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 08-03-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.CrearEditar.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 08-03-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.DepurarPDF.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 08-03-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Estadisticas.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 08-03-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 08-03-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 08-03-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Opciones.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 08-03-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 08-03-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Rutas.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 08-03-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Usuario.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 08-03-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 08-03-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 08-03-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.TrustInfo.xml
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 08-03-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.exe.manifest
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 08-03-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.application
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 08-03-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.exe
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 08-03-2021\SistemaEstudiantes\obj\Debug\Sistema Supervisión.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 08-03-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Estadisticas1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 08-03-2021\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Estadisticas1Cargar.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-04-2022\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe.config
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-04-2022\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe.manifest
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-04-2022\SistemaEstudiantes\bin\Debug\Sistema Supervisión.application
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-04-2022\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-04-2022\SistemaEstudiantes\bin\Debug\Sistema Supervisión.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.CrearEditar.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.DepurarPDF.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Estadisticas.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Estadisticas1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Estadisticas1Cargar.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Opciones.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Rutas.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Usuario.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\Sistema Supervisión.TrustInfo.xml
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\Sistema Supervisión.exe.manifest
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\Sistema Supervisión.application
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\Sistema Supervisión.exe
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\Sistema Supervisión.pdb
+C:\Users\Arteok\Downloads\SistemaSupervision 13-04-2022\SistemaSupervision 13-04-2022\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe.config
+C:\Users\Arteok\Downloads\SistemaSupervision 13-04-2022\SistemaSupervision 13-04-2022\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe.manifest
+C:\Users\Arteok\Downloads\SistemaSupervision 13-04-2022\SistemaSupervision 13-04-2022\SistemaEstudiantes\bin\Debug\Sistema Supervisión.application
+C:\Users\Arteok\Downloads\SistemaSupervision 13-04-2022\SistemaSupervision 13-04-2022\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe
+C:\Users\Arteok\Downloads\SistemaSupervision 13-04-2022\SistemaSupervision 13-04-2022\SistemaEstudiantes\bin\Debug\Sistema Supervisión.pdb
+C:\Users\Arteok\Downloads\SistemaSupervision 13-04-2022\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.AssemblyReference.cache
+C:\Users\Arteok\Downloads\SistemaSupervision 13-04-2022\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Arteok\Downloads\SistemaSupervision 13-04-2022\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.CrearEditar.resources
+C:\Users\Arteok\Downloads\SistemaSupervision 13-04-2022\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.DepurarPDF.resources
+C:\Users\Arteok\Downloads\SistemaSupervision 13-04-2022\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Estadisticas.resources
+C:\Users\Arteok\Downloads\SistemaSupervision 13-04-2022\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Estadisticas1.resources
+C:\Users\Arteok\Downloads\SistemaSupervision 13-04-2022\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Estadisticas1Cargar.resources
+C:\Users\Arteok\Downloads\SistemaSupervision 13-04-2022\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Arteok\Downloads\SistemaSupervision 13-04-2022\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Arteok\Downloads\SistemaSupervision 13-04-2022\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Opciones.resources
+C:\Users\Arteok\Downloads\SistemaSupervision 13-04-2022\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Arteok\Downloads\SistemaSupervision 13-04-2022\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Rutas.resources
+C:\Users\Arteok\Downloads\SistemaSupervision 13-04-2022\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Usuario.resources
+C:\Users\Arteok\Downloads\SistemaSupervision 13-04-2022\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.GenerateResource.cache
+C:\Users\Arteok\Downloads\SistemaSupervision 13-04-2022\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.CoreCompileInputs.cache
+C:\Users\Arteok\Downloads\SistemaSupervision 13-04-2022\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\Sistema Supervisión.TrustInfo.xml
+C:\Users\Arteok\Downloads\SistemaSupervision 13-04-2022\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\Sistema Supervisión.exe.manifest
+C:\Users\Arteok\Downloads\SistemaSupervision 13-04-2022\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\Sistema Supervisión.application
+C:\Users\Arteok\Downloads\SistemaSupervision 13-04-2022\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\Sistema Supervisión.exe
+C:\Users\Arteok\Downloads\SistemaSupervision 13-04-2022\SistemaSupervision 13-04-2022\SistemaEstudiantes\obj\Debug\Sistema Supervisión.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 17-04-2022\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe.config
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 17-04-2022\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe.manifest
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 17-04-2022\SistemaEstudiantes\bin\Debug\Sistema Supervisión.application
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 17-04-2022\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 17-04-2022\SistemaEstudiantes\bin\Debug\Sistema Supervisión.pdb
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 17-04-2022\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 17-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 17-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.CrearEditar.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 17-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.DepurarPDF.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 17-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Estadisticas.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 17-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Estadisticas1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 17-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Estadisticas1Cargar.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 17-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 17-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 17-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Opciones.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 17-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 17-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Rutas.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 17-04-2022\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Usuario.resources
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 17-04-2022\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 17-04-2022\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 17-04-2022\SistemaEstudiantes\obj\Debug\Sistema Supervisión.TrustInfo.xml
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 17-04-2022\SistemaEstudiantes\obj\Debug\Sistema Supervisión.exe.manifest
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 17-04-2022\SistemaEstudiantes\obj\Debug\Sistema Supervisión.application
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 17-04-2022\SistemaEstudiantes\obj\Debug\Sistema Supervisión.exe
+C:\Users\Pablo\Desktop\Programas\SistemaSupervision 17-04-2022\SistemaEstudiantes\obj\Debug\Sistema Supervisión.pdb

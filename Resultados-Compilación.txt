@@ -1,0 +1,4 @@
+﻿Operación Compilar iniciada..
+1>------ Operación Compilar iniciada: proyecto: Sistema Supervisión, configuración: Debug Any CPU ------
+1>  Sistema Supervisión -> C:\Users\Pablo\Desktop\Programas\SistemaSupervision 24-02-2021\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe
+========== Compilar: 1 correctos, 0 incorrectos, 0 actualizados, 0 omitidos ==========
