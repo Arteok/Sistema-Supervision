@@ -38,7 +38,7 @@ namespace SistemaEstudiantes
             this.label4 = new System.Windows.Forms.Label();
             this.btmPlantillas = new System.Windows.Forms.Button();
             this.btnCantColegios = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnMatriculaComp = new System.Windows.Forms.Button();
             this.btnEstadistica3 = new System.Windows.Forms.Button();
             this.btnEstadistica2 = new System.Windows.Forms.Button();
             this.btnEstadistica1 = new System.Windows.Forms.Button();
@@ -56,7 +56,7 @@ namespace SistemaEstudiantes
             this.lblNombre.BackColor = System.Drawing.Color.Transparent;
             this.lblNombre.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.White;
-            this.lblNombre.Location = new System.Drawing.Point(120, 50);
+            this.lblNombre.Location = new System.Drawing.Point(120, 54);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(50, 18);
             this.lblNombre.TabIndex = 14;
@@ -68,9 +68,9 @@ namespace SistemaEstudiantes
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalir.Font = new System.Drawing.Font("Arial", 12.25F);
             this.btnSalir.ForeColor = System.Drawing.Color.White;
-            this.btnSalir.Location = new System.Drawing.Point(1230, 25);
+            this.btnSalir.Location = new System.Drawing.Point(1230, 27);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(90, 40);
+            this.btnSalir.Size = new System.Drawing.Size(90, 43);
             this.btnSalir.TabIndex = 13;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
@@ -85,9 +85,9 @@ namespace SistemaEstudiantes
             this.btnVolver.ForeColor = System.Drawing.Color.White;
             this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
             this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVolver.Location = new System.Drawing.Point(1110, 25);
+            this.btnVolver.Location = new System.Drawing.Point(1110, 27);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(90, 40);
+            this.btnVolver.Size = new System.Drawing.Size(90, 43);
             this.btnVolver.TabIndex = 12;
             this.btnVolver.Text = "    Atrás";
             this.btnVolver.UseVisualStyleBackColor = false;
@@ -105,7 +105,7 @@ namespace SistemaEstudiantes
             this.panel2.Controls.Add(this.label4);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1351, 90);
+            this.panel2.Size = new System.Drawing.Size(1351, 97);
             this.panel2.TabIndex = 45;
             // 
             // label2
@@ -113,7 +113,7 @@ namespace SistemaEstudiantes
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(50, 50);
+            this.label2.Location = new System.Drawing.Point(50, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 18);
             this.label2.TabIndex = 16;
@@ -124,7 +124,7 @@ namespace SistemaEstudiantes
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 19.75F);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(40, 20);
+            this.label4.Location = new System.Drawing.Point(40, 22);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(162, 32);
             this.label4.TabIndex = 11;
@@ -132,12 +132,13 @@ namespace SistemaEstudiantes
             // 
             // btmPlantillas
             // 
+            this.btmPlantillas.AutoSize = true;
             this.btmPlantillas.BackColor = System.Drawing.Color.DimGray;
             this.btmPlantillas.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btmPlantillas.ForeColor = System.Drawing.Color.White;
-            this.btmPlantillas.Location = new System.Drawing.Point(786, 572);
+            this.btmPlantillas.Location = new System.Drawing.Point(786, 595);
             this.btmPlantillas.Name = "btmPlantillas";
-            this.btmPlantillas.Size = new System.Drawing.Size(204, 50);
+            this.btmPlantillas.Size = new System.Drawing.Size(204, 54);
             this.btmPlantillas.TabIndex = 56;
             this.btmPlantillas.Text = "Ingresar/Eliminar Plantillas";
             this.btmPlantillas.UseVisualStyleBackColor = false;
@@ -148,34 +149,34 @@ namespace SistemaEstudiantes
             this.btnCantColegios.BackColor = System.Drawing.Color.DimGray;
             this.btnCantColegios.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCantColegios.ForeColor = System.Drawing.Color.White;
-            this.btnCantColegios.Location = new System.Drawing.Point(575, 572);
+            this.btnCantColegios.Location = new System.Drawing.Point(575, 595);
             this.btnCantColegios.Name = "btnCantColegios";
-            this.btnCantColegios.Size = new System.Drawing.Size(204, 50);
+            this.btnCantColegios.Size = new System.Drawing.Size(204, 54);
             this.btnCantColegios.TabIndex = 55;
             this.btnCantColegios.Text = "Cantidad de Colegios";
             this.btnCantColegios.UseVisualStyleBackColor = false;
             this.btnCantColegios.Click += new System.EventHandler(this.btnCantColegios_Click);
             // 
-            // button1
+            // btnMatriculaComp
             // 
-            this.button1.BackColor = System.Drawing.Color.DimGray;
-            this.button1.Font = new System.Drawing.Font("Arial", 13F);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(575, 479);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(415, 50);
-            this.button1.TabIndex = 54;
-            this.button1.Text = "Matricula comparada";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnMatriculaComp.BackColor = System.Drawing.Color.DimGray;
+            this.btnMatriculaComp.Font = new System.Drawing.Font("Arial", 13F);
+            this.btnMatriculaComp.ForeColor = System.Drawing.Color.White;
+            this.btnMatriculaComp.Location = new System.Drawing.Point(575, 495);
+            this.btnMatriculaComp.Name = "btnMatriculaComp";
+            this.btnMatriculaComp.Size = new System.Drawing.Size(415, 54);
+            this.btnMatriculaComp.TabIndex = 54;
+            this.btnMatriculaComp.Text = "Matricula comparada";
+            this.btnMatriculaComp.UseVisualStyleBackColor = false;
             // 
             // btnEstadistica3
             // 
             this.btnEstadistica3.BackColor = System.Drawing.Color.DimGray;
             this.btnEstadistica3.Font = new System.Drawing.Font("Arial", 13F);
             this.btnEstadistica3.ForeColor = System.Drawing.Color.White;
-            this.btnEstadistica3.Location = new System.Drawing.Point(575, 385);
+            this.btnEstadistica3.Location = new System.Drawing.Point(575, 394);
             this.btnEstadistica3.Name = "btnEstadistica3";
-            this.btnEstadistica3.Size = new System.Drawing.Size(415, 50);
+            this.btnEstadistica3.Size = new System.Drawing.Size(415, 54);
             this.btnEstadistica3.TabIndex = 53;
             this.btnEstadistica3.Text = "Cantidad horas EDI y POT";
             this.btnEstadistica3.UseVisualStyleBackColor = false;
@@ -186,9 +187,9 @@ namespace SistemaEstudiantes
             this.btnEstadistica2.BackColor = System.Drawing.Color.DimGray;
             this.btnEstadistica2.Font = new System.Drawing.Font("Arial", 13F);
             this.btnEstadistica2.ForeColor = System.Drawing.Color.White;
-            this.btnEstadistica2.Location = new System.Drawing.Point(575, 291);
+            this.btnEstadistica2.Location = new System.Drawing.Point(575, 292);
             this.btnEstadistica2.Name = "btnEstadistica2";
-            this.btnEstadistica2.Size = new System.Drawing.Size(415, 50);
+            this.btnEstadistica2.Size = new System.Drawing.Size(415, 54);
             this.btnEstadistica2.TabIndex = 52;
             this.btnEstadistica2.Text = "Matriculas por orientación y/o especialidad";
             this.btnEstadistica2.UseVisualStyleBackColor = false;
@@ -199,9 +200,9 @@ namespace SistemaEstudiantes
             this.btnEstadistica1.BackColor = System.Drawing.Color.DimGray;
             this.btnEstadistica1.Font = new System.Drawing.Font("Arial", 13F);
             this.btnEstadistica1.ForeColor = System.Drawing.Color.White;
-            this.btnEstadistica1.Location = new System.Drawing.Point(575, 199);
+            this.btnEstadistica1.Location = new System.Drawing.Point(575, 193);
             this.btnEstadistica1.Name = "btnEstadistica1";
-            this.btnEstadistica1.Size = new System.Drawing.Size(415, 50);
+            this.btnEstadistica1.Size = new System.Drawing.Size(415, 54);
             this.btnEstadistica1.TabIndex = 51;
             this.btnEstadistica1.Text = "Declaración de Secciones y Matriculas";
             this.btnEstadistica1.UseVisualStyleBackColor = false;
@@ -212,9 +213,9 @@ namespace SistemaEstudiantes
             this.panel1.BackColor = System.Drawing.Color.DodgerBlue;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(0, 90);
+            this.panel1.Location = new System.Drawing.Point(0, 97);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(215, 639);
+            this.panel1.Size = new System.Drawing.Size(215, 688);
             this.panel1.TabIndex = 57;
             // 
             // label1
@@ -222,7 +223,7 @@ namespace SistemaEstudiantes
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(46, 375);
+            this.label1.Location = new System.Drawing.Point(46, 404);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(126, 69);
             this.label1.TabIndex = 1;
@@ -231,26 +232,28 @@ namespace SistemaEstudiantes
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(7, 180);
+            this.pictureBox1.Location = new System.Drawing.Point(7, 194);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(207, 169);
+            this.pictureBox1.Size = new System.Drawing.Size(207, 182);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // Estadisticas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(1346, 725);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btmPlantillas);
             this.Controls.Add(this.btnCantColegios);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnMatriculaComp);
             this.Controls.Add(this.btnEstadistica3);
             this.Controls.Add(this.btnEstadistica2);
             this.Controls.Add(this.btnEstadistica1);
             this.Controls.Add(this.panel2);
+            this.Font = new System.Drawing.Font("Arial", 8.25F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Estadisticas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Estadisticas";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -258,6 +261,7 @@ namespace SistemaEstudiantes
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -270,7 +274,7 @@ namespace SistemaEstudiantes
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btmPlantillas;
         private System.Windows.Forms.Button btnCantColegios;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnMatriculaComp;
         private System.Windows.Forms.Button btnEstadistica3;
         private System.Windows.Forms.Button btnEstadistica2;
         private System.Windows.Forms.Button btnEstadistica1;

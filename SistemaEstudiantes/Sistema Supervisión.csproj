@@ -120,11 +120,23 @@
     <Compile Include="Estadisticas1.Designer.cs">
       <DependentUpon>Estadisticas1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Estadisticas1Cargar.cs">
+    <Compile Include="EstadisticasCargar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Estadisticas1Cargar.Designer.cs">
-      <DependentUpon>Estadisticas1Cargar.cs</DependentUpon>
+    <Compile Include="EstadisticasCargar.Designer.cs">
+      <DependentUpon>EstadisticasCargar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EstadisticasEliminar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EstadisticasEliminar.Designer.cs">
+      <DependentUpon>EstadisticasEliminar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EstadisticasPlanillas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EstadisticasPlanillas.Designer.cs">
+      <DependentUpon>EstadisticasPlanillas.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -173,8 +185,14 @@
     <EmbeddedResource Include="Estadisticas1.resx">
       <DependentUpon>Estadisticas1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Estadisticas1Cargar.resx">
-      <DependentUpon>Estadisticas1Cargar.cs</DependentUpon>
+    <EmbeddedResource Include="EstadisticasCargar.resx">
+      <DependentUpon>EstadisticasCargar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EstadisticasEliminar.resx">
+      <DependentUpon>EstadisticasEliminar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EstadisticasPlanillas.resx">
+      <DependentUpon>EstadisticasPlanillas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

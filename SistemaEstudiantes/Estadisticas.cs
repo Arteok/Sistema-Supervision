@@ -52,10 +52,11 @@ namespace SistemaEstudiantes
 
         private void btmPlantillas_Click(object sender, EventArgs e)
         {
+            EstadisticasPlanillas myEstadisticasPlanillas = new EstadisticasPlanillas(nombreUsuario, tipoUsuario, opcionesPermisos, conexionBaseDatos);
+            this.Hide();
+            myEstadisticasPlanillas.Show();
 
         }
-
-
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
@@ -64,23 +65,19 @@ namespace SistemaEstudiantes
             miForm1.Enabled = true;
             this.Close();
         }
-
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void btnVolver_MouseMove(object sender, MouseEventArgs e)
         {
             btnVolver.BackColor = Color.DimGray;
             
         }
-
         private void btnVolver_MouseLeave(object sender, EventArgs e)
         {
             btnVolver.BackColor = Color.DodgerBlue;
         }
-
         private void btnSalir_MouseMove(object sender, MouseEventArgs e)
         {            
             btnSalir.BackColor = Color.DimGray;

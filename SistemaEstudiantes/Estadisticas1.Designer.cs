@@ -32,7 +32,6 @@ namespace SistemaEstudiantes
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Estadisticas1));
             this.lblNombre = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnVolver = new System.Windows.Forms.Button();
             this.dataGVBusqueda = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,6 +47,7 @@ namespace SistemaEstudiantes
             this.cBoxAñoPla = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.cBoxAñoEst = new System.Windows.Forms.ComboBox();
+            this.btnVolver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGVBusqueda)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -77,21 +77,6 @@ namespace SistemaEstudiantes
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // btnVolver
-            // 
-            this.btnVolver.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnVolver.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.btnVolver.ForeColor = System.Drawing.Color.White;
-            this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
-            this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVolver.Location = new System.Drawing.Point(1110, 25);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(90, 40);
-            this.btnVolver.TabIndex = 12;
-            this.btnVolver.Text = "    Atrás";
-            this.btnVolver.UseVisualStyleBackColor = false;
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // dataGVBusqueda
             // 
@@ -146,6 +131,7 @@ namespace SistemaEstudiantes
             this.btnCrearEstadistica.TabIndex = 59;
             this.btnCrearEstadistica.Text = "Crear Estadistica";
             this.btnCrearEstadistica.UseVisualStyleBackColor = true;
+            this.btnCrearEstadistica.Click += new System.EventHandler(this.btnCrearEstadistica_Click);
             // 
             // button4
             // 
@@ -231,6 +217,21 @@ namespace SistemaEstudiantes
             this.cBoxAñoEst.Size = new System.Drawing.Size(121, 22);
             this.cBoxAñoEst.TabIndex = 60;
             // 
+            // btnVolver
+            // 
+            this.btnVolver.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnVolver.Font = new System.Drawing.Font("Arial", 12.25F);
+            this.btnVolver.ForeColor = System.Drawing.Color.White;
+            this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
+            this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVolver.Location = new System.Drawing.Point(1110, 25);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(90, 40);
+            this.btnVolver.TabIndex = 12;
+            this.btnVolver.Text = "    Atrás";
+            this.btnVolver.UseVisualStyleBackColor = false;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            // 
             // Estadisticas1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -250,6 +251,7 @@ namespace SistemaEstudiantes
             this.Controls.Add(this.dataGVBusqueda);
             this.Font = new System.Drawing.Font("Arial", 8.25F);
             this.Name = "Estadisticas1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Declaración de Secciones y Matriculas";
             ((System.ComponentModel.ISupportInitialize)(this.dataGVBusqueda)).EndInit();
             this.panel2.ResumeLayout(false);

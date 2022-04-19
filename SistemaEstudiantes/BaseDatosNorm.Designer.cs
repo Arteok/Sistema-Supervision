@@ -94,130 +94,130 @@ namespace SistemaEstudiantes
             // 
             // tbxSintesis
             // 
-            this.tbxSintesis.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxSintesis.Location = new System.Drawing.Point(766, 115);
+            this.tbxSintesis.Font = new System.Drawing.Font("Arial Narrow", 10.25F);
+            this.tbxSintesis.Location = new System.Drawing.Point(833, 15);
             this.tbxSintesis.Multiline = true;
             this.tbxSintesis.Name = "tbxSintesis";
-            this.tbxSintesis.Size = new System.Drawing.Size(339, 70);
+            this.tbxSintesis.Size = new System.Drawing.Size(339, 167);
             this.tbxSintesis.TabIndex = 46;
             // 
             // tbxTipo
             // 
-            this.tbxTipo.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxTipo.Location = new System.Drawing.Point(766, 65);
+            this.tbxTipo.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxTipo.Location = new System.Drawing.Point(526, 107);
             this.tbxTipo.Name = "tbxTipo";
-            this.tbxTipo.Size = new System.Drawing.Size(180, 20);
+            this.tbxTipo.Size = new System.Drawing.Size(180, 22);
             this.tbxTipo.TabIndex = 45;
             // 
             // tbxTitulo
             // 
-            this.tbxTitulo.Font = new System.Drawing.Font("Arial Narrow", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxTitulo.Location = new System.Drawing.Point(766, 15);
+            this.tbxTitulo.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxTitulo.Location = new System.Drawing.Point(526, 57);
             this.tbxTitulo.Name = "tbxTitulo";
-            this.tbxTitulo.Size = new System.Drawing.Size(180, 20);
+            this.tbxTitulo.Size = new System.Drawing.Size(180, 22);
             this.tbxTitulo.TabIndex = 44;
             // 
             // tbxFolio
             // 
-            this.tbxFolio.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxFolio.Location = new System.Drawing.Point(145, 166);
+            this.tbxFolio.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxFolio.Location = new System.Drawing.Point(311, 57);
             this.tbxFolio.Name = "tbxFolio";
-            this.tbxFolio.Size = new System.Drawing.Size(100, 20);
+            this.tbxFolio.Size = new System.Drawing.Size(100, 22);
             this.tbxFolio.TabIndex = 43;
             // 
             // tbxTomo
             // 
-            this.tbxTomo.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxTomo.Location = new System.Drawing.Point(145, 116);
+            this.tbxTomo.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxTomo.Location = new System.Drawing.Point(311, 107);
             this.tbxTomo.Name = "tbxTomo";
-            this.tbxTomo.Size = new System.Drawing.Size(100, 20);
+            this.tbxTomo.Size = new System.Drawing.Size(100, 22);
             this.tbxTomo.TabIndex = 42;
             // 
             // tbxFecha
             // 
-            this.tbxFecha.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxFecha.Location = new System.Drawing.Point(145, 66);
+            this.tbxFecha.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxFecha.Location = new System.Drawing.Point(91, 107);
             this.tbxFecha.Name = "tbxFecha";
-            this.tbxFecha.Size = new System.Drawing.Size(100, 20);
+            this.tbxFecha.Size = new System.Drawing.Size(100, 22);
             this.tbxFecha.TabIndex = 41;
             // 
             // tbxNorma
             // 
-            this.tbxNorma.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxNorma.Location = new System.Drawing.Point(145, 16);
+            this.tbxNorma.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxNorma.Location = new System.Drawing.Point(91, 57);
             this.tbxNorma.Name = "tbxNorma";
-            this.tbxNorma.Size = new System.Drawing.Size(100, 20);
+            this.tbxNorma.Size = new System.Drawing.Size(100, 22);
             this.tbxNorma.TabIndex = 40;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(688, 18);
+            this.label4.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.label4.Location = new System.Drawing.Point(448, 60);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 14);
+            this.label4.Size = new System.Drawing.Size(65, 16);
             this.label4.TabIndex = 37;
-            this.label4.Text = "TITULO";
+            this.label4.Text = "TITULO :";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(688, 68);
+            this.label6.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.label6.Location = new System.Drawing.Point(448, 110);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 14);
+            this.label6.Size = new System.Drawing.Size(48, 16);
             this.label6.TabIndex = 38;
-            this.label6.Text = "TIPO";
+            this.label6.Text = "TIPO :";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(688, 118);
+            this.label8.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.label8.Location = new System.Drawing.Point(753, 15);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(51, 14);
+            this.label8.Size = new System.Drawing.Size(77, 16);
             this.label8.TabIndex = 39;
-            this.label8.Text = "SÍNTESIS";
+            this.label8.Text = "SÍNTESIS :";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(72, 119);
+            this.label2.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.label2.Location = new System.Drawing.Point(238, 110);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 14);
+            this.label2.Size = new System.Drawing.Size(58, 16);
             this.label2.TabIndex = 33;
-            this.label2.Text = "TOMO";
+            this.label2.Text = "TOMO :";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(72, 170);
+            this.label3.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.label3.Location = new System.Drawing.Point(238, 60);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 14);
+            this.label3.Size = new System.Drawing.Size(58, 16);
             this.label3.TabIndex = 34;
-            this.label3.Text = "FOLIO";
+            this.label3.Text = "FOLIO :";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(72, 19);
+            this.label5.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.label5.Location = new System.Drawing.Point(18, 60);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 14);
+            this.label5.Size = new System.Drawing.Size(65, 16);
             this.label5.TabIndex = 35;
-            this.label5.Text = "NORMA";
+            this.label5.Text = "NORMA :";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(72, 69);
+            this.label7.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.label7.Location = new System.Drawing.Point(18, 110);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(41, 14);
+            this.label7.Size = new System.Drawing.Size(61, 16);
             this.label7.TabIndex = 36;
-            this.label7.Text = "FECHA";
+            this.label7.Text = "FECHA :";
             // 
             // lblCantidadRegistros
             // 
@@ -293,6 +293,7 @@ namespace SistemaEstudiantes
             this.panel2.Controls.Add(this.tbxTomo);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.tbxFecha);
+            this.panel2.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(12, 103);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1188, 195);
@@ -306,7 +307,7 @@ namespace SistemaEstudiantes
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.Image = global::SistemaEstudiantes.Properties.Resources.Save;
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(1230, 115);
+            this.btnAgregar.Location = new System.Drawing.Point(1230, 112);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(90, 33);
             this.btnAgregar.TabIndex = 32;
@@ -324,7 +325,7 @@ namespace SistemaEstudiantes
             this.btnModificarA.ForeColor = System.Drawing.Color.White;
             this.btnModificarA.Image = global::SistemaEstudiantes.Properties.Resources.AcepModif;
             this.btnModificarA.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnModificarA.Location = new System.Drawing.Point(1230, 185);
+            this.btnModificarA.Location = new System.Drawing.Point(1230, 182);
             this.btnModificarA.Name = "btnModificarA";
             this.btnModificarA.Size = new System.Drawing.Size(90, 33);
             this.btnModificarA.TabIndex = 30;
@@ -342,7 +343,7 @@ namespace SistemaEstudiantes
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(1230, 260);
+            this.btnCancelar.Location = new System.Drawing.Point(1230, 257);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(90, 33);
             this.btnCancelar.TabIndex = 31;
@@ -360,7 +361,7 @@ namespace SistemaEstudiantes
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(1230, 260);
+            this.btnEliminar.Location = new System.Drawing.Point(1230, 257);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(90, 33);
             this.btnEliminar.TabIndex = 29;
@@ -378,7 +379,7 @@ namespace SistemaEstudiantes
             this.btnModificar.ForeColor = System.Drawing.Color.White;
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnModificar.Location = new System.Drawing.Point(1230, 185);
+            this.btnModificar.Location = new System.Drawing.Point(1230, 182);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(90, 33);
             this.btnModificar.TabIndex = 28;
@@ -396,7 +397,7 @@ namespace SistemaEstudiantes
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
             this.btnNuevo.Image = global::SistemaEstudiantes.Properties.Resources.newFile;
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(1230, 115);
+            this.btnNuevo.Location = new System.Drawing.Point(1230, 112);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(90, 33);
             this.btnNuevo.TabIndex = 27;

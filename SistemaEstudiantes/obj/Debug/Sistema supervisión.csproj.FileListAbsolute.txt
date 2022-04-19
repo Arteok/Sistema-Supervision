@@ -247,3 +247,30 @@ C:\Users\Pablo\Desktop\Programas\SistemaSupervision 17-04-2022\SistemaEstudiante
 C:\Users\Pablo\Desktop\Programas\SistemaSupervision 17-04-2022\SistemaEstudiantes\obj\Debug\Sistema Supervisión.application
 C:\Users\Pablo\Desktop\Programas\SistemaSupervision 17-04-2022\SistemaEstudiantes\obj\Debug\Sistema Supervisión.exe
 C:\Users\Pablo\Desktop\Programas\SistemaSupervision 17-04-2022\SistemaEstudiantes\obj\Debug\Sistema Supervisión.pdb
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe.config
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe.manifest
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\bin\Debug\Sistema Supervisión.application
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\bin\Debug\Sistema Supervisión.pdb
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.AssemblyReference.cache
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.CrearEditar.resources
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.DepurarPDF.resources
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Estadisticas.resources
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Estadisticas1.resources
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Opciones.resources
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Rutas.resources
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Usuario.resources
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.GenerateResource.cache
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.CoreCompileInputs.cache
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.TrustInfo.xml
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.exe.manifest
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.application
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.exe
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.pdb
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.EstadisticasCargar.resources
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.EstadisticasEliminar.resources
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.EstadisticasPlanillas.resources

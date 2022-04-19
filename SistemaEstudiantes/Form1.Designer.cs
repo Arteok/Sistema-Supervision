@@ -38,10 +38,10 @@ namespace SistemaEstudiantes
             this.btnSalir = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnPlantas = new System.Windows.Forms.Button();
             this.btnEstadisticas = new System.Windows.Forms.Button();
             this.btnOpciones = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -144,15 +144,6 @@ namespace SistemaEstudiantes
             this.label2.TabIndex = 1;
             this.label2.Text = "MINISTERIO\r\n       DE\r\nEDUCACIÓN";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::SistemaEstudiantes.Properties.Resources.Escudo_Negro;
-            this.pictureBox1.Location = new System.Drawing.Point(7, 180);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(200, 180);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnPlantas
             // 
             this.btnPlantas.BackColor = System.Drawing.Color.DimGray;
@@ -198,18 +189,28 @@ namespace SistemaEstudiantes
             this.btnOpciones.MouseLeave += new System.EventHandler(this.button2_MouseLeave);
             this.btnOpciones.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button2_MouseMove);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SistemaEstudiantes.Properties.Resources.Escudo_Negro;
+            this.pictureBox1.Location = new System.Drawing.Point(7, 180);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(200, 180);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.CancelButton = this.btnSalir;
-            this.ClientSize = new System.Drawing.Size(1346, 725);
+            this.ClientSize = new System.Drawing.Size(1350, 729);
             this.Controls.Add(this.btnOpciones);
             this.Controls.Add(this.btnEstadisticas);
             this.Controls.Add(this.btnPlantas);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnNormativa);
+            this.Font = new System.Drawing.Font("Arial", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
