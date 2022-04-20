@@ -142,5 +142,7 @@ namespace SistemaEstudiantes
         {
             btnDepurarPDF.BackColor = Color.DimGray;
         }
+
+       
     }
 }

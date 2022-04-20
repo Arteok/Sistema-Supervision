@@ -38,10 +38,10 @@ namespace SistemaEstudiantes
             this.btnSalir = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnPlantas = new System.Windows.Forms.Button();
             this.btnEstadisticas = new System.Windows.Forms.Button();
             this.btnOpciones = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -52,7 +52,7 @@ namespace SistemaEstudiantes
             this.btnNormativa.BackColor = System.Drawing.Color.DimGray;
             this.btnNormativa.Font = new System.Drawing.Font("Arial", 13F);
             this.btnNormativa.ForeColor = System.Drawing.Color.White;
-            this.btnNormativa.Location = new System.Drawing.Point(575, 237);
+            this.btnNormativa.Location = new System.Drawing.Point(575, 243);
             this.btnNormativa.Name = "btnNormativa";
             this.btnNormativa.Size = new System.Drawing.Size(415, 50);
             this.btnNormativa.TabIndex = 5;
@@ -71,7 +71,7 @@ namespace SistemaEstudiantes
             this.panel1.Controls.Add(this.btnSalir);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1351, 90);
+            this.panel1.Size = new System.Drawing.Size(1351, 97);
             this.panel1.TabIndex = 6;
             // 
             // label3
@@ -113,7 +113,7 @@ namespace SistemaEstudiantes
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalir.Font = new System.Drawing.Font("Arial", 12.25F);
             this.btnSalir.ForeColor = System.Drawing.Color.White;
-            this.btnSalir.Location = new System.Drawing.Point(1230, 25);
+            this.btnSalir.Location = new System.Drawing.Point(1230, 27);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(90, 40);
             this.btnSalir.TabIndex = 0;
@@ -128,9 +128,9 @@ namespace SistemaEstudiantes
             this.panel2.BackColor = System.Drawing.Color.DodgerBlue;
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.pictureBox1);
-            this.panel2.Location = new System.Drawing.Point(0, 90);
+            this.panel2.Location = new System.Drawing.Point(0, 96);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(215, 639);
+            this.panel2.Size = new System.Drawing.Size(215, 633);
             this.panel2.TabIndex = 7;
             // 
             // label2
@@ -144,12 +144,21 @@ namespace SistemaEstudiantes
             this.label2.TabIndex = 1;
             this.label2.Text = "MINISTERIO\r\n       DE\r\nEDUCACIÓN";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SistemaEstudiantes.Properties.Resources.Escudo_Negro;
+            this.pictureBox1.Location = new System.Drawing.Point(7, 180);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(200, 180);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // btnPlantas
             // 
             this.btnPlantas.BackColor = System.Drawing.Color.DimGray;
             this.btnPlantas.Font = new System.Drawing.Font("Arial", 13F);
             this.btnPlantas.ForeColor = System.Drawing.Color.White;
-            this.btnPlantas.Location = new System.Drawing.Point(575, 331);
+            this.btnPlantas.Location = new System.Drawing.Point(575, 337);
             this.btnPlantas.Name = "btnPlantas";
             this.btnPlantas.Size = new System.Drawing.Size(415, 50);
             this.btnPlantas.TabIndex = 8;
@@ -164,7 +173,7 @@ namespace SistemaEstudiantes
             this.btnEstadisticas.BackColor = System.Drawing.Color.DimGray;
             this.btnEstadisticas.Font = new System.Drawing.Font("Arial", 13F);
             this.btnEstadisticas.ForeColor = System.Drawing.Color.White;
-            this.btnEstadisticas.Location = new System.Drawing.Point(575, 425);
+            this.btnEstadisticas.Location = new System.Drawing.Point(575, 431);
             this.btnEstadisticas.Name = "btnEstadisticas";
             this.btnEstadisticas.Size = new System.Drawing.Size(415, 50);
             this.btnEstadisticas.TabIndex = 9;
@@ -179,7 +188,7 @@ namespace SistemaEstudiantes
             this.btnOpciones.BackColor = System.Drawing.Color.DimGray;
             this.btnOpciones.Font = new System.Drawing.Font("Arial", 13F);
             this.btnOpciones.ForeColor = System.Drawing.Color.White;
-            this.btnOpciones.Location = new System.Drawing.Point(575, 519);
+            this.btnOpciones.Location = new System.Drawing.Point(575, 525);
             this.btnOpciones.Name = "btnOpciones";
             this.btnOpciones.Size = new System.Drawing.Size(415, 50);
             this.btnOpciones.TabIndex = 10;
@@ -188,15 +197,6 @@ namespace SistemaEstudiantes
             this.btnOpciones.Click += new System.EventHandler(this.btnOpciones_Click);
             this.btnOpciones.MouseLeave += new System.EventHandler(this.button2_MouseLeave);
             this.btnOpciones.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button2_MouseMove);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::SistemaEstudiantes.Properties.Resources.Escudo_Negro;
-            this.pictureBox1.Location = new System.Drawing.Point(7, 180);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(200, 180);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
