@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Sistema Supervisión.exe" size="2078632">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Sistema Supervisión.exe" size="2079144">
       <assemblyIdentity name="Sistema Supervisión" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>c2UWffAs6DhmgYI1JDsOryQL/GSeuHuXZ8GydqJE+9I=</dsig:DigestValue>
+        <dsig:DigestValue>GlWlPgSIsxiy75tzA0cmCyz8g09TgyourYrgyUf0NRc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
