@@ -144,7 +144,7 @@ namespace SistemaEstudiantes
             // 
             // dataGVBusqueda
             // 
-            this.dataGVBusqueda.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGVBusqueda.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGVBusqueda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGVBusqueda.Location = new System.Drawing.Point(12, 198);
             this.dataGVBusqueda.Name = "dataGVBusqueda";
@@ -157,7 +157,7 @@ namespace SistemaEstudiantes
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(10, 99);
+            this.label4.Location = new System.Drawing.Point(37, 99);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 23);
             this.label4.TabIndex = 32;
@@ -168,7 +168,7 @@ namespace SistemaEstudiantes
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(15, 145);
+            this.label5.Location = new System.Drawing.Point(42, 145);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(85, 23);
             this.label5.TabIndex = 33;
@@ -179,7 +179,7 @@ namespace SistemaEstudiantes
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(2, 15);
+            this.label6.Location = new System.Drawing.Point(29, 52);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(101, 23);
             this.label6.TabIndex = 34;
@@ -190,7 +190,7 @@ namespace SistemaEstudiantes
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(336, 13);
+            this.label7.Location = new System.Drawing.Point(336, 6);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(86, 23);
             this.label7.TabIndex = 35;
@@ -199,7 +199,7 @@ namespace SistemaEstudiantes
             // tbxNormaSelec
             // 
             this.tbxNormaSelec.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxNormaSelec.Location = new System.Drawing.Point(126, 18);
+            this.tbxNormaSelec.Location = new System.Drawing.Point(153, 57);
             this.tbxNormaSelec.Name = "tbxNormaSelec";
             this.tbxNormaSelec.Size = new System.Drawing.Size(100, 20);
             this.tbxNormaSelec.TabIndex = 36;
@@ -207,7 +207,7 @@ namespace SistemaEstudiantes
             // tbxTomoSelec
             // 
             this.tbxTomoSelec.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxTomoSelec.Location = new System.Drawing.Point(126, 103);
+            this.tbxTomoSelec.Location = new System.Drawing.Point(153, 103);
             this.tbxTomoSelec.Name = "tbxTomoSelec";
             this.tbxTomoSelec.Size = new System.Drawing.Size(100, 20);
             this.tbxTomoSelec.TabIndex = 38;
@@ -215,7 +215,7 @@ namespace SistemaEstudiantes
             // tbxFolio
             // 
             this.tbxFolio.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxFolio.Location = new System.Drawing.Point(126, 150);
+            this.tbxFolio.Location = new System.Drawing.Point(153, 150);
             this.tbxFolio.Name = "tbxFolio";
             this.tbxFolio.Size = new System.Drawing.Size(100, 20);
             this.tbxFolio.TabIndex = 39;
@@ -262,7 +262,7 @@ namespace SistemaEstudiantes
             // tbxFechaSelect
             // 
             this.tbxFechaSelect.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxFechaSelect.Location = new System.Drawing.Point(126, 58);
+            this.tbxFechaSelect.Location = new System.Drawing.Point(153, 11);
             this.tbxFechaSelect.Name = "tbxFechaSelect";
             this.tbxFechaSelect.Size = new System.Drawing.Size(100, 20);
             this.tbxFechaSelect.TabIndex = 37;
@@ -272,7 +272,7 @@ namespace SistemaEstudiantes
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(31, 53);
+            this.label8.Location = new System.Drawing.Point(57, 10);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(70, 23);
             this.label8.TabIndex = 42;
@@ -301,7 +301,7 @@ namespace SistemaEstudiantes
             this.panel3.BackColor = System.Drawing.Color.DodgerBlue;
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.tbxNorma);
-            this.panel3.Location = new System.Drawing.Point(20, 110);
+            this.panel3.Location = new System.Drawing.Point(138, 106);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(240, 32);
             this.panel3.TabIndex = 44;
@@ -311,7 +311,7 @@ namespace SistemaEstudiantes
             this.panel4.BackColor = System.Drawing.Color.DodgerBlue;
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.tbxSintesis);
-            this.panel4.Location = new System.Drawing.Point(312, 110);
+            this.panel4.Location = new System.Drawing.Point(430, 106);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(240, 32);
             this.panel4.TabIndex = 45;
@@ -323,7 +323,7 @@ namespace SistemaEstudiantes
             this.btnVerPdf.ForeColor = System.Drawing.Color.White;
             this.btnVerPdf.Image = global::SistemaEstudiantes.Properties.Resources.PDF;
             this.btnVerPdf.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnVerPdf.Location = new System.Drawing.Point(763, 128);
+            this.btnVerPdf.Location = new System.Drawing.Point(717, 123);
             this.btnVerPdf.Name = "btnVerPdf";
             this.btnVerPdf.Size = new System.Drawing.Size(90, 40);
             this.btnVerPdf.TabIndex = 31;
@@ -341,7 +341,7 @@ namespace SistemaEstudiantes
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
             this.btnBuscar.Image = global::SistemaEstudiantes.Properties.Resources.Buscar;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(643, 128);
+            this.btnBuscar.Location = new System.Drawing.Point(31, 106);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(90, 40);
             this.btnBuscar.TabIndex = 29;
@@ -359,7 +359,7 @@ namespace SistemaEstudiantes
             this.btnBaseDatos.ForeColor = System.Drawing.Color.White;
             this.btnBaseDatos.Image = global::SistemaEstudiantes.Properties.Resources.DataBase;
             this.btnBaseDatos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBaseDatos.Location = new System.Drawing.Point(1203, 128);
+            this.btnBaseDatos.Location = new System.Drawing.Point(1206, 123);
             this.btnBaseDatos.Name = "btnBaseDatos";
             this.btnBaseDatos.Size = new System.Drawing.Size(117, 40);
             this.btnBaseDatos.TabIndex = 24;
@@ -377,7 +377,7 @@ namespace SistemaEstudiantes
             this.btnEditar.ForeColor = System.Drawing.Color.White;
             this.btnEditar.Image = global::SistemaEstudiantes.Properties.Resources.edit;
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(1107, 128);
+            this.btnEditar.Location = new System.Drawing.Point(1110, 123);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(90, 40);
             this.btnEditar.TabIndex = 46;
@@ -392,7 +392,7 @@ namespace SistemaEstudiantes
             this.panel5.BackColor = System.Drawing.Color.DodgerBlue;
             this.panel5.Controls.Add(this.label10);
             this.panel5.Controls.Add(this.tbxFecha);
-            this.panel5.Location = new System.Drawing.Point(20, 155);
+            this.panel5.Location = new System.Drawing.Point(138, 151);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(240, 32);
             this.panel5.TabIndex = 45;
@@ -423,7 +423,7 @@ namespace SistemaEstudiantes
             this.panel6.BackColor = System.Drawing.Color.DodgerBlue;
             this.panel6.Controls.Add(this.label11);
             this.panel6.Controls.Add(this.tbxTipo);
-            this.panel6.Location = new System.Drawing.Point(312, 155);
+            this.panel6.Location = new System.Drawing.Point(430, 151);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(240, 32);
             this.panel6.TabIndex = 46;

@@ -239,7 +239,7 @@ namespace SistemaEstudiantes
             // 
             // dataGridViewBD
             // 
-            this.dataGridViewBD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridViewBD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewBD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewBD.Location = new System.Drawing.Point(12, 317);
             this.dataGridViewBD.Name = "dataGridViewBD";
@@ -303,13 +303,13 @@ namespace SistemaEstudiantes
             // 
             this.btnAgregar.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnAgregar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnAgregar.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.Font = new System.Drawing.Font("Arial", 9.25F);
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.Image = global::SistemaEstudiantes.Properties.Resources.Save;
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnAgregar.Location = new System.Drawing.Point(1230, 112);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(90, 33);
+            this.btnAgregar.Size = new System.Drawing.Size(95, 35);
             this.btnAgregar.TabIndex = 32;
             this.btnAgregar.Text = "        Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
@@ -321,13 +321,13 @@ namespace SistemaEstudiantes
             // 
             this.btnModificarA.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnModificarA.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnModificarA.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarA.Font = new System.Drawing.Font("Arial", 9.25F);
             this.btnModificarA.ForeColor = System.Drawing.Color.White;
             this.btnModificarA.Image = global::SistemaEstudiantes.Properties.Resources.AcepModif;
             this.btnModificarA.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnModificarA.Location = new System.Drawing.Point(1230, 182);
             this.btnModificarA.Name = "btnModificarA";
-            this.btnModificarA.Size = new System.Drawing.Size(90, 33);
+            this.btnModificarA.Size = new System.Drawing.Size(95, 35);
             this.btnModificarA.TabIndex = 30;
             this.btnModificarA.Text = "       Guardar";
             this.btnModificarA.UseVisualStyleBackColor = false;
@@ -339,15 +339,15 @@ namespace SistemaEstudiantes
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Font = new System.Drawing.Font("Arial", 9.25F);
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnCancelar.Location = new System.Drawing.Point(1230, 257);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(90, 33);
+            this.btnCancelar.Size = new System.Drawing.Size(95, 35);
             this.btnCancelar.TabIndex = 31;
-            this.btnCancelar.Text = "        Cancelar";
+            this.btnCancelar.Text = "      Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             this.btnCancelar.MouseLeave += new System.EventHandler(this.btnCancelar_MouseLeave);
@@ -357,13 +357,13 @@ namespace SistemaEstudiantes
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnEliminar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnEliminar.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Font = new System.Drawing.Font("Arial", 9.25F);
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnEliminar.Location = new System.Drawing.Point(1230, 257);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(90, 33);
+            this.btnEliminar.Size = new System.Drawing.Size(95, 35);
             this.btnEliminar.TabIndex = 29;
             this.btnEliminar.Text = "        Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
@@ -375,15 +375,15 @@ namespace SistemaEstudiantes
             // 
             this.btnModificar.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnModificar.DialogResult = System.Windows.Forms.DialogResult.Retry;
-            this.btnModificar.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.Font = new System.Drawing.Font("Arial", 9.25F);
             this.btnModificar.ForeColor = System.Drawing.Color.White;
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnModificar.Location = new System.Drawing.Point(1230, 182);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(90, 33);
+            this.btnModificar.Size = new System.Drawing.Size(95, 35);
             this.btnModificar.TabIndex = 28;
-            this.btnModificar.Text = "        Modificar";
+            this.btnModificar.Text = "      Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             this.btnModificar.MouseLeave += new System.EventHandler(this.btnModificar_MouseLeave);
@@ -393,13 +393,13 @@ namespace SistemaEstudiantes
             // 
             this.btnNuevo.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnNuevo.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnNuevo.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNuevo.Font = new System.Drawing.Font("Arial", 9.25F);
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
             this.btnNuevo.Image = global::SistemaEstudiantes.Properties.Resources.newFile;
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnNuevo.Location = new System.Drawing.Point(1230, 112);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(90, 33);
+            this.btnNuevo.Size = new System.Drawing.Size(95, 35);
             this.btnNuevo.TabIndex = 27;
             this.btnNuevo.Text = "        Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
