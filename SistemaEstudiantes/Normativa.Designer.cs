@@ -341,7 +341,7 @@ namespace SistemaEstudiantes
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
             this.btnBuscar.Image = global::SistemaEstudiantes.Properties.Resources.Buscar;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(31, 106);
+            this.btnBuscar.Location = new System.Drawing.Point(30, 101);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(90, 40);
             this.btnBuscar.TabIndex = 29;
