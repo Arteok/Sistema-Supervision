@@ -361,7 +361,9 @@ namespace SistemaEstudiantes
         private void btnCancelar_MouseLeave(object sender, EventArgs e)
         {
             btnCancelar.BackColor = Color.DodgerBlue;
-        }        
+        }
+
+      
 
         private void btnModificarA_Click_1(object sender, EventArgs e)
         {
