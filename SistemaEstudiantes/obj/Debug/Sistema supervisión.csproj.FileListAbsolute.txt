@@ -274,3 +274,4 @@ C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\Sistema
 C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.EstadisticasCargar.resources
 C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.EstadisticasEliminar.resources
 C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.EstadisticasPlanillas.resources
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.EstadisticasCargarPoli.resources

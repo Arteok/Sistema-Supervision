@@ -36,11 +36,12 @@ namespace SistemaEstudiantes
             this.lblNombre = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnCargarPlanillas = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnPlantillaPoli = new System.Windows.Forms.Button();
+            this.btnCargarPlanillas = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -122,28 +123,6 @@ namespace SistemaEstudiantes
             this.label4.TabIndex = 11;
             this.label4.Text = "Estadísticas";
             // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.btnEliminar.Location = new System.Drawing.Point(582, 419);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(183, 47);
-            this.btnEliminar.TabIndex = 61;
-            this.btnEliminar.Text = "Eliminar Planillas";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // btnCargarPlanillas
-            // 
-            this.btnCargarPlanillas.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.btnCargarPlanillas.Location = new System.Drawing.Point(582, 258);
-            this.btnCargarPlanillas.Name = "btnCargarPlanillas";
-            this.btnCargarPlanillas.Size = new System.Drawing.Size(183, 47);
-            this.btnCargarPlanillas.TabIndex = 60;
-            this.btnCargarPlanillas.Text = "Cargar Planillas";
-            this.btnCargarPlanillas.UseVisualStyleBackColor = true;
-            this.btnCargarPlanillas.Click += new System.EventHandler(this.btnCargarPlanillas_Click);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DodgerBlue;
@@ -174,13 +153,53 @@ namespace SistemaEstudiantes
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // btnPlantillaPoli
+            // 
+            this.btnPlantillaPoli.BackColor = System.Drawing.Color.DimGray;
+            this.btnPlantillaPoli.Font = new System.Drawing.Font("Arial", 13F);
+            this.btnPlantillaPoli.ForeColor = System.Drawing.Color.White;
+            this.btnPlantillaPoli.Location = new System.Drawing.Point(550, 377);
+            this.btnPlantillaPoli.Name = "btnPlantillaPoli";
+            this.btnPlantillaPoli.Size = new System.Drawing.Size(415, 54);
+            this.btnPlantillaPoli.TabIndex = 63;
+            this.btnPlantillaPoli.Text = "Cargar Plantillas Polivalentes";
+            this.btnPlantillaPoli.UseVisualStyleBackColor = false;
+            this.btnPlantillaPoli.Click += new System.EventHandler(this.btnPlantillaPoli_Click);
+            // 
+            // btnCargarPlanillas
+            // 
+            this.btnCargarPlanillas.BackColor = System.Drawing.Color.DimGray;
+            this.btnCargarPlanillas.Font = new System.Drawing.Font("Arial", 13F);
+            this.btnCargarPlanillas.ForeColor = System.Drawing.Color.White;
+            this.btnCargarPlanillas.Location = new System.Drawing.Point(550, 242);
+            this.btnCargarPlanillas.Name = "btnCargarPlanillas";
+            this.btnCargarPlanillas.Size = new System.Drawing.Size(415, 54);
+            this.btnCargarPlanillas.TabIndex = 64;
+            this.btnCargarPlanillas.Text = "Cargar Plantillas";
+            this.btnCargarPlanillas.UseVisualStyleBackColor = false;
+            this.btnCargarPlanillas.Click += new System.EventHandler(this.btnCargarPlanillas_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.DimGray;
+            this.btnEliminar.Font = new System.Drawing.Font("Arial", 13F);
+            this.btnEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnEliminar.Location = new System.Drawing.Point(550, 514);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(415, 54);
+            this.btnEliminar.TabIndex = 65;
+            this.btnEliminar.Text = "Eliminar Plantillas ";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // EstadisticasPlanillas
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1346, 725);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnCargarPlanillas);
+            this.Controls.Add(this.btnPlantillaPoli);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Arial", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -204,10 +223,11 @@ namespace SistemaEstudiantes
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnCargarPlanillas;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnPlantillaPoli;
+        private System.Windows.Forms.Button btnCargarPlanillas;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }

@@ -25,14 +25,21 @@ namespace SistemaEstudiantes
             logueadoUsuario = permisosBD;
             conexionBaseDatos = conexionBD;
         }
+       
         private void btnCargarPlanillas_Click(object sender, EventArgs e)
         {
-            EstadisticasCargar myEstadisticasCargar = new EstadisticasCargar(nombreUsuario, permisosUsuario, logueadoUsuario,conexionBaseDatos);
+            EstadisticasCargar myEstadisticasCargar = new EstadisticasCargar(nombreUsuario, permisosUsuario, logueadoUsuario, conexionBaseDatos);
             this.Visible = false;
             myEstadisticasCargar.Show();
 
         }
+        private void btnPlantillaPoli_Click(object sender, EventArgs e)
+        {
+            EstadisticasCargarPoli myEstadisticasCargarPoli = new EstadisticasCargarPoli(nombreUsuario, permisosUsuario, logueadoUsuario, conexionBaseDatos);
+            this.Visible = false;
+            myEstadisticasCargarPoli.Show();
 
+        }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             EstadisticasEliminar myEstadisticasEliminar = new EstadisticasEliminar(nombreUsuario, permisosUsuario, logueadoUsuario, conexionBaseDatos);
@@ -40,7 +47,6 @@ namespace SistemaEstudiantes
             myEstadisticasEliminar.Show();
 
         }
-
         private void btnVolver_Click(object sender, EventArgs e)
         {
             Estadisticas myEstadisticas = new Estadisticas(nombreUsuario, permisosUsuario, true, conexionBaseDatos);             
@@ -48,12 +54,15 @@ namespace SistemaEstudiantes
             this.Close();
 
         }
-
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-      
+        
+
+        
+
+        
     }
 }
