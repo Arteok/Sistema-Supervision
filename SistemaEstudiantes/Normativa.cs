@@ -33,6 +33,8 @@ namespace SistemaEstudiantes
             permisosDataBase = permisosBD;
             conexionBaseDatos = conexionBD;
             limpiarOrdenar();
+            buscar();
+
         }
         private void limpiarOrdenar()
         {            
@@ -96,8 +98,7 @@ namespace SistemaEstudiantes
                    
             }
         }
-
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void buscar()
         {
             try
             {
@@ -219,6 +220,12 @@ namespace SistemaEstudiantes
                     MessageBox.Show("Problema con la red.", "Sistema Informa");
                 }
             }
+        }
+
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            buscar();            
         }
 
         private void btnVerPdf_Click(object sender, EventArgs e)
