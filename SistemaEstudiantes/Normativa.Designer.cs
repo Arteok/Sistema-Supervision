@@ -64,6 +64,8 @@ namespace SistemaEstudiantes
             this.tbxTipo = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblCantidadRegistros = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGVBusqueda)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -146,9 +148,9 @@ namespace SistemaEstudiantes
             // 
             this.dataGVBusqueda.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGVBusqueda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGVBusqueda.Location = new System.Drawing.Point(12, 198);
+            this.dataGVBusqueda.Location = new System.Drawing.Point(12, 211);
             this.dataGVBusqueda.Name = "dataGVBusqueda";
-            this.dataGVBusqueda.Size = new System.Drawing.Size(1322, 326);
+            this.dataGVBusqueda.Size = new System.Drawing.Size(1322, 313);
             this.dataGVBusqueda.TabIndex = 30;
             this.dataGVBusqueda.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGVBusqueda_CellClick);
             // 
@@ -473,6 +475,24 @@ namespace SistemaEstudiantes
             this.label12.TabIndex = 15;
             this.label12.Text = "Usuario:";
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(16, 194);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(104, 14);
+            this.label9.TabIndex = 48;
+            this.label9.Text = "Cantidad Registros: ";
+            // 
+            // lblCantidadRegistros
+            // 
+            this.lblCantidadRegistros.AutoSize = true;
+            this.lblCantidadRegistros.Location = new System.Drawing.Point(116, 194);
+            this.lblCantidadRegistros.Name = "lblCantidadRegistros";
+            this.lblCantidadRegistros.Size = new System.Drawing.Size(105, 14);
+            this.lblCantidadRegistros.TabIndex = 49;
+            this.lblCantidadRegistros.Text = "lblCantidadRegistros";
+            // 
             // Normativa
             // 
             this.AcceptButton = this.btnBuscar;
@@ -480,6 +500,8 @@ namespace SistemaEstudiantes
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.CancelButton = this.btnSalir;
             this.ClientSize = new System.Drawing.Size(1346, 725);
+            this.Controls.Add(this.lblCantidadRegistros);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel5);
@@ -512,6 +534,7 @@ namespace SistemaEstudiantes
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -550,5 +573,7 @@ namespace SistemaEstudiantes
         private System.Windows.Forms.TextBox tbxTipo;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label9;
+        public System.Windows.Forms.Label lblCantidadRegistros;
     }
 }

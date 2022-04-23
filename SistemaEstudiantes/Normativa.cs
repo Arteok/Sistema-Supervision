@@ -51,6 +51,8 @@ namespace SistemaEstudiantes
             tbxFolio.Clear();
             tbxSintesisSelect.Clear();
 
+            //lblCantidadRegistros.Text = "-";
+
             if (permisosDataBase == true)
             {
                 btnBaseDatos.Enabled = true;
@@ -117,9 +119,12 @@ namespace SistemaEstudiantes
 
 
                     if ((Convert.ToString(dataGVBusqueda.Rows[0].Cells[0].Value) != ""))//revisa si hay se ha encontrado algo... esta escrito de esta forma sino tiraba error critico
-                    { }
+                    {
+                        lblCantidadRegistros.Text = Convert.ToString(dataGVBusqueda.Rows.Count - 1);
+                    }
                     else
                     {
+                        lblCantidadRegistros.Text = "-";
                         MessageBox.Show("No se encontró ninguna coincidencia con el parámetro ingresado.");
                     }
 
@@ -140,9 +145,12 @@ namespace SistemaEstudiantes
                     dataGVBusqueda.DataSource = miDataTable;
 
                     if ((Convert.ToString(dataGVBusqueda.Rows[0].Cells[0].Value) != ""))//revisa si hay se ha encontrado algo... esta escrito de esta forma sino tiraba error critico
-                    { }
+                    {
+                        lblCantidadRegistros.Text = Convert.ToString(dataGVBusqueda.Rows.Count - 1);
+                    }
                     else
                     {
+                        lblCantidadRegistros.Text = "-";
                         MessageBox.Show("No se encontró ninguna coincidencia con el parámetro ingresado.");
                     }
                 }
@@ -162,9 +170,12 @@ namespace SistemaEstudiantes
                     dataGVBusqueda.DataSource = miDataTable;
 
                     if ((Convert.ToString(dataGVBusqueda.Rows[0].Cells[0].Value) != ""))//revisa si hay se ha encontrado algo... esta escrito de esta forma sino tiraba error critico
-                    { }
+                    {
+                        lblCantidadRegistros.Text = Convert.ToString(dataGVBusqueda.Rows.Count - 1);
+                    }
                     else
                     {
+                        lblCantidadRegistros.Text = "-";
                         MessageBox.Show("No se encontró ninguna coincidencia con el parámetro ingresado.");
                     }
                 }
@@ -184,9 +195,12 @@ namespace SistemaEstudiantes
                     dataGVBusqueda.DataSource = miDataTable;
 
                     if ((Convert.ToString(dataGVBusqueda.Rows[0].Cells[0].Value) != ""))//revisa si hay se ha encontrado algo... esta escrito de esta forma sino tiraba error critico
-                    { }
+                    {
+                        lblCantidadRegistros.Text = Convert.ToString(dataGVBusqueda.Rows.Count - 1);
+                    }
                     else
                     {
+                        lblCantidadRegistros.Text = "-";
                         MessageBox.Show("No se encontró ninguna coincidencia con el parámetro ingresado.");
                     }
                 }
@@ -205,9 +219,12 @@ namespace SistemaEstudiantes
                     dataGVBusqueda.DataSource = miDataTable;
 
                     if ((Convert.ToString(dataGVBusqueda.Rows[0].Cells[0].Value) != ""))//revisa si hay se ha encontrado algo... esta escrito de esta forma sino tiraba error critico
-                    { }
+                    {
+                        lblCantidadRegistros.Text = Convert.ToString(dataGVBusqueda.Rows.Count - 1);
+                    }
                     else
                     {
+                        lblCantidadRegistros.Text = "-";
                         MessageBox.Show("No se encontró ninguna coincidencia con el parámetro ingresado.");
                     }
                 }
