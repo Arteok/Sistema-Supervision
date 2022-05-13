@@ -132,6 +132,12 @@
     <Compile Include="EstadisticasCargarPoli.Designer.cs">
       <DependentUpon>EstadisticasCargarPoli.cs</DependentUpon>
     </Compile>
+    <Compile Include="EstadisticasColegiosTDF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EstadisticasColegiosTDF.Designer.cs">
+      <DependentUpon>EstadisticasColegiosTDF.cs</DependentUpon>
+    </Compile>
     <Compile Include="EstadisticasEliminar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EstadisticasCargarPoli.resx">
       <DependentUpon>EstadisticasCargarPoli.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EstadisticasColegiosTDF.resx">
+      <DependentUpon>EstadisticasColegiosTDF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EstadisticasEliminar.resx">
       <DependentUpon>EstadisticasEliminar.cs</DependentUpon>

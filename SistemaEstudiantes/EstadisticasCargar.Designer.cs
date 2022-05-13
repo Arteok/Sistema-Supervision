@@ -31,11 +31,11 @@ namespace SistemaEstudiantes
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EstadisticasCargar));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.lblNombre = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnVolver = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,6 +51,21 @@ namespace SistemaEstudiantes
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1351, 97);
             this.panel2.TabIndex = 47;
+            // 
+            // btnVolver
+            // 
+            this.btnVolver.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnVolver.Font = new System.Drawing.Font("Arial", 12.25F);
+            this.btnVolver.ForeColor = System.Drawing.Color.White;
+            this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
+            this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVolver.Location = new System.Drawing.Point(1110, 27);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(90, 43);
+            this.btnVolver.TabIndex = 12;
+            this.btnVolver.Text = "    Atrás";
+            this.btnVolver.UseVisualStyleBackColor = false;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // btnSalir
             // 
@@ -96,24 +111,9 @@ namespace SistemaEstudiantes
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(40, 22);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(253, 32);
+            this.label4.Size = new System.Drawing.Size(386, 32);
             this.label4.TabIndex = 11;
-            this.label4.Text = "Cargar Estadísticas";
-            // 
-            // btnVolver
-            // 
-            this.btnVolver.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnVolver.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.btnVolver.ForeColor = System.Drawing.Color.White;
-            this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
-            this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVolver.Location = new System.Drawing.Point(1110, 27);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(90, 43);
-            this.btnVolver.TabIndex = 12;
-            this.btnVolver.Text = "    Atrás";
-            this.btnVolver.UseVisualStyleBackColor = false;
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            this.label4.Text = "Cargar Estadísticas Generales";
             // 
             // EstadisticasCargar
             // 
