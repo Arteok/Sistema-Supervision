@@ -275,3 +275,10 @@ C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\Sistema
 C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.EstadisticasEliminar.resources
 C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.EstadisticasPlanillas.resources
 C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.EstadisticasCargarPoli.resources
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.EstadisticasColegiosTDF.resources
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\bin\Debug\SpreadsheetLight.dll
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\bin\Debug\System.Drawing.Common.dll
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\bin\Debug\SpreadsheetLight.xml
+C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.CopyComplete

@@ -13,17 +13,18 @@ namespace SistemaEstudiantes
 {
     public partial class EstadisticasColegiosTDF : Form
     {
-        OleDbConnection conexionBaseDatos = new OleDbConnection(@"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\Pablo\Desktop\Estadisticas Trabajando 23-03-2022\BDEstadisticas.mdb");
-
+        OleDbConnection conexionBaseDatos;
         string nombreUsuario;
         string permisosUsuario;
         bool logueadoUsuario;
-        public EstadisticasColegiosTDF(string usuario, string permisos, bool logueado)
+        public EstadisticasColegiosTDF(string usuario, string permisos, bool logueado, OleDbConnection conexionBD)
         {
             InitializeComponent();
             nombreUsuario = usuario;
             permisosUsuario = permisos;
             logueadoUsuario = logueado;
+            conexionBaseDatos = conexionBD;
+
             ordenar();
         }        
         
@@ -97,7 +98,6 @@ namespace SistemaEstudiantes
             btnOkNombre.Enabled = false;
             tbxAbrevia.Enabled = true;
             btnOkAbrevia.Enabled = true;
-
         }
 
         private void btnOkAbrevia_Click(object sender, EventArgs e)
@@ -147,18 +147,17 @@ namespace SistemaEstudiantes
                 }
                 conexionBaseDatos.Close();
             }
-
-        }       
-        private void btnVolver_Click_1(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
-
-        private void btnVolver_Click(object sender, EventArgs e)
+        private void btnAtras_Click(object sender, EventArgs e)
         {
             Form1 miForm1 = new Form1(nombreUsuario, permisosUsuario, true);
             miForm1.Visible = true;
             this.Close();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
 
         }
 

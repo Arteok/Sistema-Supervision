@@ -14,14 +14,14 @@
     <framework targetVersion="4.7.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="Sistema Supervisión.exe.manifest" size="5230">
+    <dependentAssembly dependencyType="install" codebase="Sistema Supervisión.exe.manifest" size="7309">
       <assemblyIdentity name="Sistema Supervisión.exe" version="1.0.0.22" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>TM6YeJSIjAq1RzL79l7SiyvXX/p3QxfCb0OLbLbWZ/o=</dsig:DigestValue>
+        <dsig:DigestValue>CuMFp84p2TXUAG2KstnzUHb6iSqIdgbm2bjiP1tQ0pI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

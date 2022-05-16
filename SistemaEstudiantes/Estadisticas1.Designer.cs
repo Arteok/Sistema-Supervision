@@ -32,11 +32,11 @@ namespace SistemaEstudiantes
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Estadisticas1));
             this.lblNombre = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.dataGVBusqueda = new System.Windows.Forms.DataGridView();
+            this.myDataGridView = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnCrearEstadistica = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.cBoxPeriodoEst = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -47,8 +47,16 @@ namespace SistemaEstudiantes
             this.cBoxAñoPla = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.cBoxAñoEst = new System.Windows.Forms.ComboBox();
-            this.btnVolver = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGVBusqueda)).BeginInit();
+            this.lblCreando = new System.Windows.Forms.Label();
+            this.lblProcesando = new System.Windows.Forms.Label();
+            this.btnCrearExcel = new System.Windows.Forms.Button();
+            this.btnCrearEstadistica = new System.Windows.Forms.Button();
+            this.cboxAño = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cboxPeriodo = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.myDataGridView)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,20 +80,20 @@ namespace SistemaEstudiantes
             this.btnSalir.ForeColor = System.Drawing.Color.White;
             this.btnSalir.Location = new System.Drawing.Point(1230, 25);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(90, 40);
+            this.btnSalir.Size = new System.Drawing.Size(90, 43);
             this.btnSalir.TabIndex = 13;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // dataGVBusqueda
+            // myDataGridView
             // 
-            this.dataGVBusqueda.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGVBusqueda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGVBusqueda.Location = new System.Drawing.Point(12, 390);
-            this.dataGVBusqueda.Name = "dataGVBusqueda";
-            this.dataGVBusqueda.Size = new System.Drawing.Size(1326, 327);
-            this.dataGVBusqueda.TabIndex = 49;
+            this.myDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.myDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.myDataGridView.Location = new System.Drawing.Point(12, 332);
+            this.myDataGridView.Name = "myDataGridView";
+            this.myDataGridView.Size = new System.Drawing.Size(1326, 385);
+            this.myDataGridView.TabIndex = 49;
             // 
             // panel2
             // 
@@ -97,8 +105,23 @@ namespace SistemaEstudiantes
             this.panel2.Controls.Add(this.label4);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1351, 90);
+            this.panel2.Size = new System.Drawing.Size(1351, 97);
             this.panel2.TabIndex = 50;
+            // 
+            // btnVolver
+            // 
+            this.btnVolver.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnVolver.Font = new System.Drawing.Font("Arial", 12.25F);
+            this.btnVolver.ForeColor = System.Drawing.Color.White;
+            this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
+            this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVolver.Location = new System.Drawing.Point(1110, 25);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(90, 43);
+            this.btnVolver.TabIndex = 12;
+            this.btnVolver.Text = "    Atrás";
+            this.btnVolver.UseVisualStyleBackColor = false;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // label3
             // 
@@ -122,20 +145,9 @@ namespace SistemaEstudiantes
             this.label4.TabIndex = 11;
             this.label4.Text = "Declaración de Secciones y Matriculas";
             // 
-            // btnCrearEstadistica
-            // 
-            this.btnCrearEstadistica.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.btnCrearEstadistica.Location = new System.Drawing.Point(1110, 212);
-            this.btnCrearEstadistica.Name = "btnCrearEstadistica";
-            this.btnCrearEstadistica.Size = new System.Drawing.Size(183, 47);
-            this.btnCrearEstadistica.TabIndex = 59;
-            this.btnCrearEstadistica.Text = "Crear Estadistica";
-            this.btnCrearEstadistica.UseVisualStyleBackColor = true;
-            this.btnCrearEstadistica.Click += new System.EventHandler(this.btnCrearEstadistica_Click);
-            // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(731, 299);
+            this.button4.Location = new System.Drawing.Point(191, 281);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(121, 23);
             this.button4.TabIndex = 69;
@@ -145,14 +157,14 @@ namespace SistemaEstudiantes
             // cBoxPeriodoEst
             // 
             this.cBoxPeriodoEst.FormattingEnabled = true;
-            this.cBoxPeriodoEst.Location = new System.Drawing.Point(316, 230);
+            this.cBoxPeriodoEst.Location = new System.Drawing.Point(683, 232);
             this.cBoxPeriodoEst.Name = "cBoxPeriodoEst";
             this.cBoxPeriodoEst.Size = new System.Drawing.Size(121, 22);
             this.cBoxPeriodoEst.TabIndex = 68;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(249, 180);
+            this.button3.Location = new System.Drawing.Point(616, 182);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(121, 23);
             this.button3.TabIndex = 67;
@@ -162,7 +174,7 @@ namespace SistemaEstudiantes
             // cBoxColegio
             // 
             this.cBoxColegio.FormattingEnabled = true;
-            this.cBoxColegio.Location = new System.Drawing.Point(808, 254);
+            this.cBoxColegio.Location = new System.Drawing.Point(268, 236);
             this.cBoxColegio.Name = "cBoxColegio";
             this.cBoxColegio.Size = new System.Drawing.Size(121, 22);
             this.cBoxColegio.TabIndex = 66;
@@ -170,14 +182,14 @@ namespace SistemaEstudiantes
             // cBoxDepto
             // 
             this.cBoxDepto.FormattingEnabled = true;
-            this.cBoxDepto.Location = new System.Drawing.Point(654, 254);
+            this.cBoxDepto.Location = new System.Drawing.Point(114, 236);
             this.cBoxDepto.Name = "cBoxDepto";
             this.cBoxDepto.Size = new System.Drawing.Size(121, 22);
             this.cBoxDepto.TabIndex = 65;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(731, 152);
+            this.button2.Location = new System.Drawing.Point(191, 134);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(121, 23);
             this.button2.TabIndex = 64;
@@ -187,7 +199,7 @@ namespace SistemaEstudiantes
             // cBoxPeriodoPla
             // 
             this.cBoxPeriodoPla.FormattingEnabled = true;
-            this.cBoxPeriodoPla.Location = new System.Drawing.Point(808, 202);
+            this.cBoxPeriodoPla.Location = new System.Drawing.Point(268, 184);
             this.cBoxPeriodoPla.Name = "cBoxPeriodoPla";
             this.cBoxPeriodoPla.Size = new System.Drawing.Size(121, 22);
             this.cBoxPeriodoPla.TabIndex = 63;
@@ -195,14 +207,14 @@ namespace SistemaEstudiantes
             // cBoxAñoPla
             // 
             this.cBoxAñoPla.FormattingEnabled = true;
-            this.cBoxAñoPla.Location = new System.Drawing.Point(654, 202);
+            this.cBoxAñoPla.Location = new System.Drawing.Point(114, 184);
             this.cBoxAñoPla.Name = "cBoxAñoPla";
             this.cBoxAñoPla.Size = new System.Drawing.Size(121, 22);
             this.cBoxAñoPla.TabIndex = 62;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(249, 281);
+            this.button1.Location = new System.Drawing.Point(616, 283);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(121, 23);
             this.button1.TabIndex = 61;
@@ -212,30 +224,136 @@ namespace SistemaEstudiantes
             // cBoxAñoEst
             // 
             this.cBoxAñoEst.FormattingEnabled = true;
-            this.cBoxAñoEst.Location = new System.Drawing.Point(175, 230);
+            this.cBoxAñoEst.Location = new System.Drawing.Point(542, 232);
             this.cBoxAñoEst.Name = "cBoxAñoEst";
             this.cBoxAñoEst.Size = new System.Drawing.Size(121, 22);
             this.cBoxAñoEst.TabIndex = 60;
             // 
-            // btnVolver
+            // lblCreando
             // 
-            this.btnVolver.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnVolver.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.btnVolver.ForeColor = System.Drawing.Color.White;
-            this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
-            this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVolver.Location = new System.Drawing.Point(1110, 25);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(90, 40);
-            this.btnVolver.TabIndex = 12;
-            this.btnVolver.Text = "    Atrás";
-            this.btnVolver.UseVisualStyleBackColor = false;
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            this.lblCreando.AutoSize = true;
+            this.lblCreando.Location = new System.Drawing.Point(1185, 290);
+            this.lblCreando.Name = "lblCreando";
+            this.lblCreando.Size = new System.Drawing.Size(57, 14);
+            this.lblCreando.TabIndex = 88;
+            this.lblCreando.Text = "Creando...";
+            // 
+            // lblProcesando
+            // 
+            this.lblProcesando.AutoSize = true;
+            this.lblProcesando.Location = new System.Drawing.Point(920, 290);
+            this.lblProcesando.Name = "lblProcesando";
+            this.lblProcesando.Size = new System.Drawing.Size(74, 14);
+            this.lblProcesando.TabIndex = 87;
+            this.lblProcesando.Text = "Procesando...";
+            // 
+            // btnCrearExcel
+            // 
+            this.btnCrearExcel.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.btnCrearExcel.Location = new System.Drawing.Point(1114, 222);
+            this.btnCrearExcel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnCrearExcel.Name = "btnCrearExcel";
+            this.btnCrearExcel.Size = new System.Drawing.Size(200, 60);
+            this.btnCrearExcel.TabIndex = 86;
+            this.btnCrearExcel.Text = "Crear Excel";
+            this.btnCrearExcel.UseVisualStyleBackColor = true;
+            this.btnCrearExcel.Click += new System.EventHandler(this.btnCrearExcel_Click);
+            // 
+            // btnCrearEstadistica
+            // 
+            this.btnCrearEstadistica.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.btnCrearEstadistica.Location = new System.Drawing.Point(858, 222);
+            this.btnCrearEstadistica.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnCrearEstadistica.Name = "btnCrearEstadistica";
+            this.btnCrearEstadistica.Size = new System.Drawing.Size(200, 60);
+            this.btnCrearEstadistica.TabIndex = 85;
+            this.btnCrearEstadistica.Text = "Crear Estadística";
+            this.btnCrearEstadistica.UseVisualStyleBackColor = true;
+            this.btnCrearEstadistica.Click += new System.EventHandler(this.btnCrearEstadistica_Click);
+            // 
+            // cboxAño
+            // 
+            this.cboxAño.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.cboxAño.FormattingEnabled = true;
+            this.cboxAño.Items.AddRange(new object[] {
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025",
+            "2026",
+            "2027",
+            "2028",
+            "2029",
+            "2030"});
+            this.cboxAño.Location = new System.Drawing.Point(895, 148);
+            this.cboxAño.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cboxAño.Name = "cboxAño";
+            this.cboxAño.Size = new System.Drawing.Size(160, 24);
+            this.cboxAño.TabIndex = 83;
+            this.cboxAño.SelectedIndexChanged += new System.EventHandler(this.cboxAño_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.label2.Location = new System.Drawing.Point(850, 151);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 16);
+            this.label2.TabIndex = 81;
+            this.label2.Text = "Año:";
+            // 
+            // cboxPeriodo
+            // 
+            this.cboxPeriodo.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.cboxPeriodo.FormattingEnabled = true;
+            this.cboxPeriodo.Items.AddRange(new object[] {
+            "Marzo",
+            "Septiembre"});
+            this.cboxPeriodo.Location = new System.Drawing.Point(1154, 148);
+            this.cboxPeriodo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cboxPeriodo.Name = "cboxPeriodo";
+            this.cboxPeriodo.Size = new System.Drawing.Size(160, 24);
+            this.cboxPeriodo.TabIndex = 84;
+            this.cboxPeriodo.SelectedIndexChanged += new System.EventHandler(this.cboxPeriodo_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.label1.Location = new System.Drawing.Point(1085, 151);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 16);
+            this.label1.TabIndex = 82;
+            this.label1.Text = "Periodo:";
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.btnRefresh.Location = new System.Drawing.Point(575, 104);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(200, 40);
+            this.btnRefresh.TabIndex = 89;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // Estadisticas1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.Controls.Add(this.btnRefresh);
+            this.Controls.Add(this.lblCreando);
+            this.Controls.Add(this.lblProcesando);
+            this.Controls.Add(this.btnCrearExcel);
+            this.Controls.Add(this.btnCrearEstadistica);
+            this.Controls.Add(this.cboxAño);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.cboxPeriodo);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.cBoxPeriodoEst);
             this.Controls.Add(this.button3);
@@ -246,17 +364,17 @@ namespace SistemaEstudiantes
             this.Controls.Add(this.cBoxAñoPla);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cBoxAñoEst);
-            this.Controls.Add(this.btnCrearEstadistica);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.dataGVBusqueda);
+            this.Controls.Add(this.myDataGridView);
             this.Font = new System.Drawing.Font("Arial", 8.25F);
             this.Name = "Estadisticas1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Declaración de Secciones y Matriculas";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGVBusqueda)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myDataGridView)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -264,11 +382,10 @@ namespace SistemaEstudiantes
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnVolver;
-        private System.Windows.Forms.DataGridView dataGVBusqueda;
+        private System.Windows.Forms.DataGridView myDataGridView;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnCrearEstadistica;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ComboBox cBoxPeriodoEst;
         private System.Windows.Forms.Button button3;
@@ -279,5 +396,14 @@ namespace SistemaEstudiantes
         private System.Windows.Forms.ComboBox cBoxAñoPla;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox cBoxAñoEst;
+        private System.Windows.Forms.Label lblCreando;
+        private System.Windows.Forms.Label lblProcesando;
+        private System.Windows.Forms.Button btnCrearExcel;
+        private System.Windows.Forms.Button btnCrearEstadistica;
+        private System.Windows.Forms.ComboBox cboxAño;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cboxPeriodo;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

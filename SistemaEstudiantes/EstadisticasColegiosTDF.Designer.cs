@@ -48,10 +48,11 @@ namespace SistemaEstudiantes
             this.cboxDepto = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnVolver = new System.Windows.Forms.Button();
+            this.btnAtras = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.myDGVGrande = new System.Windows.Forms.DataGridView();
             this.myDGVUshuaia = new System.Windows.Forms.DataGridView();
+            this.btnEliminarColegios = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.myDGVGrande)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myDGVUshuaia)).BeginInit();
@@ -93,7 +94,7 @@ namespace SistemaEstudiantes
             // 
             // btnOkAbrevia
             // 
-            this.btnOkAbrevia.Location = new System.Drawing.Point(1033, 233);
+            this.btnOkAbrevia.Location = new System.Drawing.Point(625, 233);
             this.btnOkAbrevia.Name = "btnOkAbrevia";
             this.btnOkAbrevia.Size = new System.Drawing.Size(52, 23);
             this.btnOkAbrevia.TabIndex = 102;
@@ -103,7 +104,7 @@ namespace SistemaEstudiantes
             // 
             // btnOkNombre
             // 
-            this.btnOkNombre.Location = new System.Drawing.Point(625, 232);
+            this.btnOkNombre.Location = new System.Drawing.Point(282, 232);
             this.btnOkNombre.Name = "btnOkNombre";
             this.btnOkNombre.Size = new System.Drawing.Size(52, 23);
             this.btnOkNombre.TabIndex = 101;
@@ -114,7 +115,7 @@ namespace SistemaEstudiantes
             // tbxAbrevia
             // 
             this.tbxAbrevia.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.tbxAbrevia.Location = new System.Drawing.Point(868, 230);
+            this.tbxAbrevia.Location = new System.Drawing.Point(460, 230);
             this.tbxAbrevia.Name = "tbxAbrevia";
             this.tbxAbrevia.Size = new System.Drawing.Size(159, 26);
             this.tbxAbrevia.TabIndex = 100;
@@ -122,7 +123,7 @@ namespace SistemaEstudiantes
             // tbxNombre
             // 
             this.tbxNombre.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.tbxNombre.Location = new System.Drawing.Point(460, 231);
+            this.tbxNombre.Location = new System.Drawing.Point(117, 231);
             this.tbxNombre.Name = "tbxNombre";
             this.tbxNombre.Size = new System.Drawing.Size(159, 26);
             this.tbxNombre.TabIndex = 99;
@@ -151,7 +152,7 @@ namespace SistemaEstudiantes
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.label2.Location = new System.Drawing.Point(755, 171);
+            this.label2.Location = new System.Drawing.Point(347, 171);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(102, 19);
@@ -183,7 +184,7 @@ namespace SistemaEstudiantes
             "18",
             "19",
             "20"});
-            this.cbxNOrden.Location = new System.Drawing.Point(867, 167);
+            this.cbxNOrden.Location = new System.Drawing.Point(459, 167);
             this.cbxNOrden.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbxNOrden.Name = "cbxNOrden";
             this.cbxNOrden.Size = new System.Drawing.Size(160, 25);
@@ -194,7 +195,7 @@ namespace SistemaEstudiantes
             // 
             this.lavael7.AutoSize = true;
             this.lavael7.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.lavael7.Location = new System.Drawing.Point(759, 236);
+            this.lavael7.Location = new System.Drawing.Point(351, 236);
             this.lavael7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lavael7.Name = "lavael7";
             this.lavael7.Size = new System.Drawing.Size(97, 19);
@@ -205,7 +206,7 @@ namespace SistemaEstudiantes
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.label5.Location = new System.Drawing.Point(369, 236);
+            this.label5.Location = new System.Drawing.Point(26, 236);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(71, 19);
@@ -227,7 +228,7 @@ namespace SistemaEstudiantes
             // btnCrearColegios
             // 
             this.btnCrearColegios.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.btnCrearColegios.Location = new System.Drawing.Point(573, 283);
+            this.btnCrearColegios.Location = new System.Drawing.Point(245, 284);
             this.btnCrearColegios.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnCrearColegios.Name = "btnCrearColegios";
             this.btnCrearColegios.Size = new System.Drawing.Size(200, 60);
@@ -243,7 +244,7 @@ namespace SistemaEstudiantes
             this.cboxDepto.Items.AddRange(new object[] {
             "Ushuaia",
             "Rio Grande"});
-            this.cboxDepto.Location = new System.Drawing.Point(458, 165);
+            this.cboxDepto.Location = new System.Drawing.Point(115, 165);
             this.cboxDepto.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboxDepto.Name = "cboxDepto";
             this.cboxDepto.Size = new System.Drawing.Size(160, 25);
@@ -254,40 +255,40 @@ namespace SistemaEstudiantes
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.label6.Location = new System.Drawing.Point(323, 168);
+            this.label6.Location = new System.Drawing.Point(36, 168);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(116, 19);
+            this.label6.Size = new System.Drawing.Size(57, 19);
             this.label6.TabIndex = 89;
-            this.label6.Text = "Departamento:";
+            this.label6.Text = "Depto:";
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkOrange;
-            this.panel1.Controls.Add(this.btnVolver);
+            this.panel1.Controls.Add(this.btnAtras);
             this.panel1.Controls.Add(this.btnSalir);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.lblNombre);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1351, 90);
+            this.panel1.Size = new System.Drawing.Size(1351, 97);
             this.panel1.TabIndex = 88;
             // 
-            // btnVolver
+            // btnAtras
             // 
-            this.btnVolver.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnVolver.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVolver.ForeColor = System.Drawing.Color.White;
-            this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
-            this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVolver.Location = new System.Drawing.Point(998, 35);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(90, 33);
-            this.btnVolver.TabIndex = 18;
-            this.btnVolver.Text = "    Atrás";
-            this.btnVolver.UseVisualStyleBackColor = false;
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click_1);
+            this.btnAtras.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAtras.Font = new System.Drawing.Font("Arial", 12.25F);
+            this.btnAtras.ForeColor = System.Drawing.Color.White;
+            this.btnAtras.Image = ((System.Drawing.Image)(resources.GetObject("btnAtras.Image")));
+            this.btnAtras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAtras.Location = new System.Drawing.Point(1094, 25);
+            this.btnAtras.Name = "btnAtras";
+            this.btnAtras.Size = new System.Drawing.Size(90, 43);
+            this.btnAtras.TabIndex = 19;
+            this.btnAtras.Text = "    Atrás";
+            this.btnAtras.UseVisualStyleBackColor = false;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
             // btnSalir
             // 
@@ -297,10 +298,11 @@ namespace SistemaEstudiantes
             this.btnSalir.ForeColor = System.Drawing.Color.White;
             this.btnSalir.Location = new System.Drawing.Point(1230, 25);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(90, 40);
+            this.btnSalir.Size = new System.Drawing.Size(90, 43);
             this.btnSalir.TabIndex = 17;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // myDGVGrande
             // 
@@ -320,10 +322,22 @@ namespace SistemaEstudiantes
             this.myDGVUshuaia.Size = new System.Drawing.Size(650, 315);
             this.myDGVUshuaia.TabIndex = 103;
             // 
+            // btnEliminarColegios
+            // 
+            this.btnEliminarColegios.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.btnEliminarColegios.Location = new System.Drawing.Point(932, 284);
+            this.btnEliminarColegios.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnEliminarColegios.Name = "btnEliminarColegios";
+            this.btnEliminarColegios.Size = new System.Drawing.Size(200, 60);
+            this.btnEliminarColegios.TabIndex = 105;
+            this.btnEliminarColegios.Text = "Eliminar Colegio";
+            this.btnEliminarColegios.UseVisualStyleBackColor = true;
+            // 
             // EstadisticasColegiosTDF
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.Controls.Add(this.btnEliminarColegios);
             this.Controls.Add(this.myDGVGrande);
             this.Controls.Add(this.myDGVUshuaia);
             this.Controls.Add(this.btnOkAbrevia);
@@ -376,9 +390,10 @@ namespace SistemaEstudiantes
         private System.Windows.Forms.ComboBox cboxDepto;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnVolver;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.DataGridView myDGVGrande;
         private System.Windows.Forms.DataGridView myDGVUshuaia;
+        private System.Windows.Forms.Button btnEliminarColegios;
+        private System.Windows.Forms.Button btnAtras;
     }
 }

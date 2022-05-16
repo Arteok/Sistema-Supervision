@@ -65,7 +65,7 @@ namespace SistemaEstudiantes
             this.btnSalir.ForeColor = System.Drawing.Color.White;
             this.btnSalir.Location = new System.Drawing.Point(1230, 25);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(90, 40);
+            this.btnSalir.Size = new System.Drawing.Size(90, 43);
             this.btnSalir.TabIndex = 13;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
@@ -82,7 +82,7 @@ namespace SistemaEstudiantes
             this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVolver.Location = new System.Drawing.Point(1110, 25);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(90, 40);
+            this.btnVolver.Size = new System.Drawing.Size(90, 43);
             this.btnVolver.TabIndex = 12;
             this.btnVolver.Text = "    Atrás";
             this.btnVolver.UseVisualStyleBackColor = false;
@@ -317,7 +317,7 @@ namespace SistemaEstudiantes
             this.panel3.Controls.Add(this.label8);
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1351, 90);
+            this.panel3.Size = new System.Drawing.Size(1351, 97);
             this.panel3.TabIndex = 60;
             // 
             // lblNombre

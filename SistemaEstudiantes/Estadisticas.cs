@@ -29,7 +29,7 @@ namespace SistemaEstudiantes
         
         private void btnEstadistica1_Click_1(object sender, EventArgs e)
         {
-            Estadisticas1 miEstadisticas1 = new Estadisticas1(nombreUsuario, tipoUsuario, opcionesPermisos, conexionBaseDatos);
+            Estadisticas1 miEstadisticas1 = new Estadisticas1(nombreUsuario, tipoUsuario, opcionesPermisos, conexionBaseDatos,12,14);
             this.Hide();
             miEstadisticas1.Show();
 
@@ -47,7 +47,9 @@ namespace SistemaEstudiantes
 
         private void btnCantColegios_Click(object sender, EventArgs e)
         {
-
+            EstadisticasColegiosTDF myEstadisticasColegiosTDF = new EstadisticasColegiosTDF(nombreUsuario, tipoUsuario, opcionesPermisos, conexionBaseDatos);
+            this.Hide();
+            myEstadisticasColegiosTDF.Show();
         }
 
         private void btmPlantillas_Click(object sender, EventArgs e)

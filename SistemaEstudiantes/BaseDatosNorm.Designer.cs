@@ -71,10 +71,11 @@ namespace SistemaEstudiantes
             this.btnSalirBD.DialogResult = System.Windows.Forms.DialogResult.Ignore;
             this.btnSalirBD.Font = new System.Drawing.Font("Arial", 12.25F);
             this.btnSalirBD.ForeColor = System.Drawing.Color.White;
-            this.btnSalirBD.Location = new System.Drawing.Point(1230, 25);
+            this.btnSalirBD.Location = new System.Drawing.Point(1230, 27);
             this.btnSalirBD.Name = "btnSalirBD";
-            this.btnSalirBD.Size = new System.Drawing.Size(90, 40);
+            this.btnSalirBD.Size = new System.Drawing.Size(90, 43);
             this.btnSalirBD.TabIndex = 39;
+            this.btnSalirBD.TabStop = false;
             this.btnSalirBD.Text = "Salir";
             this.btnSalirBD.UseVisualStyleBackColor = false;
             this.btnSalirBD.Click += new System.EventHandler(this.btnSalirBD_Click);
@@ -95,10 +96,10 @@ namespace SistemaEstudiantes
             // tbxSintesis
             // 
             this.tbxSintesis.Font = new System.Drawing.Font("Arial Narrow", 10.25F);
-            this.tbxSintesis.Location = new System.Drawing.Point(833, 15);
+            this.tbxSintesis.Location = new System.Drawing.Point(835, 16);
             this.tbxSintesis.Multiline = true;
             this.tbxSintesis.Name = "tbxSintesis";
-            this.tbxSintesis.Size = new System.Drawing.Size(339, 167);
+            this.tbxSintesis.Size = new System.Drawing.Size(339, 155);
             this.tbxSintesis.TabIndex = 46;
             // 
             // tbxTipo
@@ -173,7 +174,7 @@ namespace SistemaEstudiantes
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.label8.Location = new System.Drawing.Point(753, 15);
+            this.label8.Location = new System.Drawing.Point(752, 16);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(77, 16);
             this.label8.TabIndex = 39;
@@ -266,9 +267,9 @@ namespace SistemaEstudiantes
             this.btnVolverBD.ForeColor = System.Drawing.Color.White;
             this.btnVolverBD.Image = ((System.Drawing.Image)(resources.GetObject("btnVolverBD.Image")));
             this.btnVolverBD.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVolverBD.Location = new System.Drawing.Point(1110, 25);
+            this.btnVolverBD.Location = new System.Drawing.Point(1110, 27);
             this.btnVolverBD.Name = "btnVolverBD";
-            this.btnVolverBD.Size = new System.Drawing.Size(90, 40);
+            this.btnVolverBD.Size = new System.Drawing.Size(90, 43);
             this.btnVolverBD.TabIndex = 38;
             this.btnVolverBD.Text = "    Atrás";
             this.btnVolverBD.UseVisualStyleBackColor = false;
@@ -294,9 +295,9 @@ namespace SistemaEstudiantes
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.tbxFecha);
             this.panel2.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(12, 103);
+            this.panel2.Location = new System.Drawing.Point(12, 112);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1188, 195);
+            this.panel2.Size = new System.Drawing.Size(1188, 186);
             this.panel2.TabIndex = 47;
             // 
             // btnAgregar
@@ -307,7 +308,7 @@ namespace SistemaEstudiantes
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.Image = global::SistemaEstudiantes.Properties.Resources.Save;
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(1230, 112);
+            this.btnAgregar.Location = new System.Drawing.Point(1230, 115);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(95, 35);
             this.btnAgregar.TabIndex = 32;
@@ -325,7 +326,7 @@ namespace SistemaEstudiantes
             this.btnModificarA.ForeColor = System.Drawing.Color.White;
             this.btnModificarA.Image = global::SistemaEstudiantes.Properties.Resources.AcepModif;
             this.btnModificarA.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnModificarA.Location = new System.Drawing.Point(1230, 182);
+            this.btnModificarA.Location = new System.Drawing.Point(1230, 185);
             this.btnModificarA.Name = "btnModificarA";
             this.btnModificarA.Size = new System.Drawing.Size(95, 35);
             this.btnModificarA.TabIndex = 30;
@@ -343,7 +344,7 @@ namespace SistemaEstudiantes
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(1230, 257);
+            this.btnCancelar.Location = new System.Drawing.Point(1230, 260);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(95, 35);
             this.btnCancelar.TabIndex = 31;
@@ -361,7 +362,7 @@ namespace SistemaEstudiantes
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(1230, 257);
+            this.btnEliminar.Location = new System.Drawing.Point(1230, 260);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(95, 35);
             this.btnEliminar.TabIndex = 29;
@@ -379,7 +380,7 @@ namespace SistemaEstudiantes
             this.btnModificar.ForeColor = System.Drawing.Color.White;
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnModificar.Location = new System.Drawing.Point(1230, 182);
+            this.btnModificar.Location = new System.Drawing.Point(1230, 185);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(95, 35);
             this.btnModificar.TabIndex = 28;
@@ -397,7 +398,7 @@ namespace SistemaEstudiantes
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
             this.btnNuevo.Image = global::SistemaEstudiantes.Properties.Resources.newFile;
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(1230, 112);
+            this.btnNuevo.Location = new System.Drawing.Point(1230, 115);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(95, 35);
             this.btnNuevo.TabIndex = 27;
@@ -417,7 +418,7 @@ namespace SistemaEstudiantes
             this.panel7.Controls.Add(this.label10);
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1351, 90);
+            this.panel7.Size = new System.Drawing.Size(1351, 97);
             this.panel7.TabIndex = 48;
             // 
             // label12
