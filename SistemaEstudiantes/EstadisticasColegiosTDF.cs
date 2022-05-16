@@ -37,7 +37,7 @@ namespace SistemaEstudiantes
             cboxDepto.ResetText();//Reinicia el texto seleccionado
             tbxNombre.ResetText();//Reinicia el texto seleccionado
             tbxAbrevia.ResetText();//Reinicia el texto seleccionado
-            cbxNOrden.ResetText();//Reinicia el texto seleccionado
+            cbxNOrden.ResetText();//Reinicia el texto seleccionado            
 
             cboxDepto.Enabled = true;
             tbxNombre.Enabled = false;
