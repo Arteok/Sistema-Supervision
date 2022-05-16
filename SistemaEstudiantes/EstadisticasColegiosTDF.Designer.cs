@@ -52,8 +52,10 @@ namespace SistemaEstudiantes
             this.btnSalir = new System.Windows.Forms.Button();
             this.myDGVGrande = new System.Windows.Forms.DataGridView();
             this.myDGVUshuaia = new System.Windows.Forms.DataGridView();
-            this.btnEliminarColegios = new System.Windows.Forms.Button();
+            this.btnEliminarColegiosUsh = new System.Windows.Forms.Button();
             this.tbxColegioEliminar = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnEliminarColegiosGrande = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.myDGVGrande)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myDGVUshuaia)).BeginInit();
@@ -307,47 +309,80 @@ namespace SistemaEstudiantes
             // 
             // myDGVGrande
             // 
+            this.myDGVGrande.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.myDGVGrande.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.myDGVGrande.Location = new System.Drawing.Point(685, 404);
             this.myDGVGrande.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.myDGVGrande.Name = "myDGVGrande";
+            this.myDGVGrande.ReadOnly = true;
             this.myDGVGrande.Size = new System.Drawing.Size(650, 315);
             this.myDGVGrande.TabIndex = 104;
+            this.myDGVGrande.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.myDGVGrande_CellClick);
             // 
             // myDGVUshuaia
             // 
+            this.myDGVUshuaia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.myDGVUshuaia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.myDGVUshuaia.Location = new System.Drawing.Point(15, 404);
             this.myDGVUshuaia.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.myDGVUshuaia.MultiSelect = false;
             this.myDGVUshuaia.Name = "myDGVUshuaia";
+            this.myDGVUshuaia.ReadOnly = true;
             this.myDGVUshuaia.Size = new System.Drawing.Size(650, 315);
             this.myDGVUshuaia.TabIndex = 103;
             this.myDGVUshuaia.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.myDGVUshuaia_CellClick);
             // 
-            // btnEliminarColegios
+            // btnEliminarColegiosUsh
             // 
-            this.btnEliminarColegios.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.btnEliminarColegios.Location = new System.Drawing.Point(932, 284);
-            this.btnEliminarColegios.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnEliminarColegios.Name = "btnEliminarColegios";
-            this.btnEliminarColegios.Size = new System.Drawing.Size(200, 60);
-            this.btnEliminarColegios.TabIndex = 105;
-            this.btnEliminarColegios.Text = "Eliminar Colegio";
-            this.btnEliminarColegios.UseVisualStyleBackColor = true;
+            this.btnEliminarColegiosUsh.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.btnEliminarColegiosUsh.Location = new System.Drawing.Point(932, 284);
+            this.btnEliminarColegiosUsh.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnEliminarColegiosUsh.Name = "btnEliminarColegiosUsh";
+            this.btnEliminarColegiosUsh.Size = new System.Drawing.Size(200, 60);
+            this.btnEliminarColegiosUsh.TabIndex = 105;
+            this.btnEliminarColegiosUsh.Text = "Eliminar Colegio";
+            this.btnEliminarColegiosUsh.UseVisualStyleBackColor = true;
+            this.btnEliminarColegiosUsh.Click += new System.EventHandler(this.btnEliminarColegiosUsh_Click);
             // 
             // tbxColegioEliminar
             // 
-            this.tbxColegioEliminar.Location = new System.Drawing.Point(866, 200);
+            this.tbxColegioEliminar.Font = new System.Drawing.Font("Arial", 12.25F);
+            this.tbxColegioEliminar.Location = new System.Drawing.Point(866, 229);
             this.tbxColegioEliminar.Name = "tbxColegioEliminar";
-            this.tbxColegioEliminar.Size = new System.Drawing.Size(330, 20);
+            this.tbxColegioEliminar.Size = new System.Drawing.Size(330, 26);
             this.tbxColegioEliminar.TabIndex = 106;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 12.25F);
+            this.label7.Location = new System.Drawing.Point(906, 171);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(248, 19);
+            this.label7.TabIndex = 107;
+            this.label7.Text = "Seleccione el Colegio a eliminar:";
+            // 
+            // btnEliminarColegiosGrande
+            // 
+            this.btnEliminarColegiosGrande.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.btnEliminarColegiosGrande.Location = new System.Drawing.Point(932, 284);
+            this.btnEliminarColegiosGrande.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnEliminarColegiosGrande.Name = "btnEliminarColegiosGrande";
+            this.btnEliminarColegiosGrande.Size = new System.Drawing.Size(200, 60);
+            this.btnEliminarColegiosGrande.TabIndex = 108;
+            this.btnEliminarColegiosGrande.Text = "Eliminar Colegio";
+            this.btnEliminarColegiosGrande.UseVisualStyleBackColor = true;
+            this.btnEliminarColegiosGrande.Click += new System.EventHandler(this.btnEliminarColegiosGrande_Click);
             // 
             // EstadisticasColegiosTDF
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.Controls.Add(this.btnEliminarColegiosGrande);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.tbxColegioEliminar);
-            this.Controls.Add(this.btnEliminarColegios);
+            this.Controls.Add(this.btnEliminarColegiosUsh);
             this.Controls.Add(this.myDGVGrande);
             this.Controls.Add(this.myDGVUshuaia);
             this.Controls.Add(this.btnOkAbrevia);
@@ -403,8 +438,10 @@ namespace SistemaEstudiantes
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.DataGridView myDGVGrande;
         private System.Windows.Forms.DataGridView myDGVUshuaia;
-        private System.Windows.Forms.Button btnEliminarColegios;
+        private System.Windows.Forms.Button btnEliminarColegiosUsh;
         private System.Windows.Forms.Button btnAtras;
         private System.Windows.Forms.TextBox tbxColegioEliminar;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnEliminarColegiosGrande;
     }
 }

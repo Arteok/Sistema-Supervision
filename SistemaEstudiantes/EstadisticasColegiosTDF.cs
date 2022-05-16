@@ -13,6 +13,7 @@ namespace SistemaEstudiantes
 {
     public partial class EstadisticasColegiosTDF : Form
     {
+        OleDbCommand sqlComando;
         OleDbConnection conexionBaseDatos;
         string nombreUsuario;
         string permisosUsuario;
@@ -20,6 +21,7 @@ namespace SistemaEstudiantes
 
         int column; //columna            
         int row; //fila
+        int idColegioEliminar;
         public EstadisticasColegiosTDF(string usuario, string permisos, bool logueado, OleDbConnection conexionBD)
         {
             InitializeComponent();
@@ -27,7 +29,6 @@ namespace SistemaEstudiantes
             permisosUsuario = permisos;
             logueadoUsuario = logueado;
             conexionBaseDatos = conexionBD;
-
             ordenar();
         }        
         
@@ -46,15 +47,25 @@ namespace SistemaEstudiantes
             cbxNOrden.Enabled = false;
 
             btnCrearColegios.Enabled = false;
-            btnRefresh.Enabled = false;
+
+           // btnRefresh.Enabled = false;
+
+            //eliminar
+            btnEliminarColegiosUsh.Enabled = false;
+            btnEliminarColegiosGrande.Enabled = false;
+            btnEliminarColegiosUsh.Visible= true;
+            btnEliminarColegiosGrande.Visible = true;
+            tbxColegioEliminar.Clear();
+
+            tbxColegioEliminar.Enabled = false;
 
             myDGVUshuaia.DataSource = null;//reinicia datagv
             myDGVUshuaia.Rows.Clear();
             myDGVUshuaia.Refresh();
 
-            cargarDatasGW();
+            cargarDatasGView();
         }
-        private void cargarDatasGW()
+        private void cargarDatasGView()
         {
             DataTable miDataTable = new DataTable();
 
@@ -68,8 +79,7 @@ namespace SistemaEstudiantes
 
             DataTable miDataTableRG = new DataTable();
 
-            string queryCargarBDRG = "SELECT *FROM ColegiosGrande";
-            //string queryCargarBD = "SELECT Numero Orden, Nombre, Nombre Abreviado FROM ColegiosUshuaia ";
+            string queryCargarBDRG = "SELECT *FROM ColegiosGrande";           
             OleDbCommand sqlComandoRG = new OleDbCommand(queryCargarBDRG, conexionBaseDatos);
 
             OleDbDataAdapter miDataAdapterRG = new OleDbDataAdapter(sqlComandoRG);
@@ -109,46 +119,219 @@ namespace SistemaEstudiantes
             btnOkAbrevia.Enabled = false;
             btnCrearColegios.Enabled = true;
         }
+        private void myDGVUshuaia_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1 && e.ColumnIndex != -1) //Evita que se haga click en la fila -1 y columna -1       
+            {
+                string colegioEliminar;
+                column = e.ColumnIndex; //columna            
+                row = e.RowIndex; //fila
+
+                //Rellena los tbx 
+                colegioEliminar = Convert.ToString(myDGVUshuaia.Rows[e.RowIndex].Cells[0].Value);//necesario para eliminar el error de nulo
+                tbxColegioEliminar.Text = Convert.ToString(myDGVUshuaia.Rows[e.RowIndex].Cells[1].Value);
+                if (Convert.ToString(myDGVUshuaia.Rows[e.RowIndex].Cells[1].Value) == (""))//comprueba si es nulo
+                {
+                    btnEliminarColegiosUsh.Enabled = false;
+                    btnEliminarColegiosGrande.Enabled = false;
+                    btnEliminarColegiosUsh.Visible = true;
+                    btnEliminarColegiosGrande.Visible = true;
+                }
+                else 
+                {
+                    colegioEliminar = Convert.ToString(myDGVUshuaia.Rows[e.RowIndex].Cells[0].Value);
+                    idColegioEliminar = Convert.ToInt32(colegioEliminar);
+                    btnEliminarColegiosUsh.Enabled = true;
+                    btnEliminarColegiosGrande.Enabled = false;
+                    btnEliminarColegiosUsh.Visible = true;
+                    btnEliminarColegiosGrande.Visible = false;
+                }
+            }
+        }
+        private void myDGVGrande_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1 && e.ColumnIndex != -1) //Evita que se haga click en la fila -1 y columna -1       
+            {
+                string colegioEliminar;
+                column = e.ColumnIndex; //columna            
+                row = e.RowIndex; //fila
+
+                //Rellena los tbx 
+                colegioEliminar = Convert.ToString(myDGVGrande.Rows[e.RowIndex].Cells[0].Value);//necesario para eliminar el error de nulo
+                tbxColegioEliminar.Text = Convert.ToString(myDGVGrande.Rows[e.RowIndex].Cells[1].Value);
+                if (Convert.ToString(myDGVGrande.Rows[e.RowIndex].Cells[1].Value) == (""))//comprueba si es nulo
+                {
+                    btnEliminarColegiosUsh.Enabled = false;
+                    btnEliminarColegiosGrande.Enabled = false;
+                    btnEliminarColegiosUsh.Visible = true;
+                    btnEliminarColegiosGrande.Visible = true;
+                }
+                else
+                {
+                    colegioEliminar = Convert.ToString(myDGVGrande.Rows[e.RowIndex].Cells[0].Value);
+                    idColegioEliminar = Convert.ToInt32(colegioEliminar);
+                    btnEliminarColegiosGrande.Enabled = true;
+                    btnEliminarColegiosUsh.Enabled = false;
+                    btnEliminarColegiosUsh.Visible = false;
+                    btnEliminarColegiosGrande.Visible = true;
+                }
+            }
+        }
 
         private void btnCrearColegios_Click(object sender, EventArgs e)
         {
             if (cboxDepto.SelectedItem == "Ushuaia")
             {
-                string queryAgregar = "INSERT INTO ColegiosUshuaia VALUES ( @NumeroOrden, @Nombre, @NombreAbreviado)";
-
-                OleDbCommand sqlComando = new OleDbCommand(queryAgregar, conexionBaseDatos);
-
-                sqlComando.Parameters.AddWithValue("@NumeroOrden", cbxNOrden.SelectedItem);
-                sqlComando.Parameters.AddWithValue("@Nombre", tbxNombre.Text);
-                sqlComando.Parameters.AddWithValue("@NombreAbreviado", tbxAbrevia.Text);
-
-
-                conexionBaseDatos.Open();
-                if (sqlComando.ExecuteNonQuery() > 0)
+                try
                 {
-                    ordenar();
-                    //seImporto = true;
+                    string queryAgregar = "INSERT INTO ColegiosUshuaia VALUES ( @NumeroOrden, @Nombre, @NombreAbreviado)";
+
+                    OleDbCommand sqlComando = new OleDbCommand(queryAgregar, conexionBaseDatos);
+
+                    sqlComando.Parameters.AddWithValue("@NumeroOrden", cbxNOrden.SelectedItem);
+                    sqlComando.Parameters.AddWithValue("@Nombre", tbxNombre.Text);
+                    sqlComando.Parameters.AddWithValue("@NombreAbreviado", tbxAbrevia.Text);
+
+
+                    conexionBaseDatos.Open();
+                    if (sqlComando.ExecuteNonQuery() > 0)
+                    {
+                        ordenar();
+                        //seImporto = true;
+                    }
+                    conexionBaseDatos.Close();
+
                 }
-                conexionBaseDatos.Close();
+                catch (Exception ex)
+                {
+                    if (ex.Message.Contains("Los cambios solicitados en la tabla no se realizaron correctamente porque crearían valores duplicados"))
+                    {
+                        MessageBox.Show("El número de orden que está queriendo utilizar ya se encuentra ocupado. Por favor elija otro que este libre.", "Sistema Informa");
+                    }
+                    else
+                    {
+                        MessageBox.Show(Convert.ToString(ex));
+                    }
+                    conexionBaseDatos.Close();
+                }
+
             }
             else if (cboxDepto.SelectedItem == "Rio Grande")
             {
-                string queryAgregar = "INSERT INTO ColegiosGrande VALUES ( @NumeroOrden, @Nombre, @NombreAbreviado)";
-
-                OleDbCommand sqlComando = new OleDbCommand(queryAgregar, conexionBaseDatos);
-
-                sqlComando.Parameters.AddWithValue("@NumeroOrden", cbxNOrden.SelectedItem);
-                sqlComando.Parameters.AddWithValue("@Nombre", tbxNombre.Text);
-                sqlComando.Parameters.AddWithValue("@NombreAbreviado", tbxAbrevia.Text);
-
-
-                conexionBaseDatos.Open();
-                if (sqlComando.ExecuteNonQuery() > 0)
+                try
                 {
-                    ordenar();
-                    //seImporto = true;
+                    string queryAgregar = "INSERT INTO ColegiosGrande VALUES ( @NumeroOrden, @Nombre, @NombreAbreviado)";
+
+                    OleDbCommand sqlComando = new OleDbCommand(queryAgregar, conexionBaseDatos);
+
+                    sqlComando.Parameters.AddWithValue("@NumeroOrden", cbxNOrden.SelectedItem);
+                    sqlComando.Parameters.AddWithValue("@Nombre", tbxNombre.Text);
+                    sqlComando.Parameters.AddWithValue("@NombreAbreviado", tbxAbrevia.Text);
+
+
+                    conexionBaseDatos.Open();
+                    if (sqlComando.ExecuteNonQuery() > 0)
+                    {
+                        ordenar();
+                        //seImporto = true;
+                    }
+                    conexionBaseDatos.Close();                    
                 }
-                conexionBaseDatos.Close();
+                catch (Exception ex)
+                {
+                    if (ex.Message.Contains("Los cambios solicitados en la tabla no se realizaron correctamente porque crearían valores duplicados"))
+                    {
+                        MessageBox.Show("El número de orden que está queriendo utilizar ya se encuentra ocupado. Por favor elija otro que este libre.", "Sistema Informa");
+                    }
+                    else
+                    {
+                        MessageBox.Show(Convert.ToString(ex));
+                    }
+                    conexionBaseDatos.Close();
+                }
+            }
+        }
+      
+        private void btnEliminarColegiosUsh_Click(object sender, EventArgs e)
+        {
+            // eliminando = true;
+            //dataGridViewBD.Enabled = false;
+
+            DialogResult preguntaEliminar = MessageBox.Show("Desea eliminar el colegio seleccionado?", "Sistema Informa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (preguntaEliminar == DialogResult.OK)
+            {
+                string queryEliminar = "DELETE *FROM ColegiosUshuaia WHERE NumeroOrden = @idEliminar";
+
+                sqlComando = new OleDbCommand(queryEliminar, conexionBaseDatos);
+                sqlComando.Parameters.AddWithValue("@idEliminar", idColegioEliminar);
+
+                try
+                {
+                    conexionBaseDatos.Open();
+                    if (sqlComando.ExecuteNonQuery() > 0)
+                    {
+                        MessageBox.Show("Se elimino el colegio correctamente");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Colegio no eliminado. Se produzco un error.");
+                    }
+                    conexionBaseDatos.Close();
+                    cargarDatasGView();
+                    ordenar();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(Convert.ToString(ex.HResult));
+                    conexionBaseDatos.Close();
+                    ordenar();
+                }
+            }
+            else
+            {
+                ordenar();
+            }
+        }
+        private void btnEliminarColegiosGrande_Click(object sender, EventArgs e)
+        {
+            // eliminando = true;
+            //dataGridViewBD.Enabled = false;
+
+            DialogResult preguntaEliminar = MessageBox.Show("Desea eliminar el colegio seleccionado?", "Sistema Informa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (preguntaEliminar == DialogResult.OK)
+            {
+                string queryEliminar = "DELETE *FROM ColegiosGrande WHERE NumeroOrden = @idEliminar";
+
+                sqlComando = new OleDbCommand(queryEliminar, conexionBaseDatos);
+                sqlComando.Parameters.AddWithValue("@idEliminar", idColegioEliminar);
+
+                try
+                {
+                    conexionBaseDatos.Open();
+                    if (sqlComando.ExecuteNonQuery() > 0)
+                    {
+                        MessageBox.Show("Se elimino el colegio correctamente");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Colegio no eliminado. Se produzco un error.");
+                    }
+                    conexionBaseDatos.Close();
+                    cargarDatasGView();
+                    ordenar();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(Convert.ToString(ex.HResult));
+                    conexionBaseDatos.Close();
+                    ordenar();
+                }
+            }
+            else
+            {
+                ordenar();
             }
         }
         private void btnAtras_Click(object sender, EventArgs e)
@@ -157,42 +340,10 @@ namespace SistemaEstudiantes
             miForm1.Visible = true;
             this.Close();
         }
-
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
 
-        }
-
-        private void myDGVUshuaia_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex != -1 && e.ColumnIndex != -1) //Evita que se haga click en la fila -1 y columna -1       
-            {
-                column = e.ColumnIndex; //columna            
-                row = e.RowIndex; //fila
-
-                //Rellena los tbx 
-                tbxColegioEliminar.Text = Convert.ToString(myDGVUshuaia.Rows[e.RowIndex].Cells[1].Value);
-                
-                
-                /*
-                tbxNormaSelec.Enabled = true;
-                tbxFechaSelect.Enabled = true;
-                tbxTomoSelec.Enabled = true;
-                tbxFolio.Enabled = true;
-                tbxSintesisSelect.Enabled = true;
-
-                btnVerPdf.Enabled = true;
-                btnVerPdf.BackColor = Color.DodgerBlue;
-
-                if (permisosDataBase == true)
-                {
-                    btnEditar.Enabled = true;
-                    btnEditar.BackColor = Color.DodgerBlue;
-                }*/
-
-            }
-        }
-    }   
-    
+        }       
+    }      
 }
