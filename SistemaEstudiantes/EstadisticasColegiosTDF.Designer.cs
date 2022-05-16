@@ -53,6 +53,7 @@ namespace SistemaEstudiantes
             this.myDGVGrande = new System.Windows.Forms.DataGridView();
             this.myDGVUshuaia = new System.Windows.Forms.DataGridView();
             this.btnEliminarColegios = new System.Windows.Forms.Button();
+            this.tbxColegioEliminar = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.myDGVGrande)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myDGVUshuaia)).BeginInit();
@@ -321,6 +322,7 @@ namespace SistemaEstudiantes
             this.myDGVUshuaia.Name = "myDGVUshuaia";
             this.myDGVUshuaia.Size = new System.Drawing.Size(650, 315);
             this.myDGVUshuaia.TabIndex = 103;
+            this.myDGVUshuaia.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.myDGVUshuaia_CellClick);
             // 
             // btnEliminarColegios
             // 
@@ -333,10 +335,18 @@ namespace SistemaEstudiantes
             this.btnEliminarColegios.Text = "Eliminar Colegio";
             this.btnEliminarColegios.UseVisualStyleBackColor = true;
             // 
+            // tbxColegioEliminar
+            // 
+            this.tbxColegioEliminar.Location = new System.Drawing.Point(866, 200);
+            this.tbxColegioEliminar.Name = "tbxColegioEliminar";
+            this.tbxColegioEliminar.Size = new System.Drawing.Size(330, 20);
+            this.tbxColegioEliminar.TabIndex = 106;
+            // 
             // EstadisticasColegiosTDF
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.Controls.Add(this.tbxColegioEliminar);
             this.Controls.Add(this.btnEliminarColegios);
             this.Controls.Add(this.myDGVGrande);
             this.Controls.Add(this.myDGVUshuaia);
@@ -395,5 +405,6 @@ namespace SistemaEstudiantes
         private System.Windows.Forms.DataGridView myDGVUshuaia;
         private System.Windows.Forms.Button btnEliminarColegios;
         private System.Windows.Forms.Button btnAtras;
+        private System.Windows.Forms.TextBox tbxColegioEliminar;
     }
 }

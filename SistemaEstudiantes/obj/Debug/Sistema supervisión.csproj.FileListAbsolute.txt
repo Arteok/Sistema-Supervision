@@ -282,3 +282,37 @@ C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\bin\Debug\System.
 C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\bin\Debug\DocumentFormat.OpenXml.xml
 C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\bin\Debug\SpreadsheetLight.xml
 C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.CopyComplete
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe.config
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe.manifest
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\bin\Debug\Sistema Supervisión.application
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\bin\Debug\Sistema Supervisión.pdb
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\bin\Debug\SpreadsheetLight.dll
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\bin\Debug\System.Drawing.Common.dll
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\bin\Debug\SpreadsheetLight.xml
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.AssemblyReference.cache
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.CrearEditar.resources
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.DepurarPDF.resources
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Estadisticas.resources
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Estadisticas1.resources
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.EstadisticasCargar.resources
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.EstadisticasCargarPoli.resources
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.EstadisticasColegiosTDF.resources
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.EstadisticasEliminar.resources
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.EstadisticasPlanillas.resources
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Opciones.resources
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Rutas.resources
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Usuario.resources
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.GenerateResource.cache
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.CoreCompileInputs.cache
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.TrustInfo.xml
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.exe.manifest
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.application
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.exe
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.pdb

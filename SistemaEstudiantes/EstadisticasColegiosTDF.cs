@@ -17,6 +17,9 @@ namespace SistemaEstudiantes
         string nombreUsuario;
         string permisosUsuario;
         bool logueadoUsuario;
+
+        int column; //columna            
+        int row; //fila
         public EstadisticasColegiosTDF(string usuario, string permisos, bool logueado, OleDbConnection conexionBD)
         {
             InitializeComponent();
@@ -161,7 +164,35 @@ namespace SistemaEstudiantes
 
         }
 
-       
+        private void myDGVUshuaia_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1 && e.ColumnIndex != -1) //Evita que se haga click en la fila -1 y columna -1       
+            {
+                column = e.ColumnIndex; //columna            
+                row = e.RowIndex; //fila
+
+                //Rellena los tbx 
+                tbxColegioEliminar.Text = Convert.ToString(myDGVUshuaia.Rows[e.RowIndex].Cells[1].Value);
+                
+                
+                /*
+                tbxNormaSelec.Enabled = true;
+                tbxFechaSelect.Enabled = true;
+                tbxTomoSelec.Enabled = true;
+                tbxFolio.Enabled = true;
+                tbxSintesisSelect.Enabled = true;
+
+                btnVerPdf.Enabled = true;
+                btnVerPdf.BackColor = Color.DodgerBlue;
+
+                if (permisosDataBase == true)
+                {
+                    btnEditar.Enabled = true;
+                    btnEditar.BackColor = Color.DodgerBlue;
+                }*/
+
+            }
+        }
     }   
     
 }
