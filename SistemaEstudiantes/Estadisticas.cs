@@ -17,6 +17,7 @@ namespace SistemaEstudiantes
         string nombreUsuario;
         string tipoUsuario;
         bool opcionesPermisos;
+         
         public Estadisticas(string usuario, string permisos, bool permisosOpciones, OleDbConnection conexionBD)
         {
             InitializeComponent();
@@ -25,11 +26,12 @@ namespace SistemaEstudiantes
             opcionesPermisos = permisosOpciones;
             lblNombre.Text = usuario;
             conexionBaseDatos = conexionBD;
+           
         }       
         
         private void btnEstadistica1_Click_1(object sender, EventArgs e)
         {
-            Estadisticas1 miEstadisticas1 = new Estadisticas1(nombreUsuario, tipoUsuario, opcionesPermisos, conexionBaseDatos,12,14);
+            Estadisticas1 miEstadisticas1 = new Estadisticas1(nombreUsuario, tipoUsuario, opcionesPermisos, conexionBaseDatos);
             this.Hide();
             miEstadisticas1.Show();
 

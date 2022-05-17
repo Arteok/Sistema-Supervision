@@ -12,11 +12,15 @@ using DocumentFormat.OpenXml.Spreadsheet;
 using SpreadsheetLight;
 
 
+
+
 namespace SistemaEstudiantes
 {
     public partial class Estadisticas1 : Form
     {
         OleDbConnection conexionBaseDatos;//variable que recibe la direccion de la base de datos
+        Colegios myColegios;
+
         string nombreUsuario;
         string tipoUsuario;
         bool opcionesPermisos;        
@@ -52,30 +56,35 @@ namespace SistemaEstudiantes
         int[,] totalJurisdicionalAños = new int[2, 7];//array de totales de secciones y estudiantes por año de TDF
         int[,] totalJurisdicional = new int[2, 3];//array de totales generales TDF       
 
-        string[,] ushuaiaColegios = new string[3, 25];//nombre,posicion,nombreAbreviado de los colegios de ushuaia ##tomo como cantidad maxima 25 colegios por depto
-        string[,] grandeColegios = new string[3, 25];//nombre,posicion,nombreAbreviado de los colegios de rio grande
-        public Estadisticas1(string usuario, string permisos, bool logueado, OleDbConnection conexionBD, int numColegiosUshuaia, int numColegiosGrande)
+        string[,] ushuaiaColegios;//nombre,posicion,nombreAbreviado de los colegios de ushuaia ##tomo como cantidad maxima 25 colegios por depto
+        string[,] grandeColegios;//nombre,posicion,nombreAbreviado de los colegios de rio grande
+        public Estadisticas1(string usuario, string permisos, bool logueado, OleDbConnection conexionBD)
         {
             InitializeComponent();
+            
             nombreUsuario = usuario;
             tipoUsuario = permisos;
             opcionesPermisos = logueado;
             lblNombre.Text = usuario;
             conexionBaseDatos = conexionBD;
-
-            nombreUsuario = usuario;
+            
             permisosUsuario = permisos;
             logueadoUsuario = logueado;
             idUnico = "";
-            cantColegiosUshuaia = numColegiosUshuaia;
-            //cantColegiosGrande = numColegiosGrande;
-            cantColegiosGrande = 14;
-
-            idUnico = "";
+            
             ordenar();
 
             if (colegiosCreados == false)
             {
+                myColegios = new Colegios();
+                myColegios.CargarColegiosUshuaia();
+                myColegios.CargarColegiosGrande();
+                cantColegiosUshuaia = myColegios.NumColegiosUshuaia;
+                cantColegiosGrande = myColegios.NumColegiosGrande;
+
+                ushuaiaColegios = new string[3, cantColegiosUshuaia];//nombre,posicion,nombreAbreviado de los colegios de ushuaia ##tomo como cantidad maxima 25 colegios por depto
+                grandeColegios = new string[3, cantColegiosGrande];//nombre,posicion,nombreAbreviado de los colegios de rio grande
+
                 NombreColegios();
                 colegiosCreados = true;
             }
@@ -104,86 +113,24 @@ namespace SistemaEstudiantes
             lblCreando.Visible = false;
         }
         private void NombreColegios()
-        {
-            ushuaiaColegios[0, 0] = "Los Andes";
-            ushuaiaColegios[0, 1] = "Sobral Bachiller";
-            ushuaiaColegios[0, 2] = "Sobral Técnico";
-            ushuaiaColegios[0, 3] = "Kloketen";
-            ushuaiaColegios[0, 4] = "Eva Duarte de Perón";
-            ushuaiaColegios[0, 5] = "Sabato Bachiller";
-            ushuaiaColegios[0, 6] = "Sabato Ténico";
-            ushuaiaColegios[0, 7] = "Marti";
-            ushuaiaColegios[0, 8] = "Polivalente Bustelo";
-            ushuaiaColegios[0, 9] = "Martín Marte";
-            ushuaiaColegios[0, 10] = "B° Alakalufes";
-            ushuaiaColegios[0, 11] = "OBA";
-            ushuaiaColegios[1, 0] = "LosA";
-            ushuaiaColegios[1, 1] = "SobB";
-            ushuaiaColegios[1, 2] = "SobT";
-            ushuaiaColegios[1, 3] = "Klok";
-            ushuaiaColegios[1, 4] = "EvaDP";
-            ushuaiaColegios[1, 5] = "SabB";
-            ushuaiaColegios[1, 6] = "SabT";
-            ushuaiaColegios[1, 7] = "Marti";
-            ushuaiaColegios[1, 8] = "PBust";
-            ushuaiaColegios[1, 9] = "MMarte";
-            ushuaiaColegios[1, 10] = "Alak";
-            ushuaiaColegios[1, 11] = "OBA";
-            ushuaiaColegios[2, 0] = "1";
-            ushuaiaColegios[2, 1] = "2";
-            ushuaiaColegios[2, 2] = "3";
-            ushuaiaColegios[2, 3] = "4";
-            ushuaiaColegios[2, 4] = "5";
-            ushuaiaColegios[2, 5] = "6";
-            ushuaiaColegios[2, 6] = "7";
-            ushuaiaColegios[2, 7] = "8";
-            ushuaiaColegios[2, 8] = "9";
-            ushuaiaColegios[2, 9] = "10";
-            ushuaiaColegios[2, 10] = "11";
-            ushuaiaColegios[2, 11] = "12";
+        {             
 
-            grandeColegios[0, 0] = "Zink";
-            grandeColegios[0, 1] = "Antártida Argentina";
-            grandeColegios[0, 2] = "Soberanía";
-            grandeColegios[0, 3] = "Maradona";
-            grandeColegios[0, 4] = "Piedrabuena";
-            grandeColegios[0, 5] = "Guevara Bachiller";
-            grandeColegios[0, 6] = "Guevara Técnico";
-            grandeColegios[0, 7] = "Alicia Moreau";
-            grandeColegios[0, 8] = "Trejo Noel";
-            grandeColegios[0, 9] = "Haspen";
-            grandeColegios[0, 10] = "Favaloro";
-            grandeColegios[0, 11] = "Polivalente Cotorruelo";
-            grandeColegios[0, 12] = "CPET";
-            grandeColegios[0, 13] = "Malvinas";
-            grandeColegios[1, 0] = "Zink";
-            grandeColegios[1, 1] = "AArg";
-            grandeColegios[1, 2] = "Sobe";
-            grandeColegios[1, 3] = "Mara";
-            grandeColegios[1, 4] = "PBue";
-            grandeColegios[1, 5] = "GueB";
-            grandeColegios[1, 6] = "GueT";
-            grandeColegios[1, 7] = "AMor";
-            grandeColegios[1, 8] = "TNoel";
-            grandeColegios[1, 9] = "Hasp";
-            grandeColegios[1, 10] = "Fava";
-            grandeColegios[1, 11] = "PCot";
-            grandeColegios[1, 12] = "CPET";
-            grandeColegios[1, 13] = "Malvinas";
-            grandeColegios[2, 0] = "1";
-            grandeColegios[2, 1] = "2";
-            grandeColegios[2, 2] = "3";
-            grandeColegios[2, 3] = "4";
-            grandeColegios[2, 4] = "5";
-            grandeColegios[2, 5] = "6";
-            grandeColegios[2, 6] = "7";
-            grandeColegios[2, 7] = "8";
-            grandeColegios[2, 8] = "9";
-            grandeColegios[2, 9] = "10";
-            grandeColegios[2, 10] = "11";
-            grandeColegios[2, 11] = "12";
-            grandeColegios[2, 12] = "13";
-            grandeColegios[2, 13] = "14";
+            for (int i = 0; i <= 2; i++)
+            {
+
+                for (int j = 0; j <= cantColegiosUshuaia - 1; j++)
+                {
+                    ushuaiaColegios[i, j] = myColegios.UshuaiaColegios[i, j];
+                }
+            }
+            for (int i = 0; i <= 2; i++)
+            {
+
+                for (int j = 0; j <= cantColegiosGrande - 1; j++)
+                {
+                    grandeColegios[i, j] = myColegios.GrandeColegios[i, j];
+                }
+            }           
         }
         private void btnRefresh_Click(object sender, EventArgs e)
         {
@@ -194,14 +141,12 @@ namespace SistemaEstudiantes
             cboxAño.Enabled = false;
             cboxPeriodo.Enabled = true;
             btnRefresh.Enabled = true;
-
         }
 
         private void cboxPeriodo_SelectedIndexChanged(object sender, EventArgs e)
         {
             cboxPeriodo.Enabled = false;
             btnCrearEstadistica.Enabled = true;
-
         }
 
         private void btnCrearEstadistica_Click(object sender, EventArgs e)
@@ -216,7 +161,7 @@ namespace SistemaEstudiantes
             btnRefresh.Enabled = false;
             btnCrearEstadistica.Enabled = false;
 
-            //##crando estadistica de ushuaia
+            //##creando estadistica de ushuaia
             for (int numColegio = 0; numColegio <= (cantColegiosUshuaia - 1); numColegio++)
             {
                 abreColegio = ushuaiaColegios[1, numColegio];//para conseguir el idUnico
@@ -621,8 +566,8 @@ namespace SistemaEstudiantes
             Refresh();
             //creando Estadisticas
             SLDocument sl = new SLDocument();
-            //string pathFile = @"C:\Users\Pablo\Downloads\Prueba\Estadisticas Secciones y Estudiantes " + cboxAño.SelectedItem.ToString() + " " + cboxPeriodo.SelectedItem.ToString() + ".xlsx";
-            string pathFile = @"C:\Users\Arteok\Downloads\Prueba\Estadisticas Secciones y Estudiantes " + cboxAño.SelectedItem.ToString() + " " + cboxPeriodo.SelectedItem.ToString() + ".xlsx";
+            string pathFile = @"C:\Users\Pablo\Downloads\Prueba\Estadisticas Secciones y Estudiantes " + cboxAño.SelectedItem.ToString() + " " + cboxPeriodo.SelectedItem.ToString() + ".xlsx";
+            //string pathFile = @"C:\Users\Arteok\Downloads\Prueba\Estadisticas Secciones y Estudiantes " + cboxAño.SelectedItem.ToString() + " " + cboxPeriodo.SelectedItem.ToString() + ".xlsx";
 
             //string pathFile = @"C:\Users\Arteok\Downloads\Prueba\Estadisticas Secciones y Estudiantes.xlsx";
 

@@ -22,6 +22,11 @@ namespace SistemaEstudiantes
         int column; //columna            
         int row; //fila
         int idColegioEliminar;
+
+        string[,] ushuaiaColegios = new string[3, 25];//nombre,posicion,nombreAbreviado de los colegios de ushuaia ##tomo como cantidad maxima 25 colegios por depto
+        string[,] grandeColegios = new string[3, 25];//nombre,posicion,nombreAbreviado de los colegios de rio grande
+        int numColegiosUshuaia;
+        int numColegiosGrande;
         public EstadisticasColegiosTDF(string usuario, string permisos, bool logueado, OleDbConnection conexionBD)
         {
             InitializeComponent();
@@ -75,6 +80,7 @@ namespace SistemaEstudiantes
 
             OleDbDataAdapter miDataAdapter = new OleDbDataAdapter(sqlComando);
             miDataAdapter.Fill(miDataTable);
+            miDataTable.DefaultView.Sort = "NumeroOrden";
             myDGVUshuaia.DataSource = miDataTable;
 
             DataTable miDataTableRG = new DataTable();
@@ -84,6 +90,7 @@ namespace SistemaEstudiantes
 
             OleDbDataAdapter miDataAdapterRG = new OleDbDataAdapter(sqlComandoRG);
             miDataAdapterRG.Fill(miDataTableRG);
+            miDataTable.DefaultView.Sort = "NumeroOrden";
             myDGVGrande.DataSource = miDataTableRG;
 
         }
@@ -344,6 +351,70 @@ namespace SistemaEstudiantes
         {
             Application.Exit();
 
-        }       
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DataTable miDataTable = new DataTable();
+
+            string queryCargarBD = "SELECT Nombre, NumeroOrden, NombreAbreviado FROM ColegiosUshuaia";
+            OleDbCommand sqlComando = new OleDbCommand(queryCargarBD, conexionBaseDatos);
+
+            OleDbDataAdapter miDataAdapter = new OleDbDataAdapter(sqlComando);
+            miDataAdapter.Fill(miDataTable);
+            miDataTable.DefaultView.Sort = "NumeroOrden";
+
+            DataRow[] rows = miDataTable.Select();
+
+            // Print the value one column of each DataRow.
+            for (int i = 0; i < rows.Length; i++)
+            {
+                ushuaiaColegios[0, i] = Convert.ToString(rows[i]["Nombre"]);
+                ushuaiaColegios[1, i] = Convert.ToString(rows[i]["NumeroOrden"]);
+                ushuaiaColegios[2, i] = Convert.ToString(rows[i]["NombreAbreviado"]);
+                numColegiosUshuaia++;
+
+                // MessageBox.Show(Convert.ToString((rows[i]["NumeroOrden"]))+Convert.ToString((rows[i]["Nombre"]))+(Convert.ToString(rows[i]["NombreAbreviado"])));
+                MessageBox.Show(Convert.ToString(numColegiosUshuaia));
+            }
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DataTable miDataTable = new DataTable();
+
+            string queryCargarBD = "SELECT Nombre, NumeroOrden, NombreAbreviado FROM ColegiosGrande";
+            OleDbCommand sqlComando = new OleDbCommand(queryCargarBD, conexionBaseDatos);
+
+            OleDbDataAdapter miDataAdapter = new OleDbDataAdapter(sqlComando);
+            miDataAdapter.Fill(miDataTable);
+            miDataTable.DefaultView.Sort = "NumeroOrden";
+
+            DataRow[] rows = miDataTable.Select();
+
+            // Print the value one column of each DataRow.
+            for (int i = 0; i < rows.Length; i++)
+            {
+                ushuaiaColegios[0, i] = Convert.ToString(rows[i]["Nombre"]);
+                ushuaiaColegios[1, i] = Convert.ToString(rows[i]["NumeroOrden"]);
+                ushuaiaColegios[2, i] = Convert.ToString(rows[i]["NombreAbreviado"]);
+                numColegiosGrande++;
+
+                MessageBox.Show(Convert.ToString((rows[i]["NumeroOrden"]))+Convert.ToString((rows[i]["Nombre"]))+(Convert.ToString(rows[i]["NombreAbreviado"])));
+                MessageBox.Show(Convert.ToString(numColegiosGrande));
+            }
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Colegios myColegios = new Colegios();
+            myColegios.CargarColegiosUshuaia();
+            myColegios.CargarColegiosGrande();
+            //MessageBox.Show(Convert.ToString(myColegios.NumColegiosUshuaia)+" "+ Convert.ToString(myColegios.NumColegiosGrande));
+            MessageBox.Show(myColegios.UshuaiaColegios[0,0]);
+
+        }
     }      
 }

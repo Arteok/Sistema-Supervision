@@ -106,6 +106,7 @@
     <Compile Include="BaseDatosNorm.Designer.cs">
       <DependentUpon>BaseDatosNorm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Colegios.cs" />
     <Compile Include="CrearEditar.cs">
       <SubType>Form</SubType>
     </Compile>
