@@ -318,7 +318,7 @@ namespace SistemaEstudiantes
             this.myDGVGrande.Name = "myDGVGrande";
             this.myDGVGrande.ReadOnly = true;
             this.myDGVGrande.Size = new System.Drawing.Size(650, 315);
-            this.myDGVGrande.TabIndex = 200;
+            this.myDGVGrande.TabIndex = 201;
             this.myDGVGrande.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.myDGVGrande_CellClick);
             // 
             // myDGVUshuaia
