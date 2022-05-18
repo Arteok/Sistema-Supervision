@@ -60,7 +60,7 @@ namespace SistemaEstudiantes
         string[,] grandeColegios;//nombre,posicion,nombreAbreviado de los colegios de rio grande
         public Estadisticas1(string usuario, string permisos, bool logueado, OleDbConnection conexionBD)
         {
-            InitializeComponent();
+            InitializeComponent();            
             
             nombreUsuario = usuario;
             tipoUsuario = permisos;
@@ -202,6 +202,7 @@ namespace SistemaEstudiantes
 
                         //MessageBox.Show("No se encontró ninguna planilla para los parámetros especificados.", "Sistema Informa");                        
                     }
+                    Refresh();
                 }
                 catch (Exception ex)
                 {
@@ -278,6 +279,7 @@ namespace SistemaEstudiantes
 
                         //MessageBox.Show("No se encontró ninguna planilla para los parámetros especificados.", "Sistema Informa");                        
                     }
+                    Refresh();
                 }
                 catch (Exception ex)
                 {
@@ -566,8 +568,8 @@ namespace SistemaEstudiantes
             Refresh();
             //creando Estadisticas
             SLDocument sl = new SLDocument();
-            string pathFile = @"C:\Users\Pablo\Downloads\Prueba\Estadisticas Secciones y Estudiantes " + cboxAño.SelectedItem.ToString() + " " + cboxPeriodo.SelectedItem.ToString() + ".xlsx";
-            //string pathFile = @"C:\Users\Arteok\Downloads\Prueba\Estadisticas Secciones y Estudiantes " + cboxAño.SelectedItem.ToString() + " " + cboxPeriodo.SelectedItem.ToString() + ".xlsx";
+            //string pathFile = @"C:\Users\Pablo\Downloads\Prueba\Estadisticas Secciones y Estudiantes " + cboxAño.SelectedItem.ToString() + " " + cboxPeriodo.SelectedItem.ToString() + ".xlsx";
+            string pathFile = @"C:\Users\Arteok\Downloads\Prueba\Estadisticas Secciones y Estudiantes " + cboxAño.SelectedItem.ToString() + " " + cboxPeriodo.SelectedItem.ToString() + ".xlsx";
 
             //string pathFile = @"C:\Users\Arteok\Downloads\Prueba\Estadisticas Secciones y Estudiantes.xlsx";
 
@@ -1678,8 +1680,6 @@ namespace SistemaEstudiantes
             lblCreando.Visible = false;
             MessageBox.Show("Excel Generado", "Sistema Informa");
 
-
-
         }
         private void btnVolver_Click(object sender, EventArgs e)
         {
@@ -1687,12 +1687,11 @@ namespace SistemaEstudiantes
             myEstadisticas.Visible = true;
             this.Close();
         }
-
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
+        }     
 
-       
+     
     }        
 }

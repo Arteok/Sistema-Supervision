@@ -17,7 +17,11 @@ namespace SistemaEstudiantes
         string nombreUsuario;
         string tipoUsuario;
         bool opcionesPermisos;
-         
+
+        Colegios myColegios;
+
+
+
         public Estadisticas(string usuario, string permisos, bool permisosOpciones, OleDbConnection conexionBD)
         {
             InitializeComponent();
@@ -26,15 +30,20 @@ namespace SistemaEstudiantes
             opcionesPermisos = permisosOpciones;
             lblNombre.Text = usuario;
             conexionBaseDatos = conexionBD;
-           
+
+            myColegios = new Colegios();
+            myColegios.CargarColegiosUshuaia();
+            myColegios.CargarColegiosGrande();
+            //cantColegiosUshuaia = myColegios.NumColegiosUshuaia;
+            //cantColegiosGrande = myColegios.NumColegiosGrande;
         }       
         
         private void btnEstadistica1_Click_1(object sender, EventArgs e)
         {
             Estadisticas1 miEstadisticas1 = new Estadisticas1(nombreUsuario, tipoUsuario, opcionesPermisos, conexionBaseDatos);
-            this.Hide();
+            this.Hide();           
             miEstadisticas1.Show();
-
+            
         }
 
         private void btnEstadistica2_Click_1(object sender, EventArgs e)
