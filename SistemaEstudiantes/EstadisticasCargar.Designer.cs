@@ -152,11 +152,12 @@ namespace SistemaEstudiantes
             "Polivalente Cotorruelo",
             "CPET",
             "Malvinas"});
-            this.cboxColegiosGrande.Location = new System.Drawing.Point(1137, 192);
+            this.cboxColegiosGrande.Location = new System.Drawing.Point(1051, 195);
             this.cboxColegiosGrande.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboxColegiosGrande.Name = "cboxColegiosGrande";
             this.cboxColegiosGrande.Size = new System.Drawing.Size(160, 24);
             this.cboxColegiosGrande.TabIndex = 63;
+            this.cboxColegiosGrande.SelectedIndexChanged += new System.EventHandler(this.cboxColegiosGrande_SelectedIndexChanged);
             // 
             // dataGridView1
             // 
@@ -234,6 +235,7 @@ namespace SistemaEstudiantes
             this.cboxDepto.Name = "cboxDepto";
             this.cboxDepto.Size = new System.Drawing.Size(160, 24);
             this.cboxDepto.TabIndex = 55;
+            this.cboxDepto.SelectedIndexChanged += new System.EventHandler(this.cboxDepto_SelectedIndexChanged);
             // 
             // cboxPeriodo
             // 
@@ -247,6 +249,7 @@ namespace SistemaEstudiantes
             this.cboxPeriodo.Name = "cboxPeriodo";
             this.cboxPeriodo.Size = new System.Drawing.Size(160, 24);
             this.cboxPeriodo.TabIndex = 54;
+            this.cboxPeriodo.SelectedIndexChanged += new System.EventHandler(this.cboxPeriodo_SelectedIndexChanged);
             // 
             // cboxAño
             // 
@@ -268,6 +271,7 @@ namespace SistemaEstudiantes
             this.cboxAño.Name = "cboxAño";
             this.cboxAño.Size = new System.Drawing.Size(160, 24);
             this.cboxAño.TabIndex = 53;
+            this.cboxAño.SelectedIndexChanged += new System.EventHandler(this.cboxAño_SelectedIndexChanged);
             // 
             // cboxColegiosUshuaia
             // 
@@ -291,6 +295,7 @@ namespace SistemaEstudiantes
             this.cboxColegiosUshuaia.Name = "cboxColegiosUshuaia";
             this.cboxColegiosUshuaia.Size = new System.Drawing.Size(160, 24);
             this.cboxColegiosUshuaia.TabIndex = 56;
+            this.cboxColegiosUshuaia.SelectedIndexChanged += new System.EventHandler(this.cboxColegiosUshuaia_SelectedIndexChanged);
             // 
             // label3
             // 

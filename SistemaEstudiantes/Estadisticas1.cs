@@ -20,6 +20,9 @@ namespace SistemaEstudiantes
     {
         OleDbConnection conexionBaseDatos;//variable que recibe la direccion de la base de datos
         Colegios myColegios;
+        bool colegiosCreados = false;
+        int cantColegiosUshuaia;
+        int cantColegiosGrande;
 
         string nombreUsuario;
         string tipoUsuario;
@@ -31,9 +34,9 @@ namespace SistemaEstudiantes
         string tituloEstadistica = "";
         string idUnico;
         string abreColegio;
-        int cantColegiosUshuaia;
-        int cantColegiosGrande;
-        bool colegiosCreados = false;
+
+        string[,] ushuaiaColegios;//nombre,nombreAbreviado, posicion de los colegios de ushuaia ##tomo como cantidad maxima 25 colegios por depto
+        string[,] grandeColegios;//nombre,nombreAbreviado, posicion de los colegios de rio grande
 
         int[,] colegiosUshuaiaSyE = new int[20, 42];//array datos de secciones y estudiantes de ushuaia
         int[,] colegiosGrandeSyE = new int[20, 42];//array datos de secciones y estudiantes de grande
@@ -56,8 +59,7 @@ namespace SistemaEstudiantes
         int[,] totalJurisdicionalAños = new int[2, 7];//array de totales de secciones y estudiantes por año de TDF
         int[,] totalJurisdicional = new int[2, 3];//array de totales generales TDF       
 
-        string[,] ushuaiaColegios;//nombre,posicion,nombreAbreviado de los colegios de ushuaia ##tomo como cantidad maxima 25 colegios por depto
-        string[,] grandeColegios;//nombre,posicion,nombreAbreviado de los colegios de rio grande
+        
         public Estadisticas1(string usuario, string permisos, bool logueado, OleDbConnection conexionBD)
         {
             InitializeComponent();            
@@ -198,7 +200,7 @@ namespace SistemaEstudiantes
                     {
                         faltaCargar = true;
 
-                        colegiosFaltantes = colegiosFaltantes + " " + "-" + ushuaiaColegios[1, numColegio] + "-";
+                        colegiosFaltantes = colegiosFaltantes + " " + "-" + ushuaiaColegios[0, numColegio] + "-";
 
                         //MessageBox.Show("No se encontró ninguna planilla para los parámetros especificados.", "Sistema Informa");                        
                     }
@@ -275,7 +277,7 @@ namespace SistemaEstudiantes
                     {
                         faltaCargar = true;
 
-                        colegiosFaltantes = colegiosFaltantes + " " + "-" + ushuaiaColegios[0, numColegio] + "-";
+                        colegiosFaltantes = colegiosFaltantes + " " + "-" + grandeColegios[0, numColegio] + "-";
 
                         //MessageBox.Show("No se encontró ninguna planilla para los parámetros especificados.", "Sistema Informa");                        
                     }

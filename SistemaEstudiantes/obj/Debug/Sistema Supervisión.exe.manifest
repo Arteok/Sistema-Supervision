@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Sistema Supervisión.exe" size="2134952">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Sistema Supervisión.exe" size="2145704">
       <assemblyIdentity name="Sistema Supervisión" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>3ZuWPSrMpFAYxJ1VeV3XgqblUyE38TXf6NdzjfoeU+U=</dsig:DigestValue>
+        <dsig:DigestValue>WnujKVpiY+YEM44eosdYiDvf9DHMLaCiTdaC+pI/mrQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
