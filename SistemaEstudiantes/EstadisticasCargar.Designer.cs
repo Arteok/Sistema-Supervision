@@ -129,9 +129,9 @@ namespace SistemaEstudiantes
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(40, 22);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(386, 32);
+            this.label4.Size = new System.Drawing.Size(347, 32);
             this.label4.TabIndex = 11;
-            this.label4.Text = "Cargar Estadísticas Generales";
+            this.label4.Text = "Cargar Plantillas Generales";
             // 
             // cboxColegiosGrande
             // 

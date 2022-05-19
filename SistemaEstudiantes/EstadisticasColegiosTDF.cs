@@ -16,22 +16,22 @@ namespace SistemaEstudiantes
         OleDbCommand sqlComando;
         OleDbConnection conexionBaseDatos;
         string nombreUsuario;
-        string permisosUsuario;
+        string tipoUsuario;
         bool logueadoUsuario;
 
         int column; //columna            
         int row; //fila
         int idColegioEliminar;
 
-        string[,] ushuaiaColegios = new string[3, 25];//nombre,posicion,nombreAbreviado de los colegios de ushuaia ##tomo como cantidad maxima 25 colegios por depto
-        string[,] grandeColegios = new string[3, 25];//nombre,posicion,nombreAbreviado de los colegios de rio grande
-        int numColegiosUshuaia;
-        int numColegiosGrande;
+        //string[,] ushuaiaColegios = new string[3, 25];//nombre,posicion,nombreAbreviado de los colegios de ushuaia ##tomo como cantidad maxima 25 colegios por depto
+        //string[,] grandeColegios = new string[3, 25];//nombre,posicion,nombreAbreviado de los colegios de rio grande
+        //int numColegiosUshuaia;
+        //int numColegiosGrande;
         public EstadisticasColegiosTDF(string usuario, string permisos, bool logueado, OleDbConnection conexionBD)
         {
             InitializeComponent();
             nombreUsuario = usuario;
-            permisosUsuario = permisos;
+            tipoUsuario = permisos;
             logueadoUsuario = logueado;
             conexionBaseDatos = conexionBD;
             ordenar();
@@ -98,14 +98,12 @@ namespace SistemaEstudiantes
         {
             ordenar();
         }
-
         private void cboxDepto_TextChanged(object sender, EventArgs e)
         {
             cboxDepto.Enabled = false;
             cbxNOrden.Enabled = true;
             btnRefresh.Enabled = true;
         }
-
         private void cbxNOrden_TextChanged(object sender, EventArgs e)
         {
             cbxNOrden.Enabled = false;
@@ -257,8 +255,7 @@ namespace SistemaEstudiantes
                     conexionBaseDatos.Close();
                 }
             }
-        }
-      
+        }      
         private void btnEliminarColegiosUsh_Click(object sender, EventArgs e)
         {
             // eliminando = true;
@@ -343,14 +340,13 @@ namespace SistemaEstudiantes
         }
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            Form1 miForm1 = new Form1(nombreUsuario, permisosUsuario, true);
-            miForm1.Visible = true;
-            this.Close();
+            Estadisticas myEstadisticas = new Estadisticas(nombreUsuario, tipoUsuario, logueadoUsuario, conexionBaseDatos);
+            this.Hide();
+            myEstadisticas.Show();           
         }
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
-
         }       
     }      
 }

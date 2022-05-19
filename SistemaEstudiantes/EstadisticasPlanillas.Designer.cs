@@ -158,7 +158,7 @@ namespace SistemaEstudiantes
             this.btnPlantillaPoli.BackColor = System.Drawing.Color.DimGray;
             this.btnPlantillaPoli.Font = new System.Drawing.Font("Arial", 13F);
             this.btnPlantillaPoli.ForeColor = System.Drawing.Color.White;
-            this.btnPlantillaPoli.Location = new System.Drawing.Point(550, 377);
+            this.btnPlantillaPoli.Location = new System.Drawing.Point(550, 527);
             this.btnPlantillaPoli.Name = "btnPlantillaPoli";
             this.btnPlantillaPoli.Size = new System.Drawing.Size(415, 54);
             this.btnPlantillaPoli.TabIndex = 63;
@@ -175,7 +175,7 @@ namespace SistemaEstudiantes
             this.btnCargarPlanillas.Name = "btnCargarPlanillas";
             this.btnCargarPlanillas.Size = new System.Drawing.Size(415, 54);
             this.btnCargarPlanillas.TabIndex = 64;
-            this.btnCargarPlanillas.Text = "Cargar Plantillas";
+            this.btnCargarPlanillas.Text = "Cargar Plantillas Generales";
             this.btnCargarPlanillas.UseVisualStyleBackColor = false;
             this.btnCargarPlanillas.Click += new System.EventHandler(this.btnCargarPlanillas_Click);
             // 
@@ -184,11 +184,11 @@ namespace SistemaEstudiantes
             this.btnEliminar.BackColor = System.Drawing.Color.DimGray;
             this.btnEliminar.Font = new System.Drawing.Font("Arial", 13F);
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(550, 514);
+            this.btnEliminar.Location = new System.Drawing.Point(550, 383);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(415, 54);
             this.btnEliminar.TabIndex = 65;
-            this.btnEliminar.Text = "Eliminar Plantillas ";
+            this.btnEliminar.Text = "Eliminar Plantillas Generales";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 

@@ -26,8 +26,8 @@ namespace SistemaEstudiantes
         string tipoUsuario;
         bool logueadoUsuario;
 
-        bool plantillaIngresada;
         string abreColegio;
+        bool plantillaIngresada;        
         string numOrden;
         string colegio;    
         

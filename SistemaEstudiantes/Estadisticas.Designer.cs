@@ -140,7 +140,7 @@ namespace SistemaEstudiantes
             this.btmPlantillas.Name = "btmPlantillas";
             this.btmPlantillas.Size = new System.Drawing.Size(204, 54);
             this.btmPlantillas.TabIndex = 56;
-            this.btmPlantillas.Text = "Ingresar/Eliminar Plantillas";
+            this.btmPlantillas.Text = "Cargar/Eliminar Plantillas";
             this.btmPlantillas.UseVisualStyleBackColor = false;
             this.btmPlantillas.Click += new System.EventHandler(this.btmPlantillas_Click);
             // 

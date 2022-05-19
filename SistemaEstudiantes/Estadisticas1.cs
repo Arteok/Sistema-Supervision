@@ -562,6 +562,7 @@ namespace SistemaEstudiantes
                 }
                 lblProcesando.Visible = false;
                 MessageBox.Show("Estadistica generada.", "Sistema Informa");
+                btnCrearExcel.Enabled = true; 
             }
         }
         private void btnCrearExcel_Click(object sender, EventArgs e)
@@ -570,8 +571,8 @@ namespace SistemaEstudiantes
             Refresh();
             //creando Estadisticas
             SLDocument sl = new SLDocument();
-            //string pathFile = @"C:\Users\Pablo\Downloads\Prueba\Estadisticas Secciones y Estudiantes " + cboxAño.SelectedItem.ToString() + " " + cboxPeriodo.SelectedItem.ToString() + ".xlsx";
-            string pathFile = @"C:\Users\Arteok\Downloads\Prueba\Estadisticas Secciones y Estudiantes " + cboxAño.SelectedItem.ToString() + " " + cboxPeriodo.SelectedItem.ToString() + ".xlsx";
+            string pathFile = @"C:\Users\Pablo\Downloads\Prueba\Estadisticas Secciones y Estudiantes " + cboxAño.SelectedItem.ToString() + " " + cboxPeriodo.SelectedItem.ToString() + ".xlsx";
+            //string pathFile = @"C:\Users\Arteok\Downloads\Prueba\Estadisticas Secciones y Estudiantes " + cboxAño.SelectedItem.ToString() + " " + cboxPeriodo.SelectedItem.ToString() + ".xlsx";
 
             //string pathFile = @"C:\Users\Arteok\Downloads\Prueba\Estadisticas Secciones y Estudiantes.xlsx";
 
