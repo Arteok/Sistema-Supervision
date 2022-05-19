@@ -137,22 +137,7 @@ namespace SistemaEstudiantes
             // 
             this.cboxColegiosGrande.Font = new System.Drawing.Font("Arial", 10.25F);
             this.cboxColegiosGrande.FormattingEnabled = true;
-            this.cboxColegiosGrande.Items.AddRange(new object[] {
-            "Zink",
-            "Antártida Argentina",
-            "Soberanía",
-            "Maradona",
-            "Piedrabuena",
-            "Guevara Bachiller",
-            "Guevara Técnico",
-            "Alicia Moreau",
-            "Trejo Noel",
-            "Haspen",
-            "Favaloro",
-            "Polivalente Cotorruelo",
-            "CPET",
-            "Malvinas"});
-            this.cboxColegiosGrande.Location = new System.Drawing.Point(1051, 195);
+            this.cboxColegiosGrande.Location = new System.Drawing.Point(1137, 192);
             this.cboxColegiosGrande.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboxColegiosGrande.Name = "cboxColegiosGrande";
             this.cboxColegiosGrande.Size = new System.Drawing.Size(160, 24);
@@ -277,19 +262,6 @@ namespace SistemaEstudiantes
             // 
             this.cboxColegiosUshuaia.Font = new System.Drawing.Font("Arial", 10.25F);
             this.cboxColegiosUshuaia.FormattingEnabled = true;
-            this.cboxColegiosUshuaia.Items.AddRange(new object[] {
-            "Los Andes           ",
-            "Sobral Bachiller",
-            "Sobral Técnico",
-            "Kloketen",
-            "Eva Duarte de Perón",
-            "Sabato Bachiller",
-            "Sabato Ténico",
-            "Marti",
-            "Polivalente Bustelo",
-            "Martín Marte",
-            "B° Alakalufes",
-            "OBA"});
             this.cboxColegiosUshuaia.Location = new System.Drawing.Point(1137, 192);
             this.cboxColegiosUshuaia.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboxColegiosUshuaia.Name = "cboxColegiosUshuaia";

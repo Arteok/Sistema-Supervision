@@ -104,7 +104,7 @@ namespace SistemaEstudiantes
 
             btnRefresh.Enabled = false;
             btnCrearEstadistica.Enabled = false;
-            //btnCrearExcel.Enabled = false;
+            btnCrearExcel.Enabled = false;
 
             myDataGridView.DataSource = null;//reinicia datagv
             myDataGridView.Rows.Clear();
