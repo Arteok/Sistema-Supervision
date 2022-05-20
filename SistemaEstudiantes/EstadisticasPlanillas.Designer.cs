@@ -42,6 +42,7 @@ namespace SistemaEstudiantes
             this.btnPlantillaPoli = new System.Windows.Forms.Button();
             this.btnCargarPlanillas = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnEliminarPoli = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -158,7 +159,7 @@ namespace SistemaEstudiantes
             this.btnPlantillaPoli.BackColor = System.Drawing.Color.DimGray;
             this.btnPlantillaPoli.Font = new System.Drawing.Font("Arial", 13F);
             this.btnPlantillaPoli.ForeColor = System.Drawing.Color.White;
-            this.btnPlantillaPoli.Location = new System.Drawing.Point(550, 527);
+            this.btnPlantillaPoli.Location = new System.Drawing.Point(550, 466);
             this.btnPlantillaPoli.Name = "btnPlantillaPoli";
             this.btnPlantillaPoli.Size = new System.Drawing.Size(415, 54);
             this.btnPlantillaPoli.TabIndex = 63;
@@ -171,7 +172,7 @@ namespace SistemaEstudiantes
             this.btnCargarPlanillas.BackColor = System.Drawing.Color.DimGray;
             this.btnCargarPlanillas.Font = new System.Drawing.Font("Arial", 13F);
             this.btnCargarPlanillas.ForeColor = System.Drawing.Color.White;
-            this.btnCargarPlanillas.Location = new System.Drawing.Point(550, 242);
+            this.btnCargarPlanillas.Location = new System.Drawing.Point(550, 181);
             this.btnCargarPlanillas.Name = "btnCargarPlanillas";
             this.btnCargarPlanillas.Size = new System.Drawing.Size(415, 54);
             this.btnCargarPlanillas.TabIndex = 64;
@@ -184,7 +185,7 @@ namespace SistemaEstudiantes
             this.btnEliminar.BackColor = System.Drawing.Color.DimGray;
             this.btnEliminar.Font = new System.Drawing.Font("Arial", 13F);
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(550, 383);
+            this.btnEliminar.Location = new System.Drawing.Point(550, 322);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(415, 54);
             this.btnEliminar.TabIndex = 65;
@@ -192,10 +193,24 @@ namespace SistemaEstudiantes
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // btnEliminarPoli
+            // 
+            this.btnEliminarPoli.BackColor = System.Drawing.Color.DimGray;
+            this.btnEliminarPoli.Font = new System.Drawing.Font("Arial", 13F);
+            this.btnEliminarPoli.ForeColor = System.Drawing.Color.White;
+            this.btnEliminarPoli.Location = new System.Drawing.Point(550, 598);
+            this.btnEliminarPoli.Name = "btnEliminarPoli";
+            this.btnEliminarPoli.Size = new System.Drawing.Size(415, 54);
+            this.btnEliminarPoli.TabIndex = 66;
+            this.btnEliminarPoli.Text = "Eliminar Plantillas Polivalentes";
+            this.btnEliminarPoli.UseVisualStyleBackColor = false;
+            this.btnEliminarPoli.Click += new System.EventHandler(this.btnEliminarPoli_Click);
+            // 
             // EstadisticasPlanillas
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1346, 725);
+            this.Controls.Add(this.btnEliminarPoli);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnCargarPlanillas);
             this.Controls.Add(this.btnPlantillaPoli);
@@ -229,5 +244,6 @@ namespace SistemaEstudiantes
         private System.Windows.Forms.Button btnPlantillaPoli;
         private System.Windows.Forms.Button btnCargarPlanillas;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnEliminarPoli;
     }
 }

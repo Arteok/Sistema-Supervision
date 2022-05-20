@@ -25,10 +25,7 @@ namespace SistemaEstudiantes
         int cantColegiosGrande;
 
         string nombreUsuario;
-        string tipoUsuario;
-        bool opcionesPermisos;        
-        
-        string permisosUsuario;
+        string tipoUsuario;      
         bool logueadoUsuario;
 
         string tituloEstadistica = "";
@@ -66,12 +63,10 @@ namespace SistemaEstudiantes
             
             nombreUsuario = usuario;
             tipoUsuario = permisos;
-            opcionesPermisos = logueado;
-            lblNombre.Text = usuario;
+            logueadoUsuario = logueado;            
             conexionBaseDatos = conexionBD;
-            
-            permisosUsuario = permisos;
-            logueadoUsuario = logueado;
+            lblNombre.Text = usuario;
+
             idUnico = "";
             
             ordenar();
@@ -153,8 +148,8 @@ namespace SistemaEstudiantes
 
         private void btnCrearEstadistica_Click(object sender, EventArgs e)
         {
-            lblProcesando.Visible = true;            
-            Refresh();
+            lblProcesando.Visible = true;
+            lblProcesando.Refresh();           
 
             int contadorFilas = 0;
             int contadorLugarArray = 0;
@@ -203,8 +198,7 @@ namespace SistemaEstudiantes
                         colegiosFaltantes = colegiosFaltantes + " " + "-" + ushuaiaColegios[0, numColegio] + "-";
 
                         //MessageBox.Show("No se encontró ninguna planilla para los parámetros especificados.", "Sistema Informa");                        
-                    }
-                    Refresh();
+                    }                    
                 }
                 catch (Exception ex)
                 {
@@ -240,6 +234,8 @@ namespace SistemaEstudiantes
                     }
                     contadorLugarArray = contadorLugarArray + 6;//suma 6 lugares al cambiar de año
                 }
+                myDataGridView.DataSource = null;//reinicia datagv
+                myDataGridView.Rows.Clear();
             }
             //##crando estadistica de Rio Grande
             for (int numColegio = 0; numColegio <= (cantColegiosGrande - 1); numColegio++)
@@ -280,8 +276,8 @@ namespace SistemaEstudiantes
                         colegiosFaltantes = colegiosFaltantes + " " + "-" + grandeColegios[0, numColegio] + "-";
 
                         //MessageBox.Show("No se encontró ninguna planilla para los parámetros especificados.", "Sistema Informa");                        
-                    }
-                    Refresh();
+                    }                    
+
                 }
                 catch (Exception ex)
                 {
@@ -317,6 +313,8 @@ namespace SistemaEstudiantes
                     }
                     contadorLugarArray = contadorLugarArray + 6;//suma 6 lugares al cambiar de año
                 }
+                myDataGridView.DataSource = null;//reinicia datagv
+                myDataGridView.Rows.Clear();
             }
 
             //##si se cargaron todas las plantillas comienza a resolver los arrays
@@ -1686,15 +1684,13 @@ namespace SistemaEstudiantes
         }
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            Estadisticas myEstadisticas = new Estadisticas(nombreUsuario, tipoUsuario, true, conexionBaseDatos);
+            Estadisticas myEstadisticas = new Estadisticas(nombreUsuario, tipoUsuario, logueadoUsuario, conexionBaseDatos);
             myEstadisticas.Visible = true;
             this.Close();
         }
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }     
-
-     
+        }        
     }        
 }

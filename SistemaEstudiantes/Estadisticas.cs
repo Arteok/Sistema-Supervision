@@ -48,6 +48,9 @@ namespace SistemaEstudiantes
 
         private void btnEstadistica2_Click_1(object sender, EventArgs e)
         {
+            Estadisticas2 miEstadisticas2 = new Estadisticas2(nombreUsuario, tipoUsuario, opcionesPermisos, conexionBaseDatos);
+            this.Hide();
+            miEstadisticas2.Show();
 
         }
 

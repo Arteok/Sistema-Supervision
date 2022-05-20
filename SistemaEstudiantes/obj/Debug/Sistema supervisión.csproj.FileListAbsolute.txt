@@ -316,3 +316,5 @@ C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\Sistema 
 C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.application
 C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.exe
 C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.pdb
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.EstadisticasEliminarPoli.resources
+C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Estadisticas2.resources

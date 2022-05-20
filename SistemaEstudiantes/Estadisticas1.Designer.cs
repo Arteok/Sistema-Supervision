@@ -369,12 +369,13 @@ namespace SistemaEstudiantes
             this.Font = new System.Drawing.Font("Arial", 8.25F);
             this.Name = "Estadisticas1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Declaración de Secciones y Matriculas";
+            this.Text = "Sistema Supervisión";
             ((System.ComponentModel.ISupportInitialize)(this.myDataGridView)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

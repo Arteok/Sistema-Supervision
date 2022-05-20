@@ -2,65 +2,33 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace SistemaEstudiantes
 {
-    public partial class EstadisticasEliminar : Form
+    public partial class EstadisticasEliminarPoli : Form
     {
         OleDbConnection conexionBaseDatos;//variable que recibe la direccion de la base de datos
-        Colegios myColegios;
-        bool colegiosCreados = false;
-        int cantColegiosUshuaia;
-        int cantColegiosGrande;
-
         string nombreUsuario;
         string tipoUsuario;
         bool logueadoUsuario;
 
         string idUnico;
         string abreColegio;
-
-       
-
-        string[,] ushuaiaColegios;//nombre,nombreAbreviado, posicion de los colegios de ushuaia ##tomo como cantidad maxima la cantidad de colegios desde colegios tdf
-        string[,] grandeColegios;//nombre,nombreAbreviado, posicion de los colegios de rio grande
-
-        public EstadisticasEliminar(string usuario, string permisos, bool logueado, OleDbConnection conexionBD)
+        public EstadisticasEliminarPoli(string usuario, string permisos, bool logueado, OleDbConnection conexionBD)
         {
             InitializeComponent();
             nombreUsuario = usuario;
             tipoUsuario = permisos;
             logueadoUsuario = logueado;
             conexionBaseDatos = conexionBD;
-            
-            idUnico = "";      
 
-
-            if (colegiosCreados == false)
-            {
-                myColegios = new Colegios();
-                myColegios.CargarColegiosUshuaia();
-                myColegios.CargarColegiosGrande();
-                cantColegiosUshuaia = myColegios.NumColegiosUshuaia;
-                cantColegiosGrande = myColegios.NumColegiosGrande;
-
-                ushuaiaColegios = new string[3, cantColegiosUshuaia];//nombre,posicion,nombreAbreviado de los colegios de ushuaia ##tomo como cantidad maxima 25 colegios por depto
-                grandeColegios = new string[3, cantColegiosGrande];//nombre,posicion,nombreAbreviado de los colegios de rio grande
-
-                NombreColegios();
-                ComboBoxUshuaia();
-                ComboBoxGrande();
-
-                colegiosCreados = true;
-            }
-
-            ordenar();
+            idUnico = "";
         }
         private void ordenar()
         {
@@ -84,40 +52,10 @@ namespace SistemaEstudiantes
             myDataGridView.Rows.Clear();
             myDataGridView.Refresh();
         }
+
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             ordenar();
-        }
-        private void NombreColegios()
-        {
-            for (int i = 0; i <= 2; i++)
-            {
-                for (int j = 0; j <= cantColegiosUshuaia - 1; j++)
-                {
-                    ushuaiaColegios[i, j] = myColegios.UshuaiaColegios[i, j];
-                }
-            }
-            for (int i = 0; i <= 2; i++)
-            {
-                for (int j = 0; j <= cantColegiosGrande - 1; j++)
-                {
-                    grandeColegios[i, j] = myColegios.GrandeColegios[i, j];
-                }
-            }
-        }
-        private void ComboBoxUshuaia()//cargo los nombres en los comboBox desde colegios tdf
-        {
-            for (int i = 0; i <= cantColegiosUshuaia - 1; i++)
-            {
-                cboxColegiosUshuaia.Items.Add(ushuaiaColegios[0, i]);
-            }
-        }
-        private void ComboBoxGrande()//cargo los nombres en los comboBox desde colegios tdf
-        {
-            for (int i = 0; i <= cantColegiosGrande - 1; i++)
-            {
-                cboxColegiosGrande.Items.Add(grandeColegios[0, i]);
-            }
         }
         private void cboxAño_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -147,13 +85,12 @@ namespace SistemaEstudiantes
                 cboxColegiosGrande.Enabled = true;
                 cboxColegiosUshuaia.Visible = false;
             }
-        }
+        }    
 
         private void cboxColegiosUshuaia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //string año = cboxAño.SelectedItem.ToString();
             idUnico = cboxAño.SelectedItem.ToString();//Se calcula sumando 3 variables
-            abreColegio = ushuaiaColegios[1, cboxColegiosUshuaia.SelectedIndex];
+            abreColegio = "PBust";
             if (cboxPeriodo.SelectedItem.ToString() == "Marzo")
             {
                 idUnico = idUnico + "M";
@@ -171,10 +108,8 @@ namespace SistemaEstudiantes
             try
             {
                 DataTable miDataTable = new DataTable();
-
-                // string queryCargarBD = "SELECT Año, Periodo, Departamento, Colegio, Sección, División, Orientación, Horas, Pedagogica, Presupuestaria, Matriculas FROM Planilla WHERE Año LIKE  '%' + @Buscar + '%'";
-                //string queryCargarBD = "SELECT *FROM Planilla ";
-                string queryCargarBD = "SELECT Año, Periodo, Departamento, ColegioSelect, ColegioIngresado, Sección, División, Turno, Orientación, Horas, Pedagogica, Presupuestaria, Matriculas FROM Planilla WHERE IdUnico = @Buscar";
+                
+                string queryCargarBD = "SELECT Año, Periodo, Departamento, ColegioSelect, ColegioIngresado, Sección, División, Turno, Orientación, Horas, Pedagogica, Presupuestaria, Matriculas FROM PlanillasxOrientacion WHERE IdUnico = @Buscar";
                 OleDbCommand sqlComando = new OleDbCommand(queryCargarBD, conexionBaseDatos);
                 sqlComando.Parameters.AddWithValue("@idBuscar", idUnico);
 
@@ -204,7 +139,7 @@ namespace SistemaEstudiantes
         {
             //string año = cboxAño.SelectedItem.ToString();
             idUnico = cboxAño.SelectedItem.ToString();//Se calcula sumando 3 variables
-            abreColegio = grandeColegios[1, cboxColegiosGrande.SelectedIndex];
+            abreColegio = "PCot";
             if (cboxPeriodo.SelectedItem.ToString() == "Marzo")
             {
                 idUnico = idUnico + "M";
@@ -222,18 +157,14 @@ namespace SistemaEstudiantes
             try
             {
                 DataTable miDataTable = new DataTable();
-
-                // string queryCargarBD = "SELECT Año, Periodo, Departamento, Colegio, Sección, División, Orientación, Horas, Pedagogica, Presupuestaria, Matriculas FROM Planilla WHERE Año LIKE  '%' + @Buscar + '%'";
-                //string queryCargarBD = "SELECT *FROM Planilla ";
-                string queryCargarBD = "SELECT Año, Periodo, Departamento, ColegioSelect, ColegioIngresado, Sección, División, Turno, Orientación, Horas, Pedagogica, Presupuestaria, Matriculas FROM Planilla WHERE IdUnico = @Buscar";
+                
+                string queryCargarBD = "SELECT Año, Periodo, Departamento, ColegioSelect, ColegioIngresado, Sección, División, Turno, Orientación, Horas, Pedagogica, Presupuestaria, Matriculas FROM PlanillasxOrientacion WHERE IdUnico = @Buscar";
                 OleDbCommand sqlComando = new OleDbCommand(queryCargarBD, conexionBaseDatos);
                 sqlComando.Parameters.AddWithValue("@idBuscar", idUnico);
 
                 OleDbDataAdapter miDataAdapter = new OleDbDataAdapter(sqlComando);
                 miDataAdapter.Fill(miDataTable);
-                myDataGridView.DataSource = miDataTable;
-                myDataGridView.Sort(myDataGridView.Columns[5], ListSortDirection.Ascending);//ordena del dataGV por la columna seccion para que no de error
-                myDataGridView.Sort(myDataGridView.Columns[4], ListSortDirection.Ascending);
+                myDataGridView.DataSource = miDataTable;                
 
 
                 if ((Convert.ToString(myDataGridView.Rows[0].Cells[0].Value) == ""))//revisa si hay se ha encontrado algo... esta escrito de esta forma sino tiraba error critico
@@ -248,13 +179,17 @@ namespace SistemaEstudiantes
                 {
                     MessageBox.Show("Problema con la red.", "Sistema Informa");
                 }
+                else
+                {
+                    MessageBox.Show(Convert.ToString(ex));
+                }
             }
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             DataTable miDataTable = new DataTable();
 
-            string queryEliminar = "DELETE *FROM Planilla WHERE IdUnico = @idEliminar";
+            string queryEliminar = "DELETE *FROM PlanillasxOrientacion WHERE IdUnico = @idEliminar";
             OleDbCommand sqlComando = new OleDbCommand(queryEliminar, conexionBaseDatos);
             sqlComando.Parameters.AddWithValue("@idEliminar", idUnico);
 
@@ -296,9 +231,6 @@ namespace SistemaEstudiantes
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }       
+        }
     }
-
-   
-
 }

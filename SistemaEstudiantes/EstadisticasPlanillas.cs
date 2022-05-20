@@ -47,6 +47,12 @@ namespace SistemaEstudiantes
             myEstadisticasEliminar.Show();
 
         }
+        private void btnEliminarPoli_Click(object sender, EventArgs e)
+        {
+            EstadisticasEliminarPoli myEstadisticasEliminarPoli = new EstadisticasEliminarPoli(nombreUsuario, permisosUsuario, logueadoUsuario, conexionBaseDatos);
+            this.Visible = false;
+            myEstadisticasEliminarPoli.Show();
+        }
         private void btnVolver_Click(object sender, EventArgs e)
         {
             Estadisticas myEstadisticas = new Estadisticas(nombreUsuario, permisosUsuario, true, conexionBaseDatos);             
@@ -57,7 +63,7 @@ namespace SistemaEstudiantes
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }   
+        }
 
         
     }
