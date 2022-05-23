@@ -276,8 +276,7 @@ namespace SistemaEstudiantes
                         colegiosFaltantes = colegiosFaltantes + " " + "-" + grandeColegios[0, numColegio] + "-";
 
                         //MessageBox.Show("No se encontró ninguna planilla para los parámetros especificados.", "Sistema Informa");                        
-                    }                    
-
+                    }     
                 }
                 catch (Exception ex)
                 {
@@ -335,7 +334,6 @@ namespace SistemaEstudiantes
                 {
                     for (int j = 0; j <= 16; j = j + 2)//mientras j sea menor o igual al numero de secciones en el primer ciclo que es 18 - 2(16) y se suma de 2 en 2
                     {
-
                         uTotalesCicloBasico[i, 0] = uTotalesCicloBasico[i, 0] + colegiosUshuaiaSyE[i, j];//cantidad de las secciones
                         uTotalesCicloBasico[i, 1] = uTotalesCicloBasico[i, 1] + colegiosUshuaiaSyE[i, j + 1];//cantidad de las estudiantes
                         pruebaTotalSeccionesB = Convert.ToString(uTotalesCicloBasico[i, 0]);
@@ -358,7 +356,6 @@ namespace SistemaEstudiantes
                 {
                     for (int j = 18; j <= 40; j = j + 2)//mientras j sea menor o igual al numero de secciones en el primer ciclo que es 18 - 2(16) y se suma de 2 en 2
                     {
-
                         uTotalesCicloSuperior[i, 0] = uTotalesCicloSuperior[i, 0] + colegiosUshuaiaSyE[i, j];//cantidad de las secciones
                         uTotalesCicloSuperior[i, 1] = uTotalesCicloSuperior[i, 1] + colegiosUshuaiaSyE[i, j + 1];//cantidad de las estudiantes
                         pruebaTotalSeccionesS = Convert.ToString(uTotalesCicloSuperior[i, 0]);
@@ -377,7 +374,6 @@ namespace SistemaEstudiantes
 
                 for (int i = 0; i <= cantColegiosUshuaia - 1; i++)//mientras i sea menor o igual al numero de colegios ushuaia que es 12
                 {
-
                     uTotal2Ciclos[i, 0] = uTotalesCicloBasico[i, 0] + uTotalesCicloSuperior[i, 0];//suma todas las secciones de un colegio
                     uTotal2Ciclos[i, 1] = uTotalesCicloBasico[i, 1] + uTotalesCicloSuperior[i, 1];//suma todos los estudiantes de un colegio
 
@@ -395,7 +391,7 @@ namespace SistemaEstudiantes
                     {
                         uSubtotalTurnos[0, contadorColumnasTurnos] = uSubtotalTurnos[0, contadorColumnasTurnos] + colegiosUshuaiaSyE[i, j];//suma todas las secciones por turno de un colegio
                         uSubtotalTurnos[1, contadorColumnasTurnos] = uSubtotalTurnos[1, contadorColumnasTurnos] + colegiosUshuaiaSyE[i, j + 1];//suma todos los estudiantes por turno de un colegio
-                        contadorColumnasTurnos++;
+                                                                                                                                               //contadorColumnasTurnos++;
                     }
                 }
                 for (int i = 0; i <= 20; i++)//solo es para probar

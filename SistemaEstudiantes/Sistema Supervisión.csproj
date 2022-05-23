@@ -137,6 +137,12 @@
     <Compile Include="Estadisticas2.Designer.cs">
       <DependentUpon>Estadisticas2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Estadisticas3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estadisticas3.Designer.cs">
+      <DependentUpon>Estadisticas3.cs</DependentUpon>
+    </Compile>
     <Compile Include="EstadisticasCargar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Estadisticas2.resx">
       <DependentUpon>Estadisticas2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estadisticas3.resx">
+      <DependentUpon>Estadisticas3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EstadisticasCargar.resx">
       <DependentUpon>EstadisticasCargar.cs</DependentUpon>
