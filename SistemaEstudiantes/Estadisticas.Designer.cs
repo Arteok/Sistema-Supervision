@@ -136,7 +136,7 @@ namespace SistemaEstudiantes
             this.btmPlantillas.BackColor = System.Drawing.Color.DimGray;
             this.btmPlantillas.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btmPlantillas.ForeColor = System.Drawing.Color.White;
-            this.btmPlantillas.Location = new System.Drawing.Point(786, 595);
+            this.btmPlantillas.Location = new System.Drawing.Point(786, 593);
             this.btmPlantillas.Name = "btmPlantillas";
             this.btmPlantillas.Size = new System.Drawing.Size(204, 54);
             this.btmPlantillas.TabIndex = 56;
@@ -149,7 +149,7 @@ namespace SistemaEstudiantes
             this.btnCantColegios.BackColor = System.Drawing.Color.DimGray;
             this.btnCantColegios.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCantColegios.ForeColor = System.Drawing.Color.White;
-            this.btnCantColegios.Location = new System.Drawing.Point(575, 595);
+            this.btnCantColegios.Location = new System.Drawing.Point(575, 593);
             this.btnCantColegios.Name = "btnCantColegios";
             this.btnCantColegios.Size = new System.Drawing.Size(204, 54);
             this.btnCantColegios.TabIndex = 55;
@@ -160,21 +160,21 @@ namespace SistemaEstudiantes
             // btnMatriculaComp
             // 
             this.btnMatriculaComp.BackColor = System.Drawing.Color.DimGray;
-            this.btnMatriculaComp.Font = new System.Drawing.Font("Arial", 13F);
+            this.btnMatriculaComp.Font = new System.Drawing.Font("Arial", 14F);
             this.btnMatriculaComp.ForeColor = System.Drawing.Color.White;
-            this.btnMatriculaComp.Location = new System.Drawing.Point(575, 495);
+            this.btnMatriculaComp.Location = new System.Drawing.Point(575, 493);
             this.btnMatriculaComp.Name = "btnMatriculaComp";
             this.btnMatriculaComp.Size = new System.Drawing.Size(415, 54);
             this.btnMatriculaComp.TabIndex = 54;
-            this.btnMatriculaComp.Text = "Matricula comparada";
+            this.btnMatriculaComp.Text = "Matricula Comparada";
             this.btnMatriculaComp.UseVisualStyleBackColor = false;
             // 
             // btnEstadistica3
             // 
             this.btnEstadistica3.BackColor = System.Drawing.Color.DimGray;
-            this.btnEstadistica3.Font = new System.Drawing.Font("Arial", 13F);
+            this.btnEstadistica3.Font = new System.Drawing.Font("Arial", 14F);
             this.btnEstadistica3.ForeColor = System.Drawing.Color.White;
-            this.btnEstadistica3.Location = new System.Drawing.Point(575, 394);
+            this.btnEstadistica3.Location = new System.Drawing.Point(575, 393);
             this.btnEstadistica3.Name = "btnEstadistica3";
             this.btnEstadistica3.Size = new System.Drawing.Size(415, 54);
             this.btnEstadistica3.TabIndex = 53;
@@ -185,20 +185,20 @@ namespace SistemaEstudiantes
             // btnEstadistica2
             // 
             this.btnEstadistica2.BackColor = System.Drawing.Color.DimGray;
-            this.btnEstadistica2.Font = new System.Drawing.Font("Arial", 13F);
+            this.btnEstadistica2.Font = new System.Drawing.Font("Arial", 14F);
             this.btnEstadistica2.ForeColor = System.Drawing.Color.White;
-            this.btnEstadistica2.Location = new System.Drawing.Point(575, 292);
+            this.btnEstadistica2.Location = new System.Drawing.Point(575, 293);
             this.btnEstadistica2.Name = "btnEstadistica2";
             this.btnEstadistica2.Size = new System.Drawing.Size(415, 54);
             this.btnEstadistica2.TabIndex = 52;
-            this.btnEstadistica2.Text = "Matriculas por orientación y/o especialidad";
+            this.btnEstadistica2.Text = "Matriculas por Orientación y/o Especialidad";
             this.btnEstadistica2.UseVisualStyleBackColor = false;
             this.btnEstadistica2.Click += new System.EventHandler(this.btnEstadistica2_Click_1);
             // 
             // btnEstadistica1
             // 
             this.btnEstadistica1.BackColor = System.Drawing.Color.DimGray;
-            this.btnEstadistica1.Font = new System.Drawing.Font("Arial", 13F);
+            this.btnEstadistica1.Font = new System.Drawing.Font("Arial", 14F);
             this.btnEstadistica1.ForeColor = System.Drawing.Color.White;
             this.btnEstadistica1.Location = new System.Drawing.Point(575, 193);
             this.btnEstadistica1.Name = "btnEstadistica1";

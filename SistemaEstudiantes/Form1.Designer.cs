@@ -50,11 +50,11 @@ namespace SistemaEstudiantes
             // btnNormativa
             // 
             this.btnNormativa.BackColor = System.Drawing.Color.DimGray;
-            this.btnNormativa.Font = new System.Drawing.Font("Arial", 13F);
+            this.btnNormativa.Font = new System.Drawing.Font("Arial", 14F);
             this.btnNormativa.ForeColor = System.Drawing.Color.White;
             this.btnNormativa.Location = new System.Drawing.Point(575, 243);
             this.btnNormativa.Name = "btnNormativa";
-            this.btnNormativa.Size = new System.Drawing.Size(415, 50);
+            this.btnNormativa.Size = new System.Drawing.Size(415, 54);
             this.btnNormativa.TabIndex = 5;
             this.btnNormativa.Text = "Normativa";
             this.btnNormativa.UseVisualStyleBackColor = false;
@@ -156,11 +156,11 @@ namespace SistemaEstudiantes
             // btnPlantas
             // 
             this.btnPlantas.BackColor = System.Drawing.Color.DimGray;
-            this.btnPlantas.Font = new System.Drawing.Font("Arial", 13F);
+            this.btnPlantas.Font = new System.Drawing.Font("Arial", 14F);
             this.btnPlantas.ForeColor = System.Drawing.Color.White;
-            this.btnPlantas.Location = new System.Drawing.Point(575, 337);
+            this.btnPlantas.Location = new System.Drawing.Point(575, 343);
             this.btnPlantas.Name = "btnPlantas";
-            this.btnPlantas.Size = new System.Drawing.Size(415, 50);
+            this.btnPlantas.Size = new System.Drawing.Size(415, 54);
             this.btnPlantas.TabIndex = 8;
             this.btnPlantas.Text = "Plantas Organicas Funcionales";
             this.btnPlantas.UseVisualStyleBackColor = false;
@@ -171,11 +171,11 @@ namespace SistemaEstudiantes
             // btnEstadisticas
             // 
             this.btnEstadisticas.BackColor = System.Drawing.Color.DimGray;
-            this.btnEstadisticas.Font = new System.Drawing.Font("Arial", 13F);
+            this.btnEstadisticas.Font = new System.Drawing.Font("Arial", 14F);
             this.btnEstadisticas.ForeColor = System.Drawing.Color.White;
-            this.btnEstadisticas.Location = new System.Drawing.Point(575, 431);
+            this.btnEstadisticas.Location = new System.Drawing.Point(575, 443);
             this.btnEstadisticas.Name = "btnEstadisticas";
-            this.btnEstadisticas.Size = new System.Drawing.Size(415, 50);
+            this.btnEstadisticas.Size = new System.Drawing.Size(415, 54);
             this.btnEstadisticas.TabIndex = 9;
             this.btnEstadisticas.Text = "Estadisticas";
             this.btnEstadisticas.UseVisualStyleBackColor = false;
@@ -186,11 +186,11 @@ namespace SistemaEstudiantes
             // btnOpciones
             // 
             this.btnOpciones.BackColor = System.Drawing.Color.DimGray;
-            this.btnOpciones.Font = new System.Drawing.Font("Arial", 13F);
+            this.btnOpciones.Font = new System.Drawing.Font("Arial", 14F);
             this.btnOpciones.ForeColor = System.Drawing.Color.White;
-            this.btnOpciones.Location = new System.Drawing.Point(575, 525);
+            this.btnOpciones.Location = new System.Drawing.Point(575, 543);
             this.btnOpciones.Name = "btnOpciones";
-            this.btnOpciones.Size = new System.Drawing.Size(415, 50);
+            this.btnOpciones.Size = new System.Drawing.Size(415, 54);
             this.btnOpciones.TabIndex = 10;
             this.btnOpciones.Text = "Opciones";
             this.btnOpciones.UseVisualStyleBackColor = false;

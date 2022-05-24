@@ -328,12 +328,12 @@ namespace SistemaEstudiantes
             this.btnVerPdf.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerPdf.ForeColor = System.Drawing.Color.White;
             this.btnVerPdf.Image = global::SistemaEstudiantes.Properties.Resources.PDF;
-            this.btnVerPdf.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnVerPdf.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVerPdf.Location = new System.Drawing.Point(780, 27);
             this.btnVerPdf.Name = "btnVerPdf";
-            this.btnVerPdf.Size = new System.Drawing.Size(90, 40);
+            this.btnVerPdf.Size = new System.Drawing.Size(105, 40);
             this.btnVerPdf.TabIndex = 31;
-            this.btnVerPdf.Text = "   Ver ";
+            this.btnVerPdf.Text = "       Ver PDF";
             this.btnVerPdf.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVerPdf.UseVisualStyleBackColor = false;
             this.btnVerPdf.Click += new System.EventHandler(this.btnVerPdf_Click);
@@ -361,7 +361,7 @@ namespace SistemaEstudiantes
             // 
             this.btnBaseDatos.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnBaseDatos.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnBaseDatos.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.btnBaseDatos.Font = new System.Drawing.Font("Arial", 11.25F);
             this.btnBaseDatos.ForeColor = System.Drawing.Color.White;
             this.btnBaseDatos.Image = global::SistemaEstudiantes.Properties.Resources.DataBase;
             this.btnBaseDatos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -379,15 +379,15 @@ namespace SistemaEstudiantes
             // 
             this.btnEditar.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnEditar.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnEditar.Font = new System.Drawing.Font("Arial", 11.25F);
+            this.btnEditar.Font = new System.Drawing.Font("Arial", 12.25F);
             this.btnEditar.ForeColor = System.Drawing.Color.White;
             this.btnEditar.Image = global::SistemaEstudiantes.Properties.Resources.edit;
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditar.Location = new System.Drawing.Point(60, 27);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(90, 40);
+            this.btnEditar.Size = new System.Drawing.Size(100, 40);
             this.btnEditar.TabIndex = 46;
-            this.btnEditar.Text = "      Editar";
+            this.btnEditar.Text = "    Editar";
             this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             this.btnEditar.MouseLeave += new System.EventHandler(this.btnEditar_MouseLeave);
@@ -499,7 +499,7 @@ namespace SistemaEstudiantes
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Silver;
+            this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.btnBuscar);
             this.panel1.Controls.Add(this.btnVerPdf);
@@ -513,7 +513,7 @@ namespace SistemaEstudiantes
             // 
             // panel8
             // 
-            this.panel8.BackColor = System.Drawing.Color.Silver;
+            this.panel8.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel8.Controls.Add(this.btnEditar);
             this.panel8.Controls.Add(this.btnBaseDatos);
             this.panel8.Location = new System.Drawing.Point(967, 96);

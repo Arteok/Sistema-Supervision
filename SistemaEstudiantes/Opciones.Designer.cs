@@ -84,11 +84,11 @@ namespace SistemaEstudiantes
             // btnEditUsuarios
             // 
             this.btnEditUsuarios.BackColor = System.Drawing.Color.DimGray;
-            this.btnEditUsuarios.Font = new System.Drawing.Font("Arial", 13F);
+            this.btnEditUsuarios.Font = new System.Drawing.Font("Arial", 14F);
             this.btnEditUsuarios.ForeColor = System.Drawing.Color.White;
-            this.btnEditUsuarios.Location = new System.Drawing.Point(587, 242);
+            this.btnEditUsuarios.Location = new System.Drawing.Point(587, 235);
             this.btnEditUsuarios.Name = "btnEditUsuarios";
-            this.btnEditUsuarios.Size = new System.Drawing.Size(415, 50);
+            this.btnEditUsuarios.Size = new System.Drawing.Size(415, 54);
             this.btnEditUsuarios.TabIndex = 17;
             this.btnEditUsuarios.Text = "Crear - editar usuarios";
             this.btnEditUsuarios.UseVisualStyleBackColor = false;
@@ -99,11 +99,11 @@ namespace SistemaEstudiantes
             // btnRutas
             // 
             this.btnRutas.BackColor = System.Drawing.Color.DimGray;
-            this.btnRutas.Font = new System.Drawing.Font("Arial", 13F);
+            this.btnRutas.Font = new System.Drawing.Font("Arial", 14F);
             this.btnRutas.ForeColor = System.Drawing.Color.White;
-            this.btnRutas.Location = new System.Drawing.Point(587, 336);
+            this.btnRutas.Location = new System.Drawing.Point(587, 335);
             this.btnRutas.Name = "btnRutas";
-            this.btnRutas.Size = new System.Drawing.Size(415, 50);
+            this.btnRutas.Size = new System.Drawing.Size(415, 54);
             this.btnRutas.TabIndex = 18;
             this.btnRutas.Text = "Rutas de acceso";
             this.btnRutas.UseVisualStyleBackColor = false;
@@ -114,11 +114,11 @@ namespace SistemaEstudiantes
             // btnResoPantalla
             // 
             this.btnResoPantalla.BackColor = System.Drawing.Color.DimGray;
-            this.btnResoPantalla.Font = new System.Drawing.Font("Arial", 13F);
+            this.btnResoPantalla.Font = new System.Drawing.Font("Arial", 14F);
             this.btnResoPantalla.ForeColor = System.Drawing.Color.White;
-            this.btnResoPantalla.Location = new System.Drawing.Point(587, 527);
+            this.btnResoPantalla.Location = new System.Drawing.Point(587, 535);
             this.btnResoPantalla.Name = "btnResoPantalla";
-            this.btnResoPantalla.Size = new System.Drawing.Size(415, 50);
+            this.btnResoPantalla.Size = new System.Drawing.Size(415, 54);
             this.btnResoPantalla.TabIndex = 20;
             this.btnResoPantalla.Text = "Resolución de pantalla";
             this.btnResoPantalla.UseVisualStyleBackColor = false;
@@ -129,11 +129,11 @@ namespace SistemaEstudiantes
             // btnDepurarPDF
             // 
             this.btnDepurarPDF.BackColor = System.Drawing.Color.DimGray;
-            this.btnDepurarPDF.Font = new System.Drawing.Font("Arial", 13F);
+            this.btnDepurarPDF.Font = new System.Drawing.Font("Arial", 14F);
             this.btnDepurarPDF.ForeColor = System.Drawing.Color.White;
-            this.btnDepurarPDF.Location = new System.Drawing.Point(587, 432);
+            this.btnDepurarPDF.Location = new System.Drawing.Point(587, 435);
             this.btnDepurarPDF.Name = "btnDepurarPDF";
-            this.btnDepurarPDF.Size = new System.Drawing.Size(415, 50);
+            this.btnDepurarPDF.Size = new System.Drawing.Size(415, 54);
             this.btnDepurarPDF.TabIndex = 19;
             this.btnDepurarPDF.Text = "Depurar Base de Datos de PDF";
             this.btnDepurarPDF.UseVisualStyleBackColor = false;

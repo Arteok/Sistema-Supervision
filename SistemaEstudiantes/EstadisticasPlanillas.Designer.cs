@@ -157,9 +157,9 @@ namespace SistemaEstudiantes
             // btnPlantillaPoli
             // 
             this.btnPlantillaPoli.BackColor = System.Drawing.Color.DimGray;
-            this.btnPlantillaPoli.Font = new System.Drawing.Font("Arial", 13F);
+            this.btnPlantillaPoli.Font = new System.Drawing.Font("Arial", 14F);
             this.btnPlantillaPoli.ForeColor = System.Drawing.Color.White;
-            this.btnPlantillaPoli.Location = new System.Drawing.Point(550, 466);
+            this.btnPlantillaPoli.Location = new System.Drawing.Point(550, 438);
             this.btnPlantillaPoli.Name = "btnPlantillaPoli";
             this.btnPlantillaPoli.Size = new System.Drawing.Size(415, 54);
             this.btnPlantillaPoli.TabIndex = 63;
@@ -170,9 +170,9 @@ namespace SistemaEstudiantes
             // btnCargarPlanillas
             // 
             this.btnCargarPlanillas.BackColor = System.Drawing.Color.DimGray;
-            this.btnCargarPlanillas.Font = new System.Drawing.Font("Arial", 13F);
+            this.btnCargarPlanillas.Font = new System.Drawing.Font("Arial", 14F);
             this.btnCargarPlanillas.ForeColor = System.Drawing.Color.White;
-            this.btnCargarPlanillas.Location = new System.Drawing.Point(550, 181);
+            this.btnCargarPlanillas.Location = new System.Drawing.Point(550, 198);
             this.btnCargarPlanillas.Name = "btnCargarPlanillas";
             this.btnCargarPlanillas.Size = new System.Drawing.Size(415, 54);
             this.btnCargarPlanillas.TabIndex = 64;
@@ -183,9 +183,9 @@ namespace SistemaEstudiantes
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.Color.DimGray;
-            this.btnEliminar.Font = new System.Drawing.Font("Arial", 13F);
+            this.btnEliminar.Font = new System.Drawing.Font("Arial", 14F);
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(550, 322);
+            this.btnEliminar.Location = new System.Drawing.Point(550, 318);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(415, 54);
             this.btnEliminar.TabIndex = 65;
@@ -196,9 +196,9 @@ namespace SistemaEstudiantes
             // btnEliminarPoli
             // 
             this.btnEliminarPoli.BackColor = System.Drawing.Color.DimGray;
-            this.btnEliminarPoli.Font = new System.Drawing.Font("Arial", 13F);
+            this.btnEliminarPoli.Font = new System.Drawing.Font("Arial", 14F);
             this.btnEliminarPoli.ForeColor = System.Drawing.Color.White;
-            this.btnEliminarPoli.Location = new System.Drawing.Point(550, 598);
+            this.btnEliminarPoli.Location = new System.Drawing.Point(550, 558);
             this.btnEliminarPoli.Name = "btnEliminarPoli";
             this.btnEliminarPoli.Size = new System.Drawing.Size(415, 54);
             this.btnEliminarPoli.TabIndex = 66;
