@@ -56,7 +56,9 @@ namespace SistemaEstudiantes
 
         private void btnEstadistica3_Click(object sender, EventArgs e)
         {
-
+            Estadisticas3 miEstadisticas3 = new Estadisticas3(nombreUsuario, tipoUsuario, opcionesPermisos, conexionBaseDatos);
+            this.Hide();
+            miEstadisticas3.Show();
         }
 
         private void btnCantColegios_Click(object sender, EventArgs e)

@@ -178,7 +178,7 @@ namespace SistemaEstudiantes
             this.btnEstadistica3.Name = "btnEstadistica3";
             this.btnEstadistica3.Size = new System.Drawing.Size(415, 54);
             this.btnEstadistica3.TabIndex = 53;
-            this.btnEstadistica3.Text = "Cantidad horas EDI y POT";
+            this.btnEstadistica3.Text = "Cantidad Horas EDI y POT";
             this.btnEstadistica3.UseVisualStyleBackColor = false;
             this.btnEstadistica3.Click += new System.EventHandler(this.btnEstadistica3_Click);
             // 
