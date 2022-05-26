@@ -29,12 +29,14 @@ namespace SistemaEstudiantes
         string abreColegio;
         bool plantillaIngresada;        
         string numOrden;
-        string colegio;    
+        string colegio;
+        
         
         string año;
         string periodo;
         string depto;
         string colegioIngre;
+        string fecha;
         string idUnico;
         string idNum;
 
@@ -74,8 +76,9 @@ namespace SistemaEstudiantes
             plantillaIngresada = false;
 
             abreColegio = "";
-            colegio = "";
+            colegio = "";            
             numOrden = "";
+            fecha = "";
 
             cboxAño.SelectedIndex = -1;
             cboxPeriodo.SelectedIndex = -1;
@@ -245,6 +248,7 @@ namespace SistemaEstudiantes
                     );
                 }
                 tbxColegioSel.Text = sl.GetCellValueAsString(5, 5);
+                fecha = sl.GetCellValueAsString(7, 9);
             }
             myDataGridView.DataSource = myDataTableColegios;//llena el dataGV con data table
                                                             //revisar si ya esta ingresada la plantilla
@@ -258,7 +262,7 @@ namespace SistemaEstudiantes
             }
             else
             {
-                idUnico = idUnico + "O";
+                idUnico = idUnico + "S";
             }
             idUnico = idUnico + abreColegio;//termina aca sumando la ultima parte            
 
@@ -322,7 +326,7 @@ namespace SistemaEstudiantes
             }
             else
             {
-                idUnico = idUnico + "O";
+                idUnico = idUnico + "S";
             }
             idUnico = idUnico + abreColegio;//termina aca sumando la ultima parte            
             MessageBox.Show(abreColegio + " " + numOrden + " " + idUnico);
@@ -330,8 +334,10 @@ namespace SistemaEstudiantes
             for (int i = 0; Convert.ToInt32(myDataGridView.Rows[i].Cells[0].Value) > 0; i++)   //revisa en la primer columna que en la celda el valor sea mayor a 0              
             {
                 idNum = idUnico + Convert.ToString(i + 1);
+                //string queryAgregar = "INSERT INTO Planilla VALUES (@Año, @Periodo, @Depto, @ColegioSelect, @Sección, @División, " +
+                //"@Turno, @Orientación, @Horas, @Pedagógica, @Presupuestaria, @Matriculas, @ColegioIngre, @IdUnico, @IdNum, @NumOrdenColegio)";
                 string queryAgregar = "INSERT INTO Planilla VALUES (@Año, @Periodo, @Depto, @ColegioSelect, @Sección, @División, " +
-                "@Turno, @Orientación, @Horas, @Pedagógica, @Presupuestaria, @Matriculas, @ColegioIngre, @IdUnico, @IdNum, @NumOrdenColegio)";
+                "@Turno, @Orientación, @Horas, @Pedagógica, @Presupuestaria, @Matriculas, @ColegioIngre, @IdUnico,@Fecha, @NumOrdenColegio)";
                 sqlComando = new OleDbCommand(queryAgregar, conexionBaseDatos);
 
                 sqlComando.Parameters.AddWithValue("@Año", año);
@@ -350,7 +356,7 @@ namespace SistemaEstudiantes
                 sqlComando.Parameters.AddWithValue("@ColegioIngre", colegioIngre);
 
                 sqlComando.Parameters.AddWithValue("@IdUnico", idUnico);
-                sqlComando.Parameters.AddWithValue("@IdNum", idNum);
+                sqlComando.Parameters.AddWithValue("@Fecha", fecha);
                 sqlComando.Parameters.AddWithValue("@NumOrdenColegio", numOrden);
 
                 try

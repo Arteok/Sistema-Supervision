@@ -31,6 +31,9 @@ namespace SistemaEstudiantes
         string tituloEstadistica = "";
         string idUnico;
         string abreColegio;
+        string numOrden;
+        string colegio;
+        string deptoColegio;
 
         string[,] ushuaiaColegios;//nombre,nombreAbreviado, posicion de los colegios de ushuaia ##tomo como cantidad maxima 25 colegios por depto
         string[,] grandeColegios;//nombre,nombreAbreviado, posicion de los colegios de rio grande
@@ -83,31 +86,58 @@ namespace SistemaEstudiantes
                 grandeColegios = new string[3, cantColegiosGrande];//nombre,posicion,nombreAbreviado de los colegios de rio grande
 
                 NombreColegios();
+                ComboBoxUshuaia();
+                ComboBoxGrande();
                 colegiosCreados = true;
             }
         }
 
         private void ordenar()
-        {
-            cboxAño.SelectedIndex = -1;//reinicia el texto seleccionado pero puede traer problema
+        {           
+            //Ver Planillas
+            cboxAñoPla.ResetText();
+            cboxPeriodoPla.ResetText();
+            cboxDepto.ResetText();
+            cboxColegiosUshuaia.ResetText();
+            cboxColegiosGrande.ResetText();
+            
+            cboxAñoPla.Enabled = true;
+            cboxPeriodoPla.Enabled = false;
+            cboxDepto.Enabled = false;
+            cboxColegiosUshuaia.Visible = true;
+            cboxColegiosGrande.Visible = true;
+            cboxColegiosUshuaia.Enabled = false;
+            cboxColegiosGrande.Enabled = false;
+
+            
+            btnVerPlanilla.BackColor = System.Drawing.Color.Silver;
+            btnVerPlanilla.Enabled = false;
+            //Ver estadistica
+
+
+
+
+            //crear estadistica
+            //cboxAño.SelectedIndex = -1;//reinicia el texto seleccionado pero puede traer problema
+            cboxAño.ResetText();
             cboxPeriodo.ResetText();//Reinicia el texto seleccionado
-
-            cboxPeriodo.SelectedIndex = -1;
-
             cboxAño.Enabled = true;
             cboxPeriodo.Enabled = false;
 
-            btnRefresh.Enabled = false;
+            lblProcesando.Visible = false;
+            lblCreando.Visible = false;            
+
+
             btnCrearEstadistica.Enabled = false;
             btnCrearExcel.Enabled = false;
+
 
             myDataGridView.DataSource = null;//reinicia datagv
             myDataGridView.Rows.Clear();
             myDataGridView.Refresh();
             Array.Clear(colegiosUshuaiaSyE, 12, 48);//reinicia el valor en ese lugar especifico... tengo que encontrar la forma de reiniciar todo.
 
-            lblProcesando.Visible = false;
-            lblCreando.Visible = false;
+            
         }
         private void NombreColegios()
         {             
@@ -129,15 +159,237 @@ namespace SistemaEstudiantes
                 }
             }           
         }
+        private void ComboBoxUshuaia()//cargo los nombres en los comboBox desde colegios tdf
+        {
+            for (int i = 0; i <= cantColegiosUshuaia - 1; i++)
+            {
+                cboxColegiosUshuaia.Items.Add(ushuaiaColegios[0, i]);
+            }
+        }
+        private void ComboBoxGrande()//cargo los nombres en los comboBox desde colegios tdf
+        {
+            for (int i = 0; i <= cantColegiosGrande - 1; i++)
+            {
+                cboxColegiosGrande.Items.Add(grandeColegios[0, i]);
+            }
+        }
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             ordenar();
+        }
+        private void colorBotones()
+        {
+            cboxAñoPla.ResetText();
+            cboxPeriodoPla.ResetText();
+            cboxDepto.ResetText();
+            cboxColegiosUshuaia.ResetText();
+            cboxColegiosGrande.ResetText();
+
+            cboxAñoPla.Enabled = true;
+            cboxPeriodoPla.Enabled = false;
+            cboxDepto.Enabled = false;
+            cboxColegiosUshuaia.Visible = true;
+            cboxColegiosGrande.Visible = true;
+            cboxColegiosUshuaia.Enabled = false;
+            cboxColegiosGrande.Enabled = false;
+
+
+            btnVerPlanilla.BackColor = System.Drawing.Color.Silver;
+            btnVerPlanilla.Enabled = false;
+            //Ver estadistica
+
+
+
+
+            //crear estadistica
+            //cboxAño.SelectedIndex = -1;//reinicia el texto seleccionado pero puede traer problema
+            cboxAño.ResetText();
+            cboxPeriodo.ResetText();//Reinicia el texto seleccionado
+            cboxAño.Enabled = true;
+            cboxPeriodo.Enabled = false;
+
+            lblProcesando.Visible = false;
+            lblCreando.Visible = false;
+
+
+            btnCrearEstadistica.Enabled = false;
+            btnCrearExcel.Enabled = false;
+
+            Refresh();
+
+
+
+        }
+        private void cBoxAñoPla_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cboxAñoPla.Enabled = false;
+            cboxPeriodoPla.Enabled = true;           
+        }
+
+        private void cBoxPeriodoPla_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cboxPeriodoPla.Enabled = false;
+            cboxDepto.Enabled = true;
+        }
+
+        private void cBoxDepto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cboxDepto.Enabled = false;
+
+            if (cboxDepto.SelectedIndex == 0)
+            {
+                cboxColegiosUshuaia.Enabled = true;
+                cboxColegiosGrande.Visible = false;
+            }
+            else if (cboxDepto.SelectedIndex == 1)
+            {
+                cboxColegiosGrande.Enabled = true;
+                cboxColegiosUshuaia.Visible = false;
+            }            
+        }
+
+        private void cboxColegioUshuaia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            abreColegio = ushuaiaColegios[1, cboxColegiosUshuaia.SelectedIndex];
+            numOrden = ushuaiaColegios[2, cboxColegiosUshuaia.SelectedIndex];
+            colegio = cboxColegiosUshuaia.SelectedItem.ToString();
+
+            deptoColegio = "Ushuaia";
+            cboxColegiosUshuaia.Enabled = false;
+            btnVerPlanilla.Enabled = true;
+            btnVerPlanilla.BackColor = System.Drawing.Color.DodgerBlue;
+        }
+
+        private void cboxColegioGrande_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            abreColegio = grandeColegios[1, cboxColegiosGrande.SelectedIndex];
+            numOrden = grandeColegios[2, cboxColegiosGrande.SelectedIndex];
+            colegio = cboxColegiosGrande.SelectedItem.ToString();
+
+            deptoColegio = "Grande";
+            cboxColegiosGrande.Enabled = false;
+            btnVerPlanilla.Enabled = true;
+            btnVerPlanilla.BackColor = System.Drawing.Color.DodgerBlue;
+
+        }
+        private void btnVerPlanilla_Click(object sender, EventArgs e)
+        {
+            string idUnicoVPla;
+            string abreColegioVPla;
+
+            if (deptoColegio == "Ushuaia")
+            {
+                idUnicoVPla = cboxAñoPla.SelectedItem.ToString();//Se calcula sumando 3 variables
+                abreColegioVPla = ushuaiaColegios[1, cboxColegiosUshuaia.SelectedIndex];
+                if (cboxPeriodoPla.SelectedItem.ToString() == "Marzo")
+                {
+                    idUnicoVPla = idUnicoVPla + "M";
+                }
+                else
+                {
+                    idUnicoVPla = idUnicoVPla + "S";
+                }
+                idUnicoVPla = idUnicoVPla + abreColegioVPla;//termina aca sumando la ultima parte  
+
+                cboxColegiosUshuaia.Enabled = false;  
+                
+                try
+                {
+                    
+                    DataTable miDataTable = new DataTable();
+
+                    string queryCargarBD = "SELECT Sección, División, Turno, Orientación, Horas, Pedagogica, Presupuestaria, Matriculas, ColegioIngresado, Fecha FROM Planilla WHERE IdUnico = @Buscar";
+                    OleDbCommand sqlComando = new OleDbCommand(queryCargarBD, conexionBaseDatos);
+                    sqlComando.Parameters.AddWithValue("@idBuscar", idUnicoVPla);
+
+                    OleDbDataAdapter miDataAdapter = new OleDbDataAdapter(sqlComando);
+                    miDataAdapter.Fill(miDataTable);
+                    myDataGridView.DataSource = miDataTable;
+                    myDataGridView.Sort(myDataGridView.Columns[1], ListSortDirection.Ascending);//ordena del dataGV por la columna seccion para que no de error
+                    myDataGridView.Sort(myDataGridView.Columns[0], ListSortDirection.Ascending);
+
+
+                    if ((Convert.ToString(myDataGridView.Rows[0].Cells[0].Value) == ""))//revisa si hay se ha encontrado algo... esta escrito de esta forma sino tiraba error critico
+                    {
+                        MessageBox.Show("No se encontró ninguna planilla para los parámetros especificados.", "Sistema Informa");
+                        ordenar();
+                    }
+                    
+                }
+                catch (Exception ex)
+                {
+                    if (ex.Message.Contains("no es una ruta de acceso válida"))
+                    {
+                        MessageBox.Show("Problema con la red.", "Sistema Informa");
+                    }
+                }
+                
+               // btnVerPlanilla.BackColor = System.Drawing.Color.Red;
+                //btnVerPlanilla.Refresh();
+                colorBotones();
+                //btnVerPlanilla.Enabled = false;
+
+                //btnVerPlanilla.Refresh();
+               
+
+
+            }
+            else if (deptoColegio == "Grande")
+            {
+                idUnicoVPla = cboxAñoPla.SelectedItem.ToString();//Se calcula sumando 3 variables
+                abreColegioVPla = grandeColegios[1, cboxColegiosGrande.SelectedIndex];
+                if (cboxPeriodoPla.SelectedItem.ToString() == "Marzo")
+                {
+                    idUnicoVPla = idUnicoVPla + "M";
+                }
+                else
+                {
+                    idUnicoVPla = idUnicoVPla + "S";
+                }
+                idUnicoVPla = idUnicoVPla + abreColegioVPla;//termina aca sumando la ultima parte  
+
+                cboxColegiosGrande.Enabled = false;
+
+                btnVerPlanilla.Enabled = false;                
+
+                try
+                {
+                    DataTable miDataTable = new DataTable();
+
+                    string queryCargarBD = "SELECT Sección, División, Turno, Orientación, Horas, Pedagogica, Presupuestaria, Matriculas, ColegioIngresado FROM Planilla WHERE IdUnico = @Buscar";
+                    OleDbCommand sqlComando = new OleDbCommand(queryCargarBD, conexionBaseDatos);
+                    sqlComando.Parameters.AddWithValue("@idBuscar", idUnicoVPla);
+
+                    OleDbDataAdapter miDataAdapter = new OleDbDataAdapter(sqlComando);
+                    miDataAdapter.Fill(miDataTable);
+                    myDataGridView.DataSource = miDataTable;
+                    myDataGridView.Sort(myDataGridView.Columns[1], ListSortDirection.Ascending);//ordena del dataGV por la columna seccion para que no de error
+                    myDataGridView.Sort(myDataGridView.Columns[0], ListSortDirection.Ascending);
+
+
+                    if ((Convert.ToString(myDataGridView.Rows[0].Cells[0].Value) == ""))//revisa si hay se ha encontrado algo... esta escrito de esta forma sino tiraba error critico
+                    {
+                        MessageBox.Show("No se encontró ninguna planilla para los parámetros especificados.", "Sistema Informa");
+                        ordenar();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    if (ex.Message.Contains("no es una ruta de acceso válida"))
+                    {
+                        MessageBox.Show("Problema con la red.", "Sistema Informa");
+                    }
+                }
+                MessageBox.Show("ya termine");
+                btnVerPlanilla.BackColor = System.Drawing.Color.Silver;
+            }           
+
         }
         private void cboxAño_SelectedIndexChanged(object sender, EventArgs e)
         {
             cboxAño.Enabled = false;
             cboxPeriodo.Enabled = true;
-            btnRefresh.Enabled = true;
+            
         }
 
         private void cboxPeriodo_SelectedIndexChanged(object sender, EventArgs e)
@@ -1688,6 +1940,14 @@ namespace SistemaEstudiantes
             Application.Exit();
         }
 
-       
+        private void btnVerPlanilla_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnVerPlanilla.BackColor = System.Drawing.Color.DimGray;
+        }
+
+        private void btnVerPlanilla_MouseLeave(object sender, EventArgs e)
+        {
+            btnVerPlanilla.BackColor = System.Drawing.Color.DodgerBlue;
+        }
     }        
 }

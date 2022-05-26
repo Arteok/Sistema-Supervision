@@ -37,12 +37,12 @@ namespace SistemaEstudiantes
             this.btnVolver = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnVerPlanilla = new System.Windows.Forms.Button();
             this.cBoxPeriodoEst = new System.Windows.Forms.ComboBox();
-            this.cBoxColegio = new System.Windows.Forms.ComboBox();
-            this.cBoxDepto = new System.Windows.Forms.ComboBox();
-            this.cBoxPeriodoPla = new System.Windows.Forms.ComboBox();
-            this.cBoxAñoPla = new System.Windows.Forms.ComboBox();
+            this.cboxColegiosUshuaia = new System.Windows.Forms.ComboBox();
+            this.cboxDepto = new System.Windows.Forms.ComboBox();
+            this.cboxPeriodoPla = new System.Windows.Forms.ComboBox();
+            this.cboxAñoPla = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.cBoxAñoEst = new System.Windows.Forms.ComboBox();
             this.lblCreando = new System.Windows.Forms.Label();
@@ -58,6 +58,7 @@ namespace SistemaEstudiantes
             this.panel5 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.cboxColegiosGrande = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -65,10 +66,10 @@ namespace SistemaEstudiantes
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.myDataGridView)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -100,7 +101,7 @@ namespace SistemaEstudiantes
             this.btnSalir.Location = new System.Drawing.Point(1230, 25);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(90, 43);
-            this.btnSalir.TabIndex = 13;
+            this.btnSalir.TabIndex = 198;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -137,7 +138,7 @@ namespace SistemaEstudiantes
             this.btnVolver.Location = new System.Drawing.Point(1110, 25);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(90, 43);
-            this.btnVolver.TabIndex = 12;
+            this.btnVolver.TabIndex = 197;
             this.btnVolver.Text = "    Atrás";
             this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
@@ -164,17 +165,20 @@ namespace SistemaEstudiantes
             this.label4.TabIndex = 11;
             this.label4.Text = "Declaración de Secciones y Matriculas";
             // 
-            // button4
+            // btnVerPlanilla
             // 
-            this.button4.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button4.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(168, 163);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(120, 40);
-            this.button4.TabIndex = 69;
-            this.button4.Text = "Ver Planilla";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnVerPlanilla.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnVerPlanilla.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.btnVerPlanilla.ForeColor = System.Drawing.Color.White;
+            this.btnVerPlanilla.Location = new System.Drawing.Point(168, 163);
+            this.btnVerPlanilla.Name = "btnVerPlanilla";
+            this.btnVerPlanilla.Size = new System.Drawing.Size(120, 40);
+            this.btnVerPlanilla.TabIndex = 65;
+            this.btnVerPlanilla.Text = "Ver Planilla";
+            this.btnVerPlanilla.UseVisualStyleBackColor = false;
+            this.btnVerPlanilla.Click += new System.EventHandler(this.btnVerPlanilla_Click);
+            this.btnVerPlanilla.MouseLeave += new System.EventHandler(this.btnVerPlanilla_MouseLeave);
+            this.btnVerPlanilla.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnVerPlanilla_MouseMove);
             // 
             // cBoxPeriodoEst
             // 
@@ -183,46 +187,49 @@ namespace SistemaEstudiantes
             this.cBoxPeriodoEst.Location = new System.Drawing.Point(262, 73);
             this.cBoxPeriodoEst.Name = "cBoxPeriodoEst";
             this.cBoxPeriodoEst.Size = new System.Drawing.Size(125, 24);
-            this.cBoxPeriodoEst.TabIndex = 68;
+            this.cBoxPeriodoEst.TabIndex = 67;
             // 
-            // cBoxColegio
+            // cboxColegiosUshuaia
             // 
-            this.cBoxColegio.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.cBoxColegio.FormattingEnabled = true;
-            this.cBoxColegio.Location = new System.Drawing.Point(319, 124);
-            this.cBoxColegio.Name = "cBoxColegio";
-            this.cBoxColegio.Size = new System.Drawing.Size(125, 24);
-            this.cBoxColegio.TabIndex = 66;
+            this.cboxColegiosUshuaia.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.cboxColegiosUshuaia.FormattingEnabled = true;
+            this.cboxColegiosUshuaia.Location = new System.Drawing.Point(319, 124);
+            this.cboxColegiosUshuaia.Name = "cboxColegiosUshuaia";
+            this.cboxColegiosUshuaia.Size = new System.Drawing.Size(125, 24);
+            this.cboxColegiosUshuaia.TabIndex = 63;
+            this.cboxColegiosUshuaia.SelectedIndexChanged += new System.EventHandler(this.cboxColegioUshuaia_SelectedIndexChanged);
             // 
-            // cBoxDepto
+            // cboxDepto
             // 
-            this.cBoxDepto.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.cBoxDepto.FormattingEnabled = true;
-            this.cBoxDepto.Items.AddRange(new object[] {
+            this.cboxDepto.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.cboxDepto.FormattingEnabled = true;
+            this.cboxDepto.Items.AddRange(new object[] {
             "Ushuaia",
             "Rio Grande"});
-            this.cBoxDepto.Location = new System.Drawing.Point(75, 124);
-            this.cBoxDepto.Name = "cBoxDepto";
-            this.cBoxDepto.Size = new System.Drawing.Size(125, 24);
-            this.cBoxDepto.TabIndex = 65;
+            this.cboxDepto.Location = new System.Drawing.Point(75, 124);
+            this.cboxDepto.Name = "cboxDepto";
+            this.cboxDepto.Size = new System.Drawing.Size(125, 24);
+            this.cboxDepto.TabIndex = 62;
+            this.cboxDepto.SelectedIndexChanged += new System.EventHandler(this.cBoxDepto_SelectedIndexChanged);
             // 
-            // cBoxPeriodoPla
+            // cboxPeriodoPla
             // 
-            this.cBoxPeriodoPla.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.cBoxPeriodoPla.FormattingEnabled = true;
-            this.cBoxPeriodoPla.Items.AddRange(new object[] {
+            this.cboxPeriodoPla.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.cboxPeriodoPla.FormattingEnabled = true;
+            this.cboxPeriodoPla.Items.AddRange(new object[] {
             "Marzo",
             "Septiembre"});
-            this.cBoxPeriodoPla.Location = new System.Drawing.Point(319, 72);
-            this.cBoxPeriodoPla.Name = "cBoxPeriodoPla";
-            this.cBoxPeriodoPla.Size = new System.Drawing.Size(125, 24);
-            this.cBoxPeriodoPla.TabIndex = 63;
+            this.cboxPeriodoPla.Location = new System.Drawing.Point(319, 72);
+            this.cboxPeriodoPla.Name = "cboxPeriodoPla";
+            this.cboxPeriodoPla.Size = new System.Drawing.Size(125, 24);
+            this.cboxPeriodoPla.TabIndex = 61;
+            this.cboxPeriodoPla.SelectedIndexChanged += new System.EventHandler(this.cBoxPeriodoPla_SelectedIndexChanged);
             // 
-            // cBoxAñoPla
+            // cboxAñoPla
             // 
-            this.cBoxAñoPla.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.cBoxAñoPla.FormattingEnabled = true;
-            this.cBoxAñoPla.Items.AddRange(new object[] {
+            this.cboxAñoPla.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.cboxAñoPla.FormattingEnabled = true;
+            this.cboxAñoPla.Items.AddRange(new object[] {
             "2021",
             "2022",
             "2023",
@@ -233,10 +240,11 @@ namespace SistemaEstudiantes
             "2028",
             "2029",
             "2030"});
-            this.cBoxAñoPla.Location = new System.Drawing.Point(75, 72);
-            this.cBoxAñoPla.Name = "cBoxAñoPla";
-            this.cBoxAñoPla.Size = new System.Drawing.Size(125, 24);
-            this.cBoxAñoPla.TabIndex = 62;
+            this.cboxAñoPla.Location = new System.Drawing.Point(75, 72);
+            this.cboxAñoPla.Name = "cboxAñoPla";
+            this.cboxAñoPla.Size = new System.Drawing.Size(125, 24);
+            this.cboxAñoPla.TabIndex = 60;
+            this.cboxAñoPla.SelectedIndexChanged += new System.EventHandler(this.cBoxAñoPla_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -246,7 +254,7 @@ namespace SistemaEstudiantes
             this.button1.Location = new System.Drawing.Point(136, 123);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(130, 40);
-            this.button1.TabIndex = 61;
+            this.button1.TabIndex = 68;
             this.button1.Text = "Ver Estadística";
             this.button1.UseVisualStyleBackColor = false;
             // 
@@ -268,7 +276,7 @@ namespace SistemaEstudiantes
             this.cBoxAñoEst.Location = new System.Drawing.Point(52, 73);
             this.cBoxAñoEst.Name = "cBoxAñoEst";
             this.cBoxAñoEst.Size = new System.Drawing.Size(125, 24);
-            this.cBoxAñoEst.TabIndex = 60;
+            this.cBoxAñoEst.TabIndex = 66;
             // 
             // lblCreando
             // 
@@ -383,7 +391,7 @@ namespace SistemaEstudiantes
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(150, 40);
-            this.btnRefresh.TabIndex = 89;
+            this.btnRefresh.TabIndex = 199;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
@@ -427,20 +435,31 @@ namespace SistemaEstudiantes
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel3.Controls.Add(this.cboxColegiosGrande);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.cBoxAñoPla);
-            this.panel3.Controls.Add(this.cBoxPeriodoPla);
-            this.panel3.Controls.Add(this.button4);
-            this.panel3.Controls.Add(this.cBoxDepto);
-            this.panel3.Controls.Add(this.cBoxColegio);
+            this.panel3.Controls.Add(this.cboxAñoPla);
+            this.panel3.Controls.Add(this.cboxPeriodoPla);
+            this.panel3.Controls.Add(this.btnVerPlanilla);
+            this.panel3.Controls.Add(this.cboxDepto);
+            this.panel3.Controls.Add(this.cboxColegiosUshuaia);
             this.panel3.Location = new System.Drawing.Point(12, 110);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(465, 210);
             this.panel3.TabIndex = 91;
+            // 
+            // cboxColegiosGrande
+            // 
+            this.cboxColegiosGrande.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.cboxColegiosGrande.FormattingEnabled = true;
+            this.cboxColegiosGrande.Location = new System.Drawing.Point(319, 124);
+            this.cboxColegiosGrande.Name = "cboxColegiosGrande";
+            this.cboxColegiosGrande.Size = new System.Drawing.Size(125, 24);
+            this.cboxColegiosGrande.TabIndex = 64;
+            this.cboxColegiosGrande.SelectedIndexChanged += new System.EventHandler(this.cboxColegioGrande_SelectedIndexChanged);
             // 
             // panel4
             // 
@@ -515,6 +534,28 @@ namespace SistemaEstudiantes
             this.panel6.Size = new System.Drawing.Size(399, 170);
             this.panel6.TabIndex = 92;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.label13.Location = new System.Drawing.Point(195, 76);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(61, 16);
+            this.label13.TabIndex = 92;
+            this.label13.Text = "Periodo:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.label12.Location = new System.Drawing.Point(8, 76);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(37, 16);
+            this.label12.TabIndex = 91;
+            this.label12.Text = "Año:";
+            // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.SystemColors.Control;
@@ -533,28 +574,6 @@ namespace SistemaEstudiantes
             this.label11.Size = new System.Drawing.Size(251, 19);
             this.label11.TabIndex = 75;
             this.label11.Text = "Estadística Secciones-Matriculas";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.label12.Location = new System.Drawing.Point(8, 76);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(37, 16);
-            this.label12.TabIndex = 91;
-            this.label12.Text = "Año:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.label13.Location = new System.Drawing.Point(195, 76);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(61, 16);
-            this.label13.TabIndex = 92;
-            this.label13.Text = "Periodo:";
             // 
             // Estadisticas1
             // 
@@ -597,12 +616,12 @@ namespace SistemaEstudiantes
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnVerPlanilla;
         private System.Windows.Forms.ComboBox cBoxPeriodoEst;
-        private System.Windows.Forms.ComboBox cBoxColegio;
-        private System.Windows.Forms.ComboBox cBoxDepto;
-        private System.Windows.Forms.ComboBox cBoxPeriodoPla;
-        private System.Windows.Forms.ComboBox cBoxAñoPla;
+        private System.Windows.Forms.ComboBox cboxColegiosUshuaia;
+        private System.Windows.Forms.ComboBox cboxDepto;
+        private System.Windows.Forms.ComboBox cboxPeriodoPla;
+        private System.Windows.Forms.ComboBox cboxAñoPla;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox cBoxAñoEst;
         private System.Windows.Forms.Label lblCreando;
@@ -629,5 +648,6 @@ namespace SistemaEstudiantes
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox cboxColegiosGrande;
     }
 }
