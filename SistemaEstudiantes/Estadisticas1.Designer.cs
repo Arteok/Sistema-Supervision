@@ -34,7 +34,6 @@ namespace SistemaEstudiantes
             this.btnSalir = new System.Windows.Forms.Button();
             this.myDataGridView = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnVolver = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnVerPlanilla = new System.Windows.Forms.Button();
@@ -53,7 +52,6 @@ namespace SistemaEstudiantes
             this.label2 = new System.Windows.Forms.Label();
             this.cboxPeriodo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnRefresh = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
@@ -70,6 +68,8 @@ namespace SistemaEstudiantes
             this.label12 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
+            this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnVolver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.myDataGridView)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -128,21 +128,6 @@ namespace SistemaEstudiantes
             this.panel2.Size = new System.Drawing.Size(1351, 97);
             this.panel2.TabIndex = 50;
             // 
-            // btnVolver
-            // 
-            this.btnVolver.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnVolver.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.btnVolver.ForeColor = System.Drawing.Color.White;
-            this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
-            this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVolver.Location = new System.Drawing.Point(1110, 25);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(90, 43);
-            this.btnVolver.TabIndex = 197;
-            this.btnVolver.Text = "    Atrás";
-            this.btnVolver.UseVisualStyleBackColor = false;
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -170,7 +155,7 @@ namespace SistemaEstudiantes
             this.btnVerPlanilla.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnVerPlanilla.Font = new System.Drawing.Font("Arial", 10.25F);
             this.btnVerPlanilla.ForeColor = System.Drawing.Color.White;
-            this.btnVerPlanilla.Location = new System.Drawing.Point(168, 163);
+            this.btnVerPlanilla.Location = new System.Drawing.Point(168, 161);
             this.btnVerPlanilla.Name = "btnVerPlanilla";
             this.btnVerPlanilla.Size = new System.Drawing.Size(120, 40);
             this.btnVerPlanilla.TabIndex = 65;
@@ -251,7 +236,7 @@ namespace SistemaEstudiantes
             this.button1.BackColor = System.Drawing.Color.DodgerBlue;
             this.button1.Font = new System.Drawing.Font("Arial", 10.25F);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(136, 123);
+            this.button1.Location = new System.Drawing.Point(129, 121);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(130, 40);
             this.button1.TabIndex = 68;
@@ -281,7 +266,7 @@ namespace SistemaEstudiantes
             // lblCreando
             // 
             this.lblCreando.AutoSize = true;
-            this.lblCreando.Location = new System.Drawing.Point(323, 179);
+            this.lblCreando.Location = new System.Drawing.Point(295, 180);
             this.lblCreando.Name = "lblCreando";
             this.lblCreando.Size = new System.Drawing.Size(57, 14);
             this.lblCreando.TabIndex = 88;
@@ -290,7 +275,7 @@ namespace SistemaEstudiantes
             // lblProcesando
             // 
             this.lblProcesando.AutoSize = true;
-            this.lblProcesando.Location = new System.Drawing.Point(78, 179);
+            this.lblProcesando.Location = new System.Drawing.Point(80, 180);
             this.lblProcesando.Name = "lblProcesando";
             this.lblProcesando.Size = new System.Drawing.Size(74, 14);
             this.lblProcesando.TabIndex = 87;
@@ -301,7 +286,7 @@ namespace SistemaEstudiantes
             this.btnCrearExcel.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnCrearExcel.Font = new System.Drawing.Font("Arial", 10.25F);
             this.btnCrearExcel.ForeColor = System.Drawing.Color.White;
-            this.btnCrearExcel.Location = new System.Drawing.Point(259, 125);
+            this.btnCrearExcel.Location = new System.Drawing.Point(236, 131);
             this.btnCrearExcel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnCrearExcel.Name = "btnCrearExcel";
             this.btnCrearExcel.Size = new System.Drawing.Size(180, 40);
@@ -315,7 +300,7 @@ namespace SistemaEstudiantes
             this.btnCrearEstadistica.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnCrearEstadistica.Font = new System.Drawing.Font("Arial", 10.25F);
             this.btnCrearEstadistica.ForeColor = System.Drawing.Color.White;
-            this.btnCrearEstadistica.Location = new System.Drawing.Point(28, 127);
+            this.btnCrearEstadistica.Location = new System.Drawing.Point(28, 131);
             this.btnCrearEstadistica.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnCrearEstadistica.Name = "btnCrearEstadistica";
             this.btnCrearEstadistica.Size = new System.Drawing.Size(180, 40);
@@ -382,20 +367,6 @@ namespace SistemaEstudiantes
             this.label1.TabIndex = 82;
             this.label1.Text = "Periodo:";
             // 
-            // btnRefresh
-            // 
-            this.btnRefresh.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnRefresh.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(612, 104);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(150, 40);
-            this.btnRefresh.TabIndex = 199;
-            this.btnRefresh.Text = "Refresh";
-            this.btnRefresh.UseVisualStyleBackColor = false;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -426,7 +397,7 @@ namespace SistemaEstudiantes
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.label10.Location = new System.Drawing.Point(2, 2);
+            this.label10.Location = new System.Drawing.Point(0, 2);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(195, 19);
             this.label10.TabIndex = 75;
@@ -560,7 +531,7 @@ namespace SistemaEstudiantes
             // 
             this.panel7.BackColor = System.Drawing.SystemColors.Control;
             this.panel7.Controls.Add(this.label11);
-            this.panel7.Location = new System.Drawing.Point(67, 19);
+            this.panel7.Location = new System.Drawing.Point(62, 19);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(280, 23);
             this.panel7.TabIndex = 90;
@@ -574,6 +545,38 @@ namespace SistemaEstudiantes
             this.label11.Size = new System.Drawing.Size(251, 19);
             this.label11.TabIndex = 75;
             this.label11.Text = "Estadística Secciones-Matriculas";
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnRefresh.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRefresh.Location = new System.Drawing.Point(612, 104);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(130, 40);
+            this.btnRefresh.TabIndex = 199;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            this.btnRefresh.MouseLeave += new System.EventHandler(this.btnRefresh_MouseLeave);
+            this.btnRefresh.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnRefresh_MouseMove);
+            // 
+            // btnVolver
+            // 
+            this.btnVolver.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnVolver.Font = new System.Drawing.Font("Arial", 12.25F);
+            this.btnVolver.ForeColor = System.Drawing.Color.White;
+            this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
+            this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVolver.Location = new System.Drawing.Point(1110, 25);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(90, 43);
+            this.btnVolver.TabIndex = 197;
+            this.btnVolver.Text = "    Atrás";
+            this.btnVolver.UseVisualStyleBackColor = false;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // Estadisticas1
             // 

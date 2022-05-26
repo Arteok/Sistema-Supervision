@@ -83,6 +83,16 @@ namespace SistemaEstudiantes.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Button_Refresh_icon {
+            get {
+                object obj = ResourceManager.GetObject("Button-Refresh-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DataBase {
             get {
                 object obj = ResourceManager.GetObject("DataBase", resourceCulture);
@@ -146,6 +156,26 @@ namespace SistemaEstudiantes.Properties {
         internal static System.Drawing.Bitmap PDF {
             get {
                 object obj = ResourceManager.GetObject("PDF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap refresh_icon_24x24 {
+            get {
+                object obj = ResourceManager.GetObject("refresh-icon-24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reload_01 {
+            get {
+                object obj = ResourceManager.GetObject("reload_01", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

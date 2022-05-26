@@ -301,25 +301,7 @@
     <None Include="Resources\edit.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Save1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\new file %282%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\R %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Modificar %281%29.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\newFile %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Save.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\AceptarM .jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AcepModif.png" />
@@ -328,13 +310,7 @@
     <None Include="Resources\Volver.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Volver %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Buscar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Escudo Negro01.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Escudo Negro.png" />

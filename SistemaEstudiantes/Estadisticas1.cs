@@ -18,6 +18,7 @@ namespace SistemaEstudiantes
 {
     public partial class Estadisticas1 : Form
     {
+        int color;
         OleDbConnection conexionBaseDatos;//variable que recibe la direccion de la base de datos
         Colegios myColegios;
         bool colegiosCreados = false;
@@ -179,43 +180,17 @@ namespace SistemaEstudiantes
         }
         private void colorBotones()
         {
-            cboxAñoPla.ResetText();
-            cboxPeriodoPla.ResetText();
-            cboxDepto.ResetText();
-            cboxColegiosUshuaia.ResetText();
-            cboxColegiosGrande.ResetText();
-
-            cboxAñoPla.Enabled = true;
-            cboxPeriodoPla.Enabled = false;
-            cboxDepto.Enabled = false;
-            cboxColegiosUshuaia.Visible = true;
-            cboxColegiosGrande.Visible = true;
-            cboxColegiosUshuaia.Enabled = false;
-            cboxColegiosGrande.Enabled = false;
-
-
+            
             btnVerPlanilla.BackColor = System.Drawing.Color.Silver;
+            btnVerPlanilla.Refresh();
             btnVerPlanilla.Enabled = false;
             //Ver estadistica
+            btnVerPlanilla.Refresh();
 
 
 
 
-            //crear estadistica
-            //cboxAño.SelectedIndex = -1;//reinicia el texto seleccionado pero puede traer problema
-            cboxAño.ResetText();
-            cboxPeriodo.ResetText();//Reinicia el texto seleccionado
-            cboxAño.Enabled = true;
-            cboxPeriodo.Enabled = false;
-
-            lblProcesando.Visible = false;
-            lblCreando.Visible = false;
-
-
-            btnCrearEstadistica.Enabled = false;
-            btnCrearExcel.Enabled = false;
-
-            Refresh();
+           
 
 
 
@@ -258,6 +233,7 @@ namespace SistemaEstudiantes
             cboxColegiosUshuaia.Enabled = false;
             btnVerPlanilla.Enabled = true;
             btnVerPlanilla.BackColor = System.Drawing.Color.DodgerBlue;
+            color = 0;
         }
 
         private void cboxColegioGrande_SelectedIndexChanged(object sender, EventArgs e)
@@ -270,13 +246,16 @@ namespace SistemaEstudiantes
             cboxColegiosGrande.Enabled = false;
             btnVerPlanilla.Enabled = true;
             btnVerPlanilla.BackColor = System.Drawing.Color.DodgerBlue;
-
+            color = 0;
         }
         private void btnVerPlanilla_Click(object sender, EventArgs e)
         {
+            color = 1;
             string idUnicoVPla;
             string abreColegioVPla;
-
+            btnVerPlanilla.BackColor = System.Drawing.Color.Silver;
+            btnVerPlanilla.Enabled = false;
+            
             if (deptoColegio == "Ushuaia")
             {
                 idUnicoVPla = cboxAñoPla.SelectedItem.ToString();//Se calcula sumando 3 variables
@@ -326,7 +305,7 @@ namespace SistemaEstudiantes
                 
                // btnVerPlanilla.BackColor = System.Drawing.Color.Red;
                 //btnVerPlanilla.Refresh();
-                colorBotones();
+                //colorBotones();
                 //btnVerPlanilla.Enabled = false;
 
                 //btnVerPlanilla.Refresh();
@@ -1944,10 +1923,27 @@ namespace SistemaEstudiantes
         {
             btnVerPlanilla.BackColor = System.Drawing.Color.DimGray;
         }
-
+        
         private void btnVerPlanilla_MouseLeave(object sender, EventArgs e)
         {
-            btnVerPlanilla.BackColor = System.Drawing.Color.DodgerBlue;
+            if (color == 1)//unica forma de que funcione
+            {
+                btnVerPlanilla.BackColor = System.Drawing.Color.Silver;
+            }
+            else if (color == 0)
+            {
+                btnVerPlanilla.BackColor = System.Drawing.Color.DodgerBlue;
+            }            
+        }
+
+        private void btnRefresh_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnRefresh.BackColor = System.Drawing.Color.DimGray;
+        }
+
+        private void btnRefresh_MouseLeave(object sender, EventArgs e)
+        {
+            btnRefresh.BackColor = System.Drawing.Color.DodgerBlue;
         }
     }        
 }

@@ -16,7 +16,8 @@ using System.Diagnostics;
 namespace SistemaEstudiantes
 {
     public partial class Normativa : Form
-    {
+    {     
+
         OleDbConnection conexionBaseDatos;//variable que recibe la direccion de la base de datos
         string nombreUsuario;
         string tipoUsuario;
