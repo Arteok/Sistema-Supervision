@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -10,8 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DocumentFormat.OpenXml.Spreadsheet;
 using SpreadsheetLight;
-
-
+using System.IO;
 
 
 namespace SistemaEstudiantes
@@ -26,7 +26,7 @@ namespace SistemaEstudiantes
         int cantColegiosGrande;
 
         string nombreUsuario;
-        string tipoUsuario;      
+        string permisosUsuario;      
         bool logueadoUsuario;
 
         string tituloEstadistica = "";
@@ -66,13 +66,13 @@ namespace SistemaEstudiantes
             InitializeComponent();            
             
             nombreUsuario = usuario;
-            tipoUsuario = permisos;
+            permisosUsuario = permisos;
             logueadoUsuario = logueado;            
             conexionBaseDatos = conexionBD;
             lblNombre.Text = usuario;
 
             idUnico = "";
-            
+                        
             ordenar();
 
             if (colegiosCreados == false)
@@ -109,35 +109,50 @@ namespace SistemaEstudiantes
             cboxColegiosGrande.Visible = true;
             cboxColegiosUshuaia.Enabled = false;
             cboxColegiosGrande.Enabled = false;
-
             
             btnVerPlanilla.BackColor = System.Drawing.Color.Silver;
             btnVerPlanilla.Enabled = false;
+
             //Ver estadistica
+            cboxPeriodoEst.ResetText();
+            cboxAñoEst.ResetText();
+            cboxAñoEst.Enabled = true;
+            cboxPeriodoEst.Enabled = false;
 
+            btnVerEstadistica.Enabled = false;
+            btnVerEstadistica.BackColor = System.Drawing.Color.Silver;
 
-
+            lblAbriendo.Visible = false;
+            lblDescargas.Visible = false;
 
             //crear estadistica
-            //cboxAño.SelectedIndex = -1;//reinicia el texto seleccionado pero puede traer problema
-            cboxAño.ResetText();
+            //cboxAño.ResetText();
             cboxPeriodo.ResetText();//Reinicia el texto seleccionado
             cboxAño.Enabled = true;
             cboxPeriodo.Enabled = false;
 
             lblProcesando.Visible = false;
-            lblCreando.Visible = false;            
-
-
+            lblCreando.Visible = false;
+            
             btnCrearEstadistica.Enabled = false;
             btnCrearExcel.Enabled = false;
+
+            if (permisosUsuario == "SuperUsuario")
+            { }
+            else
+            {
+                panel1.Enabled = false;
+                panel1.BackColor = System.Drawing.Color.Silver;
+                btnCrearEstadistica.BackColor = System.Drawing.Color.Silver;
+                btnCrearExcel.BackColor = System.Drawing.Color.Silver;
+            }
+            
 
 
             myDataGridView.DataSource = null;//reinicia datagv
             myDataGridView.Rows.Clear();
             myDataGridView.Refresh();
             Array.Clear(colegiosUshuaiaSyE, 12, 48);//reinicia el valor en ese lugar especifico... tengo que encontrar la forma de reiniciar todo.
-
             
         }
         private void NombreColegios()
@@ -185,14 +200,7 @@ namespace SistemaEstudiantes
             btnVerPlanilla.Refresh();
             btnVerPlanilla.Enabled = false;
             //Ver estadistica
-            btnVerPlanilla.Refresh();
-
-
-
-
-           
-
-
+            btnVerPlanilla.Refresh();    
 
         }
         private void cBoxAñoPla_SelectedIndexChanged(object sender, EventArgs e)
@@ -233,7 +241,7 @@ namespace SistemaEstudiantes
             cboxColegiosUshuaia.Enabled = false;
             btnVerPlanilla.Enabled = true;
             btnVerPlanilla.BackColor = System.Drawing.Color.DodgerBlue;
-            color = 0;
+            color = 1;
         }
 
         private void cboxColegioGrande_SelectedIndexChanged(object sender, EventArgs e)
@@ -246,11 +254,11 @@ namespace SistemaEstudiantes
             cboxColegiosGrande.Enabled = false;
             btnVerPlanilla.Enabled = true;
             btnVerPlanilla.BackColor = System.Drawing.Color.DodgerBlue;
-            color = 0;
+            color = 1;
         }
         private void btnVerPlanilla_Click(object sender, EventArgs e)
         {
-            color = 1;
+            color = 0; //color 0 es igual a silver, sirve para que no se bugueeen azul
             string idUnicoVPla;
             string abreColegioVPla;
             btnVerPlanilla.BackColor = System.Drawing.Color.Silver;
@@ -273,8 +281,56 @@ namespace SistemaEstudiantes
                 cboxColegiosUshuaia.Enabled = false;  
                 
                 try
+                {                    
+                    DataTable miDataTable = new DataTable();
+
+                    string queryCargarBD = "SELECT Sección, División, Turno, Orientación, Horas, Pedagogica, Presupuestaria, Matriculas, ColegioIngresado, Fecha FROM Planilla WHERE IdUnico = @Buscar";
+                    OleDbCommand sqlComando = new OleDbCommand(queryCargarBD, conexionBaseDatos);
+                    sqlComando.Parameters.AddWithValue("@idBuscar", idUnicoVPla);
+
+                    OleDbDataAdapter miDataAdapter = new OleDbDataAdapter(sqlComando);
+                    miDataAdapter.Fill(miDataTable);
+                    myDataGridView.DataSource = miDataTable;
+                    myDataGridView.Sort(myDataGridView.Columns[1], ListSortDirection.Ascending);//ordena del dataGV por la columna seccion para que no de error
+                    myDataGridView.Sort(myDataGridView.Columns[0], ListSortDirection.Ascending);
+
+
+                    if ((Convert.ToString(myDataGridView.Rows[0].Cells[0].Value) == ""))//revisa si hay se ha encontrado algo... esta escrito de esta forma sino tiraba error critico
+                    {
+                        MessageBox.Show("No se encontró ninguna planilla para los parámetros especificados.", "Sistema Informa");
+                        ordenar();
+                    }                    
+                }
+                catch (Exception ex)
                 {
-                    
+                    if (ex.Message.Contains("no es una ruta de acceso válida"))
+                    {
+                        MessageBox.Show("Problema con la red.", "Sistema Informa");
+                    }
+                }  
+            }
+            else if (deptoColegio == "Grande")
+            {
+                color = 0;                
+                btnVerPlanilla.BackColor = System.Drawing.Color.Silver;
+                btnVerPlanilla.Enabled = false;
+
+                idUnicoVPla = cboxAñoPla.SelectedItem.ToString();//Se calcula sumando 3 variables
+                abreColegioVPla = grandeColegios[1, cboxColegiosGrande.SelectedIndex];
+                if (cboxPeriodoPla.SelectedItem.ToString() == "Marzo")
+                {
+                    idUnicoVPla = idUnicoVPla + "M";
+                }
+                else
+                {
+                    idUnicoVPla = idUnicoVPla + "S";
+                }
+                idUnicoVPla = idUnicoVPla + abreColegioVPla;//termina aca sumando la ultima parte  
+
+                cboxColegiosGrande.Enabled = false;                              
+
+                try
+                {
                     DataTable miDataTable = new DataTable();
 
                     string queryCargarBD = "SELECT Sección, División, Turno, Orientación, Horas, Pedagogica, Presupuestaria, Matriculas, ColegioIngresado, Fecha FROM Planilla WHERE IdUnico = @Buscar";
@@ -293,7 +349,6 @@ namespace SistemaEstudiantes
                         MessageBox.Show("No se encontró ninguna planilla para los parámetros especificados.", "Sistema Informa");
                         ordenar();
                     }
-                    
                 }
                 catch (Exception ex)
                 {
@@ -301,74 +356,95 @@ namespace SistemaEstudiantes
                     {
                         MessageBox.Show("Problema con la red.", "Sistema Informa");
                     }
-                }
-                
-               // btnVerPlanilla.BackColor = System.Drawing.Color.Red;
-                //btnVerPlanilla.Refresh();
-                //colorBotones();
-                //btnVerPlanilla.Enabled = false;
+                }                
+            }           
 
-                //btnVerPlanilla.Refresh();
-               
+        }
+        private void cboxAñoEst_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cboxAñoEst.Enabled = false;
+            cboxPeriodoEst.Enabled = true;
+        }
 
+        private void cBoxPeriodoEst_SelectedIndexChanged(object sender, EventArgs e)
+        {            
+            cboxPeriodoEst.Enabled = false;
+            btnVerEstadistica.Enabled = true;
+            btnVerEstadistica.Enabled = true;
+            btnVerEstadistica.BackColor = System.Drawing.Color.DodgerBlue;
+            color = 3;
+        }
+        private void btnVerEstadistica_Click(object sender, EventArgs e)
+        {
+            bool verDescarga = false;
+            lblAbriendo.Visible = true;
+            lblAbriendo.Refresh();
 
-            }
-            else if (deptoColegio == "Grande")
+            color = 2; //color 0 es igual a silver, sirve para que no se bugueeen azul
+            //string idUnicoVEst;
+            //string abreColegioVEst;
+            btnVerEstadistica.BackColor = System.Drawing.Color.Silver;
+            btnVerEstadistica.Enabled = false;            
+
+            try
             {
-                idUnicoVPla = cboxAñoPla.SelectedItem.ToString();//Se calcula sumando 3 variables
-                abreColegioVPla = grandeColegios[1, cboxColegiosGrande.SelectedIndex];
-                if (cboxPeriodoPla.SelectedItem.ToString() == "Marzo")
+                string userName = Environment.UserName;
+
+                string sourceFile = @"//server/Compartida/Sistema/BDSistema Supervision/Estadistica Matriculas/Estadisticas Secciones y Estudiantes " + cboxAñoEst.SelectedItem.ToString() + " " + cboxPeriodoEst.SelectedItem.ToString() + ".xlsx";
+                string destinationFile = @"C:/Users/" + userName + "/Downloads/Estadisticas Secciones y Estudiantes " + cboxAñoEst.SelectedItem.ToString() + " " + cboxPeriodoEst.SelectedItem.ToString() + ".xlsx";
+
+                // To move a file or folder to a new location:
+                System.IO.File.Copy(sourceFile, destinationFile,true);//true es importante para que los sobre escriba       
+                
+                Process proceso = new Process();
+                proceso.StartInfo.FileName = @"C:/Users/" + userName + "/Downloads/Estadisticas Secciones y Estudiantes " + cboxAñoEst.SelectedItem.ToString() + " " + cboxPeriodoEst.SelectedItem.ToString() + ".xlsx";
+                              
+                proceso.Start();
+                lblAbriendo.Visible = true;
+                lblAbriendo.Refresh();
+            }
+           
+            catch (Exception ex)
+            {
+                verDescarga = true;
+                if (ex.Message.Contains("no es una ruta de acceso válida"))
                 {
-                    idUnicoVPla = idUnicoVPla + "M";
+                    MessageBox.Show("Problema con la red.", "Sistema Informa");
+                }
+
+                else if (ex.Message.Contains("porque está siendo utilizado en otro proceso"))
+                {
+                    MessageBox.Show("El archivo excel que quiere actualizar y abrir, se encuentra activo, debe cerrarlo.", "Sistema Informa");
+                }
+                else if (ex.Message.Contains("datos duplicados"))
+                {
+                    MessageBox.Show("Datos duplicados en base de datos.", "Sistema Informa");
+                }
+                else if (ex.Message.Contains("No se pudo encontrar el archivo"))
+                {
+                    MessageBox.Show("No se encontró ninguna estadística para los parámetros especificados.", "Sistema Informa");
                 }
                 else
                 {
-                    idUnicoVPla = idUnicoVPla + "S";
+                    MessageBox.Show(Convert.ToString(ex), "Sistema Informa");
                 }
-                idUnicoVPla = idUnicoVPla + abreColegioVPla;//termina aca sumando la ultima parte  
+            }
+            //btnVerEstadistica.BackColor = System.Drawing.Color.Silver;
+            btnVerEstadistica.Enabled = false;
+            lblAbriendo.Visible = false;
+            lblAbriendo.Refresh();
+            if (verDescarga == false)
+            {
+                lblDescargas.Visible = true;
+                lblDescargas.Refresh();
+            }   
 
-                cboxColegiosGrande.Enabled = false;
-
-                btnVerPlanilla.Enabled = false;                
-
-                try
-                {
-                    DataTable miDataTable = new DataTable();
-
-                    string queryCargarBD = "SELECT Sección, División, Turno, Orientación, Horas, Pedagogica, Presupuestaria, Matriculas, ColegioIngresado FROM Planilla WHERE IdUnico = @Buscar";
-                    OleDbCommand sqlComando = new OleDbCommand(queryCargarBD, conexionBaseDatos);
-                    sqlComando.Parameters.AddWithValue("@idBuscar", idUnicoVPla);
-
-                    OleDbDataAdapter miDataAdapter = new OleDbDataAdapter(sqlComando);
-                    miDataAdapter.Fill(miDataTable);
-                    myDataGridView.DataSource = miDataTable;
-                    myDataGridView.Sort(myDataGridView.Columns[1], ListSortDirection.Ascending);//ordena del dataGV por la columna seccion para que no de error
-                    myDataGridView.Sort(myDataGridView.Columns[0], ListSortDirection.Ascending);
-
-
-                    if ((Convert.ToString(myDataGridView.Rows[0].Cells[0].Value) == ""))//revisa si hay se ha encontrado algo... esta escrito de esta forma sino tiraba error critico
-                    {
-                        MessageBox.Show("No se encontró ninguna planilla para los parámetros especificados.", "Sistema Informa");
-                        ordenar();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    if (ex.Message.Contains("no es una ruta de acceso válida"))
-                    {
-                        MessageBox.Show("Problema con la red.", "Sistema Informa");
-                    }
-                }
-                MessageBox.Show("ya termine");
-                btnVerPlanilla.BackColor = System.Drawing.Color.Silver;
-            }           
 
         }
         private void cboxAño_SelectedIndexChanged(object sender, EventArgs e)
         {
             cboxAño.Enabled = false;
-            cboxPeriodo.Enabled = true;
-            
+            cboxPeriodo.Enabled = true;            
         }
 
         private void cboxPeriodo_SelectedIndexChanged(object sender, EventArgs e)
@@ -400,7 +476,7 @@ namespace SistemaEstudiantes
                 }
                 else
                 {
-                    idUnico = idUnico + "O" + abreColegio;
+                    idUnico = idUnico + "S" + abreColegio;
                 }
                 //MessageBox.Show(idUnico);
                 try
@@ -479,7 +555,7 @@ namespace SistemaEstudiantes
                 }
                 else
                 {
-                    idUnico = idUnico + "O" + abreColegio;
+                    idUnico = idUnico + "S" + abreColegio;
                 }
                 try
                 {
@@ -1910,7 +1986,7 @@ namespace SistemaEstudiantes
         }
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            Estadisticas myEstadisticas = new Estadisticas(nombreUsuario, tipoUsuario, logueadoUsuario, conexionBaseDatos);
+            Estadisticas myEstadisticas = new Estadisticas(nombreUsuario, permisosUsuario, logueadoUsuario, conexionBaseDatos);
             myEstadisticas.Visible = true;
             this.Close();
         }
@@ -1926,14 +2002,31 @@ namespace SistemaEstudiantes
         
         private void btnVerPlanilla_MouseLeave(object sender, EventArgs e)
         {
-            if (color == 1)//unica forma de que funcione
+            if (color == 0)//unica forma de que funcione
             {
                 btnVerPlanilla.BackColor = System.Drawing.Color.Silver;
             }
-            else if (color == 0)
+            else if (color == 1)
             {
                 btnVerPlanilla.BackColor = System.Drawing.Color.DodgerBlue;
             }            
+        }
+
+        private void btnVerEstadistica_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnVerEstadistica.BackColor = System.Drawing.Color.DimGray;
+        }
+
+        private void btnVerEstadistica_MouseLeave(object sender, EventArgs e)
+        {
+            if (color == 2)//unica forma de que funcione
+            {
+                btnVerEstadistica.BackColor = System.Drawing.Color.Silver;
+            }
+            else if (color == 3)
+            {
+                btnVerEstadistica.BackColor = System.Drawing.Color.DodgerBlue;
+            }
         }
 
         private void btnRefresh_MouseMove(object sender, MouseEventArgs e)
@@ -1944,6 +2037,26 @@ namespace SistemaEstudiantes
         private void btnRefresh_MouseLeave(object sender, EventArgs e)
         {
             btnRefresh.BackColor = System.Drawing.Color.DodgerBlue;
+        }
+
+        private void btnVolver_MouseMove(object sender, MouseEventArgs e)
+        {
+           btnVolver.BackColor = System.Drawing.Color.DimGray;
+        }
+
+        private void btnVolver_MouseLeave(object sender, EventArgs e)
+        {
+            btnVolver.BackColor = System.Drawing.Color.DodgerBlue;
+        }
+
+        private void btnSalir_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnSalir.BackColor = System.Drawing.Color.DimGray;
+        }
+
+        private void btnSalir_MouseLeave(object sender, EventArgs e)
+        {
+            btnSalir.BackColor = System.Drawing.Color.DodgerBlue;
         }
     }        
 }

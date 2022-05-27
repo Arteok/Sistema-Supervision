@@ -193,6 +193,16 @@ namespace SistemaEstudiantes.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap verEstadistica {
+            get {
+                object obj = ResourceManager.GetObject("verEstadistica", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Volver {
             get {
                 object obj = ResourceManager.GetObject("Volver", resourceCulture);

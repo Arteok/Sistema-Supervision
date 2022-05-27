@@ -18,7 +18,7 @@ namespace SistemaEstudiantes
         //OleDbConnection conexionBaseDatos = new OleDbConnection(@"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = \\server\Compartida\Sistema\BDSistema Supervision\BDSistSupervision.mdb");
 
         string nombreUsuario;
-        string tipoUsuario;
+        string permisosUsuario;
         bool opcionesPermisos;//variable para permitir acceso a editarUsuarios y a rutas
         bool permisosBD;//variable para permitir acceso para editar la base de datos
         public Form1(string usuario, string permisos, bool logueado)
@@ -37,21 +37,21 @@ namespace SistemaEstudiantes
             //codigo para hacer que 
             if (logueado == false)
             {
-                IniciarSesion(usuario, permisos);                
+                IniciarSesion(usuario, permisos);
             }
-            else 
+            else
             {
-                nombreUsuario = usuario; 
-                tipoUsuario = permisos;
-                ComprobarUsuario(usuario, permisos);       
-            }                       
+                nombreUsuario = usuario;
+                permisosUsuario = permisos;
+                ComprobarUsuario(usuario, permisos);
+            }
         }
 
         private void IniciarSesion(string nombre, string permisos)//faltaria que cargue la contraseña 
         {
-            Usuario miUsuario = new Usuario(nombre, permisos,conexionBaseDatos);
+            Usuario miUsuario = new Usuario(nombre, permisos, conexionBaseDatos);
             DialogResult iniciarSeccion;
-            iniciarSeccion = miUsuario.ShowDialog();           
+            iniciarSeccion = miUsuario.ShowDialog();
 
             //Se definen los tipos de usuarios para saber que puede hacer y que no
 
@@ -62,17 +62,17 @@ namespace SistemaEstudiantes
             else if (iniciarSeccion == DialogResult.Yes)
             {
                 nombreUsuario = miUsuario.NombreUsuario();
-                tipoUsuario = miUsuario.PermisosUsuario();
-                ComprobarUsuario(nombreUsuario, tipoUsuario);
+                permisosUsuario = miUsuario.PermisosUsuario();
+                ComprobarUsuario(nombreUsuario, permisosUsuario);
             }
             else
             {
-                IniciarSesion(nombreUsuario, tipoUsuario);//revisar 
-            }            
+                IniciarSesion(nombreUsuario, permisosUsuario);//revisar 
+            }
         }
-        private void ComprobarUsuario(string usuario,string permisos)
-        {         
-            if (tipoUsuario == "Admin")//Necesario para arrancar el programa y no se puede eliminar este usuario
+        private void ComprobarUsuario(string usuario, string permisos)
+        {
+            if (permisosUsuario == "Admin")//Necesario para arrancar el programa y no se puede eliminar este usuario
             {
                 btnNormativa.Enabled = true;
                 btnNormativa.BackColor = Color.DimGray;
@@ -84,7 +84,7 @@ namespace SistemaEstudiantes
                 opcionesPermisos = true;
                 permisosBD = true;
             }
-            else if (tipoUsuario == "SuperUsuario")//usuario con privilegios como el admin
+            else if (permisosUsuario == "SuperUsuario")//usuario con privilegios como el admin
             {
                 btnNormativa.Enabled = true;
                 btnNormativa.BackColor = Color.DimGray;
@@ -97,7 +97,7 @@ namespace SistemaEstudiantes
                 opcionesPermisos = true;
                 permisosBD = true;
             }
-            else if (tipoUsuario == "Supervisor")
+            else if (permisosUsuario == "Supervisor")
             {
                 btnNormativa.Enabled = true;
                 btnNormativa.BackColor = Color.DimGray;
@@ -109,7 +109,7 @@ namespace SistemaEstudiantes
                 opcionesPermisos = false;
                 permisosBD = false;
             }
-            else if (tipoUsuario == "SecretarioGeneral")
+            else if (permisosUsuario == "SecretarioGeneral")
             {
                 btnNormativa.Enabled = true;
                 btnNormativa.BackColor = Color.DimGray;
@@ -121,7 +121,7 @@ namespace SistemaEstudiantes
                 opcionesPermisos = false;
                 permisosBD = false;
             }
-            else if (tipoUsuario == "Secretario")
+            else if (permisosUsuario == "Secretario")
             {
                 btnNormativa.Enabled = true;
                 btnNormativa.BackColor = Color.DimGray;
@@ -132,10 +132,10 @@ namespace SistemaEstudiantes
 
                 opcionesPermisos = false;
                 permisosBD = false;
-            }      
-            else if ((tipoUsuario == "Usuariolvl1")||(tipoUsuario == "UsuarioBasico"))// se dividen los usuarios porque no se puede poner ams de 6 else
+            }
+            else if ((permisosUsuario == "Usuariolvl1") || (permisosUsuario == "UsuarioBasico"))// se dividen los usuarios porque no se puede poner ams de 6 else
             {
-                if (tipoUsuario == "Usuariolvl1")
+                if (permisosUsuario == "Usuariolvl1")
                 {
                     btnNormativa.Enabled = true;
                     btnNormativa.BackColor = Color.DimGray;
@@ -147,7 +147,7 @@ namespace SistemaEstudiantes
                     opcionesPermisos = false;
                     permisosBD = false;
                 }
-                else 
+                else
                 {
                     btnNormativa.Enabled = true;
                     btnNormativa.BackColor = Color.DimGray;
@@ -162,26 +162,26 @@ namespace SistemaEstudiantes
             }
             else
             {
-                IniciarSesion(nombreUsuario, tipoUsuario);//si no hay usuario valido vuelve a llamar al formulario iniciar sesion
+                IniciarSesion(nombreUsuario, permisosUsuario);//si no hay usuario valido vuelve a llamar al formulario iniciar sesion
             }
             lblUsuario.Text = nombreUsuario;
         }
 
         private void btnNormativa_Click(object sender, EventArgs e)
         {
-            Normativa miNormativa = new Normativa(nombreUsuario,tipoUsuario,permisosBD,conexionBaseDatos);
+            Normativa miNormativa = new Normativa(nombreUsuario, permisosUsuario, permisosBD, conexionBaseDatos);
             this.Hide();
-            miNormativa.Show();    
+            miNormativa.Show();
         }
         private void btnOpciones_Click(object sender, EventArgs e)
         {
-            Opciones miOpciones = new Opciones(nombreUsuario, tipoUsuario,opcionesPermisos,conexionBaseDatos);
+            Opciones miOpciones = new Opciones(nombreUsuario, permisosUsuario, opcionesPermisos, conexionBaseDatos);
             this.Hide();
             miOpciones.Show();
         }
         private void btnEstadisticas_Click(object sender, EventArgs e)
         {
-            Estadisticas miEstadisticas = new Estadisticas(nombreUsuario, tipoUsuario, opcionesPermisos, conexionBaseDatos);
+            Estadisticas miEstadisticas = new Estadisticas(nombreUsuario, permisosUsuario, opcionesPermisos, conexionBaseDatos);
             this.Hide();
             miEstadisticas.Show();
         }
@@ -244,5 +244,5 @@ namespace SistemaEstudiantes
         {
 
         }
-    }
+    }        
 }

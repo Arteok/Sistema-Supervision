@@ -243,7 +243,8 @@ namespace SistemaEstudiantes
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            buscar();            
+            buscar();      
+            
         }
 
         private void btnVerPdf_Click(object sender, EventArgs e)
