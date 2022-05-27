@@ -326,6 +326,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Escudo Negro.ico" />
+    <None Include="Resources\estadistica-inferencial.png" />
     <None Include="Resources\Declaracion.png" />
     <None Include="Resources\Button-Refresh-icon.png" />
   </ItemGroup>

@@ -34,6 +34,7 @@ namespace SistemaEstudiantes
             this.btnSalir = new System.Windows.Forms.Button();
             this.myDataGridView = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cBoxPeriodoEst = new System.Windows.Forms.ComboBox();
@@ -62,14 +63,13 @@ namespace SistemaEstudiantes
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnVerPlanilla = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
-            this.btnVerPlanilla = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.btnVolver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.myDataGridView)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -127,6 +127,21 @@ namespace SistemaEstudiantes
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1351, 97);
             this.panel2.TabIndex = 50;
+            // 
+            // btnVolver
+            // 
+            this.btnVolver.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnVolver.Font = new System.Drawing.Font("Arial", 12.25F);
+            this.btnVolver.ForeColor = System.Drawing.Color.White;
+            this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
+            this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVolver.Location = new System.Drawing.Point(1110, 25);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(90, 43);
+            this.btnVolver.TabIndex = 197;
+            this.btnVolver.Text = "    Atrás";
+            this.btnVolver.UseVisualStyleBackColor = false;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // label3
             // 
@@ -221,7 +236,7 @@ namespace SistemaEstudiantes
             this.button1.BackColor = System.Drawing.Color.DodgerBlue;
             this.button1.Font = new System.Drawing.Font("Arial", 10.25F);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Image = global::SistemaEstudiantes.Properties.Resources.estadistica_inferencial;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(129, 121);
             this.button1.Name = "button1";
@@ -478,6 +493,23 @@ namespace SistemaEstudiantes
             this.label5.TabIndex = 70;
             this.label5.Text = "Año:";
             // 
+            // btnVerPlanilla
+            // 
+            this.btnVerPlanilla.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnVerPlanilla.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.btnVerPlanilla.ForeColor = System.Drawing.Color.White;
+            this.btnVerPlanilla.Image = global::SistemaEstudiantes.Properties.Resources.Declaracion;
+            this.btnVerPlanilla.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVerPlanilla.Location = new System.Drawing.Point(168, 161);
+            this.btnVerPlanilla.Name = "btnVerPlanilla";
+            this.btnVerPlanilla.Size = new System.Drawing.Size(120, 40);
+            this.btnVerPlanilla.TabIndex = 65;
+            this.btnVerPlanilla.Text = "   Ver Planilla";
+            this.btnVerPlanilla.UseVisualStyleBackColor = false;
+            this.btnVerPlanilla.Click += new System.EventHandler(this.btnVerPlanilla_Click);
+            this.btnVerPlanilla.MouseLeave += new System.EventHandler(this.btnVerPlanilla_MouseLeave);
+            this.btnVerPlanilla.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnVerPlanilla_MouseMove);
+            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -533,23 +565,6 @@ namespace SistemaEstudiantes
             this.label11.TabIndex = 75;
             this.label11.Text = "Estadística Secciones-Matriculas";
             // 
-            // btnVerPlanilla
-            // 
-            this.btnVerPlanilla.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnVerPlanilla.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.btnVerPlanilla.ForeColor = System.Drawing.Color.White;
-            this.btnVerPlanilla.Image = global::SistemaEstudiantes.Properties.Resources.Declaracion;
-            this.btnVerPlanilla.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVerPlanilla.Location = new System.Drawing.Point(168, 161);
-            this.btnVerPlanilla.Name = "btnVerPlanilla";
-            this.btnVerPlanilla.Size = new System.Drawing.Size(120, 40);
-            this.btnVerPlanilla.TabIndex = 65;
-            this.btnVerPlanilla.Text = "   Ver Planilla";
-            this.btnVerPlanilla.UseVisualStyleBackColor = false;
-            this.btnVerPlanilla.Click += new System.EventHandler(this.btnVerPlanilla_Click);
-            this.btnVerPlanilla.MouseLeave += new System.EventHandler(this.btnVerPlanilla_MouseLeave);
-            this.btnVerPlanilla.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnVerPlanilla_MouseMove);
-            // 
             // btnRefresh
             // 
             this.btnRefresh.BackColor = System.Drawing.Color.DodgerBlue;
@@ -567,21 +582,6 @@ namespace SistemaEstudiantes
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             this.btnRefresh.MouseLeave += new System.EventHandler(this.btnRefresh_MouseLeave);
             this.btnRefresh.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnRefresh_MouseMove);
-            // 
-            // btnVolver
-            // 
-            this.btnVolver.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnVolver.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.btnVolver.ForeColor = System.Drawing.Color.White;
-            this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
-            this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVolver.Location = new System.Drawing.Point(1110, 25);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(90, 43);
-            this.btnVolver.TabIndex = 197;
-            this.btnVolver.Text = "    Atrás";
-            this.btnVolver.UseVisualStyleBackColor = false;
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // Estadisticas1
             // 
