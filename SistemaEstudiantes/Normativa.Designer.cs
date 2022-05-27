@@ -327,6 +327,7 @@ namespace SistemaEstudiantes
             this.btnVerPdf.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnVerPdf.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerPdf.ForeColor = System.Drawing.Color.White;
+            this.btnVerPdf.Image = global::SistemaEstudiantes.Properties.Resources.PDF;
             this.btnVerPdf.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVerPdf.Location = new System.Drawing.Point(780, 27);
             this.btnVerPdf.Name = "btnVerPdf";
@@ -344,6 +345,7 @@ namespace SistemaEstudiantes
             this.btnBuscar.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnBuscar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
+            this.btnBuscar.Image = global::SistemaEstudiantes.Properties.Resources.Buscar;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscar.Location = new System.Drawing.Point(43, 27);
             this.btnBuscar.Name = "btnBuscar";
@@ -361,6 +363,7 @@ namespace SistemaEstudiantes
             this.btnBaseDatos.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnBaseDatos.Font = new System.Drawing.Font("Arial", 11.25F);
             this.btnBaseDatos.ForeColor = System.Drawing.Color.White;
+            this.btnBaseDatos.Image = global::SistemaEstudiantes.Properties.Resources.DataBase;
             this.btnBaseDatos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBaseDatos.Location = new System.Drawing.Point(204, 27);
             this.btnBaseDatos.Name = "btnBaseDatos";
@@ -378,6 +381,7 @@ namespace SistemaEstudiantes
             this.btnEditar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnEditar.Font = new System.Drawing.Font("Arial", 12.25F);
             this.btnEditar.ForeColor = System.Drawing.Color.White;
+            this.btnEditar.Image = global::SistemaEstudiantes.Properties.Resources.edit;
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditar.Location = new System.Drawing.Point(60, 27);
             this.btnEditar.Name = "btnEditar";

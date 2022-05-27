@@ -36,7 +36,6 @@ namespace SistemaEstudiantes
             this.panel2 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnVerPlanilla = new System.Windows.Forms.Button();
             this.cBoxPeriodoEst = new System.Windows.Forms.ComboBox();
             this.cboxColegiosUshuaia = new System.Windows.Forms.ComboBox();
             this.cboxDepto = new System.Windows.Forms.ComboBox();
@@ -68,6 +67,7 @@ namespace SistemaEstudiantes
             this.label12 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
+            this.btnVerPlanilla = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnVolver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.myDataGridView)).BeginInit();
@@ -150,21 +150,6 @@ namespace SistemaEstudiantes
             this.label4.TabIndex = 11;
             this.label4.Text = "Declaración de Secciones y Matriculas";
             // 
-            // btnVerPlanilla
-            // 
-            this.btnVerPlanilla.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnVerPlanilla.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.btnVerPlanilla.ForeColor = System.Drawing.Color.White;
-            this.btnVerPlanilla.Location = new System.Drawing.Point(168, 161);
-            this.btnVerPlanilla.Name = "btnVerPlanilla";
-            this.btnVerPlanilla.Size = new System.Drawing.Size(120, 40);
-            this.btnVerPlanilla.TabIndex = 65;
-            this.btnVerPlanilla.Text = "Ver Planilla";
-            this.btnVerPlanilla.UseVisualStyleBackColor = false;
-            this.btnVerPlanilla.Click += new System.EventHandler(this.btnVerPlanilla_Click);
-            this.btnVerPlanilla.MouseLeave += new System.EventHandler(this.btnVerPlanilla_MouseLeave);
-            this.btnVerPlanilla.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnVerPlanilla_MouseMove);
-            // 
             // cBoxPeriodoEst
             // 
             this.cBoxPeriodoEst.Font = new System.Drawing.Font("Arial", 10.25F);
@@ -236,11 +221,13 @@ namespace SistemaEstudiantes
             this.button1.BackColor = System.Drawing.Color.DodgerBlue;
             this.button1.Font = new System.Drawing.Font("Arial", 10.25F);
             this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(129, 121);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 40);
+            this.button1.Size = new System.Drawing.Size(140, 40);
             this.button1.TabIndex = 68;
-            this.button1.Text = "Ver Estadística";
+            this.button1.Text = "      Ver Estadística";
             this.button1.UseVisualStyleBackColor = false;
             // 
             // cBoxAñoEst
@@ -546,11 +533,29 @@ namespace SistemaEstudiantes
             this.label11.TabIndex = 75;
             this.label11.Text = "Estadística Secciones-Matriculas";
             // 
+            // btnVerPlanilla
+            // 
+            this.btnVerPlanilla.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnVerPlanilla.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.btnVerPlanilla.ForeColor = System.Drawing.Color.White;
+            this.btnVerPlanilla.Image = global::SistemaEstudiantes.Properties.Resources.Declaracion;
+            this.btnVerPlanilla.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVerPlanilla.Location = new System.Drawing.Point(168, 161);
+            this.btnVerPlanilla.Name = "btnVerPlanilla";
+            this.btnVerPlanilla.Size = new System.Drawing.Size(120, 40);
+            this.btnVerPlanilla.TabIndex = 65;
+            this.btnVerPlanilla.Text = "   Ver Planilla";
+            this.btnVerPlanilla.UseVisualStyleBackColor = false;
+            this.btnVerPlanilla.Click += new System.EventHandler(this.btnVerPlanilla_Click);
+            this.btnVerPlanilla.MouseLeave += new System.EventHandler(this.btnVerPlanilla_MouseLeave);
+            this.btnVerPlanilla.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnVerPlanilla_MouseMove);
+            // 
             // btnRefresh
             // 
             this.btnRefresh.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnRefresh.Font = new System.Drawing.Font("Arial", 10.25F);
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Image = global::SistemaEstudiantes.Properties.Resources.Button_Refresh_icon;
             this.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRefresh.Location = new System.Drawing.Point(612, 104);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);

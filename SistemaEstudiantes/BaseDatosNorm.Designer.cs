@@ -306,6 +306,7 @@ namespace SistemaEstudiantes
             this.btnAgregar.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnAgregar.Font = new System.Drawing.Font("Arial", 9.25F);
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
+            this.btnAgregar.Image = global::SistemaEstudiantes.Properties.Resources.AcepModif;
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnAgregar.Location = new System.Drawing.Point(1230, 115);
             this.btnAgregar.Name = "btnAgregar";
@@ -323,6 +324,7 @@ namespace SistemaEstudiantes
             this.btnModificarA.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnModificarA.Font = new System.Drawing.Font("Arial", 9.25F);
             this.btnModificarA.ForeColor = System.Drawing.Color.White;
+            this.btnModificarA.Image = global::SistemaEstudiantes.Properties.Resources.Save;
             this.btnModificarA.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnModificarA.Location = new System.Drawing.Point(1230, 185);
             this.btnModificarA.Name = "btnModificarA";
@@ -394,6 +396,7 @@ namespace SistemaEstudiantes
             this.btnNuevo.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnNuevo.Font = new System.Drawing.Font("Arial", 9.25F);
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
+            this.btnNuevo.Image = global::SistemaEstudiantes.Properties.Resources.newFile;
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnNuevo.Location = new System.Drawing.Point(1230, 115);
             this.btnNuevo.Name = "btnNuevo";
