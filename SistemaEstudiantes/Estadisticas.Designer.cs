@@ -36,7 +36,7 @@ namespace SistemaEstudiantes
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btmPlantillas = new System.Windows.Forms.Button();
+            this.btnPlantillas = new System.Windows.Forms.Button();
             this.btnCantColegios = new System.Windows.Forms.Button();
             this.btnMatriculaComp = new System.Windows.Forms.Button();
             this.btnEstadistica3 = new System.Windows.Forms.Button();
@@ -130,19 +130,21 @@ namespace SistemaEstudiantes
             this.label4.TabIndex = 11;
             this.label4.Text = "Estadísticas";
             // 
-            // btmPlantillas
+            // btnPlantillas
             // 
-            this.btmPlantillas.AutoSize = true;
-            this.btmPlantillas.BackColor = System.Drawing.Color.DimGray;
-            this.btmPlantillas.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btmPlantillas.ForeColor = System.Drawing.Color.White;
-            this.btmPlantillas.Location = new System.Drawing.Point(786, 593);
-            this.btmPlantillas.Name = "btmPlantillas";
-            this.btmPlantillas.Size = new System.Drawing.Size(204, 54);
-            this.btmPlantillas.TabIndex = 56;
-            this.btmPlantillas.Text = "Cargar/Eliminar Plantillas";
-            this.btmPlantillas.UseVisualStyleBackColor = false;
-            this.btmPlantillas.Click += new System.EventHandler(this.btmPlantillas_Click);
+            this.btnPlantillas.AutoSize = true;
+            this.btnPlantillas.BackColor = System.Drawing.Color.DimGray;
+            this.btnPlantillas.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlantillas.ForeColor = System.Drawing.Color.White;
+            this.btnPlantillas.Location = new System.Drawing.Point(786, 593);
+            this.btnPlantillas.Name = "btnPlantillas";
+            this.btnPlantillas.Size = new System.Drawing.Size(204, 54);
+            this.btnPlantillas.TabIndex = 56;
+            this.btnPlantillas.Text = "Cargar/Eliminar Plantillas";
+            this.btnPlantillas.UseVisualStyleBackColor = false;
+            this.btnPlantillas.Click += new System.EventHandler(this.btmPlantillas_Click);
+            this.btnPlantillas.MouseLeave += new System.EventHandler(this.btmPlantillas_MouseLeave);
+            this.btnPlantillas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btmPlantillas_MouseMove);
             // 
             // btnCantColegios
             // 
@@ -156,6 +158,8 @@ namespace SistemaEstudiantes
             this.btnCantColegios.Text = "Cantidad de Colegios";
             this.btnCantColegios.UseVisualStyleBackColor = false;
             this.btnCantColegios.Click += new System.EventHandler(this.btnCantColegios_Click);
+            this.btnCantColegios.MouseLeave += new System.EventHandler(this.btnCantColegios_MouseLeave);
+            this.btnCantColegios.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnCantColegios_MouseMove);
             // 
             // btnMatriculaComp
             // 
@@ -168,6 +172,8 @@ namespace SistemaEstudiantes
             this.btnMatriculaComp.TabIndex = 54;
             this.btnMatriculaComp.Text = "Matricula Comparada";
             this.btnMatriculaComp.UseVisualStyleBackColor = false;
+            this.btnMatriculaComp.MouseLeave += new System.EventHandler(this.btnMatriculaComp_MouseLeave);
+            this.btnMatriculaComp.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnMatriculaComp_MouseMove);
             // 
             // btnEstadistica3
             // 
@@ -181,6 +187,8 @@ namespace SistemaEstudiantes
             this.btnEstadistica3.Text = "Cantidad Horas EDI y POT";
             this.btnEstadistica3.UseVisualStyleBackColor = false;
             this.btnEstadistica3.Click += new System.EventHandler(this.btnEstadistica3_Click);
+            this.btnEstadistica3.MouseLeave += new System.EventHandler(this.btnEstadistica3_MouseLeave);
+            this.btnEstadistica3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnEstadistica3_MouseMove);
             // 
             // btnEstadistica2
             // 
@@ -194,6 +202,8 @@ namespace SistemaEstudiantes
             this.btnEstadistica2.Text = "Matriculas por Orientación y/o Especialidad";
             this.btnEstadistica2.UseVisualStyleBackColor = false;
             this.btnEstadistica2.Click += new System.EventHandler(this.btnEstadistica2_Click_1);
+            this.btnEstadistica2.MouseLeave += new System.EventHandler(this.btnEstadistica2_MouseLeave);
+            this.btnEstadistica2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnEstadistica2_MouseMove);
             // 
             // btnEstadistica1
             // 
@@ -207,6 +217,8 @@ namespace SistemaEstudiantes
             this.btnEstadistica1.Text = "Declaración de Secciones y Matriculas";
             this.btnEstadistica1.UseVisualStyleBackColor = false;
             this.btnEstadistica1.Click += new System.EventHandler(this.btnEstadistica1_Click_1);
+            this.btnEstadistica1.MouseLeave += new System.EventHandler(this.btnEstadistica1_MouseLeave);
+            this.btnEstadistica1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnEstadistica1_MouseMove);
             // 
             // panel1
             // 
@@ -243,7 +255,7 @@ namespace SistemaEstudiantes
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1346, 725);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btmPlantillas);
+            this.Controls.Add(this.btnPlantillas);
             this.Controls.Add(this.btnCantColegios);
             this.Controls.Add(this.btnMatriculaComp);
             this.Controls.Add(this.btnEstadistica3);
@@ -272,7 +284,7 @@ namespace SistemaEstudiantes
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btmPlantillas;
+        private System.Windows.Forms.Button btnPlantillas;
         private System.Windows.Forms.Button btnCantColegios;
         private System.Windows.Forms.Button btnMatriculaComp;
         private System.Windows.Forms.Button btnEstadistica3;

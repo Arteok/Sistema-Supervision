@@ -20,8 +20,6 @@ namespace SistemaEstudiantes
 
         Colegios myColegios;
 
-
-
         public Estadisticas(string usuario, string permisos, bool permisosOpciones, OleDbConnection conexionBD)
         {
             InitializeComponent();
@@ -34,8 +32,17 @@ namespace SistemaEstudiantes
             myColegios = new Colegios();
             myColegios.CargarColegiosUshuaia();
             myColegios.CargarColegiosGrande();
-            //cantColegiosUshuaia = myColegios.NumColegiosUshuaia;
-            //cantColegiosGrande = myColegios.NumColegiosGrande;
+
+            if (permisosUsuario != "SuperUsuario")
+            {
+                btnMatriculaComp.Enabled = false;
+                btnMatriculaComp.BackColor = Color.Silver;
+                btnCantColegios.Enabled = false;
+                btnCantColegios.BackColor = Color.Silver;
+                btnPlantillas.Enabled = false;
+                btnPlantillas.BackColor = Color.Silver;
+            }
+
         }       
         
         private void btnEstadistica1_Click_1(object sender, EventArgs e)
@@ -87,6 +94,7 @@ namespace SistemaEstudiantes
         {
             Application.Exit();
         }
+
         private void btnVolver_MouseMove(object sender, MouseEventArgs e)
         {
             btnVolver.BackColor = Color.DimGray;
@@ -104,20 +112,66 @@ namespace SistemaEstudiantes
         private void btnSalir_MouseLeave(object sender, EventArgs e)
         {
             btnSalir.BackColor = Color.DodgerBlue;
-        }        
+        }
 
-        
+        private void btnEstadistica1_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnEstadistica1.BackColor = Color.DodgerBlue;            
+        }
 
-        /** private void btnEstadistica1_MouseMove(object sender, MouseEventArgs e)
-         {
-             btnEstadistica1.BackColor = Color.DodgerBlue;
-         }
+        private void btnEstadistica1_MouseLeave(object sender, EventArgs e)
+        {
+            btnEstadistica1.BackColor = Color.DimGray;
+        }
 
-         private void btnEstadistica1_MouseLeave(object sender, EventArgs e)
-         {
-             btnEstadistica1.BackColor = Color.DimGray;
-         }*/
+        private void btnEstadistica2_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnEstadistica2.BackColor = Color.DodgerBlue;
+        }
 
+        private void btnEstadistica2_MouseLeave(object sender, EventArgs e)
+        {
+            btnEstadistica2.BackColor = Color.DimGray;
+        }
 
+        private void btnEstadistica3_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnEstadistica3.BackColor = Color.DodgerBlue;
+        }
+
+        private void btnEstadistica3_MouseLeave(object sender, EventArgs e)
+        {
+            btnEstadistica3.BackColor = Color.DimGray;
+        }
+
+        private void btnMatriculaComp_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnMatriculaComp.BackColor = Color.DodgerBlue;
+        }
+
+        private void btnMatriculaComp_MouseLeave(object sender, EventArgs e)
+        {
+            btnMatriculaComp.BackColor = Color.DimGray;
+        }
+
+        private void btnCantColegios_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnCantColegios.BackColor = Color.DodgerBlue;
+        }
+
+        private void btnCantColegios_MouseLeave(object sender, EventArgs e)
+        {
+            btnCantColegios.BackColor = Color.DimGray;
+        }
+
+        private void btmPlantillas_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnPlantillas.BackColor = Color.DodgerBlue;
+        }
+
+        private void btmPlantillas_MouseLeave(object sender, EventArgs e)
+        {
+            btnPlantillas.BackColor = Color.DimGray;
+        }
     }
 }

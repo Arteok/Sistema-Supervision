@@ -22,7 +22,7 @@ namespace SistemaEstudiantes
         int cantColegiosGrande;
 
         string nombreUsuario;
-        string tipoUsuario;
+        string permisosUsuario;
         bool logueadoUsuario;
 
         string tituloEstadistica = "";
@@ -74,7 +74,7 @@ namespace SistemaEstudiantes
         {
             InitializeComponent();
             nombreUsuario = usuario;
-            tipoUsuario = permisos;
+            permisosUsuario = permisos;
             logueadoUsuario = logueado;
             conexionBaseDatos = conexionBD;
             lblNombre.Text = usuario;
@@ -107,8 +107,7 @@ namespace SistemaEstudiantes
 
             cboxAño.Enabled = true;
             cboxPeriodo.Enabled = false;
-
-            btnRefresh.Enabled = false;
+           
             btnCrearEstadistica.Enabled = false;
             btnCrearExcel.Enabled = false;
 
@@ -1185,13 +1184,43 @@ namespace SistemaEstudiantes
         }
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            Estadisticas myEstadisticas = new Estadisticas(nombreUsuario, tipoUsuario, logueadoUsuario, conexionBaseDatos);
+            Estadisticas myEstadisticas = new Estadisticas(nombreUsuario, permisosUsuario, logueadoUsuario, conexionBaseDatos);
             myEstadisticas.Visible = true;
             this.Close();
         }
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }       
+        }
+
+        private void btnRefresh_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnRefresh.BackColor = System.Drawing.Color.DimGray;
+        }
+
+        private void btnRefresh_MouseLeave(object sender, EventArgs e)
+        {
+            btnRefresh.BackColor = System.Drawing.Color.DodgerBlue;
+        }
+
+        private void btnVolver_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnVolver.BackColor = System.Drawing.Color.DimGray;
+        }
+
+        private void btnVolver_MouseLeave(object sender, EventArgs e)
+        {
+            btnVolver.BackColor = System.Drawing.Color.DodgerBlue;
+        }
+
+        private void btnSalir_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnSalir.BackColor = System.Drawing.Color.DimGray;
+        }
+
+        private void btnSalir_MouseLeave(object sender, EventArgs e)
+        {
+            btnSalir.BackColor = System.Drawing.Color.DodgerBlue;
+        }
     }
 }

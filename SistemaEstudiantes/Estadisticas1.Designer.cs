@@ -64,6 +64,7 @@ namespace SistemaEstudiantes
             this.label5 = new System.Windows.Forms.Label();
             this.btnVerPlanilla = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.lblDescargas = new System.Windows.Forms.Label();
             this.lblAbriendo = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -71,7 +72,6 @@ namespace SistemaEstudiantes
             this.label11 = new System.Windows.Forms.Label();
             this.btnVerEstadistica = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.lblDescargas = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.myDataGridView)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -188,7 +188,7 @@ namespace SistemaEstudiantes
             // 
             this.cboxColegiosUshuaia.Font = new System.Drawing.Font("Arial", 10.25F);
             this.cboxColegiosUshuaia.FormattingEnabled = true;
-            this.cboxColegiosUshuaia.Location = new System.Drawing.Point(319, 118);
+            this.cboxColegiosUshuaia.Location = new System.Drawing.Point(310, 118);
             this.cboxColegiosUshuaia.Name = "cboxColegiosUshuaia";
             this.cboxColegiosUshuaia.Size = new System.Drawing.Size(125, 24);
             this.cboxColegiosUshuaia.TabIndex = 63;
@@ -201,7 +201,7 @@ namespace SistemaEstudiantes
             this.cboxDepto.Items.AddRange(new object[] {
             "Ushuaia",
             "Rio Grande"});
-            this.cboxDepto.Location = new System.Drawing.Point(75, 118);
+            this.cboxDepto.Location = new System.Drawing.Point(73, 118);
             this.cboxDepto.Name = "cboxDepto";
             this.cboxDepto.Size = new System.Drawing.Size(125, 24);
             this.cboxDepto.TabIndex = 62;
@@ -214,7 +214,7 @@ namespace SistemaEstudiantes
             this.cboxPeriodoPla.Items.AddRange(new object[] {
             "Marzo",
             "Septiembre"});
-            this.cboxPeriodoPla.Location = new System.Drawing.Point(319, 70);
+            this.cboxPeriodoPla.Location = new System.Drawing.Point(310, 70);
             this.cboxPeriodoPla.Name = "cboxPeriodoPla";
             this.cboxPeriodoPla.Size = new System.Drawing.Size(125, 24);
             this.cboxPeriodoPla.TabIndex = 61;
@@ -235,7 +235,7 @@ namespace SistemaEstudiantes
             "2028",
             "2029",
             "2030"});
-            this.cboxAñoPla.Location = new System.Drawing.Point(75, 70);
+            this.cboxAñoPla.Location = new System.Drawing.Point(73, 70);
             this.cboxAñoPla.Name = "cboxAñoPla";
             this.cboxAñoPla.Size = new System.Drawing.Size(125, 24);
             this.cboxAñoPla.TabIndex = 60;
@@ -265,7 +265,7 @@ namespace SistemaEstudiantes
             // lblCreando
             // 
             this.lblCreando.AutoSize = true;
-            this.lblCreando.Location = new System.Drawing.Point(295, 180);
+            this.lblCreando.Location = new System.Drawing.Point(304, 180);
             this.lblCreando.Name = "lblCreando";
             this.lblCreando.Size = new System.Drawing.Size(57, 14);
             this.lblCreando.TabIndex = 88;
@@ -285,7 +285,7 @@ namespace SistemaEstudiantes
             this.btnCrearExcel.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnCrearExcel.Font = new System.Drawing.Font("Arial", 10.25F);
             this.btnCrearExcel.ForeColor = System.Drawing.Color.White;
-            this.btnCrearExcel.Location = new System.Drawing.Point(236, 131);
+            this.btnCrearExcel.Location = new System.Drawing.Point(241, 131);
             this.btnCrearExcel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnCrearExcel.Name = "btnCrearExcel";
             this.btnCrearExcel.Size = new System.Drawing.Size(180, 40);
@@ -293,6 +293,8 @@ namespace SistemaEstudiantes
             this.btnCrearExcel.Text = "Crear Excel";
             this.btnCrearExcel.UseVisualStyleBackColor = false;
             this.btnCrearExcel.Click += new System.EventHandler(this.btnCrearExcel_Click);
+            this.btnCrearExcel.MouseLeave += new System.EventHandler(this.btnCrearExcel_MouseLeave);
+            this.btnCrearExcel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnCrearExcel_MouseMove);
             // 
             // btnCrearEstadistica
             // 
@@ -307,6 +309,8 @@ namespace SistemaEstudiantes
             this.btnCrearEstadistica.Text = "Crear Estadística";
             this.btnCrearEstadistica.UseVisualStyleBackColor = false;
             this.btnCrearEstadistica.Click += new System.EventHandler(this.btnCrearEstadistica_Click);
+            this.btnCrearEstadistica.MouseLeave += new System.EventHandler(this.btnCrearEstadistica_MouseLeave);
+            this.btnCrearEstadistica.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnCrearEstadistica_MouseMove);
             // 
             // cboxAño
             // 
@@ -396,7 +400,7 @@ namespace SistemaEstudiantes
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.label10.Location = new System.Drawing.Point(0, 2);
+            this.label10.Location = new System.Drawing.Point(2, 2);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(195, 19);
             this.label10.TabIndex = 75;
@@ -418,14 +422,14 @@ namespace SistemaEstudiantes
             this.panel3.Controls.Add(this.cboxColegiosUshuaia);
             this.panel3.Location = new System.Drawing.Point(12, 110);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(465, 210);
+            this.panel3.Size = new System.Drawing.Size(450, 210);
             this.panel3.TabIndex = 91;
             // 
             // cboxColegiosGrande
             // 
             this.cboxColegiosGrande.Font = new System.Drawing.Font("Arial", 10.25F);
             this.cboxColegiosGrande.FormattingEnabled = true;
-            this.cboxColegiosGrande.Location = new System.Drawing.Point(319, 118);
+            this.cboxColegiosGrande.Location = new System.Drawing.Point(310, 118);
             this.cboxColegiosGrande.Name = "cboxColegiosGrande";
             this.cboxColegiosGrande.Size = new System.Drawing.Size(125, 24);
             this.cboxColegiosGrande.TabIndex = 64;
@@ -454,7 +458,7 @@ namespace SistemaEstudiantes
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.label8.Location = new System.Drawing.Point(247, 121);
+            this.label8.Location = new System.Drawing.Point(238, 121);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(60, 16);
             this.label8.TabIndex = 73;
@@ -464,7 +468,7 @@ namespace SistemaEstudiantes
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.label7.Location = new System.Drawing.Point(18, 121);
+            this.label7.Location = new System.Drawing.Point(16, 121);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(50, 16);
             this.label7.TabIndex = 72;
@@ -474,7 +478,7 @@ namespace SistemaEstudiantes
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.label6.Location = new System.Drawing.Point(245, 73);
+            this.label6.Location = new System.Drawing.Point(236, 73);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(62, 16);
             this.label6.TabIndex = 71;
@@ -484,7 +488,7 @@ namespace SistemaEstudiantes
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.label5.Location = new System.Drawing.Point(30, 73);
+            this.label5.Location = new System.Drawing.Point(28, 73);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(37, 16);
             this.label5.TabIndex = 70;
@@ -497,7 +501,7 @@ namespace SistemaEstudiantes
             this.btnVerPlanilla.ForeColor = System.Drawing.Color.White;
             this.btnVerPlanilla.Image = global::SistemaEstudiantes.Properties.Resources.Declaracion;
             this.btnVerPlanilla.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVerPlanilla.Location = new System.Drawing.Point(168, 156);
+            this.btnVerPlanilla.Location = new System.Drawing.Point(165, 156);
             this.btnVerPlanilla.Name = "btnVerPlanilla";
             this.btnVerPlanilla.Size = new System.Drawing.Size(120, 40);
             this.btnVerPlanilla.TabIndex = 65;
@@ -518,10 +522,20 @@ namespace SistemaEstudiantes
             this.panel6.Controls.Add(this.cboxAñoEst);
             this.panel6.Controls.Add(this.btnVerEstadistica);
             this.panel6.Controls.Add(this.cboxPeriodoEst);
-            this.panel6.Location = new System.Drawing.Point(483, 150);
+            this.panel6.Location = new System.Drawing.Point(475, 150);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(399, 170);
+            this.panel6.Size = new System.Drawing.Size(400, 170);
             this.panel6.TabIndex = 92;
+            // 
+            // lblDescargas
+            // 
+            this.lblDescargas.AutoSize = true;
+            this.lblDescargas.Location = new System.Drawing.Point(39, 155);
+            this.lblDescargas.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.lblDescargas.Name = "lblDescargas";
+            this.lblDescargas.Size = new System.Drawing.Size(328, 14);
+            this.lblDescargas.TabIndex = 94;
+            this.lblDescargas.Text = "El Excel que fue abierto ha sido guardado en la carpeta descargas";
             // 
             // lblAbriendo
             // 
@@ -581,7 +595,7 @@ namespace SistemaEstudiantes
             this.btnVerEstadistica.ForeColor = System.Drawing.Color.White;
             this.btnVerEstadistica.Image = global::SistemaEstudiantes.Properties.Resources.verEstadistica;
             this.btnVerEstadistica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVerEstadistica.Location = new System.Drawing.Point(129, 115);
+            this.btnVerEstadistica.Location = new System.Drawing.Point(131, 115);
             this.btnVerEstadistica.Name = "btnVerEstadistica";
             this.btnVerEstadistica.Size = new System.Drawing.Size(140, 40);
             this.btnVerEstadistica.TabIndex = 68;
@@ -598,7 +612,7 @@ namespace SistemaEstudiantes
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
             this.btnRefresh.Image = global::SistemaEstudiantes.Properties.Resources.Button_Refresh_icon;
             this.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefresh.Location = new System.Drawing.Point(612, 104);
+            this.btnRefresh.Location = new System.Drawing.Point(611, 104);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(130, 40);
@@ -608,16 +622,6 @@ namespace SistemaEstudiantes
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             this.btnRefresh.MouseLeave += new System.EventHandler(this.btnRefresh_MouseLeave);
             this.btnRefresh.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnRefresh_MouseMove);
-            // 
-            // lblDescargas
-            // 
-            this.lblDescargas.AutoSize = true;
-            this.lblDescargas.Location = new System.Drawing.Point(39, 155);
-            this.lblDescargas.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.lblDescargas.Name = "lblDescargas";
-            this.lblDescargas.Size = new System.Drawing.Size(328, 14);
-            this.lblDescargas.TabIndex = 94;
-            this.lblDescargas.Text = "El Excel que fue abierto ha sido guardado en la carpeta descargas";
             // 
             // Estadisticas1
             // 

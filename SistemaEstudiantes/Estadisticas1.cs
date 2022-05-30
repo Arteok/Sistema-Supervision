@@ -18,7 +18,10 @@ namespace SistemaEstudiantes
 {
     public partial class Estadisticas1 : Form
     {
-        int color;
+        int colorPlantilla;//color de los botones.... para que no se buguee
+        int colorEstadistica;
+        int colorExcel;
+
         OleDbConnection conexionBaseDatos;//variable que recibe la direccion de la base de datos
         Colegios myColegios;
         bool colegiosCreados = false;
@@ -38,29 +41,28 @@ namespace SistemaEstudiantes
 
         string[,] ushuaiaColegios;//nombre,nombreAbreviado, posicion de los colegios de ushuaia ##tomo como cantidad maxima 25 colegios por depto
         string[,] grandeColegios;//nombre,nombreAbreviado, posicion de los colegios de rio grande
+      
+        int[,] colegiosUshuaiaSyE;//array datos de secciones y estudiantes de ushuaia
+        int[,] colegiosGrandeSyE;//array datos de secciones y estudiantes de grande
 
-        int[,] colegiosUshuaiaSyE = new int[20, 42];//array datos de secciones y estudiantes de ushuaia
-        int[,] colegiosGrandeSyE = new int[20, 42];//array datos de secciones y estudiantes de grande
+        int[,] uTotalesCicloBasico ;//array de totales de secciones y estudiantes del ciclo basico de ushuaia
+        int[,] uTotalesCicloSuperior ;//array de totales de secciones y estudiantes del ciclo superior de ushuaia
+        int[,] uTotal2Ciclos;//array de sumatoria totales de secciones y estudiantes de los 2 ciclos de ushuaia
+        int[,] uSubtotalTurnos;//array de subtotales de secciones y estudiantes por turno de ushuaia
+        int[,] uSubtotalAños;//array de subtotales de secciones y estudiantes por año de ushuaia
+        int[,] uSubtotal ;//array de subtotales de secciones y estudiantes de ushuaia
 
-        int[,] uTotalesCicloBasico = new int[20, 2];//array de totales de secciones y estudiantes del ciclo basico de ushuaia
-        int[,] uTotalesCicloSuperior = new int[20, 2];//array de totales de secciones y estudiantes del ciclo superior de ushuaia
-        int[,] uTotal2Ciclos = new int[20, 2];//array de sumatoria totales de secciones y estudiantes de los 2 ciclos de ushuaia
-        int[,] uSubtotalTurnos = new int[2, 21];//array de subtotales de secciones y estudiantes por turno de ushuaia
-        int[,] uSubtotalAños = new int[2, 7];//array de subtotales de secciones y estudiantes por año de ushuaia
-        int[,] uSubtotal = new int[2, 3];//array de subtotales de secciones y estudiantes de ushuaia
+        int[,] gTotalesCicloBasico ;//array de totales de secciones y estudiantes del ciclo basico de Rio Grande
+        int[,] gTotalesCicloSuperior ;//array de totales de secciones y estudiantes del ciclo superior de Rio Grande
+        int[,] gTotal2Ciclos ;//array de sumatoria totales de secciones y estudiantes de los 2 ciclos de Rio Grande
+        int[,] gSubtotalTurnos;//array de subtotales de secciones y estudiantes por turno de Rio Grande
+        int[,] gSubtotalAños ;//array de subtotales de secciones y estudiantes por año de rio grande
+        int[,] gSubtotal ;//array de subtotales de secciones y estudiantes de Rio Grande
 
-        int[,] gTotalesCicloBasico = new int[20, 2];//array de totales de secciones y estudiantes del ciclo basico de Rio Grande
-        int[,] gTotalesCicloSuperior = new int[20, 2];//array de totales de secciones y estudiantes del ciclo superior de Rio Grande
-        int[,] gTotal2Ciclos = new int[20, 2];//array de sumatoria totales de secciones y estudiantes de los 2 ciclos de Rio Grande
-        int[,] gSubtotalTurnos = new int[2, 21];//array de subtotales de secciones y estudiantes por turno de Rio Grande
-        int[,] gSubtotalAños = new int[2, 7];//array de subtotales de secciones y estudiantes por año de rio grande
-        int[,] gSubtotal = new int[2, 3];//array de subtotales de secciones y estudiantes de Rio Grande
+        int[,] totalJurisSecyEstudiates ;//array de totales de secciones y estudiantes en TDF
+        int[,] totalJurisdicionalAños ;//array de totales de secciones y estudiantes por año de TDF
+        int[,] totalJurisdicional;//array de totales generales TDF 
 
-        int[,] totalJurisSecyEstudiates = new int[2, 21];//array de totales de secciones y estudiantes en TDF
-        int[,] totalJurisdicionalAños = new int[2, 7];//array de totales de secciones y estudiantes por año de TDF
-        int[,] totalJurisdicional = new int[2, 3];//array de totales generales TDF       
-
-        
         public Estadisticas1(string usuario, string permisos, bool logueado, OleDbConnection conexionBD)
         {
             InitializeComponent();            
@@ -126,7 +128,7 @@ namespace SistemaEstudiantes
             lblDescargas.Visible = false;
 
             //crear estadistica
-            //cboxAño.ResetText();
+            cboxAño.ResetText();
             cboxPeriodo.ResetText();//Reinicia el texto seleccionado
             cboxAño.Enabled = true;
             cboxPeriodo.Enabled = false;
@@ -135,25 +137,44 @@ namespace SistemaEstudiantes
             lblCreando.Visible = false;
             
             btnCrearEstadistica.Enabled = false;
-            btnCrearExcel.Enabled = false;
+            btnCrearEstadistica.BackColor = System.Drawing.Color.Silver;
 
-            if (permisosUsuario == "SuperUsuario")
-            { }
-            else
+            btnCrearExcel.Enabled = false;
+            btnCrearExcel.BackColor = System.Drawing.Color.Silver;
+
+            if (permisosUsuario != "SuperUsuario")
             {
                 panel1.Enabled = false;
                 panel1.BackColor = System.Drawing.Color.Silver;
                 btnCrearEstadistica.BackColor = System.Drawing.Color.Silver;
                 btnCrearExcel.BackColor = System.Drawing.Color.Silver;
-            }
+            }            
             
-
-
             myDataGridView.DataSource = null;//reinicia datagv
             myDataGridView.Rows.Clear();
             myDataGridView.Refresh();
-            Array.Clear(colegiosUshuaiaSyE, 12, 48);//reinicia el valor en ese lugar especifico... tengo que encontrar la forma de reiniciar todo.
-            
+
+            colegiosUshuaiaSyE = new int [20, 42];//array datos de secciones y estudiantes de ushuaia
+            colegiosGrandeSyE = new int[20, 42];//array datos de secciones y estudiantes de grande
+
+            uTotalesCicloBasico = new int[20, 2];//array de totales de secciones y estudiantes del ciclo basico de ushuaia
+            uTotalesCicloSuperior = new int[20, 2];//array de totales de secciones y estudiantes del ciclo superior de ushuaia
+            uTotal2Ciclos = new int[20, 2];//array de sumatoria totales de secciones y estudiantes de los 2 ciclos de ushuaia
+            uSubtotalTurnos = new int[2, 21];//array de subtotales de secciones y estudiantes por turno de ushuaia
+            uSubtotalAños = new int[2, 7];//array de subtotales de secciones y estudiantes por año de ushuaia
+           uSubtotal = new int[2, 3];//array de subtotales de secciones y estudiantes de ushuaia
+
+            gTotalesCicloBasico = new int[20, 2];//array de totales de secciones y estudiantes del ciclo basico de Rio Grande
+            gTotalesCicloSuperior = new int[20, 2];//array de totales de secciones y estudiantes del ciclo superior de Rio Grande
+            gTotal2Ciclos = new int[20, 2];//array de sumatoria totales de secciones y estudiantes de los 2 ciclos de Rio Grande
+            gSubtotalTurnos = new int[2, 21];//array de subtotales de secciones y estudiantes por turno de Rio Grande
+            gSubtotalAños = new int[2, 7];//array de subtotales de secciones y estudiantes por año de rio grande
+            gSubtotal = new int[2, 3];//array de subtotales de secciones y estudiantes de Rio Grande
+
+            totalJurisSecyEstudiates = new int[2, 21];//array de totales de secciones y estudiantes en TDF
+            totalJurisdicionalAños = new int[2, 7];//array de totales de secciones y estudiantes por año de TDF
+            totalJurisdicional = new int[2, 3];//array de totales generales TDF     
+
         }
         private void NombreColegios()
         {             
@@ -193,16 +214,7 @@ namespace SistemaEstudiantes
         {
             ordenar();
         }
-        private void colorBotones()
-        {
-            
-            btnVerPlanilla.BackColor = System.Drawing.Color.Silver;
-            btnVerPlanilla.Refresh();
-            btnVerPlanilla.Enabled = false;
-            //Ver estadistica
-            btnVerPlanilla.Refresh();    
-
-        }
+      
         private void cBoxAñoPla_SelectedIndexChanged(object sender, EventArgs e)
         {
             cboxAñoPla.Enabled = false;
@@ -241,7 +253,7 @@ namespace SistemaEstudiantes
             cboxColegiosUshuaia.Enabled = false;
             btnVerPlanilla.Enabled = true;
             btnVerPlanilla.BackColor = System.Drawing.Color.DodgerBlue;
-            color = 1;
+            colorPlantilla = 1;
         }
 
         private void cboxColegioGrande_SelectedIndexChanged(object sender, EventArgs e)
@@ -254,11 +266,11 @@ namespace SistemaEstudiantes
             cboxColegiosGrande.Enabled = false;
             btnVerPlanilla.Enabled = true;
             btnVerPlanilla.BackColor = System.Drawing.Color.DodgerBlue;
-            color = 1;
+            colorPlantilla = 1;
         }
         private void btnVerPlanilla_Click(object sender, EventArgs e)
         {
-            color = 0; //color 0 es igual a silver, sirve para que no se bugueeen azul
+            colorPlantilla = 0; //color 0 es igual a silver, sirve para que no se bugueeen azul
             string idUnicoVPla;
             string abreColegioVPla;
             btnVerPlanilla.BackColor = System.Drawing.Color.Silver;
@@ -294,7 +306,6 @@ namespace SistemaEstudiantes
                     myDataGridView.Sort(myDataGridView.Columns[1], ListSortDirection.Ascending);//ordena del dataGV por la columna seccion para que no de error
                     myDataGridView.Sort(myDataGridView.Columns[0], ListSortDirection.Ascending);
 
-
                     if ((Convert.ToString(myDataGridView.Rows[0].Cells[0].Value) == ""))//revisa si hay se ha encontrado algo... esta escrito de esta forma sino tiraba error critico
                     {
                         MessageBox.Show("No se encontró ninguna planilla para los parámetros especificados.", "Sistema Informa");
@@ -311,7 +322,7 @@ namespace SistemaEstudiantes
             }
             else if (deptoColegio == "Grande")
             {
-                color = 0;                
+                colorPlantilla = 0;                
                 btnVerPlanilla.BackColor = System.Drawing.Color.Silver;
                 btnVerPlanilla.Enabled = false;
 
@@ -357,8 +368,7 @@ namespace SistemaEstudiantes
                         MessageBox.Show("Problema con la red.", "Sistema Informa");
                     }
                 }                
-            }           
-
+            }    
         }
         private void cboxAñoEst_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -372,7 +382,7 @@ namespace SistemaEstudiantes
             btnVerEstadistica.Enabled = true;
             btnVerEstadistica.Enabled = true;
             btnVerEstadistica.BackColor = System.Drawing.Color.DodgerBlue;
-            color = 3;
+            colorEstadistica = 3;
         }
         private void btnVerEstadistica_Click(object sender, EventArgs e)
         {
@@ -380,7 +390,7 @@ namespace SistemaEstudiantes
             lblAbriendo.Visible = true;
             lblAbriendo.Refresh();
 
-            color = 2; //color 0 es igual a silver, sirve para que no se bugueeen azul
+            colorEstadistica = 2; //color par es igual a silver, sirve para que no se bugueee azul
             //string idUnicoVEst;
             //string abreColegioVEst;
             btnVerEstadistica.BackColor = System.Drawing.Color.Silver;
@@ -438,8 +448,6 @@ namespace SistemaEstudiantes
                 lblDescargas.Visible = true;
                 lblDescargas.Refresh();
             }   
-
-
         }
         private void cboxAño_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -451,6 +459,8 @@ namespace SistemaEstudiantes
         {
             cboxPeriodo.Enabled = false;
             btnCrearEstadistica.Enabled = true;
+            btnCrearEstadistica.BackColor = System.Drawing.Color.DodgerBlue;
+            colorExcel = 5;
         }
 
         private void btnCrearEstadistica_Click(object sender, EventArgs e)
@@ -462,7 +472,9 @@ namespace SistemaEstudiantes
             int contadorLugarArray = 0;
             string colegiosFaltantes = "";
             bool faltaCargar = false;
-            btnRefresh.Enabled = false;
+
+            colorExcel = 4; //color par es igual a silver, sirve para que no se bugueee azul            
+            btnCrearEstadistica.BackColor = System.Drawing.Color.Silver;
             btnCrearEstadistica.Enabled = false;
 
             //##creando estadistica de ushuaia
@@ -863,1126 +875,1148 @@ namespace SistemaEstudiantes
                 }
                 lblProcesando.Visible = false;
                 MessageBox.Show("Estadistica generada.", "Sistema Informa");
-                btnCrearExcel.Enabled = true; 
+                btnCrearExcel.Enabled = true;
+                btnCrearExcel.BackColor = System.Drawing.Color.DodgerBlue;
+                colorExcel = 7;
             }
         }
         private void btnCrearExcel_Click(object sender, EventArgs e)
         {
             lblCreando.Visible = true;
-            Refresh();
-            //creando Estadisticas
-            SLDocument sl = new SLDocument();
-            string pathFile = @"C:\Users\Pablo\Downloads\Prueba\Estadisticas Secciones y Estudiantes " + cboxAño.SelectedItem.ToString() + " " + cboxPeriodo.SelectedItem.ToString() + ".xlsx";
-            //string pathFile = @"C:\Users\Arteok\Downloads\Prueba\Estadisticas Secciones y Estudiantes " + cboxAño.SelectedItem.ToString() + " " + cboxPeriodo.SelectedItem.ToString() + ".xlsx";
-
-            //string pathFile = @"C:\Users\Arteok\Downloads\Prueba\Estadisticas Secciones y Estudiantes.xlsx";
-
-            sl.RenameWorksheet(SLDocument.DefaultFirstSheetName, "Secciones y estudiantes");//renombra la Hoja
-
-            tituloEstadistica = "CANTIDAD DE SECCIONES Y ESTUDIANTES - CICLO " + cboxAño.SelectedItem.ToString() + " " + (cboxPeriodo.SelectedItem.ToString()).ToUpper() + " - COLEGIOS PUBLICOS DE GESTION PUBLICA";
-
-            //FONDOS###########
-            SLStyle styleFondoAzulGray = sl.CreateStyle();//Crea el fondo Azul OSCURO por definir
-            styleFondoAzulGray.Fill.SetPattern(PatternValues.Solid, System.Drawing.Color.DarkCyan, System.Drawing.Color.White);
-
-            SLStyle styleFondoNaranja = sl.CreateStyle();//Crea el fondo Naranja
-            styleFondoNaranja.Fill.SetPattern(PatternValues.Solid, System.Drawing.Color.Coral, System.Drawing.Color.White);
-
-            SLStyle styleFondoAzul = sl.CreateStyle();//Crea el fondo Azul
-            styleFondoAzul.Fill.SetPattern(PatternValues.Solid, System.Drawing.Color.SteelBlue, System.Drawing.Color.White);
-
-            SLStyle styleFondoVerde = sl.CreateStyle();//Crea el fondo verde
-            styleFondoVerde.Fill.SetPattern(PatternValues.Solid, System.Drawing.Color.MediumSeaGreen, System.Drawing.Color.White);
-
-            SLStyle styleFondoCeleste = sl.CreateStyle();//Crea el fondo celeste
-            styleFondoCeleste.Fill.SetPattern(PatternValues.Solid, System.Drawing.Color.LightSkyBlue, System.Drawing.Color.White);
-
-            SLStyle styleFondoGris = sl.CreateStyle();//Crea el fondo Gris
-            styleFondoGris.Fill.SetPattern(PatternValues.Solid, System.Drawing.Color.Gainsboro, System.Drawing.Color.White);
-
-            SLStyle styleFondoCrema = sl.CreateStyle();//Crea el fondo Cremita
-            styleFondoCrema.Fill.SetPattern(PatternValues.Solid, System.Drawing.Color.Wheat, System.Drawing.Color.White);
-
-            SLStyle styleFondoCremaCeleste = sl.CreateStyle();//Crea el fondo Cremita CELESTE
-            styleFondoCremaCeleste.Fill.SetPattern(PatternValues.Solid, System.Drawing.Color.Lavender, System.Drawing.Color.White);
-
-            SLStyle styleFondoCremaVerde = sl.CreateStyle();//Crea el fondo Cremita verde
-            styleFondoCremaVerde.Fill.SetPattern(PatternValues.Solid, System.Drawing.Color.Khaki, System.Drawing.Color.White);
-
-            SLStyle styleFondoCremaNaranja = sl.CreateStyle();//Crea el fondo Cremita Naranja
-            styleFondoCremaNaranja.Fill.SetPattern(PatternValues.Solid, System.Drawing.Color.NavajoWhite, System.Drawing.Color.White);
-
-            //FONDOSUSHUAIA
-            //Titulo FONDO  USHUAIA
-            sl.SetCellStyle(1, 1, 1, 40, styleFondoAzulGray);//asigna fondo azul a las entre las siguientes celdas
-            //Subtitulo FONDO
-            sl.SetCellStyle(2, 3, 2, 38, styleFondoNaranja);
-            //secciones fondo
-            sl.SetCellStyle(3, 3, 3, 38, styleFondoAzul);
-            //años
-            sl.SetCellStyle("C4", "T4", styleFondoVerde);
-            sl.SetCellStyle("W4", "AT4", styleFondoVerde);
-            //fondo de turnos
-            sl.SetCellStyle("C5", "T5", styleFondoCremaVerde);
-            //fondo S y E
-            sl.SetCellStyle("AW6", styleFondoCeleste);
-            sl.SetCellStyle("AX6", styleFondoGris);
-            //fondo depto y establecimiento
-            sl.SetCellStyle("A2", "B5", styleFondoAzulGray);
-            //fondo totales           
-            sl.SetCellStyle("AW2", "AX5", styleFondoAzulGray);
-            //Fondos total secciones y estudiantes
-            sl.SetCellStyle("U2", "U6", styleFondoNaranja);
-            sl.SetCellStyle("V2", "V6", styleFondoNaranja);
-            sl.SetCellStyle("AU2", "AU6", styleFondoNaranja);
-            sl.SetCellStyle("AV2", "AV6", styleFondoNaranja);
-            ////fondos a trasbajar///////
-
-
-            //fondo ushuaia
-            sl.SetCellStyle("A7", styleFondoCeleste);//Fondo colegios ushuaia celeste
-            //subtotal S y Estudiantes
-            sl.SetCellStyle(7 + cantColegiosUshuaia, 1, 7 + cantColegiosUshuaia, 2, styleFondoVerde);
-            sl.SetCellStyle(8 + cantColegiosUshuaia, 1, 8 + cantColegiosUshuaia, 2, styleFondoVerde);
-            sl.SetCellStyle(9 + cantColegiosUshuaia, 1, 9 + cantColegiosUshuaia, 2, styleFondoAzul);
-            sl.SetCellStyle(10 + cantColegiosUshuaia, 1, 10 + cantColegiosUshuaia, 2, styleFondoAzul);
-            //total secciones
-            sl.SetCellStyle(7, 21, 7 + cantColegiosUshuaia - 1, 22, styleFondoGris);//asigna fondo crema naranja a las entre las siguientes celdas
-            sl.SetCellStyle(7, 47, 7 + cantColegiosUshuaia - 1, 48, styleFondoGris);//asigna fondo crema naranja a las entre las siguientes celdas
-            sl.SetCellStyle(7, 49, 7 + cantColegiosUshuaia - 1, 50, styleFondoCremaNaranja);//asigna fondo crema naranja a las entre las siguientes celdas
-            //subtotal ushuaia ciclos
-            sl.SetCellStyle(7 + cantColegiosUshuaia, 3, 7 + cantColegiosUshuaia, 20, styleFondoCremaVerde);//asigna fondo crema verde a las entre las siguientes celdas
-            sl.SetCellStyle(8 + cantColegiosUshuaia, 3, 8 + cantColegiosUshuaia, 20, styleFondoCremaVerde);//asigna fondo crema celeste a las entre las siguientes celdas
-            sl.SetCellStyle(7 + cantColegiosUshuaia, 23, 7 + cantColegiosUshuaia, 46, styleFondoCremaVerde);//asigna fondo crema verde a las entre las siguientes celdas
-            sl.SetCellStyle(8 + cantColegiosUshuaia, 23, 8 + cantColegiosUshuaia, 46, styleFondoCremaVerde);//asigna fondo crema celeste a las entre las siguientes celdas
-            sl.SetCellStyle(9 + cantColegiosUshuaia, 3, 9 + cantColegiosUshuaia, 20, styleFondoCeleste);//asigna fondo crema verde a las entre las siguientes celdas
-            sl.SetCellStyle(10 + cantColegiosUshuaia, 3, 10 + cantColegiosUshuaia, 20, styleFondoCeleste);//asigna fondo crema celeste a las entre las siguientes celdas
-            sl.SetCellStyle(9 + cantColegiosUshuaia, 23, 9 + cantColegiosUshuaia, 46, styleFondoCeleste);//asigna fondo crema verde a las entre las siguientes celdas
-            sl.SetCellStyle(10 + cantColegiosUshuaia, 23, 10 + cantColegiosUshuaia, 46, styleFondoCeleste);//asigna fondo crema celeste a las entre las siguientes celdas
-
-            //subtotales generales ushuaia
-            sl.SetCellStyle(7 + cantColegiosUshuaia, 21, styleFondoVerde);//asigna fondo verde a la siguiente celda
-            sl.SetCellStyle(9 + cantColegiosUshuaia, 21, styleFondoAzul);//asigna fondo Azul a la siguiente celda
-            sl.SetCellStyle(7 + cantColegiosUshuaia, 47, styleFondoVerde);//asigna fondo verde a la siguiente celda
-            sl.SetCellStyle(9 + cantColegiosUshuaia, 47, styleFondoAzul);//asigna fondo azul a a la siguiente celda
-            sl.SetCellStyle(7 + cantColegiosUshuaia, 49, styleFondoNaranja);//asigna fondo naranja a la siguiente celda
-            sl.SetCellStyle(9 + cantColegiosUshuaia, 49, styleFondoAzulGray);//asigna fondo azul oscuro a a la siguiente celda
-
-            //Fondos Rio Grande
-            //Rio grande
-
-            sl.SetCellStyle(12 + cantColegiosUshuaia, 1, styleFondoCeleste);
-            //subtotal S y Estudiantes
-            sl.SetCellStyle(12 + cantColegiosUshuaia + cantColegiosGrande, 1, 12 + cantColegiosUshuaia + cantColegiosGrande, 2, styleFondoVerde);
-            sl.SetCellStyle(13 + cantColegiosUshuaia + cantColegiosGrande, 1, 13 + cantColegiosUshuaia + cantColegiosGrande, 2, styleFondoVerde);
-            sl.SetCellStyle(14 + cantColegiosUshuaia + cantColegiosGrande, 1, 14 + cantColegiosUshuaia + cantColegiosGrande, 2, styleFondoAzul);
-            sl.SetCellStyle(15 + cantColegiosUshuaia + cantColegiosGrande, 1, 15 + cantColegiosUshuaia + cantColegiosGrande, 2, styleFondoAzul);
-
-            //total secciones
-            sl.SetCellStyle(12 + cantColegiosUshuaia, 21, 12 + cantColegiosUshuaia + cantColegiosGrande - 1, 22, styleFondoGris);//asigna fondo crema naranja a las entre las siguientes celdas
-            sl.SetCellStyle(12 + cantColegiosUshuaia, 47, 12 + cantColegiosUshuaia + cantColegiosGrande - 1, 48, styleFondoGris);//asigna fondo crema naranja a las entre las siguientes celdas
-            sl.SetCellStyle(12 + cantColegiosUshuaia, 49, 12 + cantColegiosUshuaia + cantColegiosGrande - 1, 50, styleFondoCremaNaranja);//asigna fondo crema naranja a las entre las siguientes celdas
-
-
-            //subtotal ciclos Rio grande
-            sl.SetCellStyle(12 + cantColegiosUshuaia + cantColegiosGrande, 3, 12 + cantColegiosUshuaia + cantColegiosGrande, 20, styleFondoCremaVerde);//asigna fondo crema verde a las entre las siguientes celdas
-            sl.SetCellStyle(13 + cantColegiosUshuaia + cantColegiosGrande, 3, 13 + cantColegiosUshuaia + cantColegiosGrande, 20, styleFondoCremaVerde);//asigna fondo crema celeste a las entre las siguientes celdas
-            sl.SetCellStyle(12 + cantColegiosUshuaia + cantColegiosGrande, 23, 12 + cantColegiosUshuaia + cantColegiosGrande, 46, styleFondoCremaVerde);//asigna fondo crema verde a las entre las siguientes celdas
-            sl.SetCellStyle(13 + cantColegiosUshuaia + cantColegiosGrande, 23, 13 + cantColegiosUshuaia + cantColegiosGrande, 46, styleFondoCremaVerde);//asigna fondo crema celeste a las entre las siguientes celdas
-            sl.SetCellStyle(14 + cantColegiosUshuaia + cantColegiosGrande, 3, 14 + cantColegiosUshuaia + cantColegiosGrande, 20, styleFondoCeleste);//asigna fondo crema verde a las entre las siguientes celdas
-            sl.SetCellStyle(15 + cantColegiosUshuaia + cantColegiosGrande, 3, 15 + cantColegiosUshuaia + cantColegiosGrande, 20, styleFondoCeleste);//asigna fondo crema celeste a las entre las siguientes celdas
-            sl.SetCellStyle(14 + cantColegiosUshuaia + cantColegiosGrande, 23, 14 + cantColegiosUshuaia + cantColegiosGrande, 46, styleFondoCeleste);//asigna fondo crema verde a las entre las siguientes celdas
-            sl.SetCellStyle(15 + cantColegiosUshuaia + cantColegiosGrande, 23, 15 + cantColegiosUshuaia + cantColegiosGrande, 46, styleFondoCeleste);//asigna fondo crema celeste a las entre las siguientes celdas
-            //subtotales generales Rio Grande
-            sl.SetCellStyle(12 + cantColegiosUshuaia + cantColegiosGrande, 21, styleFondoVerde);//asigna fondo verde a la siguiente celda
-            sl.SetCellStyle(14 + cantColegiosUshuaia + cantColegiosGrande, 21, styleFondoAzul);//asigna fondo Azul a la siguiente celda
-            sl.SetCellStyle(12 + cantColegiosUshuaia + cantColegiosGrande, 47, styleFondoVerde);//asigna fondo verde a la siguiente celda
-            sl.SetCellStyle(14 + cantColegiosUshuaia + cantColegiosGrande, 47, styleFondoAzul);//asigna fondo azul a a la siguiente celda
-            sl.SetCellStyle(12 + cantColegiosUshuaia + cantColegiosGrande, 49, styleFondoNaranja);//asigna fondo naranja a la siguiente celda
-            sl.SetCellStyle(14 + cantColegiosUshuaia + cantColegiosGrande, 49, styleFondoAzulGray);//asigna fondo azul oscuro a a la siguiente celda
-
-            //Fondos Total jurisdiccional
-            //Total jurisdiccional S y Estudiantes
-            sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 1, 17 + cantColegiosUshuaia + cantColegiosGrande, 2, styleFondoVerde);
-            sl.SetCellStyle(18 + cantColegiosUshuaia + cantColegiosGrande, 1, 18 + cantColegiosUshuaia + cantColegiosGrande, 2, styleFondoVerde);
-            sl.SetCellStyle(19 + cantColegiosUshuaia + cantColegiosGrande, 1, 19 + cantColegiosUshuaia + cantColegiosGrande, 2, styleFondoAzul);
-            sl.SetCellStyle(20 + cantColegiosUshuaia + cantColegiosGrande, 1, 20 + cantColegiosUshuaia + cantColegiosGrande, 2, styleFondoAzul);
-
-            //subtotal TDF ciclos
-            sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 3, 17 + cantColegiosUshuaia + cantColegiosGrande, 20, styleFondoCremaVerde);//asigna fondo crema verde a las entre las siguientes celdas
-            sl.SetCellStyle(18 + cantColegiosUshuaia + cantColegiosGrande, 3, 18 + cantColegiosUshuaia + cantColegiosGrande, 20, styleFondoCremaVerde);//asigna fondo crema celeste a las entre las siguientes celdas
-            sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 23, 17 + cantColegiosUshuaia + cantColegiosGrande, 46, styleFondoCremaVerde);//asigna fondo crema verde a las entre las siguientes celdas
-            sl.SetCellStyle(18 + cantColegiosUshuaia + cantColegiosGrande, 23, 18 + cantColegiosUshuaia + cantColegiosGrande, 46, styleFondoCremaVerde);//asigna fondo crema celeste a las entre las siguientes celdas
-            sl.SetCellStyle(19 + cantColegiosUshuaia + cantColegiosGrande, 3, 19 + cantColegiosUshuaia + cantColegiosGrande, 20, styleFondoCeleste);//asigna fondo crema verde a las entre las siguientes celdas
-            sl.SetCellStyle(20 + cantColegiosUshuaia + cantColegiosGrande, 3, 20 + cantColegiosUshuaia + cantColegiosGrande, 20, styleFondoCeleste);//asigna fondo crema celeste a las entre las siguientes celdas
-            sl.SetCellStyle(19 + cantColegiosUshuaia + cantColegiosGrande, 23, 19 + cantColegiosUshuaia + cantColegiosGrande, 46, styleFondoCeleste);//asigna fondo crema verde a las entre las siguientes celdas
-            sl.SetCellStyle(20 + cantColegiosUshuaia + cantColegiosGrande, 23, 20 + cantColegiosUshuaia + cantColegiosGrande, 46, styleFondoCeleste);//asigna fondo crema celeste a las entre las siguientes celdas
-
-            //subtotales generales TDF
-            sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 21, styleFondoVerde);//asigna fondo verde a la siguiente celda
-            sl.SetCellStyle(19 + cantColegiosUshuaia + cantColegiosGrande, 21, styleFondoAzul);//asigna fondo Azul a la siguiente celda
-            sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 47, styleFondoVerde);//asigna fondo verde a la siguiente celda
-            sl.SetCellStyle(19 + cantColegiosUshuaia + cantColegiosGrande, 47, styleFondoAzul);//asigna fondo azul a a la siguiente celda
-            sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 49, styleFondoNaranja);//asigna fondo naranja a la siguiente celda
-            sl.SetCellStyle(19 + cantColegiosUshuaia + cantColegiosGrande, 49, styleFondoAzulGray);//asigna fondo azul oscuro a a la siguiente celda
-
-            //BORDERS#########//falta
-            //bordes gruesos generales
-            SLStyle styleBorderTM = sl.CreateStyle();//bordes medium Top, left,Right and bottom
-            styleBorderTM.SetTopBorder(BorderStyleValues.Medium, System.Drawing.Color.Black);
-            SLStyle styleBorderRM = sl.CreateStyle();
-            styleBorderRM.SetRightBorder(BorderStyleValues.Medium, System.Drawing.Color.Black);
-            SLStyle styleBorderLM = sl.CreateStyle();
-            styleBorderLM.SetLeftBorder(BorderStyleValues.Medium, System.Drawing.Color.Black);
-            SLStyle styleBorderBM = sl.CreateStyle();
-            styleBorderBM.SetBottomBorder(BorderStyleValues.Medium, System.Drawing.Color.Black);
-            //bordes normales
-            SLStyle styleBorderBasicRight = sl.CreateStyle();
-            styleBorderBasicRight.SetRightBorder(BorderStyleValues.Thin, System.Drawing.Color.Black);
-            SLStyle styleBorderBasicBottom = sl.CreateStyle();
-            styleBorderBasicBottom.SetBottomBorder(BorderStyleValues.Thin, System.Drawing.Color.Black);
-
-            //BORDERS#########
-            //bordes horizontales y verticales normales ushuaia                 
-            sl.SetCellStyle(1, 1, 10 + cantColegiosUshuaia, 50, styleBorderBasicBottom);
-            sl.SetCellStyle(1, 1, 10 + cantColegiosUshuaia, 50, styleBorderBasicRight);
-
-            //bordes horizontales y verticales normales Rio grande            
-            sl.SetCellStyle(11 + cantColegiosUshuaia, 1, 15 + cantColegiosUshuaia + cantColegiosGrande, 50, styleBorderBasicBottom);
-            sl.SetCellStyle(12 + cantColegiosUshuaia, 1, 15 + cantColegiosUshuaia + cantColegiosGrande, 50, styleBorderBasicRight);
-
-            //bordes horizontales y verticales normales Totales Jurisdiccionales
-            sl.SetCellStyle(16 + cantColegiosUshuaia + cantColegiosGrande, 1, 20 + cantColegiosUshuaia + cantColegiosGrande, 50, styleBorderBasicBottom);
-            sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 1, 20 + cantColegiosUshuaia + cantColegiosGrande, 50, styleBorderBasicRight);
-
-            //borders gruesos generales ushuaia
-            sl.SetCellStyle(1, 1, 1, 50, styleBorderTM);//asigna el borde top
-            sl.SetCellStyle(1, 1, 10 + cantColegiosUshuaia, 1, styleBorderLM);//asigna el borde left
-            sl.SetCellStyle(1, 50, 10 + cantColegiosUshuaia, 50, styleBorderRM);//asigna el borde right
-            sl.SetCellStyle(10 + cantColegiosUshuaia, 1, 10 + cantColegiosUshuaia, 50, styleBorderBM);//asigna el borde bottom            
-            //borders gruesos generales Rio Grande
-            sl.SetCellStyle(12 + cantColegiosUshuaia, 1, 12 + cantColegiosUshuaia, 50, styleBorderTM);//asigna el borde top
-            sl.SetCellStyle(12 + cantColegiosUshuaia, 1, 15 + cantColegiosUshuaia + cantColegiosGrande, 1, styleBorderLM);//asigna el borde left
-            sl.SetCellStyle(12 + cantColegiosUshuaia, 50, 15 + cantColegiosUshuaia + cantColegiosGrande, 50, styleBorderRM);//asigna el borde right
-            sl.SetCellStyle(15 + cantColegiosUshuaia + cantColegiosGrande, 1, 15 + cantColegiosUshuaia + cantColegiosGrande, 50, styleBorderBM);//asigna el borde bottom 
-            //borders gruesos generales Totales Jurisdicionales
-            sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 1, 17 + cantColegiosUshuaia + cantColegiosGrande, 50, styleBorderTM);//asigna el borde top
-            sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 1, 20 + cantColegiosUshuaia + cantColegiosGrande, 1, styleBorderLM);//asigna el borde left
-            sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 50, 20 + cantColegiosUshuaia + cantColegiosGrande, 50, styleBorderRM);//asigna el borde right
-            sl.SetCellStyle(20 + cantColegiosUshuaia + cantColegiosGrande, 1, 20 + cantColegiosUshuaia + cantColegiosGrande, 50, styleBorderBM);//asigna el borde bottom 
-
-            //Espacio dentro de las celdas########## falta
-            //espacios Filas Ushuaia
-            sl.SetRowHeight(1, 40);//titulo
-            sl.SetRowHeight(2, 38);//ciclo
-            sl.SetRowHeight(3, 32);//cantidad
-            sl.SetRowHeight(4, 32);//año
-            sl.SetRowHeight(5, 40);//turno
-
-            sl.SetRowHeight(7 + cantColegiosUshuaia, 25);//subtotal ushuaia s
-            sl.SetRowHeight(8 + cantColegiosUshuaia, 25);//subtotal ushuaia e
-            sl.SetRowHeight(9 + cantColegiosUshuaia, 25);//subtotal ushuaia s
-            sl.SetRowHeight(10 + cantColegiosUshuaia, 25);//subtotal ushuaia e
-
-            //espacios Filas Rio grande 
-            sl.SetRowHeight(12 + cantColegiosUshuaia + cantColegiosGrande, 25);//subtotal ushuaia s
-            sl.SetRowHeight(13 + cantColegiosUshuaia + cantColegiosGrande, 25);//subtotal ushuaia e
-            sl.SetRowHeight(14 + cantColegiosUshuaia + cantColegiosGrande, 25);//subtotal ushuaia e
-            sl.SetRowHeight(15 + cantColegiosUshuaia + cantColegiosGrande, 25);//subtotal ushuaia e
-
-            //espacios Filas totales jurisdiccionales
-            sl.SetRowHeight(17 + cantColegiosUshuaia + cantColegiosGrande, 25);//subtotal ushuaia s
-            sl.SetRowHeight(18 + cantColegiosUshuaia + cantColegiosGrande, 25);//subtotal ushuaia e
-            sl.SetRowHeight(19 + cantColegiosUshuaia + cantColegiosGrande, 25);//subtotal ushuaia s
-            sl.SetRowHeight(20 + cantColegiosUshuaia + cantColegiosGrande, 25);//subtotal ushuaia e
-
-            //espacios columnas
-            sl.SetColumnWidth(1, 12);//Depto
-            sl.SetColumnWidth(2, 35);//Establecimiento
-
-            for (int i = 3; i <= 19; i = i + 2)//espacios en S de 1 a 3 año
-            {
-                sl.SetColumnWidth(i, 5);
-            }
-            for (int i = 4; i <= 20; i = i + 2)//espacios en  de 1 a 3 año
-            {
-                sl.SetColumnWidth(i, 7);
-            }
-            for (int i = 23; i <= 45; i = i + 2)//espacios en S de 4 a 7 año
-            {
-                sl.SetColumnWidth(i, 5);
-            }
-            for (int i = 24; i <= 46; i = i + 2)//espacios en  de 4 a 7 año
-            {
-                sl.SetColumnWidth(i, 7);
-            }
-
-            sl.SetColumnWidth(21, 7);//espacios en total secciones y total estudiantes
-            sl.SetColumnWidth(22, 7);
-            sl.SetColumnWidth(47, 7);
-            sl.SetColumnWidth(48, 7);
-
-            sl.SetColumnWidth(49, 7);//espacios en totales
-            sl.SetColumnWidth(50, 9);
-
-            //LETRAS############
-            //Titulo 20 WHITE
-            SLStyle styleTitle = sl.CreateStyle();
-            styleTitle.Alignment.Horizontal = HorizontalAlignmentValues.Center;//aliniacion
-            styleTitle.Alignment.Vertical = VerticalAlignmentValues.Center;
-            styleTitle.Font.FontColor = System.Drawing.Color.White;//color
-            styleTitle.Font.FontName = "Arial";//tipo de fuente
-            styleTitle.Font.FontSize = 20;//tamaño
-            styleTitle.Font.Bold = true;//negrita  
-
-            //Arial 18 WHITE
-            SLStyle styleWhite18 = sl.CreateStyle();
-            styleWhite18.Alignment.Horizontal = HorizontalAlignmentValues.Center;//aliniacion
-            styleWhite18.Alignment.Vertical = VerticalAlignmentValues.Center;
-            styleWhite18.Font.FontColor = System.Drawing.Color.White;//color
-            styleWhite18.Font.FontName = "Arial";//tipo de fuente
-            styleWhite18.Font.FontSize = 18;//tamaño
-            styleWhite18.Font.Bold = true;//negrita 
-            //Arial 16 WHITE
-            SLStyle styleWhite16 = sl.CreateStyle();
-            styleWhite16.Alignment.Horizontal = HorizontalAlignmentValues.Center;//aliniacion
-            styleWhite16.Alignment.Vertical = VerticalAlignmentValues.Center;
-            styleWhite16.Font.FontColor = System.Drawing.Color.White;//color
-            styleWhite16.Font.FontName = "Arial";//tipo de fuente
-            styleWhite16.Font.FontSize = 16;//tamaño
-            styleWhite16.Font.Bold = true;//negrita
-
-            //Arial 14 WHITE
-            SLStyle styleWhite14 = sl.CreateStyle();
-            styleWhite14.Alignment.Horizontal = HorizontalAlignmentValues.Center;//aliniacion
-            styleWhite14.Alignment.Vertical = VerticalAlignmentValues.Center;
-            styleWhite14.Font.FontColor = System.Drawing.Color.White;//color
-            styleWhite14.Font.FontName = "Arial";//tipo de fuente
-            styleWhite14.Font.FontSize = 14;//tamaño
-            styleWhite14.Font.Bold = true;//negrita
-
-            //Arial 14 WHITE 90 GRADOS
-            SLStyle styleWhite14_90G = sl.CreateStyle();
-            styleWhite14_90G.SetWrapText(true);//ajustar texto
-            styleWhite14_90G.Alignment.Horizontal = HorizontalAlignmentValues.Center;//aliniacion
-            styleWhite14_90G.Alignment.Vertical = VerticalAlignmentValues.Center;
-            styleWhite14_90G.Alignment.TextRotation = 90;//rota 90 grados el texto
-            styleWhite14_90G.Font.FontColor = System.Drawing.Color.White;//color
-            styleWhite14_90G.Font.FontName = "Arial";//tipo de fuente
-            styleWhite14_90G.Font.FontSize = 14;//tamaño
-            styleWhite14_90G.Font.Bold = true;//negrita
-
-            //Arial 18 WHITE 90 GRADOS
-            SLStyle styleWhite18_90G = sl.CreateStyle();
-            styleWhite18_90G.Alignment.Horizontal = HorizontalAlignmentValues.Center;//aliniacion
-            styleWhite18_90G.Alignment.Vertical = VerticalAlignmentValues.Center;
-            styleWhite18_90G.Alignment.TextRotation = 90;//rota 90 grados el texto
-            styleWhite18_90G.Font.FontColor = System.Drawing.Color.White;//color
-            styleWhite18_90G.Font.FontName = "Arial";//tipo de fuente
-            styleWhite18_90G.Font.FontSize = 18;//tamaño
-            styleWhite18_90G.Font.Bold = true;//negrita
-
-            //Arial 14 Black
-            SLStyle styleBlack14 = sl.CreateStyle();
-            styleBlack14.Alignment.Horizontal = HorizontalAlignmentValues.Center;//aliniacion
-            styleBlack14.Alignment.Vertical = VerticalAlignmentValues.Center;
-            styleBlack14.Font.FontColor = System.Drawing.Color.Black;//color
-            styleBlack14.Font.FontName = "Arial";//tipo de fuente
-            styleBlack14.Font.FontSize = 14;//tamaño
-            styleBlack14.Font.Bold = true;//negrita
-
-            //Arial 16 Black vertical
-            SLStyle styleBlack16_90G = sl.CreateStyle();
-            styleBlack16_90G.Alignment.Horizontal = HorizontalAlignmentValues.Center;//aliniacion
-            styleBlack16_90G.Alignment.Vertical = VerticalAlignmentValues.Center;
-            styleBlack16_90G.Alignment.TextRotation = 90;//rota 90 grados el texto
-            styleBlack16_90G.Font.FontColor = System.Drawing.Color.Black;//color
-            styleBlack16_90G.Font.FontName = "Arial";//tipo de fuente
-            styleBlack16_90G.Font.FontSize = 16;//tamaño
-            styleBlack16_90G.Font.Bold = true;//negrita
-
-            //Arial 14 blue
-            SLStyle styleBlue14 = sl.CreateStyle();
-            styleBlue14.Alignment.Horizontal = HorizontalAlignmentValues.Center;//aliniacion
-            styleBlack14.Alignment.Vertical = VerticalAlignmentValues.Center;
-            styleBlue14.Font.FontColor = System.Drawing.Color.Blue;//color
-            styleBlue14.Font.FontName = "Arial";//tipo de fuente
-            styleBlue14.Font.FontSize = 14;//tamaño
-            styleBlue14.Font.Bold = true;//negrita
-
-            //##CONTENIDO Celdas USHUAIA###### 
-            //Titulo
-            sl.SetCellValue("A1", tituloEstadistica); //set value
-            sl.SetCellStyle(1, 1, styleTitle);//
-            sl.MergeWorksheetCells("A1", "AX1");//COMBINAR
-            //SubTitulo
-            sl.SetCellValue("C2", "CICLO BASICO"); //set value
-            sl.SetCellStyle(2, 3, styleWhite18);//
-            sl.MergeWorksheetCells("C2", "V2");//COMBINAR
-
-            sl.SetCellValue("W2", "CICLO SUPERIOR"); //set value
-            sl.SetCellStyle(2, 23, styleWhite18);//
-            sl.MergeWorksheetCells("W2", "AV2");//COMBINAR
-            //secciones
-            sl.SetCellValue("C3", "Cantidad de Secciones y Estudiantes"); //set value
-            sl.SetCellStyle("C3", styleWhite16);//
-            sl.MergeWorksheetCells("C3", "T3");//COMBINAR
-
-            sl.SetCellValue("W3", "Cantidad de Secciones y Estudiantes"); //set value
-            sl.SetCellStyle("W3", styleWhite16);//
-            sl.MergeWorksheetCells("W3", "AT3");//COMBINAR
-            //AÑOS
-            sl.SetCellValue("C4", "1ro"); //set value
-            sl.SetCellStyle("C4", styleWhite16);//
-            sl.MergeWorksheetCells("C4", "H4");//COMBINAR
-
-            sl.SetCellValue("I4", "2do"); //set value
-            sl.SetCellStyle("I4", styleWhite16);//
-            sl.MergeWorksheetCells("I4", "N4");//COMBINAR
-
-            sl.SetCellValue("O4", "3ro"); //set value
-            sl.SetCellStyle("O4", styleWhite16);//
-            sl.MergeWorksheetCells("O4", "T4");//COMBINAR
-
-            sl.SetCellValue("W4", "4to"); //set value
-            sl.SetCellStyle("W4", styleWhite16);//
-            sl.MergeWorksheetCells("W4", "AB4");//COMBINAR
-
-            sl.SetCellValue("AC4", "5to"); //set value
-            sl.SetCellStyle("AC4", styleWhite16);//
-            sl.MergeWorksheetCells("AC4", "AH4");//COMBINAR
-
-            sl.SetCellValue("AI4", "6to"); //set value
-            sl.SetCellStyle("AI4", styleWhite16);//
-            sl.MergeWorksheetCells("AI4", "AN4");//COMBINAR
-
-            sl.SetCellValue("AO4", "7mo"); //set value
-            sl.SetCellStyle("AO4", styleWhite16);//
-            sl.MergeWorksheetCells("AO4", "AT4");//COMBINAR
-            //TURNOS
-            sl.SetCellValue("C5", "TM"); //set value
-            sl.SetCellStyle("C5", styleBlack14);//
-            sl.MergeWorksheetCells("C5", "D5");//COMBINAR
-
-            sl.SetCellValue("E5", "TT"); //set value
-            sl.SetCellStyle("E5", styleBlack14);//
-            sl.MergeWorksheetCells("E5", "F5");//COMBINAR
-
-            sl.SetCellValue("G5", "TV"); //set value
-            sl.SetCellStyle("G5", styleBlack14);//
-            sl.MergeWorksheetCells("G5", "H5");//COMBINAR
-
-            sl.CopyCell("C5", "I5");//copia el contenido de una celda
-            sl.MergeWorksheetCells("I5", "J5");//COMBINAR
-            sl.CopyCell("C5", "O5");//copia el contenido de una celda
-            sl.MergeWorksheetCells("O5", "P5");//COMBINAR
-            sl.CopyCell("C5", "W5");//copia el contenido de una celda
-            sl.MergeWorksheetCells("W5", "X5");//COMBINAR
-            sl.CopyCell("C5", "AC5");//copia el contenido de una celda
-            sl.MergeWorksheetCells("AC5", "AD5");//COMBINAR
-            sl.CopyCell("C5", "AI5");//copia el contenido de una celda
-            sl.MergeWorksheetCells("AI5", "AJ5");//COMBINAR
-            sl.CopyCell("C5", "AO5");//copia el contenido de una celda
-            sl.MergeWorksheetCells("AO5", "AP5");//COMBINAR
-
-            sl.CopyCell("E5", "K5");//copia el contenido de una celda
-            sl.MergeWorksheetCells("K5", "L5");//COMBINAR
-            sl.CopyCell("E5", "Q5");//copia el contenido de una celda
-            sl.MergeWorksheetCells("Q5", "R5");//COMBINAR
-            sl.CopyCell("E5", "Y5");//copia el contenido de una celda
-            sl.MergeWorksheetCells("Y5", "Z5");//COMBINAR
-            sl.CopyCell("E5", "AE5");//copia el contenido de una celda
-            sl.MergeWorksheetCells("AE5", "AF5");//COMBINAR
-            sl.CopyCell("E5", "AK5");//copia el contenido de una celda
-            sl.MergeWorksheetCells("AK5", "AL5");//COMBINAR
-            sl.CopyCell("E5", "AQ5");//copia el contenido de una celda
-            sl.MergeWorksheetCells("AQ5", "AR5");//COMBINAR
-
-            sl.CopyCell("G5", "M5");//copia el contenido de una celda
-            sl.MergeWorksheetCells("M5", "N5");//COMBINAR
-            sl.CopyCell("G5", "S5");//copia el contenido de una celda
-            sl.MergeWorksheetCells("S5", "T5");//COMBINAR
-            sl.CopyCell("G5", "AA5");//copia el contenido de una celda
-            sl.MergeWorksheetCells("AA5", "AB5");//COMBINAR
-            sl.CopyCell("G5", "AG5");//copia el contenido de una celda
-            sl.MergeWorksheetCells("AG5", "AH5");//COMBINAR
-            sl.CopyCell("G5", "AM5");//copia el contenido de una celda
-            sl.MergeWorksheetCells("AM5", "AN5");//COMBINAR
-            sl.CopyCell("G5", "AS5");//copia el contenido de una celda
-            sl.MergeWorksheetCells("AS5", "AT5");//COMBINAR
-
-            //S y E
-            sl.SetCellValue("AW6", "S"); //set value
-            sl.SetCellStyle("AW6", styleBlack14);
-            sl.SetCellValue("AX6", "E"); //set value
-            sl.SetCellStyle("AX6", styleBlack14);
-
-            for (int i = 3; i <= 19; i = i + 2)
-            {
-                sl.CopyCell(6, 49, 6, i);
-                for (int j = 4; j <= 20; j = j + 2)
-                {
-                    sl.CopyCell(6, 50, 6, j);
-                }
-            }
-            for (int i = 23; i <= 45; i = i + 2)
-            {
-                sl.CopyCell(6, 49, 6, i);
-                for (int j = 24; j <= 46; j = j + 2)
-                {
-                    sl.CopyCell(6, 50, 6, j);
-                }
-            }
-            //Depto y establecimiento
-            sl.SetCellValue("A2", "Depto"); //set value
-            sl.SetCellStyle("A2", styleWhite18);
-            sl.MergeWorksheetCells("A2", "A6");//COMBINAR
-            sl.SetCellValue("B2", "Establecimiento"); //set value
-            sl.SetCellStyle("B2", styleWhite18);
-            sl.MergeWorksheetCells("B2", "B6");//COMBINAR
-            //totales
-            sl.SetCellValue("AW2", "TOTALES"); //set value
-            sl.SetCellStyle("AW2", styleWhite18_90G);
-            sl.MergeWorksheetCells("AW2", "AX5");//COMBINAR
-            //Total secciones y estudiantes
-            sl.SetCellValue("U3", "Total Secciones"); //set value
-            sl.SetCellStyle("U3", styleWhite14_90G);
-            sl.MergeWorksheetCells("U3", "U6");//COMBINAR
-            sl.SetCellValue("V3", "Total Estudiantes"); //set value
-            sl.SetCellStyle("V3", styleWhite14_90G);
-            sl.MergeWorksheetCells("V3", "V6");//COMBINAR
-            sl.SetCellValue("AU3", "Total Secciones"); //set value
-            sl.SetCellStyle("AU3", styleWhite14_90G);
-            sl.MergeWorksheetCells("AU3", "AU6");//COMBINAR
-            sl.SetCellValue("AV3", "Total Estudiantes"); //set value
-            sl.SetCellStyle("AV3", styleWhite14_90G);
-            sl.MergeWorksheetCells("AV3", "AV6");//COMBINAR
-            //ushuaia
-            sl.SetCellValue("A7", "Ushuaia"); //set value
-            sl.SetCellStyle("A7", styleBlack16_90G);
-            sl.MergeWorksheetCells(7, 1, 6 + cantColegiosUshuaia, 1);//COMBINAR
-
-            //subtotal S y Estudiantes
-            sl.SetCellValue(7 + cantColegiosUshuaia, 1, "Subtotal Ushuaia Secciones"); //set value
-            sl.SetCellStyle(7 + cantColegiosUshuaia, 1, styleWhite14);
-            sl.MergeWorksheetCells(7 + cantColegiosUshuaia, 1, 7 + cantColegiosUshuaia, 2);//COMBINAR
-            sl.SetCellValue(8 + cantColegiosUshuaia, 1, "Subtotal Secciones por Año"); //set value
-            sl.SetCellStyle(8 + cantColegiosUshuaia, 1, styleWhite14);
-            sl.MergeWorksheetCells(8 + cantColegiosUshuaia, 1, 8 + cantColegiosUshuaia, 2);//COMBINAR
-            sl.SetCellValue(9 + cantColegiosUshuaia, 1, "Subtotal Ushuaia Estudiantes"); //set value
-            sl.SetCellStyle(9 + cantColegiosUshuaia, 1, styleWhite14);
-            sl.MergeWorksheetCells(9 + cantColegiosUshuaia, 1, 9 + cantColegiosUshuaia, 2);//COMBINAR*/
-            sl.SetCellValue(10 + cantColegiosUshuaia, 1, "Subtotal Estudiantes por Año"); //set value
-            sl.SetCellStyle(10 + cantColegiosUshuaia, 1, styleWhite14);
-            sl.MergeWorksheetCells(10 + cantColegiosUshuaia, 1, 10 + cantColegiosUshuaia, 2);//COMBINAR*/
-
-            //Nombre de los establecimientos Ushuaia
-            for (int i = 7; i <= 7 + cantColegiosUshuaia - 1; i++)
-            {
-                sl.SetCellValue(i, 2, ushuaiaColegios[0, i - 7]); //set value
-                sl.SetCellStyle(i, 2, styleBlack14);
-            }
-            //completa ciclo basico ushuaia
-            for (int i = 7; i <= 7 + cantColegiosUshuaia - 1; i++)
-            {
-                for (int j = 3; j <= 20; j++)
-                {
-                    if (colegiosUshuaiaSyE[i - 7, j - 3] == 0)//si el valor es 0 le pone un guion
-                    {
-                        sl.SetCellValue(i, j, "-"); //set value
-                        sl.SetCellStyle(i, j, styleBlack14);
-                    }
-                    else//si tiene valor, lo pone
-                    {
-                        sl.SetCellValue(i, j, colegiosUshuaiaSyE[i - 7, j - 3]); //set value
-                        sl.SetCellStyle(i, j, styleBlack14);
-                    }
-                }
-            }
-            //completa ciclo superior ushuaia           
-            for (int i = 7; i <= 7 + cantColegiosUshuaia - 1; i++)
-            {
-                for (int j = 23; j <= 46; j++)
-                {
-                    if (colegiosUshuaiaSyE[i - 7, j - 5] == 0)//si el valor es 0 le pone un guion
-                    {
-                        sl.SetCellValue(i, j, "-"); //set value
-                        sl.SetCellStyle(i, j, styleBlack14);
-                    }
-                    else//si tiene valor, lo pone
-                    {
-                        //sl.SetCellValue(i, j, Convert.ToString(j+i)); //set value
-                        sl.SetCellValue(i, j, colegiosUshuaiaSyE[i - 7, j - 5]); //set value
-                        sl.SetCellStyle(i, j, styleBlack14);
-                    }
-                }
-            }
-
-            //completa totales ciclo basico ushuaia           
-            for (int i = 7; i <= 7 + cantColegiosUshuaia - 1; i++)//7 porque empieza en la fila 7
-            {
-                for (int j = 21; j <= 22; j++)//21 porque empieza en la columna 21
-                {
-                    sl.SetCellValue(i, j, uTotalesCicloBasico[i - 7, j - 21]); //set value
-                    sl.SetCellStyle(i, j, styleBlue14);
-                }
-            }
-            //completa totales ciclo superior ushuaia           
-            for (int i = 7; i <= 7 + cantColegiosUshuaia - 1; i++)//7 porque empieza en la fila 7
-            {
-                for (int j = 47; j <= 48; j++)//47 porque empieza en la columna 47
-                {
-                    sl.SetCellValue(i, j, uTotalesCicloSuperior[i - 7, j - 47]); //set value
-                    sl.SetCellStyle(i, j, styleBlue14);
-                }
-            }
-            //completa totales ushuaia           
-            for (int i = 7; i <= 7 + cantColegiosUshuaia - 1; i++)//7 porque empieza en la fila 7
-            {
-                for (int j = 49; j <= 50; j++)//49 porque empieza en la columna 49
-                {
-                    sl.SetCellValue(i, j, uTotal2Ciclos[i - 7, j - 49]); //set value
-                    sl.SetCellStyle(i, j, styleBlack14);
-                }
-            }
-
-            //completa subtotal ushuaia   
-            for (int i = 7 + cantColegiosUshuaia; i <= 8 + cantColegiosUshuaia; i++)
-            {
-                if (i == 7 + cantColegiosUshuaia)
-                {
-                    for (int j = 0; j <= 20; j++)//3 porque empieza en la columna 3 y suma de a 2 lugares
-                    {
-                        if (j == 0)
-                        {
-                            sl.SetCellValue(i, j + 3, uSubtotalTurnos[i - (7 + cantColegiosUshuaia), j]);
-                            sl.SetCellStyle(i, j + 3, styleBlack14);
-                            sl.MergeWorksheetCells(i, j + 3, i, j + 3 + 1);//COMBINAR
-                        }
-                        else if (j >= 9)
-                        {
-                            sl.SetCellValue(i, (j * 2) + 5, uSubtotalTurnos[i - (7 + cantColegiosUshuaia), j]);
-                            sl.SetCellStyle(i, (j * 2) + 5, styleBlack14);
-                            sl.MergeWorksheetCells(i, (j * 2) + 5, i, (j * 2) + 5 + 1);//COMBINAR
-                        }
-                        else
-                        {
-                            sl.SetCellValue(i, (j * 2) + 3, uSubtotalTurnos[i - (7 + cantColegiosUshuaia), j]);
-                            sl.SetCellStyle(i, (j * 2) + 3, styleBlack14);
-                            sl.MergeWorksheetCells(i, (j * 2) + 3, i, (j * 2) + 3 + 1);//COMBINAR
-                        }
-                    }
-                }
-                else
-                {
-                    for (int j = 0; j <= 20; j++)//3 porque empieza en la columna 3 y suma de a 2 lugares
-                    {
-                        if (j == 0)
-                        {
-                            sl.SetCellValue(i + 1, j + 3, uSubtotalTurnos[i - (7 + cantColegiosUshuaia), j]);
-                            sl.SetCellStyle(i + 1, j + 3, styleBlack14);
-                            sl.MergeWorksheetCells(i + 1, j + 3, i + 1, j + 3 + 1);//COMBINAR
-                        }
-                        else if (j >= 9)
-                        {
-                            sl.SetCellValue(i + 1, (j * 2) + 5, uSubtotalTurnos[i - (7 + cantColegiosUshuaia), j]);
-                            sl.SetCellStyle(i + 1, (j * 2) + 5, styleBlack14);
-                            sl.MergeWorksheetCells(i + 1, (j * 2) + 5, i + 1, (j * 2) + 5 + 1);//COMBINAR
-                        }
-                        else
-                        {
-                            sl.SetCellValue(i + 1, (j * 2) + 3, uSubtotalTurnos[i - (7 + cantColegiosUshuaia), j]);
-                            sl.SetCellStyle(i + 1, (j * 2) + 3, styleBlack14);
-                            sl.MergeWorksheetCells(i + 1, (j * 2) + 3, i + 1, (j * 2) + 3 + 1);//COMBINAR
-                        }
-                    }
-                }
-            }
-
-            //completa subtotal ushuaia por año            
-            for (int i = 8 + cantColegiosUshuaia; i <= 9 + cantColegiosUshuaia; i++)
-            {
-                if (i == 8 + cantColegiosUshuaia)
-                {
-                    for (int j = 0; j <= 6; j++)//3 porque empieza en la columna 3 y suma de a 6 lugares
-                    {
-                        if (j == 0)
-                        {
-                            sl.SetCellValue(i, j + 3, uSubtotalAños[i - (8 + cantColegiosUshuaia), j]);
-                            sl.SetCellStyle(i, j + 3, styleBlack14);
-                            sl.MergeWorksheetCells(i, j + 3, i, j + 3 + 5);//COMBINAR
-                        }
-                        else if (j >= 3)
-                        {
-                            sl.SetCellValue(i, (j * 6) + 5, uSubtotalAños[i - (8 + cantColegiosUshuaia), j]);
-                            sl.SetCellStyle(i, (j * 6) + 5, styleBlack14);
-                            sl.MergeWorksheetCells(i, (j * 6) + 5, i, (j * 6) + 5 + 5);//COMBINAR
-                        }
-                        else
-                        {
-                            sl.SetCellValue(i, (j * 6) + 3, uSubtotalAños[i - (8 + cantColegiosUshuaia), j]);
-                            sl.SetCellStyle(i, (j * 6) + 3, styleBlack14);
-                            sl.MergeWorksheetCells(i, (j * 6) + 3, i, (j * 6) + 3 + 5);//COMBINAR
-                        }
-                    }
-                }
-                else
-                {
-                    for (int j = 0; j <= 6; j++)//3 porque empieza en la columna 3 y suma de a 6 lugares
-                    {
-                        if (j == 0)
-                        {
-                            sl.SetCellValue(i + 1, j + 3, uSubtotalAños[i - (8 + cantColegiosUshuaia), j]);
-                            sl.SetCellStyle(i + 1, j + 3, styleBlack14);
-                            sl.MergeWorksheetCells(i + 1, j + 3, i + 1, j + 3 + 5);//COMBINAR
-                        }
-                        else if (j >= 3)
-                        {
-                            sl.SetCellValue(i + 1, (j * 6) + 5, uSubtotalAños[i - (8 + cantColegiosUshuaia), j]);
-                            sl.SetCellStyle(i + 1, (j * 6) + 5, styleBlack14);
-                            sl.MergeWorksheetCells(i + 1, (j * 6) + 5, i + 1, (j * 6) + 5 + 5);//COMBINAR
-                        }
-                        else
-                        {
-                            sl.SetCellValue(i + 1, (j * 6) + 3, uSubtotalAños[i - (8 + cantColegiosUshuaia), j]);
-                            sl.SetCellStyle(i + 1, (j * 6) + 3, styleBlack14);
-                            sl.MergeWorksheetCells(i + 1, (j * 6) + 3, i + 1, (j * 6) + 3 + 5);//COMBINAR
-                        }
-                    }
-                }
-            }
-
-            //completa SubTotales Ushuaia             
-            sl.SetCellValue(7 + cantColegiosUshuaia, 21, uSubtotal[0, 0]);
-            sl.SetCellStyle(7 + cantColegiosUshuaia, 21, styleWhite14);
-            sl.MergeWorksheetCells(7 + cantColegiosUshuaia, 21, 8 + cantColegiosUshuaia, 22);//COMBINAR
-            sl.SetCellValue(7 + cantColegiosUshuaia, 47, uSubtotal[0, 1]);
-            sl.SetCellStyle(7 + cantColegiosUshuaia, 47, styleWhite14);
-            sl.MergeWorksheetCells(7 + cantColegiosUshuaia, 47, 8 + cantColegiosUshuaia, 48);//COMBINAR
-            sl.SetCellValue(7 + cantColegiosUshuaia, 49, uSubtotal[0, 2]);
-            sl.SetCellStyle(7 + cantColegiosUshuaia, 49, styleWhite14);
-            sl.MergeWorksheetCells(7 + cantColegiosUshuaia, 49, 8 + cantColegiosUshuaia, 50);//COMBINAR
-            sl.SetCellValue(9 + cantColegiosUshuaia, 21, uSubtotal[1, 0]);
-            sl.SetCellStyle(9 + cantColegiosUshuaia, 21, styleWhite14);
-            sl.MergeWorksheetCells(9 + cantColegiosUshuaia, 21, 10 + cantColegiosUshuaia, 22);//COMBINAR
-            sl.SetCellValue(9 + cantColegiosUshuaia, 47, uSubtotal[1, 1]);
-            sl.SetCellStyle(9 + cantColegiosUshuaia, 47, styleWhite14);
-            sl.MergeWorksheetCells(9 + cantColegiosUshuaia, 47, 10 + cantColegiosUshuaia, 48);//COMBINAR
-            sl.SetCellValue(9 + cantColegiosUshuaia, 49, uSubtotal[1, 2]);
-            sl.SetCellStyle(9 + cantColegiosUshuaia, 49, styleWhite14);
-            sl.MergeWorksheetCells(9 + cantColegiosUshuaia, 49, 10 + cantColegiosUshuaia, 50);//COMBINAR
-
-            //##CONTENIDO DE LAS CELDAS RIO GRANDE
-            //Rio Grande
-            sl.SetCellValue(12 + cantColegiosUshuaia, 1, "Rio Grande"); //set value
-            sl.SetCellStyle(12 + cantColegiosUshuaia, 1, styleBlack16_90G);
-            sl.MergeWorksheetCells(12 + cantColegiosUshuaia, 1, 12 + cantColegiosUshuaia + cantColegiosGrande - 1, 1);//COMBINAR
-            //subtotal S y Estudiantes Rio grande
-            sl.SetCellValue(12 + cantColegiosUshuaia + cantColegiosGrande, 1, "Subtotal Rio Grande Secciones"); //set value
-            sl.SetCellStyle(12 + cantColegiosUshuaia + cantColegiosGrande, 1, styleWhite14);
-            sl.MergeWorksheetCells(12 + cantColegiosUshuaia + cantColegiosGrande, 1, 12 + cantColegiosUshuaia + cantColegiosGrande, 2);//COMBINAR
-            sl.SetCellValue(13 + cantColegiosUshuaia + cantColegiosGrande, 1, "Subtotal Secciones por Año"); //set value
-            sl.SetCellStyle(13 + cantColegiosUshuaia + cantColegiosGrande, 1, styleWhite14);
-            sl.MergeWorksheetCells(13 + cantColegiosUshuaia + cantColegiosGrande, 1, 13 + cantColegiosUshuaia + cantColegiosGrande, 2);//COMBINAR
-
-            sl.SetCellValue(14 + cantColegiosUshuaia + cantColegiosGrande, 1, "Subtotal Rio Grande Estudiantes"); //set value
-            sl.SetCellStyle(14 + cantColegiosUshuaia + cantColegiosGrande, 1, styleWhite14);
-            sl.MergeWorksheetCells(14 + cantColegiosUshuaia + cantColegiosGrande, 1, 14 + cantColegiosUshuaia + cantColegiosGrande, 2);//COMBINAR*/
-            sl.SetCellValue(15 + cantColegiosUshuaia + cantColegiosGrande, 1, "Subtotal Estudiantes por año"); //set value
-            sl.SetCellStyle(15 + cantColegiosUshuaia + cantColegiosGrande, 1, styleWhite14);
-            sl.MergeWorksheetCells(15 + cantColegiosUshuaia + cantColegiosGrande, 1, 15 + cantColegiosUshuaia + cantColegiosGrande, 2);//COMBINAR*/
-
-
-
-            //Nombre de los establecimientos Rio grande             
-            for (int i = 12 + cantColegiosUshuaia; i <= 12 + cantColegiosUshuaia + cantColegiosGrande - 1; i++)
-            {
-                sl.SetCellValue(i, 2, grandeColegios[0, i - (12 + cantColegiosUshuaia)]); //set value
-                sl.SetCellStyle(i, 2, styleBlack14);
-            }
-            //completa ciclo basico Rio grande
-            for (int i = 12 + cantColegiosUshuaia; i <= 12 + cantColegiosUshuaia + cantColegiosGrande - 1; i++)
-            {
-                for (int j = 3; j <= 20; j++)
-                {
-                    if (colegiosGrandeSyE[i - (12 + cantColegiosUshuaia), j - 3] == 0)//si el valor es 0 le pone un guion
-                    {
-                        sl.SetCellValue(i, j, "-"); //set value
-                        sl.SetCellStyle(i, j, styleBlack14);
-                    }
-                    else//si tiene valor, lo pone
-                    {
-                        sl.SetCellValue(i, j, colegiosGrandeSyE[i - (12 + cantColegiosUshuaia), j - 3]); //set value
-                        sl.SetCellStyle(i, j, styleBlack14);
-                    }
-                }
-            }
-            //completa ciclo superior Rio grande        
-            for (int i = 12 + cantColegiosUshuaia; i <= 12 + cantColegiosUshuaia + cantColegiosGrande - 1; i++)
-            {
-                for (int j = 23; j <= 46; j++)
-                {
-                    if (colegiosGrandeSyE[i - (12 + cantColegiosUshuaia), j - 5] == 0)//si el valor es 0 le pone un guion
-                    {
-                        sl.SetCellValue(i, j, "-"); //set value
-                        sl.SetCellStyle(i, j, styleBlack14);
-                    }
-                    else//si tiene valor, lo pone
-                    {
-                        //sl.SetCellValue(i, j, Convert.ToString(j+i)); //set value
-                        sl.SetCellValue(i, j, colegiosGrandeSyE[i - (12 + cantColegiosUshuaia), j - 5]); //set value
-                        sl.SetCellStyle(i, j, styleBlack14);
-                    }
-                }
-            }
-            //completa totales ciclo basico Rio grande          
-            for (int i = 12 + cantColegiosUshuaia; i <= 12 + cantColegiosUshuaia + cantColegiosGrande - 1; i++)//22 porque empieza en la fila 22 depende de la cantidad de colegios ushuaia igual
-            {
-                for (int j = 21; j <= 22; j++)//21 porque empieza en la columna 21
-                {
-                    sl.SetCellValue(i, j, gTotalesCicloBasico[i - (12 + cantColegiosUshuaia), j - 21]); //set value
-                    sl.SetCellStyle(i, j, styleBlue14);
-                }
-            }
-            //completa totales ciclo superior Rio grande          
-            for (int i = (12 + cantColegiosUshuaia); i <= 12 + cantColegiosUshuaia + cantColegiosGrande - 1; i++)//22 porque empieza en la fila 22
-            {
-                for (int j = 47; j <= 48; j++)//47 porque empieza en la columna 47
-                {
-                    sl.SetCellValue(i, j, gTotalesCicloSuperior[i - (12 + cantColegiosUshuaia), j - 47]); //set value
-                    sl.SetCellStyle(i, j, styleBlue14);
-                }
-            }
-            //completa totales Rio grande          
-            for (int i = (12 + cantColegiosUshuaia); i <= 12 + cantColegiosUshuaia + cantColegiosGrande - 1; i++)//22 porque empieza en la fila 22
-            {
-                for (int j = 49; j <= 50; j++)//49 porque empieza en la columna 49
-                {
-                    sl.SetCellValue(i, j, gTotal2Ciclos[i - (12 + cantColegiosUshuaia), j - 49]); //set value
-                    sl.SetCellStyle(i, j, styleBlack14);
-                }
-            }
-
-            //completa subtotal Rio grande  
-            for (int i = 12 + cantColegiosUshuaia + cantColegiosGrande; i <= 13 + cantColegiosUshuaia + cantColegiosGrande; i++)
-            {
-                if (i == 12 + cantColegiosUshuaia + cantColegiosGrande)
-                {
-                    for (int j = 0; j <= 20; j++)//3 porque empieza en la columna 3 y suma de a 2 lugares
-                    {
-                        if (j == 0)
-                        {
-                            sl.SetCellValue(i, j + 3, gSubtotalTurnos[i - (12 + cantColegiosUshuaia + cantColegiosGrande), j]);
-                            sl.SetCellStyle(i, j + 3, styleBlack14);
-                            sl.MergeWorksheetCells(i, j + 3, i, j + 3 + 1);//COMBINAR
-                        }
-                        else if (j >= 9)
-                        {
-                            sl.SetCellValue(i, (j * 2) + 5, gSubtotalTurnos[i - (12 + cantColegiosUshuaia + cantColegiosGrande), j]);
-                            sl.SetCellStyle(i, (j * 2) + 5, styleBlack14);
-                            sl.MergeWorksheetCells(i, (j * 2) + 5, i, (j * 2) + 5 + 1);//COMBINAR
-                        }
-                        else
-                        {
-                            sl.SetCellValue(i, (j * 2) + 3, gSubtotalTurnos[i - (12 + cantColegiosUshuaia + cantColegiosGrande), j]);
-                            sl.SetCellStyle(i, (j * 2) + 3, styleBlack14);
-                            sl.MergeWorksheetCells(i, (j * 2) + 3, i, (j * 2) + 3 + 1);//COMBINAR
-                        }
-                    }
-                }
-                else
-                {
-                    for (int j = 0; j <= 20; j++)//3 porque empieza en la columna 3 y suma de a 2 lugares
-                    {
-                        if (j == 0)
-                        {
-                            sl.SetCellValue(i + 1, j + 3, gSubtotalTurnos[i - (12 + cantColegiosUshuaia + cantColegiosGrande), j]);
-                            sl.SetCellStyle(i + 1, j + 3, styleBlack14);
-                            sl.MergeWorksheetCells(i + 1, j + 3, i + 1, j + 3 + 1);//COMBINAR
-                        }
-                        else if (j >= 9)
-                        {
-                            sl.SetCellValue(i + 1, (j * 2) + 5, gSubtotalTurnos[i - (12 + cantColegiosUshuaia + cantColegiosGrande), j]);
-                            sl.SetCellStyle(i + 1, (j * 2) + 5, styleBlack14);
-                            sl.MergeWorksheetCells(i + 1, (j * 2) + 5, i + 1, (j * 2) + 5 + 1);//COMBINAR
-                        }
-                        else
-                        {
-                            sl.SetCellValue(i + 1, (j * 2) + 3, gSubtotalTurnos[i - (12 + cantColegiosUshuaia + cantColegiosGrande), j]);
-                            sl.SetCellStyle(i + 1, (j * 2) + 3, styleBlack14);
-                            sl.MergeWorksheetCells(i + 1, (j * 2) + 3, i + 1, (j * 2) + 3 + 1);//COMBINAR
-                        }
-                    }
-                }
-            }
-            //completa subtotal grande por año
-
-            for (int i = 13 + cantColegiosUshuaia + cantColegiosGrande; i <= 14 + cantColegiosUshuaia + cantColegiosGrande; i++)
-            {
-                if (i == 13 + cantColegiosUshuaia + cantColegiosGrande)
-                {
-                    for (int j = 0; j <= 6; j++)//3 porque empieza en la columna 3 y suma de a 2 lugares
-                    {
-                        if (j == 0)
-                        {
-                            sl.SetCellValue(i, j + 3, gSubtotalAños[i - (13 + cantColegiosUshuaia + cantColegiosGrande), j]);
-                            sl.SetCellStyle(i, j + 3, styleBlack14);
-                            sl.MergeWorksheetCells(i, j + 3, i, j + 3 + 5);//COMBINAR
-                        }
-                        else if (j >= 3)
-                        {
-                            sl.SetCellValue(i, (j * 6) + 5, gSubtotalAños[i - (13 + cantColegiosUshuaia + cantColegiosGrande), j]);
-                            sl.SetCellStyle(i, (j * 6) + 5, styleBlack14);
-                            sl.MergeWorksheetCells(i, (j * 6) + 5, i, (j * 6) + 5 + 5);//COMBINAR
-                        }
-                        else
-                        {
-                            sl.SetCellValue(i, (j * 6) + 3, gSubtotalAños[i - (13 + cantColegiosUshuaia + cantColegiosGrande), j]);
-                            sl.SetCellStyle(i, (j * 6) + 3, styleBlack14);
-                            sl.MergeWorksheetCells(i, (j * 6) + 3, i, (j * 6) + 3 + 5);//COMBINAR
-                        }
-                    }
-                }
-                else
-                {
-                    for (int j = 0; j <= 6; j++)//3 porque empieza en la columna 3 y suma de a 2 lugares
-                    {
-                        if (j == 0)
-                        {
-                            sl.SetCellValue(i + 1, j + 3, gSubtotalAños[i - (13 + cantColegiosUshuaia + cantColegiosGrande), j]);
-                            sl.SetCellStyle(i + 1, j + 3, styleBlack14);
-                            sl.MergeWorksheetCells(i + 1, j + 3, i + 1, j + 3 + 5);//COMBINAR
-                        }
-                        else if (j >= 3)
-                        {
-                            sl.SetCellValue(i + 1, (j * 6) + 5, gSubtotalAños[i - (13 + cantColegiosUshuaia + cantColegiosGrande), j]);
-                            sl.SetCellStyle(i + 1, (j * 6) + 5, styleBlack14);
-                            sl.MergeWorksheetCells(i + 1, (j * 6) + 5, i + 1, (j * 6) + 5 + 5);//COMBINAR
-                        }
-                        else
-                        {
-                            sl.SetCellValue(i + 1, (j * 6) + 3, gSubtotalAños[i - (13 + cantColegiosUshuaia + cantColegiosGrande), j]);
-                            sl.SetCellStyle(i + 1, (j * 6) + 3, styleBlack14);
-                            sl.MergeWorksheetCells(i + 1, (j * 6) + 3, i + 1, (j * 6) + 3 + 5);//COMBINAR
-                        }
-                    }
-                }
-            }
-
-            //completa SubTotales Rio Grande             
-            sl.SetCellValue(12 + cantColegiosUshuaia + cantColegiosGrande, 21, gSubtotal[0, 0]);
-            sl.SetCellStyle(12 + cantColegiosUshuaia + cantColegiosGrande, 21, styleWhite14);
-            sl.MergeWorksheetCells(12 + cantColegiosUshuaia + cantColegiosGrande, 21, 13 + cantColegiosUshuaia + cantColegiosGrande, 22);//COMBINAR
-            sl.SetCellValue(12 + cantColegiosUshuaia + cantColegiosGrande, 47, gSubtotal[0, 1]);
-            sl.SetCellStyle(12 + cantColegiosUshuaia + cantColegiosGrande, 47, styleWhite14);
-            sl.MergeWorksheetCells(12 + cantColegiosUshuaia + cantColegiosGrande, 47, 13 + cantColegiosUshuaia + cantColegiosGrande, 48);//COMBINAR
-            sl.SetCellValue(12 + cantColegiosUshuaia + cantColegiosGrande, 49, gSubtotal[0, 2]);
-            sl.SetCellStyle(12 + cantColegiosUshuaia + cantColegiosGrande, 49, styleWhite14);
-            sl.MergeWorksheetCells(12 + cantColegiosUshuaia + cantColegiosGrande, 49, 13 + cantColegiosUshuaia + cantColegiosGrande, 50);//COMBINAR
-            sl.SetCellValue(14 + cantColegiosUshuaia + cantColegiosGrande, 21, gSubtotal[1, 0]);
-            sl.SetCellStyle(14 + cantColegiosUshuaia + cantColegiosGrande, 21, styleWhite14);
-            sl.MergeWorksheetCells(14 + cantColegiosUshuaia + cantColegiosGrande, 21, 15 + cantColegiosUshuaia + cantColegiosGrande, 22);//COMBINAR
-            sl.SetCellValue(14 + cantColegiosUshuaia + cantColegiosGrande, 47, gSubtotal[1, 1]);
-            sl.SetCellStyle(14 + cantColegiosUshuaia + cantColegiosGrande, 47, styleWhite14);
-            sl.MergeWorksheetCells(14 + cantColegiosUshuaia + cantColegiosGrande, 47, 15 + cantColegiosUshuaia + cantColegiosGrande, 48);//COMBINAR
-            sl.SetCellValue(14 + cantColegiosUshuaia + cantColegiosGrande, 49, gSubtotal[1, 2]);
-            sl.SetCellStyle(14 + cantColegiosUshuaia + cantColegiosGrande, 49, styleWhite14);
-            sl.MergeWorksheetCells(14 + cantColegiosUshuaia + cantColegiosGrande, 49, 15 + cantColegiosUshuaia + cantColegiosGrande, 50);//COMBINAR    
-
-            //##CONTENIDO DE LAS CELDAS TOTAL JURISDICCIONAL
-            sl.SetCellValue(17 + cantColegiosUshuaia + cantColegiosGrande, 1, "Total Jurisdiccional Secciones"); //set value
-            sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 1, styleWhite14);
-            sl.MergeWorksheetCells(17 + cantColegiosUshuaia + cantColegiosGrande, 1, 17 + cantColegiosUshuaia + cantColegiosGrande, 2);//COMBINAR
-            sl.SetCellValue(18 + cantColegiosUshuaia + cantColegiosGrande, 1, "Total TDF Secciones por Año"); //set value
-            sl.SetCellStyle(18 + cantColegiosUshuaia + cantColegiosGrande, 1, styleWhite14);
-            sl.MergeWorksheetCells(18 + cantColegiosUshuaia + cantColegiosGrande, 1, 18 + cantColegiosUshuaia + cantColegiosGrande, 2);//COMBINAR
-
-            sl.SetCellValue(19 + cantColegiosUshuaia + cantColegiosGrande, 1, "Total Jurisdiccional Estudiantes"); //set value
-            sl.SetCellStyle(19 + cantColegiosUshuaia + cantColegiosGrande, 1, styleWhite14);
-            sl.MergeWorksheetCells(19 + cantColegiosUshuaia + cantColegiosGrande, 1, 19 + cantColegiosUshuaia + cantColegiosGrande, 2);//COMBINAR
-            sl.SetCellValue(20 + cantColegiosUshuaia + cantColegiosGrande, 1, "Total TDF Estudiantes por Año"); //set value
-            sl.SetCellStyle(20 + cantColegiosUshuaia + cantColegiosGrande, 1, styleWhite14);
-            sl.MergeWorksheetCells(20 + cantColegiosUshuaia + cantColegiosGrande, 1, 20 + cantColegiosUshuaia + cantColegiosGrande, 2);//COMBINAR
-
-            //completa total TDF 
-            for (int i = 17 + cantColegiosUshuaia + cantColegiosGrande; i <= 18 + cantColegiosUshuaia + cantColegiosGrande; i++)
-            {
-                if (i == 17 + cantColegiosUshuaia + cantColegiosGrande)
-                {
-                    for (int j = 0; j <= 20; j++)//3 porque empieza en la columna 3 y suma de a 2 lugares
-                    {
-                        if (j == 0)
-                        {
-                            sl.SetCellValue(i, j + 3, totalJurisSecyEstudiates[i - (17 + cantColegiosUshuaia + cantColegiosGrande), j]);
-                            sl.SetCellStyle(i, j + 3, styleBlack14);
-                            sl.MergeWorksheetCells(i, j + 3, i, j + 3 + 1);//COMBINAR
-                        }
-                        else if (j >= 9)
-                        {
-                            sl.SetCellValue(i, (j * 2) + 5, totalJurisSecyEstudiates[i - (17 + cantColegiosUshuaia + cantColegiosGrande), j]);
-                            sl.SetCellStyle(i, (j * 2) + 5, styleBlack14);
-                            sl.MergeWorksheetCells(i, (j * 2) + 5, i, (j * 2) + 5 + 1);//COMBINAR
-                        }
-                        else
-                        {
-                            sl.SetCellValue(i, (j * 2) + 3, totalJurisSecyEstudiates[i - (17 + cantColegiosUshuaia + cantColegiosGrande), j]);
-                            sl.SetCellStyle(i, (j * 2) + 3, styleBlack14);
-                            sl.MergeWorksheetCells(i, (j * 2) + 3, i, (j * 2) + 3 + 1);//COMBINAR
-                        }
-                    }
-                }
-                else
-                {
-                    for (int j = 0; j <= 20; j++)//3 porque empieza en la columna 3 y suma de a 2 lugares
-                    {
-                        if (j == 0)
-                        {
-                            sl.SetCellValue(i + 1, j + 3, totalJurisSecyEstudiates[i - (17 + cantColegiosUshuaia + cantColegiosGrande), j]);
-                            sl.SetCellStyle(i + 1, j + 3, styleBlack14);
-                            sl.MergeWorksheetCells(i + 1, j + 3, i + 1, j + 3 + 1);//COMBINAR
-                        }
-                        else if (j >= 9)
-                        {
-                            sl.SetCellValue(i + 1, (j * 2) + 5, totalJurisSecyEstudiates[i - (17 + cantColegiosUshuaia + cantColegiosGrande), j]);
-                            sl.SetCellStyle(i + 1, (j * 2) + 5, styleBlack14);
-                            sl.MergeWorksheetCells(i + 1, (j * 2) + 5, i + 1, (j * 2) + 5 + 1);//COMBINAR
-                        }
-                        else
-                        {
-                            sl.SetCellValue(i + 1, (j * 2) + 3, totalJurisSecyEstudiates[i - (17 + cantColegiosUshuaia + cantColegiosGrande), j]);
-                            sl.SetCellStyle(i + 1, (j * 2) + 3, styleBlack14);
-                            sl.MergeWorksheetCells(i + 1, (j * 2) + 3, i + 1, (j * 2) + 3 + 1);//COMBINAR
-                        }
-                    }
-                }
-            }
-            //completa TOTAL TDF por año
-
-            for (int i = 18 + cantColegiosUshuaia + cantColegiosGrande; i <= 19 + cantColegiosUshuaia + cantColegiosGrande; i++)
-            {
-                if (i == 18 + cantColegiosUshuaia + cantColegiosGrande)
-                {
-                    for (int j = 0; j <= 6; j++)//3 porque empieza en la columna 3 y suma de a 2 lugares
-                    {
-                        if (j == 0)
-                        {
-                            sl.SetCellValue(i, j + 3, totalJurisdicionalAños[i - (18 + cantColegiosUshuaia + cantColegiosGrande), j]);
-                            sl.SetCellStyle(i, j + 3, styleBlack14);
-                            sl.MergeWorksheetCells(i, j + 3, i, j + 3 + 5);//COMBINAR
-                        }
-                        else if (j >= 3)
-                        {
-                            sl.SetCellValue(i, (j * 6) + 5, totalJurisdicionalAños[i - (18 + cantColegiosUshuaia + cantColegiosGrande), j]);
-                            sl.SetCellStyle(i, (j * 6) + 5, styleBlack14);
-                            sl.MergeWorksheetCells(i, (j * 6) + 5, i, (j * 6) + 5 + 5);//COMBINAR
-                        }
-                        else
-                        {
-                            sl.SetCellValue(i, (j * 6) + 3, totalJurisdicionalAños[i - (18 + cantColegiosUshuaia + cantColegiosGrande), j]);
-                            sl.SetCellStyle(i, (j * 6) + 3, styleBlack14);
-                            sl.MergeWorksheetCells(i, (j * 6) + 3, i, (j * 6) + 3 + 5);//COMBINAR
-                        }
-                    }
-                }
-                else
-                {
-                    for (int j = 0; j <= 6; j++)//3 porque empieza en la columna 3 y suma de a 2 lugares
-                    {
-                        if (j == 0)
-                        {
-                            sl.SetCellValue(i + 1, j + 3, totalJurisdicionalAños[i - (18 + cantColegiosUshuaia + cantColegiosGrande), j]);
-                            sl.SetCellStyle(i + 1, j + 3, styleBlack14);
-                            sl.MergeWorksheetCells(i + 1, j + 3, i + 1, j + 3 + 5);//COMBINAR
-                        }
-                        else if (j >= 3)
-                        {
-                            sl.SetCellValue(i + 1, (j * 6) + 5, totalJurisdicionalAños[i - (18 + cantColegiosUshuaia + cantColegiosGrande), j]);
-                            sl.SetCellStyle(i + 1, (j * 6) + 5, styleBlack14);
-                            sl.MergeWorksheetCells(i + 1, (j * 6) + 5, i + 1, (j * 6) + 5 + 5);//COMBINAR
-                        }
-                        else
-                        {
-                            sl.SetCellValue(i + 1, (j * 6) + 3, totalJurisdicionalAños[i - (18 + cantColegiosUshuaia + cantColegiosGrande), j]);
-                            sl.SetCellStyle(i + 1, (j * 6) + 3, styleBlack14);
-                            sl.MergeWorksheetCells(i + 1, (j * 6) + 3, i + 1, (j * 6) + 3 + 5);//COMBINAR
-                        }
-                    }
-                }
-            }
-
-            //completa totales FINALES TDF           
-            sl.SetCellValue(17 + cantColegiosUshuaia + cantColegiosGrande, 21, totalJurisdicional[0, 0]);
-            sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 21, styleWhite14);
-            sl.MergeWorksheetCells(17 + cantColegiosUshuaia + cantColegiosGrande, 21, 18 + cantColegiosUshuaia + cantColegiosGrande, 22);//COMBINAR
-            sl.SetCellValue(17 + cantColegiosUshuaia + cantColegiosGrande, 47, totalJurisdicional[0, 1]);
-            sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 47, styleWhite14);
-            sl.MergeWorksheetCells(17 + cantColegiosUshuaia + cantColegiosGrande, 47, 18 + cantColegiosUshuaia + cantColegiosGrande, 48);//COMBINAR
-            sl.SetCellValue(17 + cantColegiosUshuaia + cantColegiosGrande, 49, totalJurisdicional[0, 2]);
-            sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 49, styleWhite14);
-            sl.MergeWorksheetCells(17 + cantColegiosUshuaia + cantColegiosGrande, 49, 18 + cantColegiosUshuaia + cantColegiosGrande, 50);//COMBINAR
-            sl.SetCellValue(19 + cantColegiosUshuaia + cantColegiosGrande, 21, totalJurisdicional[1, 0]);
-            sl.SetCellStyle(19 + cantColegiosUshuaia + cantColegiosGrande, 21, styleWhite14);
-            sl.MergeWorksheetCells(19 + cantColegiosUshuaia + cantColegiosGrande, 21, 20 + cantColegiosUshuaia + cantColegiosGrande, 22);//COMBINAR
-            sl.SetCellValue(19 + cantColegiosUshuaia + cantColegiosGrande, 47, totalJurisdicional[1, 1]);
-            sl.SetCellStyle(19 + cantColegiosUshuaia + cantColegiosGrande, 47, styleWhite14);
-            sl.MergeWorksheetCells(19 + cantColegiosUshuaia + cantColegiosGrande, 47, 20 + cantColegiosUshuaia + cantColegiosGrande, 48);//COMBINAR
-            sl.SetCellValue(19 + cantColegiosUshuaia + cantColegiosGrande, 49, totalJurisdicional[1, 2]);
-            sl.SetCellStyle(19 + cantColegiosUshuaia + cantColegiosGrande, 49, styleWhite14);
-            sl.MergeWorksheetCells(19 + cantColegiosUshuaia + cantColegiosGrande, 49, 20 + cantColegiosUshuaia + cantColegiosGrande, 50);//COMBINAR
-
-            //##bordes gruesos horizontales ushuaia
-            sl.SetCellStyle(1, 1, 1, 50, styleBorderBM);//BORDE TITLE
-            sl.SetCellStyle(2, 3, 2, 48, styleBorderBM);//BORDE sUBTITLE
-            sl.SetCellStyle(3, 3, 3, 48, styleBorderBM);//BORDE Secciones
-            sl.SetCellStyle(5, 3, 5, 50, styleBorderBM);//BORDE S/E
-            sl.SetCellStyle(6, 1, 6, 50, styleBorderBM);//BORDE S/E 2
-            sl.SetCellStyle(6 + cantColegiosUshuaia, 1, 6 + cantColegiosUshuaia, 50, styleBorderBM);//BORDE S/E 3
-            sl.SetCellStyle(8 + cantColegiosUshuaia, 1, 8 + cantColegiosUshuaia, 50, styleBorderBM);//BORDE S/E 3
-            sl.SetCellStyle(11 + cantColegiosUshuaia + cantColegiosGrande, 1, 11 + cantColegiosUshuaia + cantColegiosGrande, 50, styleBorderBM);//BORDE S/E rio grande
-            sl.SetCellStyle(13 + cantColegiosUshuaia + cantColegiosGrande, 1, 13 + cantColegiosUshuaia + cantColegiosGrande, 50, styleBorderBM);//BORDE S/E rio grande
-            sl.SetCellStyle(18 + cantColegiosUshuaia + cantColegiosGrande, 1, 18 + cantColegiosUshuaia + cantColegiosGrande, 50, styleBorderBM);//BORDE S/E TDF
-
-            //bordes gruesos verticales
-            sl.SetCellStyle(2, 3, 10 + cantColegiosUshuaia, 3, styleBorderLM);//borde 1
-            sl.SetCellStyle(2, 2, 6 + cantColegiosUshuaia, 2, styleBorderLM);//borde 1
-            sl.SetCellStyle(4, 9, 10 + cantColegiosUshuaia, 9, styleBorderLM);//borde 1ro
-            sl.SetCellStyle(4, 15, 10 + cantColegiosUshuaia, 15, styleBorderLM);//borde 2do
-            sl.SetCellStyle(3, 21, 10 + cantColegiosUshuaia, 21, styleBorderLM);//borde 3ro
-            sl.SetCellStyle(2, 23, 10 + cantColegiosUshuaia, 23, styleBorderLM);//borde 4
-            sl.SetCellStyle(4, 29, 10 + cantColegiosUshuaia, 29, styleBorderLM);//borde 4to
-            sl.SetCellStyle(4, 35, 10 + cantColegiosUshuaia, 35, styleBorderLM);//borde 5to
-            sl.SetCellStyle(4, 41, 10 + cantColegiosUshuaia, 41, styleBorderLM);//borde 6to
-            sl.SetCellStyle(3, 47, 10 + cantColegiosUshuaia, 47, styleBorderLM);//borde 7mo
-            sl.SetCellStyle(2, 49, 10 + cantColegiosUshuaia, 49, styleBorderLM);//borde 7
-
-            sl.SetCellStyle(12 + cantColegiosUshuaia, 3, 15 + cantColegiosUshuaia + cantColegiosGrande, 3, styleBorderLM);//borde 1 Rio Grande
-            sl.SetCellStyle(12 + cantColegiosUshuaia, 2, 12 + cantColegiosUshuaia + cantColegiosGrande, 2, styleBorderLM);//borde 2 Rio Grande
-            sl.SetCellStyle(12 + cantColegiosUshuaia, 9, 15 + cantColegiosUshuaia + cantColegiosGrande, 9, styleBorderLM);//borde 1ro Rio Grande
-            sl.SetCellStyle(12 + cantColegiosUshuaia, 15, 15 + cantColegiosUshuaia + cantColegiosGrande, 15, styleBorderLM);//borde 2do Rio Grande
-            sl.SetCellStyle(12 + cantColegiosUshuaia, 21, 15 + cantColegiosUshuaia + cantColegiosGrande, 21, styleBorderLM);//borde 3ro Rio Grande
-            sl.SetCellStyle(12 + cantColegiosUshuaia, 23, 15 + cantColegiosUshuaia + cantColegiosGrande, 23, styleBorderLM);//borde 4 Rio Grande
-            sl.SetCellStyle(12 + cantColegiosUshuaia, 29, 15 + cantColegiosUshuaia + cantColegiosGrande, 29, styleBorderLM);//borde 4to Rio Grande
-            sl.SetCellStyle(12 + cantColegiosUshuaia, 35, 15 + cantColegiosUshuaia + cantColegiosGrande, 35, styleBorderLM);//borde 5to Rio Grande
-            sl.SetCellStyle(12 + cantColegiosUshuaia, 41, 15 + cantColegiosUshuaia + cantColegiosGrande, 41, styleBorderLM);//borde 6to Rio Grande
-            sl.SetCellStyle(12 + cantColegiosUshuaia, 47, 15 + cantColegiosUshuaia + cantColegiosGrande, 47, styleBorderLM);//borde 7mo Rio Grande
-            sl.SetCellStyle(12 + cantColegiosUshuaia, 49, 15 + cantColegiosUshuaia + cantColegiosGrande, 49, styleBorderLM);//borde 7 Rio Grande
-
-            sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 3, 20 + cantColegiosUshuaia + cantColegiosGrande, 3, styleBorderLM);//borde 1 Total
-            sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 9, 20 + cantColegiosUshuaia + cantColegiosGrande, 9, styleBorderLM);//borde 1ro Total
-            sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 15, 20 + cantColegiosUshuaia + cantColegiosGrande, 15, styleBorderLM);//borde 2do Total
-            sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 21, 20 + cantColegiosUshuaia + cantColegiosGrande, 21, styleBorderLM);//borde 3ro Total
-            sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 23, 20 + cantColegiosUshuaia + cantColegiosGrande, 23, styleBorderLM);//borde 4 Total
-            sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 29, 20 + cantColegiosUshuaia + cantColegiosGrande, 29, styleBorderLM);//borde 4to TotalTotal
-            sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 35, 20 + cantColegiosUshuaia + cantColegiosGrande, 35, styleBorderLM);//borde 5to Total
-            sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 41, 20 + cantColegiosUshuaia + cantColegiosGrande, 41, styleBorderLM);//borde 6to Total
-            sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 47, 20 + cantColegiosUshuaia + cantColegiosGrande, 47, styleBorderLM);//borde 7mo Total
-            sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 49, 20 + cantColegiosUshuaia + cantColegiosGrande, 49, styleBorderLM);//borde 7 Rio Total    
-
-            sl.SaveAs(pathFile);
-
+            lblCreando.Refresh();
+            colorExcel = 6; //color par es igual a silver, sirve para que no se bugueee azul            
+            btnCrearExcel.BackColor = System.Drawing.Color.Silver;
             btnCrearExcel.Enabled = false;
-            lblCreando.Visible = false;
-            MessageBox.Show("Excel Generado", "Sistema Informa");
+
+            try
+            {
+                //creando Estadisticas
+                SLDocument sl = new SLDocument();
+                string pathFile = @"C:\Users\Pablo\Downloads\Prueba\Estadisticas Secciones y Estudiantes " + cboxAño.SelectedItem.ToString() + " " + cboxPeriodo.SelectedItem.ToString() + ".xlsx";
+                //string pathFile = @"C:\Users\Arteok\Downloads\Prueba\Estadisticas Secciones y Estudiantes " + cboxAño.SelectedItem.ToString() + " " + cboxPeriodo.SelectedItem.ToString() + ".xlsx";
+
+                //string pathFile = @"C:\Users\Arteok\Downloads\Prueba\Estadisticas Secciones y Estudiantes.xlsx";
+
+                sl.RenameWorksheet(SLDocument.DefaultFirstSheetName, "Secciones y estudiantes");//renombra la Hoja
+
+                tituloEstadistica = "CANTIDAD DE SECCIONES Y ESTUDIANTES - CICLO " + cboxAño.SelectedItem.ToString() + " " + (cboxPeriodo.SelectedItem.ToString()).ToUpper() + " - COLEGIOS PUBLICOS DE GESTION PUBLICA";
+
+                //FONDOS###########
+                SLStyle styleFondoAzulGray = sl.CreateStyle();//Crea el fondo Azul OSCURO por definir
+                styleFondoAzulGray.Fill.SetPattern(PatternValues.Solid, System.Drawing.Color.DarkCyan, System.Drawing.Color.White);
+
+                SLStyle styleFondoNaranja = sl.CreateStyle();//Crea el fondo Naranja
+                styleFondoNaranja.Fill.SetPattern(PatternValues.Solid, System.Drawing.Color.Coral, System.Drawing.Color.White);
+
+                SLStyle styleFondoAzul = sl.CreateStyle();//Crea el fondo Azul
+                styleFondoAzul.Fill.SetPattern(PatternValues.Solid, System.Drawing.Color.SteelBlue, System.Drawing.Color.White);
+
+                SLStyle styleFondoVerde = sl.CreateStyle();//Crea el fondo verde
+                styleFondoVerde.Fill.SetPattern(PatternValues.Solid, System.Drawing.Color.MediumSeaGreen, System.Drawing.Color.White);
+
+                SLStyle styleFondoCeleste = sl.CreateStyle();//Crea el fondo celeste
+                styleFondoCeleste.Fill.SetPattern(PatternValues.Solid, System.Drawing.Color.LightSkyBlue, System.Drawing.Color.White);
+
+                SLStyle styleFondoGris = sl.CreateStyle();//Crea el fondo Gris
+                styleFondoGris.Fill.SetPattern(PatternValues.Solid, System.Drawing.Color.Gainsboro, System.Drawing.Color.White);
+
+                SLStyle styleFondoCrema = sl.CreateStyle();//Crea el fondo Cremita
+                styleFondoCrema.Fill.SetPattern(PatternValues.Solid, System.Drawing.Color.Wheat, System.Drawing.Color.White);
+
+                SLStyle styleFondoCremaCeleste = sl.CreateStyle();//Crea el fondo Cremita CELESTE
+                styleFondoCremaCeleste.Fill.SetPattern(PatternValues.Solid, System.Drawing.Color.Lavender, System.Drawing.Color.White);
+
+                SLStyle styleFondoCremaVerde = sl.CreateStyle();//Crea el fondo Cremita verde
+                styleFondoCremaVerde.Fill.SetPattern(PatternValues.Solid, System.Drawing.Color.Khaki, System.Drawing.Color.White);
+
+                SLStyle styleFondoCremaNaranja = sl.CreateStyle();//Crea el fondo Cremita Naranja
+                styleFondoCremaNaranja.Fill.SetPattern(PatternValues.Solid, System.Drawing.Color.NavajoWhite, System.Drawing.Color.White);
+
+                //FONDOSUSHUAIA
+                //Titulo FONDO  USHUAIA
+                sl.SetCellStyle(1, 1, 1, 40, styleFondoAzulGray);//asigna fondo azul a las entre las siguientes celdas
+                                                                 //Subtitulo FONDO
+                sl.SetCellStyle(2, 3, 2, 38, styleFondoNaranja);
+                //secciones fondo
+                sl.SetCellStyle(3, 3, 3, 38, styleFondoAzul);
+                //años
+                sl.SetCellStyle("C4", "T4", styleFondoVerde);
+                sl.SetCellStyle("W4", "AT4", styleFondoVerde);
+                //fondo de turnos
+                sl.SetCellStyle("C5", "T5", styleFondoCremaVerde);
+                //fondo S y E
+                sl.SetCellStyle("AW6", styleFondoCeleste);
+                sl.SetCellStyle("AX6", styleFondoGris);
+                //fondo depto y establecimiento
+                sl.SetCellStyle("A2", "B5", styleFondoAzulGray);
+                //fondo totales           
+                sl.SetCellStyle("AW2", "AX5", styleFondoAzulGray);
+                //Fondos total secciones y estudiantes
+                sl.SetCellStyle("U2", "U6", styleFondoNaranja);
+                sl.SetCellStyle("V2", "V6", styleFondoNaranja);
+                sl.SetCellStyle("AU2", "AU6", styleFondoNaranja);
+                sl.SetCellStyle("AV2", "AV6", styleFondoNaranja);
+                ////fondos a trasbajar///////
+
+
+                //fondo ushuaia
+                sl.SetCellStyle("A7", styleFondoCeleste);//Fondo colegios ushuaia celeste
+                                                         //subtotal S y Estudiantes
+                sl.SetCellStyle(7 + cantColegiosUshuaia, 1, 7 + cantColegiosUshuaia, 2, styleFondoVerde);
+                sl.SetCellStyle(8 + cantColegiosUshuaia, 1, 8 + cantColegiosUshuaia, 2, styleFondoVerde);
+                sl.SetCellStyle(9 + cantColegiosUshuaia, 1, 9 + cantColegiosUshuaia, 2, styleFondoAzul);
+                sl.SetCellStyle(10 + cantColegiosUshuaia, 1, 10 + cantColegiosUshuaia, 2, styleFondoAzul);
+                //total secciones
+                sl.SetCellStyle(7, 21, 7 + cantColegiosUshuaia - 1, 22, styleFondoGris);//asigna fondo crema naranja a las entre las siguientes celdas
+                sl.SetCellStyle(7, 47, 7 + cantColegiosUshuaia - 1, 48, styleFondoGris);//asigna fondo crema naranja a las entre las siguientes celdas
+                sl.SetCellStyle(7, 49, 7 + cantColegiosUshuaia - 1, 50, styleFondoCremaNaranja);//asigna fondo crema naranja a las entre las siguientes celdas
+                                                                                                //subtotal ushuaia ciclos
+                sl.SetCellStyle(7 + cantColegiosUshuaia, 3, 7 + cantColegiosUshuaia, 20, styleFondoCremaVerde);//asigna fondo crema verde a las entre las siguientes celdas
+                sl.SetCellStyle(8 + cantColegiosUshuaia, 3, 8 + cantColegiosUshuaia, 20, styleFondoCremaVerde);//asigna fondo crema celeste a las entre las siguientes celdas
+                sl.SetCellStyle(7 + cantColegiosUshuaia, 23, 7 + cantColegiosUshuaia, 46, styleFondoCremaVerde);//asigna fondo crema verde a las entre las siguientes celdas
+                sl.SetCellStyle(8 + cantColegiosUshuaia, 23, 8 + cantColegiosUshuaia, 46, styleFondoCremaVerde);//asigna fondo crema celeste a las entre las siguientes celdas
+                sl.SetCellStyle(9 + cantColegiosUshuaia, 3, 9 + cantColegiosUshuaia, 20, styleFondoCeleste);//asigna fondo crema verde a las entre las siguientes celdas
+                sl.SetCellStyle(10 + cantColegiosUshuaia, 3, 10 + cantColegiosUshuaia, 20, styleFondoCeleste);//asigna fondo crema celeste a las entre las siguientes celdas
+                sl.SetCellStyle(9 + cantColegiosUshuaia, 23, 9 + cantColegiosUshuaia, 46, styleFondoCeleste);//asigna fondo crema verde a las entre las siguientes celdas
+                sl.SetCellStyle(10 + cantColegiosUshuaia, 23, 10 + cantColegiosUshuaia, 46, styleFondoCeleste);//asigna fondo crema celeste a las entre las siguientes celdas
+
+                //subtotales generales ushuaia
+                sl.SetCellStyle(7 + cantColegiosUshuaia, 21, styleFondoVerde);//asigna fondo verde a la siguiente celda
+                sl.SetCellStyle(9 + cantColegiosUshuaia, 21, styleFondoAzul);//asigna fondo Azul a la siguiente celda
+                sl.SetCellStyle(7 + cantColegiosUshuaia, 47, styleFondoVerde);//asigna fondo verde a la siguiente celda
+                sl.SetCellStyle(9 + cantColegiosUshuaia, 47, styleFondoAzul);//asigna fondo azul a a la siguiente celda
+                sl.SetCellStyle(7 + cantColegiosUshuaia, 49, styleFondoNaranja);//asigna fondo naranja a la siguiente celda
+                sl.SetCellStyle(9 + cantColegiosUshuaia, 49, styleFondoAzulGray);//asigna fondo azul oscuro a a la siguiente celda
+
+                //Fondos Rio Grande
+                //Rio grande
+
+                sl.SetCellStyle(12 + cantColegiosUshuaia, 1, styleFondoCeleste);
+                //subtotal S y Estudiantes
+                sl.SetCellStyle(12 + cantColegiosUshuaia + cantColegiosGrande, 1, 12 + cantColegiosUshuaia + cantColegiosGrande, 2, styleFondoVerde);
+                sl.SetCellStyle(13 + cantColegiosUshuaia + cantColegiosGrande, 1, 13 + cantColegiosUshuaia + cantColegiosGrande, 2, styleFondoVerde);
+                sl.SetCellStyle(14 + cantColegiosUshuaia + cantColegiosGrande, 1, 14 + cantColegiosUshuaia + cantColegiosGrande, 2, styleFondoAzul);
+                sl.SetCellStyle(15 + cantColegiosUshuaia + cantColegiosGrande, 1, 15 + cantColegiosUshuaia + cantColegiosGrande, 2, styleFondoAzul);
+
+                //total secciones
+                sl.SetCellStyle(12 + cantColegiosUshuaia, 21, 12 + cantColegiosUshuaia + cantColegiosGrande - 1, 22, styleFondoGris);//asigna fondo crema naranja a las entre las siguientes celdas
+                sl.SetCellStyle(12 + cantColegiosUshuaia, 47, 12 + cantColegiosUshuaia + cantColegiosGrande - 1, 48, styleFondoGris);//asigna fondo crema naranja a las entre las siguientes celdas
+                sl.SetCellStyle(12 + cantColegiosUshuaia, 49, 12 + cantColegiosUshuaia + cantColegiosGrande - 1, 50, styleFondoCremaNaranja);//asigna fondo crema naranja a las entre las siguientes celdas
+
+
+                //subtotal ciclos Rio grande
+                sl.SetCellStyle(12 + cantColegiosUshuaia + cantColegiosGrande, 3, 12 + cantColegiosUshuaia + cantColegiosGrande, 20, styleFondoCremaVerde);//asigna fondo crema verde a las entre las siguientes celdas
+                sl.SetCellStyle(13 + cantColegiosUshuaia + cantColegiosGrande, 3, 13 + cantColegiosUshuaia + cantColegiosGrande, 20, styleFondoCremaVerde);//asigna fondo crema celeste a las entre las siguientes celdas
+                sl.SetCellStyle(12 + cantColegiosUshuaia + cantColegiosGrande, 23, 12 + cantColegiosUshuaia + cantColegiosGrande, 46, styleFondoCremaVerde);//asigna fondo crema verde a las entre las siguientes celdas
+                sl.SetCellStyle(13 + cantColegiosUshuaia + cantColegiosGrande, 23, 13 + cantColegiosUshuaia + cantColegiosGrande, 46, styleFondoCremaVerde);//asigna fondo crema celeste a las entre las siguientes celdas
+                sl.SetCellStyle(14 + cantColegiosUshuaia + cantColegiosGrande, 3, 14 + cantColegiosUshuaia + cantColegiosGrande, 20, styleFondoCeleste);//asigna fondo crema verde a las entre las siguientes celdas
+                sl.SetCellStyle(15 + cantColegiosUshuaia + cantColegiosGrande, 3, 15 + cantColegiosUshuaia + cantColegiosGrande, 20, styleFondoCeleste);//asigna fondo crema celeste a las entre las siguientes celdas
+                sl.SetCellStyle(14 + cantColegiosUshuaia + cantColegiosGrande, 23, 14 + cantColegiosUshuaia + cantColegiosGrande, 46, styleFondoCeleste);//asigna fondo crema verde a las entre las siguientes celdas
+                sl.SetCellStyle(15 + cantColegiosUshuaia + cantColegiosGrande, 23, 15 + cantColegiosUshuaia + cantColegiosGrande, 46, styleFondoCeleste);//asigna fondo crema celeste a las entre las siguientes celdas
+                                                                                                                                                         //subtotales generales Rio Grande
+                sl.SetCellStyle(12 + cantColegiosUshuaia + cantColegiosGrande, 21, styleFondoVerde);//asigna fondo verde a la siguiente celda
+                sl.SetCellStyle(14 + cantColegiosUshuaia + cantColegiosGrande, 21, styleFondoAzul);//asigna fondo Azul a la siguiente celda
+                sl.SetCellStyle(12 + cantColegiosUshuaia + cantColegiosGrande, 47, styleFondoVerde);//asigna fondo verde a la siguiente celda
+                sl.SetCellStyle(14 + cantColegiosUshuaia + cantColegiosGrande, 47, styleFondoAzul);//asigna fondo azul a a la siguiente celda
+                sl.SetCellStyle(12 + cantColegiosUshuaia + cantColegiosGrande, 49, styleFondoNaranja);//asigna fondo naranja a la siguiente celda
+                sl.SetCellStyle(14 + cantColegiosUshuaia + cantColegiosGrande, 49, styleFondoAzulGray);//asigna fondo azul oscuro a a la siguiente celda
+
+                //Fondos Total jurisdiccional
+                //Total jurisdiccional S y Estudiantes
+                sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 1, 17 + cantColegiosUshuaia + cantColegiosGrande, 2, styleFondoVerde);
+                sl.SetCellStyle(18 + cantColegiosUshuaia + cantColegiosGrande, 1, 18 + cantColegiosUshuaia + cantColegiosGrande, 2, styleFondoVerde);
+                sl.SetCellStyle(19 + cantColegiosUshuaia + cantColegiosGrande, 1, 19 + cantColegiosUshuaia + cantColegiosGrande, 2, styleFondoAzul);
+                sl.SetCellStyle(20 + cantColegiosUshuaia + cantColegiosGrande, 1, 20 + cantColegiosUshuaia + cantColegiosGrande, 2, styleFondoAzul);
+
+                //subtotal TDF ciclos
+                sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 3, 17 + cantColegiosUshuaia + cantColegiosGrande, 20, styleFondoCremaVerde);//asigna fondo crema verde a las entre las siguientes celdas
+                sl.SetCellStyle(18 + cantColegiosUshuaia + cantColegiosGrande, 3, 18 + cantColegiosUshuaia + cantColegiosGrande, 20, styleFondoCremaVerde);//asigna fondo crema celeste a las entre las siguientes celdas
+                sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 23, 17 + cantColegiosUshuaia + cantColegiosGrande, 46, styleFondoCremaVerde);//asigna fondo crema verde a las entre las siguientes celdas
+                sl.SetCellStyle(18 + cantColegiosUshuaia + cantColegiosGrande, 23, 18 + cantColegiosUshuaia + cantColegiosGrande, 46, styleFondoCremaVerde);//asigna fondo crema celeste a las entre las siguientes celdas
+                sl.SetCellStyle(19 + cantColegiosUshuaia + cantColegiosGrande, 3, 19 + cantColegiosUshuaia + cantColegiosGrande, 20, styleFondoCeleste);//asigna fondo crema verde a las entre las siguientes celdas
+                sl.SetCellStyle(20 + cantColegiosUshuaia + cantColegiosGrande, 3, 20 + cantColegiosUshuaia + cantColegiosGrande, 20, styleFondoCeleste);//asigna fondo crema celeste a las entre las siguientes celdas
+                sl.SetCellStyle(19 + cantColegiosUshuaia + cantColegiosGrande, 23, 19 + cantColegiosUshuaia + cantColegiosGrande, 46, styleFondoCeleste);//asigna fondo crema verde a las entre las siguientes celdas
+                sl.SetCellStyle(20 + cantColegiosUshuaia + cantColegiosGrande, 23, 20 + cantColegiosUshuaia + cantColegiosGrande, 46, styleFondoCeleste);//asigna fondo crema celeste a las entre las siguientes celdas
+
+                //subtotales generales TDF
+                sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 21, styleFondoVerde);//asigna fondo verde a la siguiente celda
+                sl.SetCellStyle(19 + cantColegiosUshuaia + cantColegiosGrande, 21, styleFondoAzul);//asigna fondo Azul a la siguiente celda
+                sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 47, styleFondoVerde);//asigna fondo verde a la siguiente celda
+                sl.SetCellStyle(19 + cantColegiosUshuaia + cantColegiosGrande, 47, styleFondoAzul);//asigna fondo azul a a la siguiente celda
+                sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 49, styleFondoNaranja);//asigna fondo naranja a la siguiente celda
+                sl.SetCellStyle(19 + cantColegiosUshuaia + cantColegiosGrande, 49, styleFondoAzulGray);//asigna fondo azul oscuro a a la siguiente celda
+
+                //BORDERS#########//falta
+                //bordes gruesos generales
+                SLStyle styleBorderTM = sl.CreateStyle();//bordes medium Top, left,Right and bottom
+                styleBorderTM.SetTopBorder(BorderStyleValues.Medium, System.Drawing.Color.Black);
+                SLStyle styleBorderRM = sl.CreateStyle();
+                styleBorderRM.SetRightBorder(BorderStyleValues.Medium, System.Drawing.Color.Black);
+                SLStyle styleBorderLM = sl.CreateStyle();
+                styleBorderLM.SetLeftBorder(BorderStyleValues.Medium, System.Drawing.Color.Black);
+                SLStyle styleBorderBM = sl.CreateStyle();
+                styleBorderBM.SetBottomBorder(BorderStyleValues.Medium, System.Drawing.Color.Black);
+                //bordes normales
+                SLStyle styleBorderBasicRight = sl.CreateStyle();
+                styleBorderBasicRight.SetRightBorder(BorderStyleValues.Thin, System.Drawing.Color.Black);
+                SLStyle styleBorderBasicBottom = sl.CreateStyle();
+                styleBorderBasicBottom.SetBottomBorder(BorderStyleValues.Thin, System.Drawing.Color.Black);
+
+                //BORDERS#########
+                //bordes horizontales y verticales normales ushuaia                 
+                sl.SetCellStyle(1, 1, 10 + cantColegiosUshuaia, 50, styleBorderBasicBottom);
+                sl.SetCellStyle(1, 1, 10 + cantColegiosUshuaia, 50, styleBorderBasicRight);
+
+                //bordes horizontales y verticales normales Rio grande            
+                sl.SetCellStyle(11 + cantColegiosUshuaia, 1, 15 + cantColegiosUshuaia + cantColegiosGrande, 50, styleBorderBasicBottom);
+                sl.SetCellStyle(12 + cantColegiosUshuaia, 1, 15 + cantColegiosUshuaia + cantColegiosGrande, 50, styleBorderBasicRight);
+
+                //bordes horizontales y verticales normales Totales Jurisdiccionales
+                sl.SetCellStyle(16 + cantColegiosUshuaia + cantColegiosGrande, 1, 20 + cantColegiosUshuaia + cantColegiosGrande, 50, styleBorderBasicBottom);
+                sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 1, 20 + cantColegiosUshuaia + cantColegiosGrande, 50, styleBorderBasicRight);
+
+                //borders gruesos generales ushuaia
+                sl.SetCellStyle(1, 1, 1, 50, styleBorderTM);//asigna el borde top
+                sl.SetCellStyle(1, 1, 10 + cantColegiosUshuaia, 1, styleBorderLM);//asigna el borde left
+                sl.SetCellStyle(1, 50, 10 + cantColegiosUshuaia, 50, styleBorderRM);//asigna el borde right
+                sl.SetCellStyle(10 + cantColegiosUshuaia, 1, 10 + cantColegiosUshuaia, 50, styleBorderBM);//asigna el borde bottom            
+                                                                                                          //borders gruesos generales Rio Grande
+                sl.SetCellStyle(12 + cantColegiosUshuaia, 1, 12 + cantColegiosUshuaia, 50, styleBorderTM);//asigna el borde top
+                sl.SetCellStyle(12 + cantColegiosUshuaia, 1, 15 + cantColegiosUshuaia + cantColegiosGrande, 1, styleBorderLM);//asigna el borde left
+                sl.SetCellStyle(12 + cantColegiosUshuaia, 50, 15 + cantColegiosUshuaia + cantColegiosGrande, 50, styleBorderRM);//asigna el borde right
+                sl.SetCellStyle(15 + cantColegiosUshuaia + cantColegiosGrande, 1, 15 + cantColegiosUshuaia + cantColegiosGrande, 50, styleBorderBM);//asigna el borde bottom 
+                                                                                                                                                    //borders gruesos generales Totales Jurisdicionales
+                sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 1, 17 + cantColegiosUshuaia + cantColegiosGrande, 50, styleBorderTM);//asigna el borde top
+                sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 1, 20 + cantColegiosUshuaia + cantColegiosGrande, 1, styleBorderLM);//asigna el borde left
+                sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 50, 20 + cantColegiosUshuaia + cantColegiosGrande, 50, styleBorderRM);//asigna el borde right
+                sl.SetCellStyle(20 + cantColegiosUshuaia + cantColegiosGrande, 1, 20 + cantColegiosUshuaia + cantColegiosGrande, 50, styleBorderBM);//asigna el borde bottom 
+
+                //Espacio dentro de las celdas########## falta
+                //espacios Filas Ushuaia
+                sl.SetRowHeight(1, 40);//titulo
+                sl.SetRowHeight(2, 38);//ciclo
+                sl.SetRowHeight(3, 32);//cantidad
+                sl.SetRowHeight(4, 32);//año
+                sl.SetRowHeight(5, 40);//turno
+
+                sl.SetRowHeight(7 + cantColegiosUshuaia, 25);//subtotal ushuaia s
+                sl.SetRowHeight(8 + cantColegiosUshuaia, 25);//subtotal ushuaia e
+                sl.SetRowHeight(9 + cantColegiosUshuaia, 25);//subtotal ushuaia s
+                sl.SetRowHeight(10 + cantColegiosUshuaia, 25);//subtotal ushuaia e
+
+                //espacios Filas Rio grande 
+                sl.SetRowHeight(12 + cantColegiosUshuaia + cantColegiosGrande, 25);//subtotal ushuaia s
+                sl.SetRowHeight(13 + cantColegiosUshuaia + cantColegiosGrande, 25);//subtotal ushuaia e
+                sl.SetRowHeight(14 + cantColegiosUshuaia + cantColegiosGrande, 25);//subtotal ushuaia e
+                sl.SetRowHeight(15 + cantColegiosUshuaia + cantColegiosGrande, 25);//subtotal ushuaia e
+
+                //espacios Filas totales jurisdiccionales
+                sl.SetRowHeight(17 + cantColegiosUshuaia + cantColegiosGrande, 25);//subtotal ushuaia s
+                sl.SetRowHeight(18 + cantColegiosUshuaia + cantColegiosGrande, 25);//subtotal ushuaia e
+                sl.SetRowHeight(19 + cantColegiosUshuaia + cantColegiosGrande, 25);//subtotal ushuaia s
+                sl.SetRowHeight(20 + cantColegiosUshuaia + cantColegiosGrande, 25);//subtotal ushuaia e
+
+                //espacios columnas
+                sl.SetColumnWidth(1, 12);//Depto
+                sl.SetColumnWidth(2, 35);//Establecimiento
+
+                for (int i = 3; i <= 19; i = i + 2)//espacios en S de 1 a 3 año
+                {
+                    sl.SetColumnWidth(i, 5);
+                }
+                for (int i = 4; i <= 20; i = i + 2)//espacios en  de 1 a 3 año
+                {
+                    sl.SetColumnWidth(i, 7);
+                }
+                for (int i = 23; i <= 45; i = i + 2)//espacios en S de 4 a 7 año
+                {
+                    sl.SetColumnWidth(i, 5);
+                }
+                for (int i = 24; i <= 46; i = i + 2)//espacios en  de 4 a 7 año
+                {
+                    sl.SetColumnWidth(i, 7);
+                }
+
+                sl.SetColumnWidth(21, 7);//espacios en total secciones y total estudiantes
+                sl.SetColumnWidth(22, 7);
+                sl.SetColumnWidth(47, 7);
+                sl.SetColumnWidth(48, 7);
+
+                sl.SetColumnWidth(49, 7);//espacios en totales
+                sl.SetColumnWidth(50, 9);
+
+                //LETRAS############
+                //Titulo 20 WHITE
+                SLStyle styleTitle = sl.CreateStyle();
+                styleTitle.Alignment.Horizontal = HorizontalAlignmentValues.Center;//aliniacion
+                styleTitle.Alignment.Vertical = VerticalAlignmentValues.Center;
+                styleTitle.Font.FontColor = System.Drawing.Color.White;//color
+                styleTitle.Font.FontName = "Arial";//tipo de fuente
+                styleTitle.Font.FontSize = 20;//tamaño
+                styleTitle.Font.Bold = true;//negrita  
+
+                //Arial 18 WHITE
+                SLStyle styleWhite18 = sl.CreateStyle();
+                styleWhite18.Alignment.Horizontal = HorizontalAlignmentValues.Center;//aliniacion
+                styleWhite18.Alignment.Vertical = VerticalAlignmentValues.Center;
+                styleWhite18.Font.FontColor = System.Drawing.Color.White;//color
+                styleWhite18.Font.FontName = "Arial";//tipo de fuente
+                styleWhite18.Font.FontSize = 18;//tamaño
+                styleWhite18.Font.Bold = true;//negrita 
+                                              //Arial 16 WHITE
+                SLStyle styleWhite16 = sl.CreateStyle();
+                styleWhite16.Alignment.Horizontal = HorizontalAlignmentValues.Center;//aliniacion
+                styleWhite16.Alignment.Vertical = VerticalAlignmentValues.Center;
+                styleWhite16.Font.FontColor = System.Drawing.Color.White;//color
+                styleWhite16.Font.FontName = "Arial";//tipo de fuente
+                styleWhite16.Font.FontSize = 16;//tamaño
+                styleWhite16.Font.Bold = true;//negrita
+
+                //Arial 14 WHITE
+                SLStyle styleWhite14 = sl.CreateStyle();
+                styleWhite14.Alignment.Horizontal = HorizontalAlignmentValues.Center;//aliniacion
+                styleWhite14.Alignment.Vertical = VerticalAlignmentValues.Center;
+                styleWhite14.Font.FontColor = System.Drawing.Color.White;//color
+                styleWhite14.Font.FontName = "Arial";//tipo de fuente
+                styleWhite14.Font.FontSize = 14;//tamaño
+                styleWhite14.Font.Bold = true;//negrita
+
+                //Arial 14 WHITE 90 GRADOS
+                SLStyle styleWhite14_90G = sl.CreateStyle();
+                styleWhite14_90G.SetWrapText(true);//ajustar texto
+                styleWhite14_90G.Alignment.Horizontal = HorizontalAlignmentValues.Center;//aliniacion
+                styleWhite14_90G.Alignment.Vertical = VerticalAlignmentValues.Center;
+                styleWhite14_90G.Alignment.TextRotation = 90;//rota 90 grados el texto
+                styleWhite14_90G.Font.FontColor = System.Drawing.Color.White;//color
+                styleWhite14_90G.Font.FontName = "Arial";//tipo de fuente
+                styleWhite14_90G.Font.FontSize = 14;//tamaño
+                styleWhite14_90G.Font.Bold = true;//negrita
+
+                //Arial 18 WHITE 90 GRADOS
+                SLStyle styleWhite18_90G = sl.CreateStyle();
+                styleWhite18_90G.Alignment.Horizontal = HorizontalAlignmentValues.Center;//aliniacion
+                styleWhite18_90G.Alignment.Vertical = VerticalAlignmentValues.Center;
+                styleWhite18_90G.Alignment.TextRotation = 90;//rota 90 grados el texto
+                styleWhite18_90G.Font.FontColor = System.Drawing.Color.White;//color
+                styleWhite18_90G.Font.FontName = "Arial";//tipo de fuente
+                styleWhite18_90G.Font.FontSize = 18;//tamaño
+                styleWhite18_90G.Font.Bold = true;//negrita
+
+                //Arial 14 Black
+                SLStyle styleBlack14 = sl.CreateStyle();
+                styleBlack14.Alignment.Horizontal = HorizontalAlignmentValues.Center;//aliniacion
+                styleBlack14.Alignment.Vertical = VerticalAlignmentValues.Center;
+                styleBlack14.Font.FontColor = System.Drawing.Color.Black;//color
+                styleBlack14.Font.FontName = "Arial";//tipo de fuente
+                styleBlack14.Font.FontSize = 14;//tamaño
+                styleBlack14.Font.Bold = true;//negrita
+
+                //Arial 16 Black vertical
+                SLStyle styleBlack16_90G = sl.CreateStyle();
+                styleBlack16_90G.Alignment.Horizontal = HorizontalAlignmentValues.Center;//aliniacion
+                styleBlack16_90G.Alignment.Vertical = VerticalAlignmentValues.Center;
+                styleBlack16_90G.Alignment.TextRotation = 90;//rota 90 grados el texto
+                styleBlack16_90G.Font.FontColor = System.Drawing.Color.Black;//color
+                styleBlack16_90G.Font.FontName = "Arial";//tipo de fuente
+                styleBlack16_90G.Font.FontSize = 16;//tamaño
+                styleBlack16_90G.Font.Bold = true;//negrita
+
+                //Arial 14 blue
+                SLStyle styleBlue14 = sl.CreateStyle();
+                styleBlue14.Alignment.Horizontal = HorizontalAlignmentValues.Center;//aliniacion
+                styleBlack14.Alignment.Vertical = VerticalAlignmentValues.Center;
+                styleBlue14.Font.FontColor = System.Drawing.Color.Blue;//color
+                styleBlue14.Font.FontName = "Arial";//tipo de fuente
+                styleBlue14.Font.FontSize = 14;//tamaño
+                styleBlue14.Font.Bold = true;//negrita
+
+                //##CONTENIDO Celdas USHUAIA###### 
+                //Titulo
+                sl.SetCellValue("A1", tituloEstadistica); //set value
+                sl.SetCellStyle(1, 1, styleTitle);//
+                sl.MergeWorksheetCells("A1", "AX1");//COMBINAR
+                                                    //SubTitulo
+                sl.SetCellValue("C2", "CICLO BASICO"); //set value
+                sl.SetCellStyle(2, 3, styleWhite18);//
+                sl.MergeWorksheetCells("C2", "V2");//COMBINAR
+
+                sl.SetCellValue("W2", "CICLO SUPERIOR"); //set value
+                sl.SetCellStyle(2, 23, styleWhite18);//
+                sl.MergeWorksheetCells("W2", "AV2");//COMBINAR
+                                                    //secciones
+                sl.SetCellValue("C3", "Cantidad de Secciones y Estudiantes"); //set value
+                sl.SetCellStyle("C3", styleWhite16);//
+                sl.MergeWorksheetCells("C3", "T3");//COMBINAR
+
+                sl.SetCellValue("W3", "Cantidad de Secciones y Estudiantes"); //set value
+                sl.SetCellStyle("W3", styleWhite16);//
+                sl.MergeWorksheetCells("W3", "AT3");//COMBINAR
+                                                    //AÑOS
+                sl.SetCellValue("C4", "1ro"); //set value
+                sl.SetCellStyle("C4", styleWhite16);//
+                sl.MergeWorksheetCells("C4", "H4");//COMBINAR
+
+                sl.SetCellValue("I4", "2do"); //set value
+                sl.SetCellStyle("I4", styleWhite16);//
+                sl.MergeWorksheetCells("I4", "N4");//COMBINAR
+
+                sl.SetCellValue("O4", "3ro"); //set value
+                sl.SetCellStyle("O4", styleWhite16);//
+                sl.MergeWorksheetCells("O4", "T4");//COMBINAR
+
+                sl.SetCellValue("W4", "4to"); //set value
+                sl.SetCellStyle("W4", styleWhite16);//
+                sl.MergeWorksheetCells("W4", "AB4");//COMBINAR
+
+                sl.SetCellValue("AC4", "5to"); //set value
+                sl.SetCellStyle("AC4", styleWhite16);//
+                sl.MergeWorksheetCells("AC4", "AH4");//COMBINAR
+
+                sl.SetCellValue("AI4", "6to"); //set value
+                sl.SetCellStyle("AI4", styleWhite16);//
+                sl.MergeWorksheetCells("AI4", "AN4");//COMBINAR
+
+                sl.SetCellValue("AO4", "7mo"); //set value
+                sl.SetCellStyle("AO4", styleWhite16);//
+                sl.MergeWorksheetCells("AO4", "AT4");//COMBINAR
+                                                     //TURNOS
+                sl.SetCellValue("C5", "TM"); //set value
+                sl.SetCellStyle("C5", styleBlack14);//
+                sl.MergeWorksheetCells("C5", "D5");//COMBINAR
+
+                sl.SetCellValue("E5", "TT"); //set value
+                sl.SetCellStyle("E5", styleBlack14);//
+                sl.MergeWorksheetCells("E5", "F5");//COMBINAR
+
+                sl.SetCellValue("G5", "TV"); //set value
+                sl.SetCellStyle("G5", styleBlack14);//
+                sl.MergeWorksheetCells("G5", "H5");//COMBINAR
+
+                sl.CopyCell("C5", "I5");//copia el contenido de una celda
+                sl.MergeWorksheetCells("I5", "J5");//COMBINAR
+                sl.CopyCell("C5", "O5");//copia el contenido de una celda
+                sl.MergeWorksheetCells("O5", "P5");//COMBINAR
+                sl.CopyCell("C5", "W5");//copia el contenido de una celda
+                sl.MergeWorksheetCells("W5", "X5");//COMBINAR
+                sl.CopyCell("C5", "AC5");//copia el contenido de una celda
+                sl.MergeWorksheetCells("AC5", "AD5");//COMBINAR
+                sl.CopyCell("C5", "AI5");//copia el contenido de una celda
+                sl.MergeWorksheetCells("AI5", "AJ5");//COMBINAR
+                sl.CopyCell("C5", "AO5");//copia el contenido de una celda
+                sl.MergeWorksheetCells("AO5", "AP5");//COMBINAR
+
+                sl.CopyCell("E5", "K5");//copia el contenido de una celda
+                sl.MergeWorksheetCells("K5", "L5");//COMBINAR
+                sl.CopyCell("E5", "Q5");//copia el contenido de una celda
+                sl.MergeWorksheetCells("Q5", "R5");//COMBINAR
+                sl.CopyCell("E5", "Y5");//copia el contenido de una celda
+                sl.MergeWorksheetCells("Y5", "Z5");//COMBINAR
+                sl.CopyCell("E5", "AE5");//copia el contenido de una celda
+                sl.MergeWorksheetCells("AE5", "AF5");//COMBINAR
+                sl.CopyCell("E5", "AK5");//copia el contenido de una celda
+                sl.MergeWorksheetCells("AK5", "AL5");//COMBINAR
+                sl.CopyCell("E5", "AQ5");//copia el contenido de una celda
+                sl.MergeWorksheetCells("AQ5", "AR5");//COMBINAR
+
+                sl.CopyCell("G5", "M5");//copia el contenido de una celda
+                sl.MergeWorksheetCells("M5", "N5");//COMBINAR
+                sl.CopyCell("G5", "S5");//copia el contenido de una celda
+                sl.MergeWorksheetCells("S5", "T5");//COMBINAR
+                sl.CopyCell("G5", "AA5");//copia el contenido de una celda
+                sl.MergeWorksheetCells("AA5", "AB5");//COMBINAR
+                sl.CopyCell("G5", "AG5");//copia el contenido de una celda
+                sl.MergeWorksheetCells("AG5", "AH5");//COMBINAR
+                sl.CopyCell("G5", "AM5");//copia el contenido de una celda
+                sl.MergeWorksheetCells("AM5", "AN5");//COMBINAR
+                sl.CopyCell("G5", "AS5");//copia el contenido de una celda
+                sl.MergeWorksheetCells("AS5", "AT5");//COMBINAR
+
+                //S y E
+                sl.SetCellValue("AW6", "S"); //set value
+                sl.SetCellStyle("AW6", styleBlack14);
+                sl.SetCellValue("AX6", "E"); //set value
+                sl.SetCellStyle("AX6", styleBlack14);
+
+                for (int i = 3; i <= 19; i = i + 2)
+                {
+                    sl.CopyCell(6, 49, 6, i);
+                    for (int j = 4; j <= 20; j = j + 2)
+                    {
+                        sl.CopyCell(6, 50, 6, j);
+                    }
+                }
+                for (int i = 23; i <= 45; i = i + 2)
+                {
+                    sl.CopyCell(6, 49, 6, i);
+                    for (int j = 24; j <= 46; j = j + 2)
+                    {
+                        sl.CopyCell(6, 50, 6, j);
+                    }
+                }
+                //Depto y establecimiento
+                sl.SetCellValue("A2", "Depto"); //set value
+                sl.SetCellStyle("A2", styleWhite18);
+                sl.MergeWorksheetCells("A2", "A6");//COMBINAR
+                sl.SetCellValue("B2", "Establecimiento"); //set value
+                sl.SetCellStyle("B2", styleWhite18);
+                sl.MergeWorksheetCells("B2", "B6");//COMBINAR
+                                                   //totales
+                sl.SetCellValue("AW2", "TOTALES"); //set value
+                sl.SetCellStyle("AW2", styleWhite18_90G);
+                sl.MergeWorksheetCells("AW2", "AX5");//COMBINAR
+                                                     //Total secciones y estudiantes
+                sl.SetCellValue("U3", "Total Secciones"); //set value
+                sl.SetCellStyle("U3", styleWhite14_90G);
+                sl.MergeWorksheetCells("U3", "U6");//COMBINAR
+                sl.SetCellValue("V3", "Total Estudiantes"); //set value
+                sl.SetCellStyle("V3", styleWhite14_90G);
+                sl.MergeWorksheetCells("V3", "V6");//COMBINAR
+                sl.SetCellValue("AU3", "Total Secciones"); //set value
+                sl.SetCellStyle("AU3", styleWhite14_90G);
+                sl.MergeWorksheetCells("AU3", "AU6");//COMBINAR
+                sl.SetCellValue("AV3", "Total Estudiantes"); //set value
+                sl.SetCellStyle("AV3", styleWhite14_90G);
+                sl.MergeWorksheetCells("AV3", "AV6");//COMBINAR
+                                                     //ushuaia
+                sl.SetCellValue("A7", "Ushuaia"); //set value
+                sl.SetCellStyle("A7", styleBlack16_90G);
+                sl.MergeWorksheetCells(7, 1, 6 + cantColegiosUshuaia, 1);//COMBINAR
+
+                //subtotal S y Estudiantes
+                sl.SetCellValue(7 + cantColegiosUshuaia, 1, "Subtotal Ushuaia Secciones"); //set value
+                sl.SetCellStyle(7 + cantColegiosUshuaia, 1, styleWhite14);
+                sl.MergeWorksheetCells(7 + cantColegiosUshuaia, 1, 7 + cantColegiosUshuaia, 2);//COMBINAR
+                sl.SetCellValue(8 + cantColegiosUshuaia, 1, "Subtotal Secciones por Año"); //set value
+                sl.SetCellStyle(8 + cantColegiosUshuaia, 1, styleWhite14);
+                sl.MergeWorksheetCells(8 + cantColegiosUshuaia, 1, 8 + cantColegiosUshuaia, 2);//COMBINAR
+                sl.SetCellValue(9 + cantColegiosUshuaia, 1, "Subtotal Ushuaia Estudiantes"); //set value
+                sl.SetCellStyle(9 + cantColegiosUshuaia, 1, styleWhite14);
+                sl.MergeWorksheetCells(9 + cantColegiosUshuaia, 1, 9 + cantColegiosUshuaia, 2);//COMBINAR*/
+                sl.SetCellValue(10 + cantColegiosUshuaia, 1, "Subtotal Estudiantes por Año"); //set value
+                sl.SetCellStyle(10 + cantColegiosUshuaia, 1, styleWhite14);
+                sl.MergeWorksheetCells(10 + cantColegiosUshuaia, 1, 10 + cantColegiosUshuaia, 2);//COMBINAR*/
+
+                //Nombre de los establecimientos Ushuaia
+                for (int i = 7; i <= 7 + cantColegiosUshuaia - 1; i++)
+                {
+                    sl.SetCellValue(i, 2, ushuaiaColegios[0, i - 7]); //set value
+                    sl.SetCellStyle(i, 2, styleBlack14);
+                }
+                //completa ciclo basico ushuaia
+                for (int i = 7; i <= 7 + cantColegiosUshuaia - 1; i++)
+                {
+                    for (int j = 3; j <= 20; j++)
+                    {
+                        if (colegiosUshuaiaSyE[i - 7, j - 3] == 0)//si el valor es 0 le pone un guion
+                        {
+                            sl.SetCellValue(i, j, "-"); //set value
+                            sl.SetCellStyle(i, j, styleBlack14);
+                        }
+                        else//si tiene valor, lo pone
+                        {
+                            sl.SetCellValue(i, j, colegiosUshuaiaSyE[i - 7, j - 3]); //set value
+                            sl.SetCellStyle(i, j, styleBlack14);
+                        }
+                    }
+                }
+                //completa ciclo superior ushuaia           
+                for (int i = 7; i <= 7 + cantColegiosUshuaia - 1; i++)
+                {
+                    for (int j = 23; j <= 46; j++)
+                    {
+                        if (colegiosUshuaiaSyE[i - 7, j - 5] == 0)//si el valor es 0 le pone un guion
+                        {
+                            sl.SetCellValue(i, j, "-"); //set value
+                            sl.SetCellStyle(i, j, styleBlack14);
+                        }
+                        else//si tiene valor, lo pone
+                        {
+                            //sl.SetCellValue(i, j, Convert.ToString(j+i)); //set value
+                            sl.SetCellValue(i, j, colegiosUshuaiaSyE[i - 7, j - 5]); //set value
+                            sl.SetCellStyle(i, j, styleBlack14);
+                        }
+                    }
+                }
+
+                //completa totales ciclo basico ushuaia           
+                for (int i = 7; i <= 7 + cantColegiosUshuaia - 1; i++)//7 porque empieza en la fila 7
+                {
+                    for (int j = 21; j <= 22; j++)//21 porque empieza en la columna 21
+                    {
+                        sl.SetCellValue(i, j, uTotalesCicloBasico[i - 7, j - 21]); //set value
+                        sl.SetCellStyle(i, j, styleBlue14);
+                    }
+                }
+                //completa totales ciclo superior ushuaia           
+                for (int i = 7; i <= 7 + cantColegiosUshuaia - 1; i++)//7 porque empieza en la fila 7
+                {
+                    for (int j = 47; j <= 48; j++)//47 porque empieza en la columna 47
+                    {
+                        sl.SetCellValue(i, j, uTotalesCicloSuperior[i - 7, j - 47]); //set value
+                        sl.SetCellStyle(i, j, styleBlue14);
+                    }
+                }
+                //completa totales ushuaia           
+                for (int i = 7; i <= 7 + cantColegiosUshuaia - 1; i++)//7 porque empieza en la fila 7
+                {
+                    for (int j = 49; j <= 50; j++)//49 porque empieza en la columna 49
+                    {
+                        sl.SetCellValue(i, j, uTotal2Ciclos[i - 7, j - 49]); //set value
+                        sl.SetCellStyle(i, j, styleBlack14);
+                    }
+                }
+
+                //completa subtotal ushuaia   
+                for (int i = 7 + cantColegiosUshuaia; i <= 8 + cantColegiosUshuaia; i++)
+                {
+                    if (i == 7 + cantColegiosUshuaia)
+                    {
+                        for (int j = 0; j <= 20; j++)//3 porque empieza en la columna 3 y suma de a 2 lugares
+                        {
+                            if (j == 0)
+                            {
+                                sl.SetCellValue(i, j + 3, uSubtotalTurnos[i - (7 + cantColegiosUshuaia), j]);
+                                sl.SetCellStyle(i, j + 3, styleBlack14);
+                                sl.MergeWorksheetCells(i, j + 3, i, j + 3 + 1);//COMBINAR
+                            }
+                            else if (j >= 9)
+                            {
+                                sl.SetCellValue(i, (j * 2) + 5, uSubtotalTurnos[i - (7 + cantColegiosUshuaia), j]);
+                                sl.SetCellStyle(i, (j * 2) + 5, styleBlack14);
+                                sl.MergeWorksheetCells(i, (j * 2) + 5, i, (j * 2) + 5 + 1);//COMBINAR
+                            }
+                            else
+                            {
+                                sl.SetCellValue(i, (j * 2) + 3, uSubtotalTurnos[i - (7 + cantColegiosUshuaia), j]);
+                                sl.SetCellStyle(i, (j * 2) + 3, styleBlack14);
+                                sl.MergeWorksheetCells(i, (j * 2) + 3, i, (j * 2) + 3 + 1);//COMBINAR
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int j = 0; j <= 20; j++)//3 porque empieza en la columna 3 y suma de a 2 lugares
+                        {
+                            if (j == 0)
+                            {
+                                sl.SetCellValue(i + 1, j + 3, uSubtotalTurnos[i - (7 + cantColegiosUshuaia), j]);
+                                sl.SetCellStyle(i + 1, j + 3, styleBlack14);
+                                sl.MergeWorksheetCells(i + 1, j + 3, i + 1, j + 3 + 1);//COMBINAR
+                            }
+                            else if (j >= 9)
+                            {
+                                sl.SetCellValue(i + 1, (j * 2) + 5, uSubtotalTurnos[i - (7 + cantColegiosUshuaia), j]);
+                                sl.SetCellStyle(i + 1, (j * 2) + 5, styleBlack14);
+                                sl.MergeWorksheetCells(i + 1, (j * 2) + 5, i + 1, (j * 2) + 5 + 1);//COMBINAR
+                            }
+                            else
+                            {
+                                sl.SetCellValue(i + 1, (j * 2) + 3, uSubtotalTurnos[i - (7 + cantColegiosUshuaia), j]);
+                                sl.SetCellStyle(i + 1, (j * 2) + 3, styleBlack14);
+                                sl.MergeWorksheetCells(i + 1, (j * 2) + 3, i + 1, (j * 2) + 3 + 1);//COMBINAR
+                            }
+                        }
+                    }
+                }
+
+                //completa subtotal ushuaia por año            
+                for (int i = 8 + cantColegiosUshuaia; i <= 9 + cantColegiosUshuaia; i++)
+                {
+                    if (i == 8 + cantColegiosUshuaia)
+                    {
+                        for (int j = 0; j <= 6; j++)//3 porque empieza en la columna 3 y suma de a 6 lugares
+                        {
+                            if (j == 0)
+                            {
+                                sl.SetCellValue(i, j + 3, uSubtotalAños[i - (8 + cantColegiosUshuaia), j]);
+                                sl.SetCellStyle(i, j + 3, styleBlack14);
+                                sl.MergeWorksheetCells(i, j + 3, i, j + 3 + 5);//COMBINAR
+                            }
+                            else if (j >= 3)
+                            {
+                                sl.SetCellValue(i, (j * 6) + 5, uSubtotalAños[i - (8 + cantColegiosUshuaia), j]);
+                                sl.SetCellStyle(i, (j * 6) + 5, styleBlack14);
+                                sl.MergeWorksheetCells(i, (j * 6) + 5, i, (j * 6) + 5 + 5);//COMBINAR
+                            }
+                            else
+                            {
+                                sl.SetCellValue(i, (j * 6) + 3, uSubtotalAños[i - (8 + cantColegiosUshuaia), j]);
+                                sl.SetCellStyle(i, (j * 6) + 3, styleBlack14);
+                                sl.MergeWorksheetCells(i, (j * 6) + 3, i, (j * 6) + 3 + 5);//COMBINAR
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int j = 0; j <= 6; j++)//3 porque empieza en la columna 3 y suma de a 6 lugares
+                        {
+                            if (j == 0)
+                            {
+                                sl.SetCellValue(i + 1, j + 3, uSubtotalAños[i - (8 + cantColegiosUshuaia), j]);
+                                sl.SetCellStyle(i + 1, j + 3, styleBlack14);
+                                sl.MergeWorksheetCells(i + 1, j + 3, i + 1, j + 3 + 5);//COMBINAR
+                            }
+                            else if (j >= 3)
+                            {
+                                sl.SetCellValue(i + 1, (j * 6) + 5, uSubtotalAños[i - (8 + cantColegiosUshuaia), j]);
+                                sl.SetCellStyle(i + 1, (j * 6) + 5, styleBlack14);
+                                sl.MergeWorksheetCells(i + 1, (j * 6) + 5, i + 1, (j * 6) + 5 + 5);//COMBINAR
+                            }
+                            else
+                            {
+                                sl.SetCellValue(i + 1, (j * 6) + 3, uSubtotalAños[i - (8 + cantColegiosUshuaia), j]);
+                                sl.SetCellStyle(i + 1, (j * 6) + 3, styleBlack14);
+                                sl.MergeWorksheetCells(i + 1, (j * 6) + 3, i + 1, (j * 6) + 3 + 5);//COMBINAR
+                            }
+                        }
+                    }
+                }
+
+                //completa SubTotales Ushuaia             
+                sl.SetCellValue(7 + cantColegiosUshuaia, 21, uSubtotal[0, 0]);
+                sl.SetCellStyle(7 + cantColegiosUshuaia, 21, styleWhite14);
+                sl.MergeWorksheetCells(7 + cantColegiosUshuaia, 21, 8 + cantColegiosUshuaia, 22);//COMBINAR
+                sl.SetCellValue(7 + cantColegiosUshuaia, 47, uSubtotal[0, 1]);
+                sl.SetCellStyle(7 + cantColegiosUshuaia, 47, styleWhite14);
+                sl.MergeWorksheetCells(7 + cantColegiosUshuaia, 47, 8 + cantColegiosUshuaia, 48);//COMBINAR
+                sl.SetCellValue(7 + cantColegiosUshuaia, 49, uSubtotal[0, 2]);
+                sl.SetCellStyle(7 + cantColegiosUshuaia, 49, styleWhite14);
+                sl.MergeWorksheetCells(7 + cantColegiosUshuaia, 49, 8 + cantColegiosUshuaia, 50);//COMBINAR
+                sl.SetCellValue(9 + cantColegiosUshuaia, 21, uSubtotal[1, 0]);
+                sl.SetCellStyle(9 + cantColegiosUshuaia, 21, styleWhite14);
+                sl.MergeWorksheetCells(9 + cantColegiosUshuaia, 21, 10 + cantColegiosUshuaia, 22);//COMBINAR
+                sl.SetCellValue(9 + cantColegiosUshuaia, 47, uSubtotal[1, 1]);
+                sl.SetCellStyle(9 + cantColegiosUshuaia, 47, styleWhite14);
+                sl.MergeWorksheetCells(9 + cantColegiosUshuaia, 47, 10 + cantColegiosUshuaia, 48);//COMBINAR
+                sl.SetCellValue(9 + cantColegiosUshuaia, 49, uSubtotal[1, 2]);
+                sl.SetCellStyle(9 + cantColegiosUshuaia, 49, styleWhite14);
+                sl.MergeWorksheetCells(9 + cantColegiosUshuaia, 49, 10 + cantColegiosUshuaia, 50);//COMBINAR
+
+                //##CONTENIDO DE LAS CELDAS RIO GRANDE
+                //Rio Grande
+                sl.SetCellValue(12 + cantColegiosUshuaia, 1, "Rio Grande"); //set value
+                sl.SetCellStyle(12 + cantColegiosUshuaia, 1, styleBlack16_90G);
+                sl.MergeWorksheetCells(12 + cantColegiosUshuaia, 1, 12 + cantColegiosUshuaia + cantColegiosGrande - 1, 1);//COMBINAR
+                                                                                                                          //subtotal S y Estudiantes Rio grande
+                sl.SetCellValue(12 + cantColegiosUshuaia + cantColegiosGrande, 1, "Subtotal Rio Grande Secciones"); //set value
+                sl.SetCellStyle(12 + cantColegiosUshuaia + cantColegiosGrande, 1, styleWhite14);
+                sl.MergeWorksheetCells(12 + cantColegiosUshuaia + cantColegiosGrande, 1, 12 + cantColegiosUshuaia + cantColegiosGrande, 2);//COMBINAR
+                sl.SetCellValue(13 + cantColegiosUshuaia + cantColegiosGrande, 1, "Subtotal Secciones por Año"); //set value
+                sl.SetCellStyle(13 + cantColegiosUshuaia + cantColegiosGrande, 1, styleWhite14);
+                sl.MergeWorksheetCells(13 + cantColegiosUshuaia + cantColegiosGrande, 1, 13 + cantColegiosUshuaia + cantColegiosGrande, 2);//COMBINAR
+
+                sl.SetCellValue(14 + cantColegiosUshuaia + cantColegiosGrande, 1, "Subtotal Rio Grande Estudiantes"); //set value
+                sl.SetCellStyle(14 + cantColegiosUshuaia + cantColegiosGrande, 1, styleWhite14);
+                sl.MergeWorksheetCells(14 + cantColegiosUshuaia + cantColegiosGrande, 1, 14 + cantColegiosUshuaia + cantColegiosGrande, 2);//COMBINAR*/
+                sl.SetCellValue(15 + cantColegiosUshuaia + cantColegiosGrande, 1, "Subtotal Estudiantes por año"); //set value
+                sl.SetCellStyle(15 + cantColegiosUshuaia + cantColegiosGrande, 1, styleWhite14);
+                sl.MergeWorksheetCells(15 + cantColegiosUshuaia + cantColegiosGrande, 1, 15 + cantColegiosUshuaia + cantColegiosGrande, 2);//COMBINAR*/
+
+                //Nombre de los establecimientos Rio grande             
+                for (int i = 12 + cantColegiosUshuaia; i <= 12 + cantColegiosUshuaia + cantColegiosGrande - 1; i++)
+                {
+                    sl.SetCellValue(i, 2, grandeColegios[0, i - (12 + cantColegiosUshuaia)]); //set value
+                    sl.SetCellStyle(i, 2, styleBlack14);
+                }
+                //completa ciclo basico Rio grande
+                for (int i = 12 + cantColegiosUshuaia; i <= 12 + cantColegiosUshuaia + cantColegiosGrande - 1; i++)
+                {
+                    for (int j = 3; j <= 20; j++)
+                    {
+                        if (colegiosGrandeSyE[i - (12 + cantColegiosUshuaia), j - 3] == 0)//si el valor es 0 le pone un guion
+                        {
+                            sl.SetCellValue(i, j, "-"); //set value
+                            sl.SetCellStyle(i, j, styleBlack14);
+                        }
+                        else//si tiene valor, lo pone
+                        {
+                            sl.SetCellValue(i, j, colegiosGrandeSyE[i - (12 + cantColegiosUshuaia), j - 3]); //set value
+                            sl.SetCellStyle(i, j, styleBlack14);
+                        }
+                    }
+                }
+                //completa ciclo superior Rio grande        
+                for (int i = 12 + cantColegiosUshuaia; i <= 12 + cantColegiosUshuaia + cantColegiosGrande - 1; i++)
+                {
+                    for (int j = 23; j <= 46; j++)
+                    {
+                        if (colegiosGrandeSyE[i - (12 + cantColegiosUshuaia), j - 5] == 0)//si el valor es 0 le pone un guion
+                        {
+                            sl.SetCellValue(i, j, "-"); //set value
+                            sl.SetCellStyle(i, j, styleBlack14);
+                        }
+                        else//si tiene valor, lo pone
+                        {
+                            //sl.SetCellValue(i, j, Convert.ToString(j+i)); //set value
+                            sl.SetCellValue(i, j, colegiosGrandeSyE[i - (12 + cantColegiosUshuaia), j - 5]); //set value
+                            sl.SetCellStyle(i, j, styleBlack14);
+                        }
+                    }
+                }
+                //completa totales ciclo basico Rio grande          
+                for (int i = 12 + cantColegiosUshuaia; i <= 12 + cantColegiosUshuaia + cantColegiosGrande - 1; i++)//22 porque empieza en la fila 22 depende de la cantidad de colegios ushuaia igual
+                {
+                    for (int j = 21; j <= 22; j++)//21 porque empieza en la columna 21
+                    {
+                        sl.SetCellValue(i, j, gTotalesCicloBasico[i - (12 + cantColegiosUshuaia), j - 21]); //set value
+                        sl.SetCellStyle(i, j, styleBlue14);
+                    }
+                }
+                //completa totales ciclo superior Rio grande          
+                for (int i = (12 + cantColegiosUshuaia); i <= 12 + cantColegiosUshuaia + cantColegiosGrande - 1; i++)//22 porque empieza en la fila 22
+                {
+                    for (int j = 47; j <= 48; j++)//47 porque empieza en la columna 47
+                    {
+                        sl.SetCellValue(i, j, gTotalesCicloSuperior[i - (12 + cantColegiosUshuaia), j - 47]); //set value
+                        sl.SetCellStyle(i, j, styleBlue14);
+                    }
+                }
+                //completa totales Rio grande          
+                for (int i = (12 + cantColegiosUshuaia); i <= 12 + cantColegiosUshuaia + cantColegiosGrande - 1; i++)//22 porque empieza en la fila 22
+                {
+                    for (int j = 49; j <= 50; j++)//49 porque empieza en la columna 49
+                    {
+                        sl.SetCellValue(i, j, gTotal2Ciclos[i - (12 + cantColegiosUshuaia), j - 49]); //set value
+                        sl.SetCellStyle(i, j, styleBlack14);
+                    }
+                }
+
+                //completa subtotal Rio grande  
+                for (int i = 12 + cantColegiosUshuaia + cantColegiosGrande; i <= 13 + cantColegiosUshuaia + cantColegiosGrande; i++)
+                {
+                    if (i == 12 + cantColegiosUshuaia + cantColegiosGrande)
+                    {
+                        for (int j = 0; j <= 20; j++)//3 porque empieza en la columna 3 y suma de a 2 lugares
+                        {
+                            if (j == 0)
+                            {
+                                sl.SetCellValue(i, j + 3, gSubtotalTurnos[i - (12 + cantColegiosUshuaia + cantColegiosGrande), j]);
+                                sl.SetCellStyle(i, j + 3, styleBlack14);
+                                sl.MergeWorksheetCells(i, j + 3, i, j + 3 + 1);//COMBINAR
+                            }
+                            else if (j >= 9)
+                            {
+                                sl.SetCellValue(i, (j * 2) + 5, gSubtotalTurnos[i - (12 + cantColegiosUshuaia + cantColegiosGrande), j]);
+                                sl.SetCellStyle(i, (j * 2) + 5, styleBlack14);
+                                sl.MergeWorksheetCells(i, (j * 2) + 5, i, (j * 2) + 5 + 1);//COMBINAR
+                            }
+                            else
+                            {
+                                sl.SetCellValue(i, (j * 2) + 3, gSubtotalTurnos[i - (12 + cantColegiosUshuaia + cantColegiosGrande), j]);
+                                sl.SetCellStyle(i, (j * 2) + 3, styleBlack14);
+                                sl.MergeWorksheetCells(i, (j * 2) + 3, i, (j * 2) + 3 + 1);//COMBINAR
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int j = 0; j <= 20; j++)//3 porque empieza en la columna 3 y suma de a 2 lugares
+                        {
+                            if (j == 0)
+                            {
+                                sl.SetCellValue(i + 1, j + 3, gSubtotalTurnos[i - (12 + cantColegiosUshuaia + cantColegiosGrande), j]);
+                                sl.SetCellStyle(i + 1, j + 3, styleBlack14);
+                                sl.MergeWorksheetCells(i + 1, j + 3, i + 1, j + 3 + 1);//COMBINAR
+                            }
+                            else if (j >= 9)
+                            {
+                                sl.SetCellValue(i + 1, (j * 2) + 5, gSubtotalTurnos[i - (12 + cantColegiosUshuaia + cantColegiosGrande), j]);
+                                sl.SetCellStyle(i + 1, (j * 2) + 5, styleBlack14);
+                                sl.MergeWorksheetCells(i + 1, (j * 2) + 5, i + 1, (j * 2) + 5 + 1);//COMBINAR
+                            }
+                            else
+                            {
+                                sl.SetCellValue(i + 1, (j * 2) + 3, gSubtotalTurnos[i - (12 + cantColegiosUshuaia + cantColegiosGrande), j]);
+                                sl.SetCellStyle(i + 1, (j * 2) + 3, styleBlack14);
+                                sl.MergeWorksheetCells(i + 1, (j * 2) + 3, i + 1, (j * 2) + 3 + 1);//COMBINAR
+                            }
+                        }
+                    }
+                }
+                //completa subtotal grande por año
+
+                for (int i = 13 + cantColegiosUshuaia + cantColegiosGrande; i <= 14 + cantColegiosUshuaia + cantColegiosGrande; i++)
+                {
+                    if (i == 13 + cantColegiosUshuaia + cantColegiosGrande)
+                    {
+                        for (int j = 0; j <= 6; j++)//3 porque empieza en la columna 3 y suma de a 2 lugares
+                        {
+                            if (j == 0)
+                            {
+                                sl.SetCellValue(i, j + 3, gSubtotalAños[i - (13 + cantColegiosUshuaia + cantColegiosGrande), j]);
+                                sl.SetCellStyle(i, j + 3, styleBlack14);
+                                sl.MergeWorksheetCells(i, j + 3, i, j + 3 + 5);//COMBINAR
+                            }
+                            else if (j >= 3)
+                            {
+                                sl.SetCellValue(i, (j * 6) + 5, gSubtotalAños[i - (13 + cantColegiosUshuaia + cantColegiosGrande), j]);
+                                sl.SetCellStyle(i, (j * 6) + 5, styleBlack14);
+                                sl.MergeWorksheetCells(i, (j * 6) + 5, i, (j * 6) + 5 + 5);//COMBINAR
+                            }
+                            else
+                            {
+                                sl.SetCellValue(i, (j * 6) + 3, gSubtotalAños[i - (13 + cantColegiosUshuaia + cantColegiosGrande), j]);
+                                sl.SetCellStyle(i, (j * 6) + 3, styleBlack14);
+                                sl.MergeWorksheetCells(i, (j * 6) + 3, i, (j * 6) + 3 + 5);//COMBINAR
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int j = 0; j <= 6; j++)//3 porque empieza en la columna 3 y suma de a 2 lugares
+                        {
+                            if (j == 0)
+                            {
+                                sl.SetCellValue(i + 1, j + 3, gSubtotalAños[i - (13 + cantColegiosUshuaia + cantColegiosGrande), j]);
+                                sl.SetCellStyle(i + 1, j + 3, styleBlack14);
+                                sl.MergeWorksheetCells(i + 1, j + 3, i + 1, j + 3 + 5);//COMBINAR
+                            }
+                            else if (j >= 3)
+                            {
+                                sl.SetCellValue(i + 1, (j * 6) + 5, gSubtotalAños[i - (13 + cantColegiosUshuaia + cantColegiosGrande), j]);
+                                sl.SetCellStyle(i + 1, (j * 6) + 5, styleBlack14);
+                                sl.MergeWorksheetCells(i + 1, (j * 6) + 5, i + 1, (j * 6) + 5 + 5);//COMBINAR
+                            }
+                            else
+                            {
+                                sl.SetCellValue(i + 1, (j * 6) + 3, gSubtotalAños[i - (13 + cantColegiosUshuaia + cantColegiosGrande), j]);
+                                sl.SetCellStyle(i + 1, (j * 6) + 3, styleBlack14);
+                                sl.MergeWorksheetCells(i + 1, (j * 6) + 3, i + 1, (j * 6) + 3 + 5);//COMBINAR
+                            }
+                        }
+                    }
+                }
+
+                //completa SubTotales Rio Grande             
+                sl.SetCellValue(12 + cantColegiosUshuaia + cantColegiosGrande, 21, gSubtotal[0, 0]);
+                sl.SetCellStyle(12 + cantColegiosUshuaia + cantColegiosGrande, 21, styleWhite14);
+                sl.MergeWorksheetCells(12 + cantColegiosUshuaia + cantColegiosGrande, 21, 13 + cantColegiosUshuaia + cantColegiosGrande, 22);//COMBINAR
+                sl.SetCellValue(12 + cantColegiosUshuaia + cantColegiosGrande, 47, gSubtotal[0, 1]);
+                sl.SetCellStyle(12 + cantColegiosUshuaia + cantColegiosGrande, 47, styleWhite14);
+                sl.MergeWorksheetCells(12 + cantColegiosUshuaia + cantColegiosGrande, 47, 13 + cantColegiosUshuaia + cantColegiosGrande, 48);//COMBINAR
+                sl.SetCellValue(12 + cantColegiosUshuaia + cantColegiosGrande, 49, gSubtotal[0, 2]);
+                sl.SetCellStyle(12 + cantColegiosUshuaia + cantColegiosGrande, 49, styleWhite14);
+                sl.MergeWorksheetCells(12 + cantColegiosUshuaia + cantColegiosGrande, 49, 13 + cantColegiosUshuaia + cantColegiosGrande, 50);//COMBINAR
+                sl.SetCellValue(14 + cantColegiosUshuaia + cantColegiosGrande, 21, gSubtotal[1, 0]);
+                sl.SetCellStyle(14 + cantColegiosUshuaia + cantColegiosGrande, 21, styleWhite14);
+                sl.MergeWorksheetCells(14 + cantColegiosUshuaia + cantColegiosGrande, 21, 15 + cantColegiosUshuaia + cantColegiosGrande, 22);//COMBINAR
+                sl.SetCellValue(14 + cantColegiosUshuaia + cantColegiosGrande, 47, gSubtotal[1, 1]);
+                sl.SetCellStyle(14 + cantColegiosUshuaia + cantColegiosGrande, 47, styleWhite14);
+                sl.MergeWorksheetCells(14 + cantColegiosUshuaia + cantColegiosGrande, 47, 15 + cantColegiosUshuaia + cantColegiosGrande, 48);//COMBINAR
+                sl.SetCellValue(14 + cantColegiosUshuaia + cantColegiosGrande, 49, gSubtotal[1, 2]);
+                sl.SetCellStyle(14 + cantColegiosUshuaia + cantColegiosGrande, 49, styleWhite14);
+                sl.MergeWorksheetCells(14 + cantColegiosUshuaia + cantColegiosGrande, 49, 15 + cantColegiosUshuaia + cantColegiosGrande, 50);//COMBINAR    
+
+                //##CONTENIDO DE LAS CELDAS TOTAL JURISDICCIONAL
+                sl.SetCellValue(17 + cantColegiosUshuaia + cantColegiosGrande, 1, "Total Jurisdiccional Secciones"); //set value
+                sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 1, styleWhite14);
+                sl.MergeWorksheetCells(17 + cantColegiosUshuaia + cantColegiosGrande, 1, 17 + cantColegiosUshuaia + cantColegiosGrande, 2);//COMBINAR
+                sl.SetCellValue(18 + cantColegiosUshuaia + cantColegiosGrande, 1, "Total TDF Secciones por Año"); //set value
+                sl.SetCellStyle(18 + cantColegiosUshuaia + cantColegiosGrande, 1, styleWhite14);
+                sl.MergeWorksheetCells(18 + cantColegiosUshuaia + cantColegiosGrande, 1, 18 + cantColegiosUshuaia + cantColegiosGrande, 2);//COMBINAR
+
+                sl.SetCellValue(19 + cantColegiosUshuaia + cantColegiosGrande, 1, "Total Jurisdiccional Estudiantes"); //set value
+                sl.SetCellStyle(19 + cantColegiosUshuaia + cantColegiosGrande, 1, styleWhite14);
+                sl.MergeWorksheetCells(19 + cantColegiosUshuaia + cantColegiosGrande, 1, 19 + cantColegiosUshuaia + cantColegiosGrande, 2);//COMBINAR
+                sl.SetCellValue(20 + cantColegiosUshuaia + cantColegiosGrande, 1, "Total TDF Estudiantes por Año"); //set value
+                sl.SetCellStyle(20 + cantColegiosUshuaia + cantColegiosGrande, 1, styleWhite14);
+                sl.MergeWorksheetCells(20 + cantColegiosUshuaia + cantColegiosGrande, 1, 20 + cantColegiosUshuaia + cantColegiosGrande, 2);//COMBINAR
+
+                //completa total TDF 
+                for (int i = 17 + cantColegiosUshuaia + cantColegiosGrande; i <= 18 + cantColegiosUshuaia + cantColegiosGrande; i++)
+                {
+                    if (i == 17 + cantColegiosUshuaia + cantColegiosGrande)
+                    {
+                        for (int j = 0; j <= 20; j++)//3 porque empieza en la columna 3 y suma de a 2 lugares
+                        {
+                            if (j == 0)
+                            {
+                                sl.SetCellValue(i, j + 3, totalJurisSecyEstudiates[i - (17 + cantColegiosUshuaia + cantColegiosGrande), j]);
+                                sl.SetCellStyle(i, j + 3, styleBlack14);
+                                sl.MergeWorksheetCells(i, j + 3, i, j + 3 + 1);//COMBINAR
+                            }
+                            else if (j >= 9)
+                            {
+                                sl.SetCellValue(i, (j * 2) + 5, totalJurisSecyEstudiates[i - (17 + cantColegiosUshuaia + cantColegiosGrande), j]);
+                                sl.SetCellStyle(i, (j * 2) + 5, styleBlack14);
+                                sl.MergeWorksheetCells(i, (j * 2) + 5, i, (j * 2) + 5 + 1);//COMBINAR
+                            }
+                            else
+                            {
+                                sl.SetCellValue(i, (j * 2) + 3, totalJurisSecyEstudiates[i - (17 + cantColegiosUshuaia + cantColegiosGrande), j]);
+                                sl.SetCellStyle(i, (j * 2) + 3, styleBlack14);
+                                sl.MergeWorksheetCells(i, (j * 2) + 3, i, (j * 2) + 3 + 1);//COMBINAR
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int j = 0; j <= 20; j++)//3 porque empieza en la columna 3 y suma de a 2 lugares
+                        {
+                            if (j == 0)
+                            {
+                                sl.SetCellValue(i + 1, j + 3, totalJurisSecyEstudiates[i - (17 + cantColegiosUshuaia + cantColegiosGrande), j]);
+                                sl.SetCellStyle(i + 1, j + 3, styleBlack14);
+                                sl.MergeWorksheetCells(i + 1, j + 3, i + 1, j + 3 + 1);//COMBINAR
+                            }
+                            else if (j >= 9)
+                            {
+                                sl.SetCellValue(i + 1, (j * 2) + 5, totalJurisSecyEstudiates[i - (17 + cantColegiosUshuaia + cantColegiosGrande), j]);
+                                sl.SetCellStyle(i + 1, (j * 2) + 5, styleBlack14);
+                                sl.MergeWorksheetCells(i + 1, (j * 2) + 5, i + 1, (j * 2) + 5 + 1);//COMBINAR
+                            }
+                            else
+                            {
+                                sl.SetCellValue(i + 1, (j * 2) + 3, totalJurisSecyEstudiates[i - (17 + cantColegiosUshuaia + cantColegiosGrande), j]);
+                                sl.SetCellStyle(i + 1, (j * 2) + 3, styleBlack14);
+                                sl.MergeWorksheetCells(i + 1, (j * 2) + 3, i + 1, (j * 2) + 3 + 1);//COMBINAR
+                            }
+                        }
+                    }
+                }
+                //completa TOTAL TDF por año
+
+                for (int i = 18 + cantColegiosUshuaia + cantColegiosGrande; i <= 19 + cantColegiosUshuaia + cantColegiosGrande; i++)
+                {
+                    if (i == 18 + cantColegiosUshuaia + cantColegiosGrande)
+                    {
+                        for (int j = 0; j <= 6; j++)//3 porque empieza en la columna 3 y suma de a 2 lugares
+                        {
+                            if (j == 0)
+                            {
+                                sl.SetCellValue(i, j + 3, totalJurisdicionalAños[i - (18 + cantColegiosUshuaia + cantColegiosGrande), j]);
+                                sl.SetCellStyle(i, j + 3, styleBlack14);
+                                sl.MergeWorksheetCells(i, j + 3, i, j + 3 + 5);//COMBINAR
+                            }
+                            else if (j >= 3)
+                            {
+                                sl.SetCellValue(i, (j * 6) + 5, totalJurisdicionalAños[i - (18 + cantColegiosUshuaia + cantColegiosGrande), j]);
+                                sl.SetCellStyle(i, (j * 6) + 5, styleBlack14);
+                                sl.MergeWorksheetCells(i, (j * 6) + 5, i, (j * 6) + 5 + 5);//COMBINAR
+                            }
+                            else
+                            {
+                                sl.SetCellValue(i, (j * 6) + 3, totalJurisdicionalAños[i - (18 + cantColegiosUshuaia + cantColegiosGrande), j]);
+                                sl.SetCellStyle(i, (j * 6) + 3, styleBlack14);
+                                sl.MergeWorksheetCells(i, (j * 6) + 3, i, (j * 6) + 3 + 5);//COMBINAR
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int j = 0; j <= 6; j++)//3 porque empieza en la columna 3 y suma de a 2 lugares
+                        {
+                            if (j == 0)
+                            {
+                                sl.SetCellValue(i + 1, j + 3, totalJurisdicionalAños[i - (18 + cantColegiosUshuaia + cantColegiosGrande), j]);
+                                sl.SetCellStyle(i + 1, j + 3, styleBlack14);
+                                sl.MergeWorksheetCells(i + 1, j + 3, i + 1, j + 3 + 5);//COMBINAR
+                            }
+                            else if (j >= 3)
+                            {
+                                sl.SetCellValue(i + 1, (j * 6) + 5, totalJurisdicionalAños[i - (18 + cantColegiosUshuaia + cantColegiosGrande), j]);
+                                sl.SetCellStyle(i + 1, (j * 6) + 5, styleBlack14);
+                                sl.MergeWorksheetCells(i + 1, (j * 6) + 5, i + 1, (j * 6) + 5 + 5);//COMBINAR
+                            }
+                            else
+                            {
+                                sl.SetCellValue(i + 1, (j * 6) + 3, totalJurisdicionalAños[i - (18 + cantColegiosUshuaia + cantColegiosGrande), j]);
+                                sl.SetCellStyle(i + 1, (j * 6) + 3, styleBlack14);
+                                sl.MergeWorksheetCells(i + 1, (j * 6) + 3, i + 1, (j * 6) + 3 + 5);//COMBINAR
+                            }
+                        }
+                    }
+                }
+
+                //completa totales FINALES TDF           
+                sl.SetCellValue(17 + cantColegiosUshuaia + cantColegiosGrande, 21, totalJurisdicional[0, 0]);
+                sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 21, styleWhite14);
+                sl.MergeWorksheetCells(17 + cantColegiosUshuaia + cantColegiosGrande, 21, 18 + cantColegiosUshuaia + cantColegiosGrande, 22);//COMBINAR
+                sl.SetCellValue(17 + cantColegiosUshuaia + cantColegiosGrande, 47, totalJurisdicional[0, 1]);
+                sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 47, styleWhite14);
+                sl.MergeWorksheetCells(17 + cantColegiosUshuaia + cantColegiosGrande, 47, 18 + cantColegiosUshuaia + cantColegiosGrande, 48);//COMBINAR
+                sl.SetCellValue(17 + cantColegiosUshuaia + cantColegiosGrande, 49, totalJurisdicional[0, 2]);
+                sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 49, styleWhite14);
+                sl.MergeWorksheetCells(17 + cantColegiosUshuaia + cantColegiosGrande, 49, 18 + cantColegiosUshuaia + cantColegiosGrande, 50);//COMBINAR
+                sl.SetCellValue(19 + cantColegiosUshuaia + cantColegiosGrande, 21, totalJurisdicional[1, 0]);
+                sl.SetCellStyle(19 + cantColegiosUshuaia + cantColegiosGrande, 21, styleWhite14);
+                sl.MergeWorksheetCells(19 + cantColegiosUshuaia + cantColegiosGrande, 21, 20 + cantColegiosUshuaia + cantColegiosGrande, 22);//COMBINAR
+                sl.SetCellValue(19 + cantColegiosUshuaia + cantColegiosGrande, 47, totalJurisdicional[1, 1]);
+                sl.SetCellStyle(19 + cantColegiosUshuaia + cantColegiosGrande, 47, styleWhite14);
+                sl.MergeWorksheetCells(19 + cantColegiosUshuaia + cantColegiosGrande, 47, 20 + cantColegiosUshuaia + cantColegiosGrande, 48);//COMBINAR
+                sl.SetCellValue(19 + cantColegiosUshuaia + cantColegiosGrande, 49, totalJurisdicional[1, 2]);
+                sl.SetCellStyle(19 + cantColegiosUshuaia + cantColegiosGrande, 49, styleWhite14);
+                sl.MergeWorksheetCells(19 + cantColegiosUshuaia + cantColegiosGrande, 49, 20 + cantColegiosUshuaia + cantColegiosGrande, 50);//COMBINAR
+
+                //##bordes gruesos horizontales ushuaia
+                sl.SetCellStyle(1, 1, 1, 50, styleBorderBM);//BORDE TITLE
+                sl.SetCellStyle(2, 3, 2, 48, styleBorderBM);//BORDE sUBTITLE
+                sl.SetCellStyle(3, 3, 3, 48, styleBorderBM);//BORDE Secciones
+                sl.SetCellStyle(5, 3, 5, 50, styleBorderBM);//BORDE S/E
+                sl.SetCellStyle(6, 1, 6, 50, styleBorderBM);//BORDE S/E 2
+                sl.SetCellStyle(6 + cantColegiosUshuaia, 1, 6 + cantColegiosUshuaia, 50, styleBorderBM);//BORDE S/E 3
+                sl.SetCellStyle(8 + cantColegiosUshuaia, 1, 8 + cantColegiosUshuaia, 50, styleBorderBM);//BORDE S/E 3
+                sl.SetCellStyle(11 + cantColegiosUshuaia + cantColegiosGrande, 1, 11 + cantColegiosUshuaia + cantColegiosGrande, 50, styleBorderBM);//BORDE S/E rio grande
+                sl.SetCellStyle(13 + cantColegiosUshuaia + cantColegiosGrande, 1, 13 + cantColegiosUshuaia + cantColegiosGrande, 50, styleBorderBM);//BORDE S/E rio grande
+                sl.SetCellStyle(18 + cantColegiosUshuaia + cantColegiosGrande, 1, 18 + cantColegiosUshuaia + cantColegiosGrande, 50, styleBorderBM);//BORDE S/E TDF
+
+                //bordes gruesos verticales
+                sl.SetCellStyle(2, 3, 10 + cantColegiosUshuaia, 3, styleBorderLM);//borde 1
+                sl.SetCellStyle(2, 2, 6 + cantColegiosUshuaia, 2, styleBorderLM);//borde 1
+                sl.SetCellStyle(4, 9, 10 + cantColegiosUshuaia, 9, styleBorderLM);//borde 1ro
+                sl.SetCellStyle(4, 15, 10 + cantColegiosUshuaia, 15, styleBorderLM);//borde 2do
+                sl.SetCellStyle(3, 21, 10 + cantColegiosUshuaia, 21, styleBorderLM);//borde 3ro
+                sl.SetCellStyle(2, 23, 10 + cantColegiosUshuaia, 23, styleBorderLM);//borde 4
+                sl.SetCellStyle(4, 29, 10 + cantColegiosUshuaia, 29, styleBorderLM);//borde 4to
+                sl.SetCellStyle(4, 35, 10 + cantColegiosUshuaia, 35, styleBorderLM);//borde 5to
+                sl.SetCellStyle(4, 41, 10 + cantColegiosUshuaia, 41, styleBorderLM);//borde 6to
+                sl.SetCellStyle(3, 47, 10 + cantColegiosUshuaia, 47, styleBorderLM);//borde 7mo
+                sl.SetCellStyle(2, 49, 10 + cantColegiosUshuaia, 49, styleBorderLM);//borde 7
+
+                sl.SetCellStyle(12 + cantColegiosUshuaia, 3, 15 + cantColegiosUshuaia + cantColegiosGrande, 3, styleBorderLM);//borde 1 Rio Grande
+                sl.SetCellStyle(12 + cantColegiosUshuaia, 2, 12 + cantColegiosUshuaia + cantColegiosGrande, 2, styleBorderLM);//borde 2 Rio Grande
+                sl.SetCellStyle(12 + cantColegiosUshuaia, 9, 15 + cantColegiosUshuaia + cantColegiosGrande, 9, styleBorderLM);//borde 1ro Rio Grande
+                sl.SetCellStyle(12 + cantColegiosUshuaia, 15, 15 + cantColegiosUshuaia + cantColegiosGrande, 15, styleBorderLM);//borde 2do Rio Grande
+                sl.SetCellStyle(12 + cantColegiosUshuaia, 21, 15 + cantColegiosUshuaia + cantColegiosGrande, 21, styleBorderLM);//borde 3ro Rio Grande
+                sl.SetCellStyle(12 + cantColegiosUshuaia, 23, 15 + cantColegiosUshuaia + cantColegiosGrande, 23, styleBorderLM);//borde 4 Rio Grande
+                sl.SetCellStyle(12 + cantColegiosUshuaia, 29, 15 + cantColegiosUshuaia + cantColegiosGrande, 29, styleBorderLM);//borde 4to Rio Grande
+                sl.SetCellStyle(12 + cantColegiosUshuaia, 35, 15 + cantColegiosUshuaia + cantColegiosGrande, 35, styleBorderLM);//borde 5to Rio Grande
+                sl.SetCellStyle(12 + cantColegiosUshuaia, 41, 15 + cantColegiosUshuaia + cantColegiosGrande, 41, styleBorderLM);//borde 6to Rio Grande
+                sl.SetCellStyle(12 + cantColegiosUshuaia, 47, 15 + cantColegiosUshuaia + cantColegiosGrande, 47, styleBorderLM);//borde 7mo Rio Grande
+                sl.SetCellStyle(12 + cantColegiosUshuaia, 49, 15 + cantColegiosUshuaia + cantColegiosGrande, 49, styleBorderLM);//borde 7 Rio Grande
+
+                sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 3, 20 + cantColegiosUshuaia + cantColegiosGrande, 3, styleBorderLM);//borde 1 Total
+                sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 9, 20 + cantColegiosUshuaia + cantColegiosGrande, 9, styleBorderLM);//borde 1ro Total
+                sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 15, 20 + cantColegiosUshuaia + cantColegiosGrande, 15, styleBorderLM);//borde 2do Total
+                sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 21, 20 + cantColegiosUshuaia + cantColegiosGrande, 21, styleBorderLM);//borde 3ro Total
+                sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 23, 20 + cantColegiosUshuaia + cantColegiosGrande, 23, styleBorderLM);//borde 4 Total
+                sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 29, 20 + cantColegiosUshuaia + cantColegiosGrande, 29, styleBorderLM);//borde 4to TotalTotal
+                sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 35, 20 + cantColegiosUshuaia + cantColegiosGrande, 35, styleBorderLM);//borde 5to Total
+                sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 41, 20 + cantColegiosUshuaia + cantColegiosGrande, 41, styleBorderLM);//borde 6to Total
+                sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 47, 20 + cantColegiosUshuaia + cantColegiosGrande, 47, styleBorderLM);//borde 7mo Total
+                sl.SetCellStyle(17 + cantColegiosUshuaia + cantColegiosGrande, 49, 20 + cantColegiosUshuaia + cantColegiosGrande, 49, styleBorderLM);//borde 7 Rio Total    
+
+                sl.SaveAs(pathFile);
+
+                btnCrearExcel.Enabled = false;
+                lblCreando.Visible = false;
+                MessageBox.Show("Excel Generado", "Sitema Informa");                
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("porque está siendo utilizado en otro proceso"))
+                {
+                    MessageBox.Show("El archivo excel que quiere remplazar esta abierto, debe cerrarlo.", "Sistema Informa");
+                    lblCreando.Visible = false;
+                    btnCrearExcel.Enabled = true;
+                    btnCrearExcel.BackColor = System.Drawing.Color.DodgerBlue;
+                    colorExcel = 7;
+                }
+                else
+                {
+                    MessageBox.Show(Convert.ToString(ex));
+                }
+            }
         }
         private void btnVolver_Click(object sender, EventArgs e)
         {
@@ -2002,11 +2036,11 @@ namespace SistemaEstudiantes
         
         private void btnVerPlanilla_MouseLeave(object sender, EventArgs e)
         {
-            if (color == 0)//unica forma de que funcione
+            if (colorPlantilla == 0)//unica forma de que funcione
             {
                 btnVerPlanilla.BackColor = System.Drawing.Color.Silver;
             }
-            else if (color == 1)
+            else if (colorPlantilla == 1)
             {
                 btnVerPlanilla.BackColor = System.Drawing.Color.DodgerBlue;
             }            
@@ -2019,13 +2053,45 @@ namespace SistemaEstudiantes
 
         private void btnVerEstadistica_MouseLeave(object sender, EventArgs e)
         {
-            if (color == 2)//unica forma de que funcione
+            if (colorEstadistica == 2)//unica forma de que funcione
             {
                 btnVerEstadistica.BackColor = System.Drawing.Color.Silver;
             }
-            else if (color == 3)
+            else if (colorEstadistica == 3)
             {
                 btnVerEstadistica.BackColor = System.Drawing.Color.DodgerBlue;
+            }
+        }
+        private void btnCrearEstadistica_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnCrearEstadistica.BackColor = System.Drawing.Color.DimGray;
+        }
+
+        private void btnCrearEstadistica_MouseLeave(object sender, EventArgs e)
+        {
+            if (colorExcel == 4)//unica forma de que funcione
+            {
+                btnCrearEstadistica.BackColor = System.Drawing.Color.Silver;
+            }
+            else if (colorExcel == 5)
+            {
+                btnCrearEstadistica.BackColor = System.Drawing.Color.DodgerBlue;
+            }
+        }
+        private void btnCrearExcel_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnCrearExcel.BackColor = System.Drawing.Color.DimGray;
+        }
+
+        private void btnCrearExcel_MouseLeave(object sender, EventArgs e)
+        {
+            if (colorExcel == 6)//unica forma de que funcione
+            {
+                btnCrearExcel.BackColor = System.Drawing.Color.Silver;
+            }
+            else if (colorExcel == 7)
+            {
+                btnCrearExcel.BackColor = System.Drawing.Color.DodgerBlue;
             }
         }
 
@@ -2058,5 +2124,7 @@ namespace SistemaEstudiantes
         {
             btnSalir.BackColor = System.Drawing.Color.DodgerBlue;
         }
+
+        
     }        
 }

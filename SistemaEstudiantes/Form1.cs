@@ -140,7 +140,8 @@ namespace SistemaEstudiantes
                     btnNormativa.Enabled = true;
                     btnNormativa.BackColor = Color.DimGray;
                     btnPlantas.Enabled = false;
-                    btnEstadisticas.Enabled = false;
+                    btnEstadisticas.Enabled = true;
+                    btnEstadisticas.BackColor = Color.DimGray;
                     btnOpciones.Enabled = true;
                     btnOpciones.BackColor = Color.DimGray;
 
@@ -152,7 +153,8 @@ namespace SistemaEstudiantes
                     btnNormativa.Enabled = true;
                     btnNormativa.BackColor = Color.DimGray;
                     btnPlantas.Enabled = false;
-                    btnEstadisticas.Enabled = false;
+                    btnEstadisticas.Enabled = true;
+                    btnEstadisticas.BackColor = Color.DimGray;
                     btnOpciones.Enabled = true;
                     btnOpciones.BackColor = Color.DimGray;
 

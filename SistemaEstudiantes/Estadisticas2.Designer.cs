@@ -33,9 +33,9 @@ namespace SistemaEstudiantes
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSalir = new System.Windows.Forms.Button();
             this.lblNombre = new System.Windows.Forms.Label();
+            this.btnVolver = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnVolver = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.lblCreando = new System.Windows.Forms.Label();
             this.lblProcesando = new System.Windows.Forms.Label();
@@ -86,6 +86,8 @@ namespace SistemaEstudiantes
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.btnSalir.MouseLeave += new System.EventHandler(this.btnSalir_MouseLeave);
+            this.btnSalir.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnSalir_MouseMove);
             // 
             // lblNombre
             // 
@@ -98,6 +100,23 @@ namespace SistemaEstudiantes
             this.lblNombre.Size = new System.Drawing.Size(50, 18);
             this.lblNombre.TabIndex = 14;
             this.lblNombre.Text = "label9";
+            // 
+            // btnVolver
+            // 
+            this.btnVolver.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnVolver.Font = new System.Drawing.Font("Arial", 12.25F);
+            this.btnVolver.ForeColor = System.Drawing.Color.White;
+            this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
+            this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVolver.Location = new System.Drawing.Point(1110, 25);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(90, 43);
+            this.btnVolver.TabIndex = 12;
+            this.btnVolver.Text = "    Atrás";
+            this.btnVolver.UseVisualStyleBackColor = false;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            this.btnVolver.MouseLeave += new System.EventHandler(this.btnVolver_MouseLeave);
+            this.btnVolver.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnVolver_MouseMove);
             // 
             // label3
             // 
@@ -121,21 +140,6 @@ namespace SistemaEstudiantes
             this.label4.TabIndex = 11;
             this.label4.Text = "Matriculas por orientación y/o especialidad";
             // 
-            // btnVolver
-            // 
-            this.btnVolver.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnVolver.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.btnVolver.ForeColor = System.Drawing.Color.White;
-            this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
-            this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVolver.Location = new System.Drawing.Point(1110, 25);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(90, 43);
-            this.btnVolver.TabIndex = 12;
-            this.btnVolver.Text = "    Atrás";
-            this.btnVolver.UseVisualStyleBackColor = false;
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
-            // 
             // btnRefresh
             // 
             this.btnRefresh.Font = new System.Drawing.Font("Arial", 10.25F);
@@ -147,6 +151,8 @@ namespace SistemaEstudiantes
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            this.btnRefresh.MouseLeave += new System.EventHandler(this.btnRefresh_MouseLeave);
+            this.btnRefresh.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnRefresh_MouseMove);
             // 
             // lblCreando
             // 
