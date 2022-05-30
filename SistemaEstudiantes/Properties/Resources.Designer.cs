@@ -163,6 +163,26 @@ namespace SistemaEstudiantes.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap EstadisticaOK {
+            get {
+                object obj = ResourceManager.GetObject("EstadisticaOK", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ExcelOK {
+            get {
+                object obj = ResourceManager.GetObject("ExcelOK", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap newFile {
             get {
                 object obj = ResourceManager.GetObject("newFile", resourceCulture);

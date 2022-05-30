@@ -183,7 +183,7 @@ namespace SistemaEstudiantes
             // lblCreando
             // 
             this.lblCreando.AutoSize = true;
-            this.lblCreando.Location = new System.Drawing.Point(304, 180);
+            this.lblCreando.Location = new System.Drawing.Point(304, 182);
             this.lblCreando.Name = "lblCreando";
             this.lblCreando.Size = new System.Drawing.Size(57, 14);
             this.lblCreando.TabIndex = 108;
@@ -192,7 +192,7 @@ namespace SistemaEstudiantes
             // lblProcesando
             // 
             this.lblProcesando.AutoSize = true;
-            this.lblProcesando.Location = new System.Drawing.Point(80, 180);
+            this.lblProcesando.Location = new System.Drawing.Point(82, 182);
             this.lblProcesando.Name = "lblProcesando";
             this.lblProcesando.Size = new System.Drawing.Size(74, 14);
             this.lblProcesando.TabIndex = 107;
@@ -203,10 +203,12 @@ namespace SistemaEstudiantes
             this.btnCrearExcel.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnCrearExcel.Font = new System.Drawing.Font("Arial", 10.25F);
             this.btnCrearExcel.ForeColor = System.Drawing.Color.White;
-            this.btnCrearExcel.Location = new System.Drawing.Point(241, 131);
+            this.btnCrearExcel.Image = global::SistemaEstudiantes.Properties.Resources.ExcelOK;
+            this.btnCrearExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCrearExcel.Location = new System.Drawing.Point(250, 135);
             this.btnCrearExcel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnCrearExcel.Name = "btnCrearExcel";
-            this.btnCrearExcel.Size = new System.Drawing.Size(180, 40);
+            this.btnCrearExcel.Size = new System.Drawing.Size(160, 40);
             this.btnCrearExcel.TabIndex = 106;
             this.btnCrearExcel.Text = "Crear Excel";
             this.btnCrearExcel.UseVisualStyleBackColor = false;
@@ -219,12 +221,14 @@ namespace SistemaEstudiantes
             this.btnCrearEstadistica.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnCrearEstadistica.Font = new System.Drawing.Font("Arial", 10.25F);
             this.btnCrearEstadistica.ForeColor = System.Drawing.Color.White;
-            this.btnCrearEstadistica.Location = new System.Drawing.Point(28, 131);
+            this.btnCrearEstadistica.Image = global::SistemaEstudiantes.Properties.Resources.EstadisticaOK;
+            this.btnCrearEstadistica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCrearEstadistica.Location = new System.Drawing.Point(43, 135);
             this.btnCrearEstadistica.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnCrearEstadistica.Name = "btnCrearEstadistica";
-            this.btnCrearEstadistica.Size = new System.Drawing.Size(180, 40);
+            this.btnCrearEstadistica.Size = new System.Drawing.Size(160, 40);
             this.btnCrearEstadistica.TabIndex = 105;
-            this.btnCrearEstadistica.Text = "Crear Estadística";
+            this.btnCrearEstadistica.Text = "    Crear Estadística";
             this.btnCrearEstadistica.UseVisualStyleBackColor = false;
             this.btnCrearEstadistica.Click += new System.EventHandler(this.btnCrearEstadistica_Click);
             this.btnCrearEstadistica.MouseLeave += new System.EventHandler(this.btnCrearEstadistica_MouseLeave);
@@ -245,7 +249,7 @@ namespace SistemaEstudiantes
             "2028",
             "2029",
             "2030"});
-            this.cboxAño.Location = new System.Drawing.Point(58, 72);
+            this.cboxAño.Location = new System.Drawing.Point(58, 75);
             this.cboxAño.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboxAño.Name = "cboxAño";
             this.cboxAño.Size = new System.Drawing.Size(150, 24);
@@ -256,7 +260,7 @@ namespace SistemaEstudiantes
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.label2.Location = new System.Drawing.Point(12, 75);
+            this.label2.Location = new System.Drawing.Point(12, 78);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 16);
@@ -270,7 +274,7 @@ namespace SistemaEstudiantes
             this.cboxPeriodo.Items.AddRange(new object[] {
             "Marzo",
             "Septiembre"});
-            this.cboxPeriodo.Location = new System.Drawing.Point(289, 72);
+            this.cboxPeriodo.Location = new System.Drawing.Point(289, 75);
             this.cboxPeriodo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboxPeriodo.Name = "cboxPeriodo";
             this.cboxPeriodo.Size = new System.Drawing.Size(150, 24);
@@ -281,7 +285,7 @@ namespace SistemaEstudiantes
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.label1.Location = new System.Drawing.Point(220, 75);
+            this.label1.Location = new System.Drawing.Point(220, 78);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 16);

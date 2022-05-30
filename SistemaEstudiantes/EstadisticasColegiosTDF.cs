@@ -13,6 +13,9 @@ namespace SistemaEstudiantes
 {
     public partial class EstadisticasColegiosTDF : Form
     {
+        int colorAgregar;
+        int colorEliminar;
+
         OleDbCommand sqlComando;
         OleDbConnection conexionBaseDatos;
         string nombreUsuario;
@@ -40,9 +43,9 @@ namespace SistemaEstudiantes
         private void ordenar()
         {
             cboxDepto.ResetText();//Reinicia el texto seleccionado
-            tbxNombre.ResetText();//Reinicia el texto seleccionado
-            tbxAbrevia.ResetText();//Reinicia el texto seleccionado
-            cbxNOrden.ResetText();//Reinicia el texto seleccionado            
+            tbxNombre.ResetText();
+            tbxAbrevia.ResetText();
+            cbxNOrden.ResetText();           
 
             cboxDepto.Enabled = true;
             tbxNombre.Enabled = false;
@@ -53,7 +56,9 @@ namespace SistemaEstudiantes
 
             btnCrearColegios.Enabled = false;
 
-           // btnRefresh.Enabled = false;
+            btnCrearColegios.BackColor = System.Drawing.Color.Silver;
+
+            // btnRefresh.Enabled = false;
 
             //eliminar
             btnEliminarColegiosUsh.Enabled = false;
@@ -63,7 +68,8 @@ namespace SistemaEstudiantes
             tbxColegioEliminar.Clear();
 
             tbxColegioEliminar.Enabled = false;
-
+            btnEliminarColegiosGrande.BackColor = System.Drawing.Color.Silver;
+            btnEliminarColegiosUsh.BackColor = System.Drawing.Color.Silver;
             myDGVUshuaia.DataSource = null;//reinicia datagv
             myDGVUshuaia.Rows.Clear();
             myDGVUshuaia.Refresh();
@@ -123,6 +129,8 @@ namespace SistemaEstudiantes
             tbxAbrevia.Enabled = false;
             btnOkAbrevia.Enabled = false;
             btnCrearColegios.Enabled = true;
+            btnCrearColegios.BackColor = System.Drawing.Color.DodgerBlue;
+            colorAgregar = 1;
         }
         private void myDGVUshuaia_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -137,10 +145,10 @@ namespace SistemaEstudiantes
                 tbxColegioEliminar.Text = Convert.ToString(myDGVUshuaia.Rows[e.RowIndex].Cells[1].Value);
                 if (Convert.ToString(myDGVUshuaia.Rows[e.RowIndex].Cells[1].Value) == (""))//comprueba si es nulo
                 {
-                    btnEliminarColegiosUsh.Enabled = false;
-                    btnEliminarColegiosGrande.Enabled = false;
+                    btnEliminarColegiosGrande.Visible = false;
                     btnEliminarColegiosUsh.Visible = true;
-                    btnEliminarColegiosGrande.Visible = true;
+                    btnEliminarColegiosUsh.BackColor = System.Drawing.Color.Silver;
+                    btnEliminarColegiosUsh.Enabled = false;
                 }
                 else 
                 {
@@ -150,6 +158,8 @@ namespace SistemaEstudiantes
                     btnEliminarColegiosGrande.Enabled = false;
                     btnEliminarColegiosUsh.Visible = true;
                     btnEliminarColegiosGrande.Visible = false;
+                    colorEliminar = 1;
+                    btnEliminarColegiosUsh.BackColor = System.Drawing.Color.DodgerBlue;
                 }
             }
         }
@@ -166,25 +176,32 @@ namespace SistemaEstudiantes
                 tbxColegioEliminar.Text = Convert.ToString(myDGVGrande.Rows[e.RowIndex].Cells[1].Value);
                 if (Convert.ToString(myDGVGrande.Rows[e.RowIndex].Cells[1].Value) == (""))//comprueba si es nulo
                 {
-                    btnEliminarColegiosUsh.Enabled = false;
+                    btnEliminarColegiosUsh.Visible= false;
                     btnEliminarColegiosGrande.Enabled = false;
-                    btnEliminarColegiosUsh.Visible = true;
+                    btnEliminarColegiosGrande.BackColor = System.Drawing.Color.Silver;
                     btnEliminarColegiosGrande.Visible = true;
                 }
                 else
                 {
+                    
                     colegioEliminar = Convert.ToString(myDGVGrande.Rows[e.RowIndex].Cells[0].Value);
                     idColegioEliminar = Convert.ToInt32(colegioEliminar);
-                    btnEliminarColegiosGrande.Enabled = true;
+                    
                     btnEliminarColegiosUsh.Enabled = false;
                     btnEliminarColegiosUsh.Visible = false;
                     btnEliminarColegiosGrande.Visible = true;
+                    btnEliminarColegiosGrande.Enabled = true;
+                    btnEliminarColegiosGrande.BackColor = System.Drawing.Color.DodgerBlue;
+                    btnEliminarColegiosGrande.Refresh();
+                    colorEliminar = 1;
+                    
                 }
             }
         }
 
         private void btnCrearColegios_Click(object sender, EventArgs e)
         {
+            colorAgregar = 0; //color 0 es igual a silver, sirve para que no se bugueeen azul\
             if (cboxDepto.SelectedItem == "Ushuaia")
             {
                 try
@@ -197,14 +214,13 @@ namespace SistemaEstudiantes
                     sqlComando.Parameters.AddWithValue("@Nombre", tbxNombre.Text);
                     sqlComando.Parameters.AddWithValue("@NombreAbreviado", tbxAbrevia.Text);
 
-
                     conexionBaseDatos.Open();
                     if (sqlComando.ExecuteNonQuery() > 0)
                     {
                         ordenar();
                         //seImporto = true;
                     }
-                    conexionBaseDatos.Close();
+                    conexionBaseDatos.Close();                  
 
                 }
                 catch (Exception ex)
@@ -219,7 +235,8 @@ namespace SistemaEstudiantes
                     }
                     conexionBaseDatos.Close();
                 }
-
+                btnCrearColegios.BackColor = Color.Silver;
+                btnCrearColegios.Enabled = false;
             }
             else if (cboxDepto.SelectedItem == "Rio Grande")
             {
@@ -246,7 +263,8 @@ namespace SistemaEstudiantes
                 {
                     if (ex.Message.Contains("Los cambios solicitados en la tabla no se realizaron correctamente porque crearían valores duplicados"))
                     {
-                        MessageBox.Show("El número de orden que está queriendo utilizar ya se encuentra ocupado. Por favor elija otro que este libre.", "Sistema Informa");
+                        MessageBox.Show("El número de orden que está queriendo utilizar ya se encuentra ocupado. Por favor elija otro que este libre.", "Sistema Informa");                       
+                        
                     }
                     else
                     {
@@ -254,13 +272,13 @@ namespace SistemaEstudiantes
                     }
                     conexionBaseDatos.Close();
                 }
+                btnCrearColegios.BackColor = Color.Silver;
+                btnCrearColegios.Enabled = false;                
             }
         }      
         private void btnEliminarColegiosUsh_Click(object sender, EventArgs e)
         {
-            // eliminando = true;
-            //dataGridViewBD.Enabled = false;
-
+            
             DialogResult preguntaEliminar = MessageBox.Show("Desea eliminar el colegio seleccionado?", "Sistema Informa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (preguntaEliminar == DialogResult.OK)
@@ -299,9 +317,6 @@ namespace SistemaEstudiantes
         }
         private void btnEliminarColegiosGrande_Click(object sender, EventArgs e)
         {
-            // eliminando = true;
-            //dataGridViewBD.Enabled = false;
-
             DialogResult preguntaEliminar = MessageBox.Show("Desea eliminar el colegio seleccionado?", "Sistema Informa", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
             if (preguntaEliminar == DialogResult.OK)
@@ -347,11 +362,87 @@ namespace SistemaEstudiantes
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
+        }       
 
-        private void EstadisticasColegiosTDF_Load(object sender, EventArgs e)
+        private void btnRefresh_MouseMove(object sender, MouseEventArgs e)
         {
-
+            btnRefresh.BackColor = System.Drawing.Color.DimGray;
         }
+
+        private void btnRefresh_MouseLeave(object sender, EventArgs e)
+        {
+            btnRefresh.BackColor = System.Drawing.Color.DodgerBlue;
+        }
+
+        private void btnCrearColegios_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnCrearColegios.BackColor = System.Drawing.Color.DimGray;
+        }
+
+        private void btnCrearColegios_MouseLeave(object sender, EventArgs e)
+        {
+            if (colorAgregar == 0)//unica forma de que funcione
+            {
+                btnCrearColegios.BackColor = System.Drawing.Color.Silver;
+            }
+            else if (colorAgregar == 1)
+            {
+                btnCrearColegios.BackColor = System.Drawing.Color.DodgerBlue;
+            }           
+        }
+
+        private void btnEliminarColegiosUsh_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnEliminarColegiosUsh.BackColor = System.Drawing.Color.DimGray;
+        }
+
+        private void btnEliminarColegiosUsh_MouseLeave(object sender, EventArgs e)
+        {
+            if (colorEliminar == 0)//unica forma de que funcione
+            {
+                btnEliminarColegiosUsh.BackColor = System.Drawing.Color.Silver;
+            }
+            else if (colorEliminar == 1)
+            {
+                btnEliminarColegiosUsh.BackColor = System.Drawing.Color.DodgerBlue;
+            }
+        }
+
+        private void btnEliminarColegiosGrande_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnEliminarColegiosGrande.BackColor = System.Drawing.Color.DimGray;
+        }
+
+        private void btnEliminarColegiosGrande_MouseLeave(object sender, EventArgs e)
+        {
+            if (colorEliminar == 0)//unica forma de que funcione
+            {
+                btnEliminarColegiosGrande.BackColor = System.Drawing.Color.Silver;
+            }
+            else if (colorEliminar == 1)
+            {
+                btnEliminarColegiosGrande.BackColor = System.Drawing.Color.DodgerBlue;
+            }            
+        }
+
+        private void btnAtras_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnAtras.BackColor = System.Drawing.Color.DimGray;
+        }
+
+        private void btnAtras_MouseLeave(object sender, EventArgs e)
+        {
+            btnAtras.BackColor = System.Drawing.Color.DodgerBlue;
+        }
+
+        private void btnSalir_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnSalir.BackColor = System.Drawing.Color.DimGray;
+        }
+
+        private void btnSalir_MouseLeave(object sender, EventArgs e)
+        {
+            btnSalir.BackColor = System.Drawing.Color.DodgerBlue;
+        }        
     }      
 }

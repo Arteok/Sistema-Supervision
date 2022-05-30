@@ -34,7 +34,6 @@ namespace SistemaEstudiantes
             this.btnSalir = new System.Windows.Forms.Button();
             this.myDataGridView = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnVolver = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.cboxPeriodoEst = new System.Windows.Forms.ComboBox();
@@ -45,8 +44,6 @@ namespace SistemaEstudiantes
             this.cboxAñoEst = new System.Windows.Forms.ComboBox();
             this.lblCreando = new System.Windows.Forms.Label();
             this.lblProcesando = new System.Windows.Forms.Label();
-            this.btnCrearExcel = new System.Windows.Forms.Button();
-            this.btnCrearEstadistica = new System.Windows.Forms.Button();
             this.cboxAño = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cboxPeriodo = new System.Windows.Forms.ComboBox();
@@ -62,7 +59,6 @@ namespace SistemaEstudiantes
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnVerPlanilla = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.lblDescargas = new System.Windows.Forms.Label();
             this.lblAbriendo = new System.Windows.Forms.Label();
@@ -71,7 +67,11 @@ namespace SistemaEstudiantes
             this.panel7 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.btnVerEstadistica = new System.Windows.Forms.Button();
+            this.btnVerPlanilla = new System.Windows.Forms.Button();
+            this.btnCrearEstadistica = new System.Windows.Forms.Button();
+            this.btnCrearExcel = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.btnVolver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.myDataGridView)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -131,23 +131,6 @@ namespace SistemaEstudiantes
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1351, 97);
             this.panel2.TabIndex = 50;
-            // 
-            // btnVolver
-            // 
-            this.btnVolver.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnVolver.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.btnVolver.ForeColor = System.Drawing.Color.White;
-            this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
-            this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVolver.Location = new System.Drawing.Point(1110, 25);
-            this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(90, 43);
-            this.btnVolver.TabIndex = 197;
-            this.btnVolver.Text = "    Atrás";
-            this.btnVolver.UseVisualStyleBackColor = false;
-            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
-            this.btnVolver.MouseLeave += new System.EventHandler(this.btnVolver_MouseLeave);
-            this.btnVolver.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnVolver_MouseMove);
             // 
             // label3
             // 
@@ -265,7 +248,7 @@ namespace SistemaEstudiantes
             // lblCreando
             // 
             this.lblCreando.AutoSize = true;
-            this.lblCreando.Location = new System.Drawing.Point(304, 180);
+            this.lblCreando.Location = new System.Drawing.Point(303, 182);
             this.lblCreando.Name = "lblCreando";
             this.lblCreando.Size = new System.Drawing.Size(57, 14);
             this.lblCreando.TabIndex = 88;
@@ -274,43 +257,11 @@ namespace SistemaEstudiantes
             // lblProcesando
             // 
             this.lblProcesando.AutoSize = true;
-            this.lblProcesando.Location = new System.Drawing.Point(80, 180);
+            this.lblProcesando.Location = new System.Drawing.Point(82, 182);
             this.lblProcesando.Name = "lblProcesando";
             this.lblProcesando.Size = new System.Drawing.Size(74, 14);
             this.lblProcesando.TabIndex = 87;
             this.lblProcesando.Text = "Procesando...";
-            // 
-            // btnCrearExcel
-            // 
-            this.btnCrearExcel.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnCrearExcel.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.btnCrearExcel.ForeColor = System.Drawing.Color.White;
-            this.btnCrearExcel.Location = new System.Drawing.Point(241, 131);
-            this.btnCrearExcel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnCrearExcel.Name = "btnCrearExcel";
-            this.btnCrearExcel.Size = new System.Drawing.Size(180, 40);
-            this.btnCrearExcel.TabIndex = 86;
-            this.btnCrearExcel.Text = "Crear Excel";
-            this.btnCrearExcel.UseVisualStyleBackColor = false;
-            this.btnCrearExcel.Click += new System.EventHandler(this.btnCrearExcel_Click);
-            this.btnCrearExcel.MouseLeave += new System.EventHandler(this.btnCrearExcel_MouseLeave);
-            this.btnCrearExcel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnCrearExcel_MouseMove);
-            // 
-            // btnCrearEstadistica
-            // 
-            this.btnCrearEstadistica.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnCrearEstadistica.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.btnCrearEstadistica.ForeColor = System.Drawing.Color.White;
-            this.btnCrearEstadistica.Location = new System.Drawing.Point(28, 131);
-            this.btnCrearEstadistica.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.btnCrearEstadistica.Name = "btnCrearEstadistica";
-            this.btnCrearEstadistica.Size = new System.Drawing.Size(180, 40);
-            this.btnCrearEstadistica.TabIndex = 85;
-            this.btnCrearEstadistica.Text = "Crear Estadística";
-            this.btnCrearEstadistica.UseVisualStyleBackColor = false;
-            this.btnCrearEstadistica.Click += new System.EventHandler(this.btnCrearEstadistica_Click);
-            this.btnCrearEstadistica.MouseLeave += new System.EventHandler(this.btnCrearEstadistica_MouseLeave);
-            this.btnCrearEstadistica.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnCrearEstadistica_MouseMove);
             // 
             // cboxAño
             // 
@@ -327,7 +278,7 @@ namespace SistemaEstudiantes
             "2028",
             "2029",
             "2030"});
-            this.cboxAño.Location = new System.Drawing.Point(58, 72);
+            this.cboxAño.Location = new System.Drawing.Point(58, 75);
             this.cboxAño.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboxAño.Name = "cboxAño";
             this.cboxAño.Size = new System.Drawing.Size(150, 24);
@@ -338,7 +289,7 @@ namespace SistemaEstudiantes
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.label2.Location = new System.Drawing.Point(12, 75);
+            this.label2.Location = new System.Drawing.Point(12, 78);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 16);
@@ -352,7 +303,7 @@ namespace SistemaEstudiantes
             this.cboxPeriodo.Items.AddRange(new object[] {
             "Marzo",
             "Septiembre"});
-            this.cboxPeriodo.Location = new System.Drawing.Point(289, 72);
+            this.cboxPeriodo.Location = new System.Drawing.Point(289, 75);
             this.cboxPeriodo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboxPeriodo.Name = "cboxPeriodo";
             this.cboxPeriodo.Size = new System.Drawing.Size(150, 24);
@@ -363,7 +314,7 @@ namespace SistemaEstudiantes
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.label1.Location = new System.Drawing.Point(220, 75);
+            this.label1.Location = new System.Drawing.Point(220, 78);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 16);
@@ -494,23 +445,6 @@ namespace SistemaEstudiantes
             this.label5.TabIndex = 70;
             this.label5.Text = "Año:";
             // 
-            // btnVerPlanilla
-            // 
-            this.btnVerPlanilla.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnVerPlanilla.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.btnVerPlanilla.ForeColor = System.Drawing.Color.White;
-            this.btnVerPlanilla.Image = global::SistemaEstudiantes.Properties.Resources.Declaracion;
-            this.btnVerPlanilla.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVerPlanilla.Location = new System.Drawing.Point(165, 156);
-            this.btnVerPlanilla.Name = "btnVerPlanilla";
-            this.btnVerPlanilla.Size = new System.Drawing.Size(120, 40);
-            this.btnVerPlanilla.TabIndex = 65;
-            this.btnVerPlanilla.Text = "   Ver Planilla";
-            this.btnVerPlanilla.UseVisualStyleBackColor = false;
-            this.btnVerPlanilla.Click += new System.EventHandler(this.btnVerPlanilla_Click);
-            this.btnVerPlanilla.MouseLeave += new System.EventHandler(this.btnVerPlanilla_MouseLeave);
-            this.btnVerPlanilla.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnVerPlanilla_MouseMove);
-            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -601,9 +535,64 @@ namespace SistemaEstudiantes
             this.btnVerEstadistica.TabIndex = 68;
             this.btnVerEstadistica.Text = "      Ver Estadística";
             this.btnVerEstadistica.UseVisualStyleBackColor = false;
+            this.btnVerEstadistica.UseWaitCursor = true;
             this.btnVerEstadistica.Click += new System.EventHandler(this.btnVerEstadistica_Click);
             this.btnVerEstadistica.MouseLeave += new System.EventHandler(this.btnVerEstadistica_MouseLeave);
             this.btnVerEstadistica.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnVerEstadistica_MouseMove);
+            // 
+            // btnVerPlanilla
+            // 
+            this.btnVerPlanilla.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnVerPlanilla.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.btnVerPlanilla.ForeColor = System.Drawing.Color.White;
+            this.btnVerPlanilla.Image = global::SistemaEstudiantes.Properties.Resources.Declaracion;
+            this.btnVerPlanilla.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVerPlanilla.Location = new System.Drawing.Point(165, 156);
+            this.btnVerPlanilla.Name = "btnVerPlanilla";
+            this.btnVerPlanilla.Size = new System.Drawing.Size(120, 40);
+            this.btnVerPlanilla.TabIndex = 65;
+            this.btnVerPlanilla.Text = "   Ver Planilla";
+            this.btnVerPlanilla.UseVisualStyleBackColor = false;
+            this.btnVerPlanilla.UseWaitCursor = true;
+            this.btnVerPlanilla.Click += new System.EventHandler(this.btnVerPlanilla_Click);
+            this.btnVerPlanilla.MouseLeave += new System.EventHandler(this.btnVerPlanilla_MouseLeave);
+            this.btnVerPlanilla.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnVerPlanilla_MouseMove);
+            // 
+            // btnCrearEstadistica
+            // 
+            this.btnCrearEstadistica.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnCrearEstadistica.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.btnCrearEstadistica.ForeColor = System.Drawing.Color.White;
+            this.btnCrearEstadistica.Image = global::SistemaEstudiantes.Properties.Resources.EstadisticaOK;
+            this.btnCrearEstadistica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCrearEstadistica.Location = new System.Drawing.Point(43, 136);
+            this.btnCrearEstadistica.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnCrearEstadistica.Name = "btnCrearEstadistica";
+            this.btnCrearEstadistica.Size = new System.Drawing.Size(160, 40);
+            this.btnCrearEstadistica.TabIndex = 85;
+            this.btnCrearEstadistica.Text = "     Crear Estadística";
+            this.btnCrearEstadistica.UseVisualStyleBackColor = false;
+            this.btnCrearEstadistica.Click += new System.EventHandler(this.btnCrearEstadistica_Click);
+            this.btnCrearEstadistica.MouseLeave += new System.EventHandler(this.btnCrearEstadistica_MouseLeave);
+            this.btnCrearEstadistica.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnCrearEstadistica_MouseMove);
+            // 
+            // btnCrearExcel
+            // 
+            this.btnCrearExcel.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnCrearExcel.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.btnCrearExcel.ForeColor = System.Drawing.Color.White;
+            this.btnCrearExcel.Image = global::SistemaEstudiantes.Properties.Resources.ExcelOK;
+            this.btnCrearExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCrearExcel.Location = new System.Drawing.Point(250, 136);
+            this.btnCrearExcel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnCrearExcel.Name = "btnCrearExcel";
+            this.btnCrearExcel.Size = new System.Drawing.Size(160, 40);
+            this.btnCrearExcel.TabIndex = 86;
+            this.btnCrearExcel.Text = "Crear Excel";
+            this.btnCrearExcel.UseVisualStyleBackColor = false;
+            this.btnCrearExcel.Click += new System.EventHandler(this.btnCrearExcel_Click);
+            this.btnCrearExcel.MouseLeave += new System.EventHandler(this.btnCrearExcel_MouseLeave);
+            this.btnCrearExcel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnCrearExcel_MouseMove);
             // 
             // btnRefresh
             // 
@@ -622,6 +611,23 @@ namespace SistemaEstudiantes
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             this.btnRefresh.MouseLeave += new System.EventHandler(this.btnRefresh_MouseLeave);
             this.btnRefresh.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnRefresh_MouseMove);
+            // 
+            // btnVolver
+            // 
+            this.btnVolver.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnVolver.Font = new System.Drawing.Font("Arial", 12.25F);
+            this.btnVolver.ForeColor = System.Drawing.Color.White;
+            this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
+            this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVolver.Location = new System.Drawing.Point(1110, 25);
+            this.btnVolver.Name = "btnVolver";
+            this.btnVolver.Size = new System.Drawing.Size(90, 43);
+            this.btnVolver.TabIndex = 197;
+            this.btnVolver.Text = "    Atrás";
+            this.btnVolver.UseVisualStyleBackColor = false;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            this.btnVolver.MouseLeave += new System.EventHandler(this.btnVolver_MouseLeave);
+            this.btnVolver.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnVolver_MouseMove);
             // 
             // Estadisticas1
             // 

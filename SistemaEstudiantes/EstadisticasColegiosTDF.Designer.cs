@@ -56,16 +56,15 @@ namespace SistemaEstudiantes
             this.tbxColegioEliminar = new System.Windows.Forms.TextBox();
             this.btnEliminarColegiosGrande = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.myDGVGrande)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myDGVUshuaia)).BeginInit();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label9
@@ -239,6 +238,8 @@ namespace SistemaEstudiantes
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            this.btnRefresh.MouseLeave += new System.EventHandler(this.btnRefresh_MouseLeave);
+            this.btnRefresh.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnRefresh_MouseMove);
             // 
             // btnCrearColegios
             // 
@@ -253,6 +254,8 @@ namespace SistemaEstudiantes
             this.btnCrearColegios.Text = "Crear Colegio";
             this.btnCrearColegios.UseVisualStyleBackColor = false;
             this.btnCrearColegios.Click += new System.EventHandler(this.btnCrearColegios_Click);
+            this.btnCrearColegios.MouseLeave += new System.EventHandler(this.btnCrearColegios_MouseLeave);
+            this.btnCrearColegios.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnCrearColegios_MouseMove);
             // 
             // cboxDepto
             // 
@@ -307,6 +310,8 @@ namespace SistemaEstudiantes
             this.btnAtras.Text = "    Atrás";
             this.btnAtras.UseVisualStyleBackColor = false;
             this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
+            this.btnAtras.MouseLeave += new System.EventHandler(this.btnAtras_MouseLeave);
+            this.btnAtras.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnAtras_MouseMove);
             // 
             // btnSalir
             // 
@@ -321,6 +326,8 @@ namespace SistemaEstudiantes
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.btnSalir.MouseLeave += new System.EventHandler(this.btnSalir_MouseLeave);
+            this.btnSalir.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnSalir_MouseMove);
             // 
             // myDGVGrande
             // 
@@ -352,7 +359,7 @@ namespace SistemaEstudiantes
             this.btnEliminarColegiosUsh.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnEliminarColegiosUsh.Font = new System.Drawing.Font("Arial", 10.25F);
             this.btnEliminarColegiosUsh.ForeColor = System.Drawing.Color.White;
-            this.btnEliminarColegiosUsh.Location = new System.Drawing.Point(237, 143);
+            this.btnEliminarColegiosUsh.Location = new System.Drawing.Point(240, 143);
             this.btnEliminarColegiosUsh.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnEliminarColegiosUsh.Name = "btnEliminarColegiosUsh";
             this.btnEliminarColegiosUsh.Size = new System.Drawing.Size(180, 50);
@@ -360,6 +367,8 @@ namespace SistemaEstudiantes
             this.btnEliminarColegiosUsh.Text = "Eliminar Colegio";
             this.btnEliminarColegiosUsh.UseVisualStyleBackColor = false;
             this.btnEliminarColegiosUsh.Click += new System.EventHandler(this.btnEliminarColegiosUsh_Click);
+            this.btnEliminarColegiosUsh.MouseLeave += new System.EventHandler(this.btnEliminarColegiosUsh_MouseLeave);
+            this.btnEliminarColegiosUsh.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnEliminarColegiosUsh_MouseMove);
             // 
             // tbxColegioEliminar
             // 
@@ -374,7 +383,7 @@ namespace SistemaEstudiantes
             this.btnEliminarColegiosGrande.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnEliminarColegiosGrande.Font = new System.Drawing.Font("Arial", 10.25F);
             this.btnEliminarColegiosGrande.ForeColor = System.Drawing.Color.White;
-            this.btnEliminarColegiosGrande.Location = new System.Drawing.Point(236, 143);
+            this.btnEliminarColegiosGrande.Location = new System.Drawing.Point(240, 143);
             this.btnEliminarColegiosGrande.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnEliminarColegiosGrande.Name = "btnEliminarColegiosGrande";
             this.btnEliminarColegiosGrande.Size = new System.Drawing.Size(180, 50);
@@ -382,11 +391,12 @@ namespace SistemaEstudiantes
             this.btnEliminarColegiosGrande.Text = "Eliminar Colegio";
             this.btnEliminarColegiosGrande.UseVisualStyleBackColor = false;
             this.btnEliminarColegiosGrande.Click += new System.EventHandler(this.btnEliminarColegiosGrande_Click);
+            this.btnEliminarColegiosGrande.MouseLeave += new System.EventHandler(this.btnEliminarColegiosGrande_MouseLeave);
+            this.btnEliminarColegiosGrande.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnEliminarColegiosGrande_MouseMove);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.panel7);
             this.panel2.Controls.Add(this.btnEliminarColegiosGrande);
             this.panel2.Controls.Add(this.btnEliminarColegiosUsh);
@@ -395,25 +405,6 @@ namespace SistemaEstudiantes
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(652, 210);
             this.panel2.TabIndex = 202;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel3.Controls.Add(this.cboxDepto);
-            this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.label5);
-            this.panel3.Controls.Add(this.lavael7);
-            this.panel3.Controls.Add(this.btnOkAbrevia);
-            this.panel3.Controls.Add(this.cbxNOrden);
-            this.panel3.Controls.Add(this.btnOkNombre);
-            this.panel3.Controls.Add(this.btnCrearColegios);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.tbxAbrevia);
-            this.panel3.Controls.Add(this.tbxNombre);
-            this.panel3.Location = new System.Drawing.Point(15, 149);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(652, 210);
-            this.panel3.TabIndex = 203;
             // 
             // panel7
             // 
@@ -434,14 +425,24 @@ namespace SistemaEstudiantes
             this.label11.TabIndex = 75;
             this.label11.Text = "Seleccione el Colegio a eliminar:";
             // 
-            // button1
+            // panel3
             // 
-            this.button1.Location = new System.Drawing.Point(477, 33);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(174, 31);
-            this.button1.TabIndex = 97;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel3.Controls.Add(this.cboxDepto);
+            this.panel3.Controls.Add(this.label6);
+            this.panel3.Controls.Add(this.label5);
+            this.panel3.Controls.Add(this.lavael7);
+            this.panel3.Controls.Add(this.btnOkAbrevia);
+            this.panel3.Controls.Add(this.cbxNOrden);
+            this.panel3.Controls.Add(this.btnOkNombre);
+            this.panel3.Controls.Add(this.btnCrearColegios);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Controls.Add(this.tbxAbrevia);
+            this.panel3.Controls.Add(this.tbxNombre);
+            this.panel3.Location = new System.Drawing.Point(15, 149);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(652, 210);
+            this.panel3.TabIndex = 203;
             // 
             // EstadisticasColegiosTDF
             // 
@@ -461,17 +462,16 @@ namespace SistemaEstudiantes
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EstadisticasColegiosTDF";
-            this.Load += new System.EventHandler(this.EstadisticasColegiosTDF_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.myDGVGrande)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.myDGVUshuaia)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -506,7 +506,6 @@ namespace SistemaEstudiantes
         private System.Windows.Forms.Button btnEliminarColegiosGrande;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label11;
     }
