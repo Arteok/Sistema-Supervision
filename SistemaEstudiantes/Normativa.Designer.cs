@@ -150,7 +150,7 @@ namespace SistemaEstudiantes
             // 
             // dataGVBusqueda
             // 
-            this.dataGVBusqueda.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGVBusqueda.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader;
             this.dataGVBusqueda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGVBusqueda.Location = new System.Drawing.Point(12, 211);
             this.dataGVBusqueda.Name = "dataGVBusqueda";

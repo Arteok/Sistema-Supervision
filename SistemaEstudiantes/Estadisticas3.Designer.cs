@@ -205,10 +205,10 @@ namespace SistemaEstudiantes
             this.btnCrearExcel.ForeColor = System.Drawing.Color.White;
             this.btnCrearExcel.Image = global::SistemaEstudiantes.Properties.Resources.ExcelOK;
             this.btnCrearExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCrearExcel.Location = new System.Drawing.Point(250, 135);
+            this.btnCrearExcel.Location = new System.Drawing.Point(252, 135);
             this.btnCrearExcel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnCrearExcel.Name = "btnCrearExcel";
-            this.btnCrearExcel.Size = new System.Drawing.Size(160, 40);
+            this.btnCrearExcel.Size = new System.Drawing.Size(150, 40);
             this.btnCrearExcel.TabIndex = 106;
             this.btnCrearExcel.Text = "Crear Excel";
             this.btnCrearExcel.UseVisualStyleBackColor = false;
@@ -226,9 +226,9 @@ namespace SistemaEstudiantes
             this.btnCrearEstadistica.Location = new System.Drawing.Point(43, 135);
             this.btnCrearEstadistica.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnCrearEstadistica.Name = "btnCrearEstadistica";
-            this.btnCrearEstadistica.Size = new System.Drawing.Size(160, 40);
+            this.btnCrearEstadistica.Size = new System.Drawing.Size(150, 40);
             this.btnCrearEstadistica.TabIndex = 105;
-            this.btnCrearEstadistica.Text = "    Crear Estadística";
+            this.btnCrearEstadistica.Text = "      Crear Estadística";
             this.btnCrearEstadistica.UseVisualStyleBackColor = false;
             this.btnCrearEstadistica.Click += new System.EventHandler(this.btnCrearEstadistica_Click);
             this.btnCrearEstadistica.MouseLeave += new System.EventHandler(this.btnCrearEstadistica_MouseLeave);
@@ -294,7 +294,7 @@ namespace SistemaEstudiantes
             // 
             // myDataGridView
             // 
-            this.myDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.myDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.myDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.myDataGridView.Location = new System.Drawing.Point(11, 332);
             this.myDataGridView.Name = "myDataGridView";

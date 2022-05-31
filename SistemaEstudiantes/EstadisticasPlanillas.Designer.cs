@@ -148,7 +148,7 @@ namespace SistemaEstudiantes
             // pictureBox1
             // 
             this.pictureBox1.Image = global::SistemaEstudiantes.Properties.Resources.Escudo_Negro;
-            this.pictureBox1.Location = new System.Drawing.Point(7, 180);
+            this.pictureBox1.Location = new System.Drawing.Point(7, 194);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(200, 180);
             this.pictureBox1.TabIndex = 0;

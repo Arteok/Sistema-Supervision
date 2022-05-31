@@ -160,7 +160,7 @@ namespace SistemaEstudiantes
             }
             else
             {
-                idUnico = idUnico + "O";
+                idUnico = idUnico + "S";
             }
             idUnico = idUnico + abreColegio;//termina aca sumando la ultima parte  
 
@@ -211,7 +211,7 @@ namespace SistemaEstudiantes
             }
             else
             {
-                idUnico = idUnico + "O";
+                idUnico = idUnico + "S";
             }
             idUnico = idUnico + abreColegio;//termina aca sumando la ultima parte  
 

@@ -316,6 +316,7 @@ namespace SistemaEstudiantes
             // 
             // myDataGridView
             // 
+            this.myDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.myDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.myDataGridView.Location = new System.Drawing.Point(10, 335);
             this.myDataGridView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);

@@ -370,6 +370,7 @@ namespace SistemaEstudiantes
                 }                
             }    
         }
+        //VER ESTADISTICA
         private void cboxAñoEst_SelectedIndexChanged(object sender, EventArgs e)
         {
             cboxAñoEst.Enabled = false;
@@ -400,7 +401,7 @@ namespace SistemaEstudiantes
             {
                 string userName = Environment.UserName;
 
-                string sourceFile = @"//server/Compartida/Sistema/BDSistema Supervision/Estadistica Matriculas/Estadisticas Secciones y Estudiantes " + cboxAñoEst.SelectedItem.ToString() + " " + cboxPeriodoEst.SelectedItem.ToString() + ".xlsx";
+                string sourceFile = @"//server/Compartida/Sistema/BDSistema Supervision/1-Estadistica Matriculas/Estadisticas Secciones y Estudiantes " + cboxAñoEst.SelectedItem.ToString() + " " + cboxPeriodoEst.SelectedItem.ToString() + ".xlsx";
                 string destinationFile = @"C:/Users/" + userName + "/Downloads/Estadisticas Secciones y Estudiantes " + cboxAñoEst.SelectedItem.ToString() + " " + cboxPeriodoEst.SelectedItem.ToString() + ".xlsx";
 
                 // To move a file or folder to a new location:
@@ -494,9 +495,7 @@ namespace SistemaEstudiantes
                 try
                 {
                     DataTable miDataTable = new DataTable();
-
-                    // string queryCargarBD = "SELECT Año, Periodo, Departamento, Colegio, Sección, División, Orientación, Horas, Pedagogica, Presupuestaria, Matriculas FROM Planilla WHERE Año LIKE  '%' + @Buscar + '%'";
-                    //string queryCargarBD = "SELECT *FROM Planilla ";
+                                        
                     string queryCargarBD = "SELECT Año, Periodo, Departamento, ColegioSelect, Sección, División, Turno, Orientación, Horas, Pedagogica, Presupuestaria, Matriculas FROM Planilla WHERE IdUnico = @Buscar";
                     OleDbCommand sqlComando = new OleDbCommand(queryCargarBD, conexionBaseDatos);
                     sqlComando.Parameters.AddWithValue("@idBuscar", idUnico);
@@ -507,16 +506,12 @@ namespace SistemaEstudiantes
                     myDataGridView.Sort(myDataGridView.Columns[6], ListSortDirection.Ascending);
                     myDataGridView.Sort(myDataGridView.Columns[5], ListSortDirection.Ascending);//ordena del dataGV por la columna seccion para que no de error
                     myDataGridView.Sort(myDataGridView.Columns[4], ListSortDirection.Ascending);
-
-                    //MessageBox.Show("Colegio cargado: " + uNombreColegios[0, numColegio]);
-
+                    
                     if ((Convert.ToString(myDataGridView.Rows[0].Cells[0].Value) == ""))//revisa si hay se ha encontrado algo... esta escrito de esta forma sino tiraba error critico
                     {
                         faltaCargar = true;
 
-                        colegiosFaltantes = colegiosFaltantes + " " + "-" + ushuaiaColegios[0, numColegio] + "-";
-
-                        //MessageBox.Show("No se encontró ninguna planilla para los parámetros especificados.", "Sistema Informa");                        
+                        colegiosFaltantes = colegiosFaltantes + " " + "-" + ushuaiaColegios[0, numColegio] + "-";                                              
                     }                    
                 }
                 catch (Exception ex)
@@ -572,9 +567,7 @@ namespace SistemaEstudiantes
                 try
                 {
                     DataTable miDataTable = new DataTable();
-
-                    // string queryCargarBD = "SELECT Año, Periodo, Departamento, Colegio, Sección, División, Orientación, Horas, Pedagogica, Presupuestaria, Matriculas FROM Planilla WHERE Año LIKE  '%' + @Buscar + '%'";
-                    //string queryCargarBD = "SELECT *FROM Planilla ";
+                                        
                     string queryCargarBD = "SELECT Año, Periodo, Departamento, ColegioSelect, Sección, División, Turno, Orientación, Horas, Pedagogica, Presupuestaria, Matriculas FROM Planilla WHERE IdUnico = @Buscar";
                     OleDbCommand sqlComando = new OleDbCommand(queryCargarBD, conexionBaseDatos);
                     sqlComando.Parameters.AddWithValue("@idBuscar", idUnico);
@@ -585,16 +578,13 @@ namespace SistemaEstudiantes
                     myDataGridView.Sort(myDataGridView.Columns[6], ListSortDirection.Ascending);
                     myDataGridView.Sort(myDataGridView.Columns[5], ListSortDirection.Ascending);//ordena del dataGV por la columna seccion para que no de error
                     myDataGridView.Sort(myDataGridView.Columns[4], ListSortDirection.Ascending);
-
-                    //MessageBox.Show("Colegio cargado: " + grandeNombreAbreColegios[0, numColegio]);
-
+                                        
                     if ((Convert.ToString(myDataGridView.Rows[0].Cells[0].Value) == ""))//revisa si hay se ha encontrado algo... esta escrito de esta forma sino tiraba error critico
                     {
                         faltaCargar = true;
 
                         colegiosFaltantes = colegiosFaltantes + " " + "-" + grandeColegios[0, numColegio] + "-";
-
-                        //MessageBox.Show("No se encontró ninguna planilla para los parámetros especificados.", "Sistema Informa");                        
+                                                                     
                     }     
                 }
                 catch (Exception ex)
@@ -638,247 +628,247 @@ namespace SistemaEstudiantes
             //##si se cargaron todas las plantillas comienza a resolver los arrays
             if (faltaCargar == true)
             {
-                MessageBox.Show("Falta cargar las planillas de los siguientes Colegios:" + colegiosFaltantes, "Sistema Informa");
-                ordenar();
+                DialogResult accionRealizar = MessageBox.Show("Falta cargar las planillas de los siguientes Colegios: " + colegiosFaltantes +"\nQuiere generar la Estadistica igualmente?", "Sistema Informa", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+
+                if (accionRealizar == DialogResult.Yes)
+                {
+                    calculosEstadistica();
+                }
+                else if (accionRealizar == DialogResult.No)
+                {
+                    ordenar();
+                }                
             }
             else
-            {   //##arrays ushuaia
-                /*Cargar array ciclo basico*/
-                string pruebaTotalSeccionesB = "";
-                string pruebaTotalEstudiantesB = "";
-                string mostrarTotalSeccionesB = "";
-                string mostrarTotalEstudiantesB = "";
-
-                for (int i = 0; i <= cantColegiosUshuaia - 1; i++)//mientras i sea menor o igual al numero de colegios  ushuia que es 12
-                {
-                    for (int j = 0; j <= 16; j = j + 2)//mientras j sea menor o igual al numero de secciones en el primer ciclo que es 18 - 2(16) y se suma de 2 en 2
-                    {
-                        uTotalesCicloBasico[i, 0] = uTotalesCicloBasico[i, 0] + colegiosUshuaiaSyE[i, j];//cantidad de las secciones
-                        uTotalesCicloBasico[i, 1] = uTotalesCicloBasico[i, 1] + colegiosUshuaiaSyE[i, j + 1];//cantidad de las estudiantes
-                        pruebaTotalSeccionesB = Convert.ToString(uTotalesCicloBasico[i, 0]);
-                        pruebaTotalEstudiantesB = Convert.ToString(uTotalesCicloBasico[i, 1]);
-                    }
-                    mostrarTotalSeccionesB = mostrarTotalSeccionesB + " " + pruebaTotalSeccionesB;
-
-                    mostrarTotalEstudiantesB = mostrarTotalEstudiantesB + " " + pruebaTotalEstudiantesB;
-                }
-                //MessageBox.Show(mostrarTotalSeccionesB);
-                // MessageBox.Show(mostrarTotalEstudiantesB);
-
-                /*Cargar array ciclo superior*/
-                string pruebaTotalSeccionesS = "";
-                string pruebaTotalEstudiantesS = "";
-                string mostrarTotalSeccionesS = "";
-                string mostrarTotalEstudiantesS = "";
-
-                for (int i = 0; i <= cantColegiosUshuaia - 1; i++)//mientras i sea menor o igual al numero de colegios ushuaia que es 12
-                {
-                    for (int j = 18; j <= 40; j = j + 2)//mientras j sea menor o igual al numero de secciones en el primer ciclo que es 18 - 2(16) y se suma de 2 en 2
-                    {
-                        uTotalesCicloSuperior[i, 0] = uTotalesCicloSuperior[i, 0] + colegiosUshuaiaSyE[i, j];//cantidad de las secciones
-                        uTotalesCicloSuperior[i, 1] = uTotalesCicloSuperior[i, 1] + colegiosUshuaiaSyE[i, j + 1];//cantidad de las estudiantes
-                        pruebaTotalSeccionesS = Convert.ToString(uTotalesCicloSuperior[i, 0]);
-                        pruebaTotalEstudiantesS = Convert.ToString(uTotalesCicloSuperior[i, 1]);
-                    }
-                    mostrarTotalSeccionesS = mostrarTotalSeccionesS + " " + pruebaTotalSeccionesS;
-
-                    mostrarTotalEstudiantesS = mostrarTotalEstudiantesS + " " + pruebaTotalEstudiantesS;
-                }
-                // MessageBox.Show(mostrarTotalSeccionesS);
-                //MessageBox.Show(mostrarTotalEstudiantesS);
-
-
-                /*Cargar array suma 2 ciclos*/
-                string pruebaTotales = "";
-
-                for (int i = 0; i <= cantColegiosUshuaia - 1; i++)//mientras i sea menor o igual al numero de colegios ushuaia que es 12
-                {
-                    uTotal2Ciclos[i, 0] = uTotalesCicloBasico[i, 0] + uTotalesCicloSuperior[i, 0];//suma todas las secciones de un colegio
-                    uTotal2Ciclos[i, 1] = uTotalesCicloBasico[i, 1] + uTotalesCicloSuperior[i, 1];//suma todos los estudiantes de un colegio
-
-                    pruebaTotales = pruebaTotales + " " + Convert.ToString(uTotal2Ciclos[i, 0]) + " " + Convert.ToString(uTotal2Ciclos[i, 1]);
-                }
-                //MessageBox.Show(pruebaTotales);
-
-                /*Cargar array subtotal turnos ushuaia*/
-                string pruebaTurnosTotales = "";
-                int contadorColumnasTurnos;//es necesaria
-                for (int i = 0; i <= cantColegiosUshuaia - 1; i++)//mientras i sea menor o igual al numero de colegios ushuaia que es 12
-                {
-                    contadorColumnasTurnos = 0;
-                    for (int j = 0; j <= 40; j = j + 2)
-                    {
-                        uSubtotalTurnos[0, contadorColumnasTurnos] = uSubtotalTurnos[0, contadorColumnasTurnos] + colegiosUshuaiaSyE[i, j];//suma todas las secciones por turno de un colegio
-                        uSubtotalTurnos[1, contadorColumnasTurnos] = uSubtotalTurnos[1, contadorColumnasTurnos] + colegiosUshuaiaSyE[i, j + 1];//suma todos los estudiantes por turno de un colegio
-                                                                                                                                               //contadorColumnasTurnos++;
-                    }
-                }
-                for (int i = 0; i <= 20; i++)//solo es para probar
-                {
-                    pruebaTurnosTotales = pruebaTurnosTotales + " " + Convert.ToString(uSubtotalTurnos[0, i]) + " " + Convert.ToString(uSubtotalTurnos[1, i]);
-
-                }
-                //MessageBox.Show(pruebaTurnosTotales);
-                /*Cargar array subtotales de secciones y estudiantes de ushuaia*/
-                string pruebaSubTotales = "";
-                for (int i = 0; i <= cantColegiosUshuaia - 1; i++)//mientras i sea menor o igual al numero de colegios ushuaia que es 12
-                {
-                    uSubtotal[0, 0] = uSubtotal[0, 0] + uTotalesCicloBasico[i, 0];//suma todas las secciones del ciclo basico de ushauia 
-                    uSubtotal[1, 0] = uSubtotal[1, 0] + uTotalesCicloBasico[i, 1];//suma todos los estudiantes del ciclo basico de ushauia
-                    uSubtotal[0, 1] = uSubtotal[0, 1] + uTotalesCicloSuperior[i, 0];//suma todas las secciones del ciclo Superior de ushauia 
-                    uSubtotal[1, 1] = uSubtotal[1, 1] + uTotalesCicloSuperior[i, 1];//suma todos los estudiantes del ciclo superoir de ushauia
-                    uSubtotal[0, 2] = uSubtotal[0, 2] + uTotal2Ciclos[i, 0];//suma todas las secciones de ushauia 
-                    uSubtotal[1, 2] = uSubtotal[1, 2] + uTotal2Ciclos[i, 1];//suma todos los estudiantes de ushauia
-                }
-                for (int i = 0; i <= 2; i++)//solo es para probar
-                {
-                    pruebaSubTotales = pruebaSubTotales + " " + Convert.ToString(uSubtotal[0, i]) + " " + Convert.ToString(uSubtotal[1, i]);
-
-                }
-                //MessageBox.Show(pruebaSubTotales);
-
-                //##arrays Rio grande
-                /*Cargar array ciclo basico*/
-                string gPruebaTotalSeccionesB = "";
-                string gPruebaTotalEstudiantesB = "";
-                string gMostrarTotalSeccionesB = "";
-                string gMostrarTotalEstudiantesB = "";
-
-                for (int i = 0; i <= cantColegiosGrande - 1; i++)//mientras i sea menor o igual al numero de colegios grande que es 14
-                {
-                    for (int j = 0; j <= 16; j = j + 2)//mientras j sea menor o igual al numero de secciones en el primer ciclo que es 18 - 2(16) y se suma de 2 en 2
-                    {
-
-                        gTotalesCicloBasico[i, 0] = gTotalesCicloBasico[i, 0] + colegiosGrandeSyE[i, j];//cantidad de las secciones
-                        gTotalesCicloBasico[i, 1] = gTotalesCicloBasico[i, 1] + colegiosGrandeSyE[i, j + 1];//cantidad de las estudiantes
-                        gPruebaTotalSeccionesB = Convert.ToString(gTotalesCicloBasico[i, 0]);
-                        gPruebaTotalEstudiantesB = Convert.ToString(gTotalesCicloBasico[i, 1]);
-                    }
-                    gMostrarTotalSeccionesB = gMostrarTotalSeccionesB + " " + gPruebaTotalSeccionesB;
-
-                    gMostrarTotalEstudiantesB = gMostrarTotalEstudiantesB + " " + gPruebaTotalEstudiantesB;
-                }
-                // MessageBox.Show(gMostrarTotalSeccionesB);
-                //MessageBox.Show(gMostrarTotalEstudiantesB);
-
-                /*Cargar array ciclo superior*/
-                string gPruebaTotalSeccionesS = "";
-                string gPruebaTotalEstudiantesS = "";
-                string gMostrarTotalSeccionesS = "";
-                string gMostrarTotalEstudiantesS = "";
-
-                for (int i = 0; i <= cantColegiosGrande - 1; i++)//mientras i sea menor o igual al numero de colegios grande que es 14
-                {
-                    for (int j = 18; j <= 40; j = j + 2)//mientras j sea menor o igual al numero de secciones en el primer ciclo que es 18 - 2(16) y se suma de 2 en 2
-                    {
-
-                        gTotalesCicloSuperior[i, 0] = gTotalesCicloSuperior[i, 0] + colegiosGrandeSyE[i, j];//cantidad de las secciones
-                        gTotalesCicloSuperior[i, 1] = gTotalesCicloSuperior[i, 1] + colegiosGrandeSyE[i, j + 1];//cantidad de las estudiantes
-                        gPruebaTotalSeccionesS = Convert.ToString(gTotalesCicloSuperior[i, 0]);
-                        gPruebaTotalEstudiantesS = Convert.ToString(gTotalesCicloSuperior[i, 1]);
-                    }
-                    gMostrarTotalSeccionesS = gMostrarTotalSeccionesS + " " + gPruebaTotalSeccionesS;
-
-                    gMostrarTotalEstudiantesS = gMostrarTotalEstudiantesS + " " + gPruebaTotalEstudiantesS;
-                }
-                //MessageBox.Show(gMostrarTotalSeccionesS);
-                //MessageBox.Show(gMostrarTotalEstudiantesS);
-
-
-                /*Cargar array suma 2 ciclos*/
-                string gPruebaTotales = "";
-
-                for (int i = 0; i <= cantColegiosGrande - 1; i++)//mientras i sea menor o igual al numero de colegios grande que es 14
-                {
-
-                    gTotal2Ciclos[i, 0] = gTotalesCicloBasico[i, 0] + gTotalesCicloSuperior[i, 0];//suma todas las secciones de un colegio
-                    gTotal2Ciclos[i, 1] = gTotalesCicloBasico[i, 1] + gTotalesCicloSuperior[i, 1];//suma todos los estudiantes de un colegio
-
-                    gPruebaTotales = gPruebaTotales + " " + Convert.ToString(gTotal2Ciclos[i, 0]) + " " + Convert.ToString(gTotal2Ciclos[i, 1]);
-                }
-                //MessageBox.Show(gPruebaTotales);
-
-                /*Cargar array subtotal turnos grande*/
-                string gPruebaTurnosTotales = "";
-                int gContadorColumnasTurnos;//es necesaria
-                for (int i = 0; i <= cantColegiosGrande - 1; i++)//mientras i sea menor o igual al numero de colegios grande que es 14
-                {
-                    gContadorColumnasTurnos = 0;
-                    for (int j = 0; j <= 40; j = j + 2)
-                    {
-                        gSubtotalTurnos[0, gContadorColumnasTurnos] = gSubtotalTurnos[0, gContadorColumnasTurnos] + colegiosGrandeSyE[i, j];//suma todas las secciones por turno de un colegio
-                        gSubtotalTurnos[1, gContadorColumnasTurnos] = gSubtotalTurnos[1, gContadorColumnasTurnos] + colegiosGrandeSyE[i, j + 1];//suma todos los estudiantes por turno de un colegio
-                        gContadorColumnasTurnos++;
-                    }
-                }
-                for (int i = 0; i <= 20; i++)//solo es para probar
-                {
-                    gPruebaTurnosTotales = gPruebaTurnosTotales + " " + Convert.ToString(gSubtotalTurnos[0, i]) + " " + Convert.ToString(gSubtotalTurnos[1, i]);
-
-                }
-                //MessageBox.Show(gPruebaTurnosTotales);
-                /*Cargar array subtotales de secciones y estudiantes de grande*/
-                string gPruebaSubTotales = "";
-                for (int i = 0; i <= cantColegiosGrande - 1; i++)//mientras i sea menor o igual al numero de colegios grande que es 14
-                {
-                    gSubtotal[0, 0] = gSubtotal[0, 0] + gTotalesCicloBasico[i, 0];//suma todas las secciones del ciclo basico de ushauia 
-                    gSubtotal[1, 0] = gSubtotal[1, 0] + gTotalesCicloBasico[i, 1];//suma todos los estudiantes del ciclo basico de ushauia
-                    gSubtotal[0, 1] = gSubtotal[0, 1] + gTotalesCicloSuperior[i, 0];//suma todas las secciones del ciclo Superior de ushauia 
-                    gSubtotal[1, 1] = gSubtotal[1, 1] + gTotalesCicloSuperior[i, 1];//suma todos los estudiantes del ciclo superoir de ushauia
-                    gSubtotal[0, 2] = gSubtotal[0, 2] + gTotal2Ciclos[i, 0];//suma todas las secciones de ushauia 
-                    gSubtotal[1, 2] = gSubtotal[1, 2] + gTotal2Ciclos[i, 1];//suma todos los estudiantes de ushauia
-                }
-                for (int i = 0; i <= 2; i++)//solo es para probar
-                {
-                    gPruebaSubTotales = gPruebaSubTotales + " " + Convert.ToString(gSubtotal[0, i]) + " " + Convert.ToString(gSubtotal[1, i]);
-
-                }
-                //MessageBox.Show(gPruebaSubTotales);
-
-                //##arrays totales jurisdiccionales
-                for (int i = 0; i <= 20; i++)
-                {
-                    totalJurisSecyEstudiates[0, i] = uSubtotalTurnos[0, i] + gSubtotalTurnos[0, i];
-                    totalJurisSecyEstudiates[1, i] = uSubtotalTurnos[1, i] + gSubtotalTurnos[1, i];
-                }
-                //Totales generales
-                totalJurisdicional[0, 0] = uSubtotal[0, 0] + gSubtotal[0, 0];
-                totalJurisdicional[1, 0] = uSubtotal[1, 0] + gSubtotal[1, 0];
-                totalJurisdicional[0, 1] = uSubtotal[0, 1] + gSubtotal[0, 1];
-                totalJurisdicional[1, 1] = uSubtotal[1, 1] + gSubtotal[1, 1];
-                totalJurisdicional[0, 2] = uSubtotal[0, 2] + gSubtotal[0, 2];
-                totalJurisdicional[1, 2] = uSubtotal[1, 2] + gSubtotal[1, 2];
-                //###por año
-                //subtotales ushuaia por años
-                int counter = 0;
-                for (int i = 0; i <= 20; i = i + 3)
-                {
-                    uSubtotalAños[0, counter] = uSubtotalTurnos[0, i] + uSubtotalTurnos[0, i + 1] + uSubtotalTurnos[0, i + 2];
-                    uSubtotalAños[1, counter] = uSubtotalTurnos[1, i] + uSubtotalTurnos[1, i + 1] + uSubtotalTurnos[1, i + 2];
-                    counter++;
-                }
-                //subtotales grande por años
-                counter = 0;
-                for (int i = 0; i <= 20; i = i + 3)
-                {
-                    gSubtotalAños[0, counter] = gSubtotalTurnos[0, i] + gSubtotalTurnos[0, i + 1] + gSubtotalTurnos[0, i + 2];
-                    gSubtotalAños[1, counter] = gSubtotalTurnos[1, i] + gSubtotalTurnos[1, i + 1] + gSubtotalTurnos[1, i + 2];
-                    counter++;
-                }
-                //Totales TDF por años
-                counter = 0;
-                for (int i = 0; i <= 20; i = i + 3)
-                {
-                    totalJurisdicionalAños[0, counter] = totalJurisSecyEstudiates[0, i] + totalJurisSecyEstudiates[0, i + 1] + totalJurisSecyEstudiates[0, i + 2];
-                    totalJurisdicionalAños[1, counter] = totalJurisSecyEstudiates[1, i] + totalJurisSecyEstudiates[1, i + 1] + totalJurisSecyEstudiates[1, i + 2];
-                    counter++;
-                }
-                lblProcesando.Visible = false;
-                MessageBox.Show("Estadistica generada.", "Sistema Informa");
-                btnCrearExcel.Enabled = true;
-                btnCrearExcel.BackColor = System.Drawing.Color.DodgerBlue;
-                colorExcel = 7;
+            {
+                calculosEstadistica();
             }
+        }
+        private void calculosEstadistica()
+        {
+            //##arrays ushuaia
+            /*Cargar array ciclo basico*/
+            string pruebaTotalSeccionesB = "";
+            string pruebaTotalEstudiantesB = "";
+            string mostrarTotalSeccionesB = "";
+            string mostrarTotalEstudiantesB = "";
+
+            for (int i = 0; i <= cantColegiosUshuaia - 1; i++)//mientras i sea menor o igual al numero de colegios  ushuia que es 12
+            {
+                for (int j = 0; j <= 16; j = j + 2)//mientras j sea menor o igual al numero de secciones en el primer ciclo que es 18 - 2(16) y se suma de 2 en 2
+                {
+                    uTotalesCicloBasico[i, 0] = uTotalesCicloBasico[i, 0] + colegiosUshuaiaSyE[i, j];//cantidad de las secciones
+                    uTotalesCicloBasico[i, 1] = uTotalesCicloBasico[i, 1] + colegiosUshuaiaSyE[i, j + 1];//cantidad de las estudiantes
+                    pruebaTotalSeccionesB = Convert.ToString(uTotalesCicloBasico[i, 0]);
+                    pruebaTotalEstudiantesB = Convert.ToString(uTotalesCicloBasico[i, 1]);
+                }
+                mostrarTotalSeccionesB = mostrarTotalSeccionesB + " " + pruebaTotalSeccionesB;
+
+                mostrarTotalEstudiantesB = mostrarTotalEstudiantesB + " " + pruebaTotalEstudiantesB;
+            }
+
+            /*Cargar array ciclo superior*/
+            string pruebaTotalSeccionesS = "";
+            string pruebaTotalEstudiantesS = "";
+            string mostrarTotalSeccionesS = "";
+            string mostrarTotalEstudiantesS = "";
+
+            for (int i = 0; i <= cantColegiosUshuaia - 1; i++)//mientras i sea menor o igual al numero de colegios ushuaia que es 12
+            {
+                for (int j = 18; j <= 40; j = j + 2)//mientras j sea menor o igual al numero de secciones en el primer ciclo que es 18 - 2(16) y se suma de 2 en 2
+                {
+                    uTotalesCicloSuperior[i, 0] = uTotalesCicloSuperior[i, 0] + colegiosUshuaiaSyE[i, j];//cantidad de las secciones
+                    uTotalesCicloSuperior[i, 1] = uTotalesCicloSuperior[i, 1] + colegiosUshuaiaSyE[i, j + 1];//cantidad de las estudiantes
+                    pruebaTotalSeccionesS = Convert.ToString(uTotalesCicloSuperior[i, 0]);
+                    pruebaTotalEstudiantesS = Convert.ToString(uTotalesCicloSuperior[i, 1]);
+                }
+                mostrarTotalSeccionesS = mostrarTotalSeccionesS + " " + pruebaTotalSeccionesS;
+
+                mostrarTotalEstudiantesS = mostrarTotalEstudiantesS + " " + pruebaTotalEstudiantesS;
+            }
+
+            /*Cargar array suma 2 ciclos*/
+            string pruebaTotales = "";
+
+            for (int i = 0; i <= cantColegiosUshuaia - 1; i++)//mientras i sea menor o igual al numero de colegios ushuaia que es 12
+            {
+                uTotal2Ciclos[i, 0] = uTotalesCicloBasico[i, 0] + uTotalesCicloSuperior[i, 0];//suma todas las secciones de un colegio
+                uTotal2Ciclos[i, 1] = uTotalesCicloBasico[i, 1] + uTotalesCicloSuperior[i, 1];//suma todos los estudiantes de un colegio
+
+                pruebaTotales = pruebaTotales + " " + Convert.ToString(uTotal2Ciclos[i, 0]) + " " + Convert.ToString(uTotal2Ciclos[i, 1]);
+            }
+
+            /*Cargar array subtotal turnos ushuaia*/
+            string pruebaTurnosTotales = "";
+            int contadorColumnasTurnos;//es necesaria
+            for (int i = 0; i <= cantColegiosUshuaia - 1; i++)//mientras i sea menor o igual al numero de colegios ushuaia que es 12
+            {
+                contadorColumnasTurnos = 0;
+                for (int j = 0; j <= 40; j = j + 2)
+                {
+                    uSubtotalTurnos[0, contadorColumnasTurnos] = uSubtotalTurnos[0, contadorColumnasTurnos] + colegiosUshuaiaSyE[i, j];//suma todas las secciones por turno de un colegio
+                    uSubtotalTurnos[1, contadorColumnasTurnos] = uSubtotalTurnos[1, contadorColumnasTurnos] + colegiosUshuaiaSyE[i, j + 1];//suma todos los estudiantes por turno de un colegio
+                                                                                                                                           //contadorColumnasTurnos++;
+                }
+            }
+            for (int i = 0; i <= 20; i++)//solo es para probar
+            {
+                pruebaTurnosTotales = pruebaTurnosTotales + " " + Convert.ToString(uSubtotalTurnos[0, i]) + " " + Convert.ToString(uSubtotalTurnos[1, i]);
+
+            }
+
+            /*Cargar array subtotales de secciones y estudiantes de ushuaia*/
+            string pruebaSubTotales = "";
+            for (int i = 0; i <= cantColegiosUshuaia - 1; i++)//mientras i sea menor o igual al numero de colegios ushuaia que es 12
+            {
+                uSubtotal[0, 0] = uSubtotal[0, 0] + uTotalesCicloBasico[i, 0];//suma todas las secciones del ciclo basico de ushauia 
+                uSubtotal[1, 0] = uSubtotal[1, 0] + uTotalesCicloBasico[i, 1];//suma todos los estudiantes del ciclo basico de ushauia
+                uSubtotal[0, 1] = uSubtotal[0, 1] + uTotalesCicloSuperior[i, 0];//suma todas las secciones del ciclo Superior de ushauia 
+                uSubtotal[1, 1] = uSubtotal[1, 1] + uTotalesCicloSuperior[i, 1];//suma todos los estudiantes del ciclo superoir de ushauia
+                uSubtotal[0, 2] = uSubtotal[0, 2] + uTotal2Ciclos[i, 0];//suma todas las secciones de ushauia 
+                uSubtotal[1, 2] = uSubtotal[1, 2] + uTotal2Ciclos[i, 1];//suma todos los estudiantes de ushauia
+            }
+            for (int i = 0; i <= 2; i++)//solo es para probar
+            {
+                pruebaSubTotales = pruebaSubTotales + " " + Convert.ToString(uSubtotal[0, i]) + " " + Convert.ToString(uSubtotal[1, i]);
+
+            }
+
+            //##arrays Rio grande
+            /*Cargar array ciclo basico*/
+            string gPruebaTotalSeccionesB = "";
+            string gPruebaTotalEstudiantesB = "";
+            string gMostrarTotalSeccionesB = "";
+            string gMostrarTotalEstudiantesB = "";
+
+            for (int i = 0; i <= cantColegiosGrande - 1; i++)//mientras i sea menor o igual al numero de colegios grande que es 14
+            {
+                for (int j = 0; j <= 16; j = j + 2)//mientras j sea menor o igual al numero de secciones en el primer ciclo que es 18 - 2(16) y se suma de 2 en 2
+                {
+
+                    gTotalesCicloBasico[i, 0] = gTotalesCicloBasico[i, 0] + colegiosGrandeSyE[i, j];//cantidad de las secciones
+                    gTotalesCicloBasico[i, 1] = gTotalesCicloBasico[i, 1] + colegiosGrandeSyE[i, j + 1];//cantidad de las estudiantes
+                    gPruebaTotalSeccionesB = Convert.ToString(gTotalesCicloBasico[i, 0]);
+                    gPruebaTotalEstudiantesB = Convert.ToString(gTotalesCicloBasico[i, 1]);
+                }
+                gMostrarTotalSeccionesB = gMostrarTotalSeccionesB + " " + gPruebaTotalSeccionesB;
+
+                gMostrarTotalEstudiantesB = gMostrarTotalEstudiantesB + " " + gPruebaTotalEstudiantesB;
+            }
+
+            /*Cargar array ciclo superior*/
+            string gPruebaTotalSeccionesS = "";
+            string gPruebaTotalEstudiantesS = "";
+            string gMostrarTotalSeccionesS = "";
+            string gMostrarTotalEstudiantesS = "";
+
+            for (int i = 0; i <= cantColegiosGrande - 1; i++)//mientras i sea menor o igual al numero de colegios grande que es 14
+            {
+                for (int j = 18; j <= 40; j = j + 2)//mientras j sea menor o igual al numero de secciones en el primer ciclo que es 18 - 2(16) y se suma de 2 en 2
+                {
+
+                    gTotalesCicloSuperior[i, 0] = gTotalesCicloSuperior[i, 0] + colegiosGrandeSyE[i, j];//cantidad de las secciones
+                    gTotalesCicloSuperior[i, 1] = gTotalesCicloSuperior[i, 1] + colegiosGrandeSyE[i, j + 1];//cantidad de las estudiantes
+                    gPruebaTotalSeccionesS = Convert.ToString(gTotalesCicloSuperior[i, 0]);
+                    gPruebaTotalEstudiantesS = Convert.ToString(gTotalesCicloSuperior[i, 1]);
+                }
+                gMostrarTotalSeccionesS = gMostrarTotalSeccionesS + " " + gPruebaTotalSeccionesS;
+
+                gMostrarTotalEstudiantesS = gMostrarTotalEstudiantesS + " " + gPruebaTotalEstudiantesS;
+            }
+
+            /*Cargar array suma 2 ciclos*/
+            string gPruebaTotales = "";
+
+            for (int i = 0; i <= cantColegiosGrande - 1; i++)//mientras i sea menor o igual al numero de colegios grande que es 14
+            {
+
+                gTotal2Ciclos[i, 0] = gTotalesCicloBasico[i, 0] + gTotalesCicloSuperior[i, 0];//suma todas las secciones de un colegio
+                gTotal2Ciclos[i, 1] = gTotalesCicloBasico[i, 1] + gTotalesCicloSuperior[i, 1];//suma todos los estudiantes de un colegio
+
+                gPruebaTotales = gPruebaTotales + " " + Convert.ToString(gTotal2Ciclos[i, 0]) + " " + Convert.ToString(gTotal2Ciclos[i, 1]);
+            }
+
+            /*Cargar array subtotal turnos grande*/
+            string gPruebaTurnosTotales = "";
+            int gContadorColumnasTurnos;//es necesaria
+            for (int i = 0; i <= cantColegiosGrande - 1; i++)//mientras i sea menor o igual al numero de colegios grande que es 14
+            {
+                gContadorColumnasTurnos = 0;
+                for (int j = 0; j <= 40; j = j + 2)
+                {
+                    gSubtotalTurnos[0, gContadorColumnasTurnos] = gSubtotalTurnos[0, gContadorColumnasTurnos] + colegiosGrandeSyE[i, j];//suma todas las secciones por turno de un colegio
+                    gSubtotalTurnos[1, gContadorColumnasTurnos] = gSubtotalTurnos[1, gContadorColumnasTurnos] + colegiosGrandeSyE[i, j + 1];//suma todos los estudiantes por turno de un colegio
+                    gContadorColumnasTurnos++;
+                }
+            }
+            for (int i = 0; i <= 20; i++)//solo es para probar
+            {
+                gPruebaTurnosTotales = gPruebaTurnosTotales + " " + Convert.ToString(gSubtotalTurnos[0, i]) + " " + Convert.ToString(gSubtotalTurnos[1, i]);
+
+            }
+
+            /*Cargar array subtotales de secciones y estudiantes de grande*/
+            string gPruebaSubTotales = "";
+            for (int i = 0; i <= cantColegiosGrande - 1; i++)//mientras i sea menor o igual al numero de colegios grande que es 14
+            {
+                gSubtotal[0, 0] = gSubtotal[0, 0] + gTotalesCicloBasico[i, 0];//suma todas las secciones del ciclo basico de ushauia 
+                gSubtotal[1, 0] = gSubtotal[1, 0] + gTotalesCicloBasico[i, 1];//suma todos los estudiantes del ciclo basico de ushauia
+                gSubtotal[0, 1] = gSubtotal[0, 1] + gTotalesCicloSuperior[i, 0];//suma todas las secciones del ciclo Superior de ushauia 
+                gSubtotal[1, 1] = gSubtotal[1, 1] + gTotalesCicloSuperior[i, 1];//suma todos los estudiantes del ciclo superoir de ushauia
+                gSubtotal[0, 2] = gSubtotal[0, 2] + gTotal2Ciclos[i, 0];//suma todas las secciones de ushauia 
+                gSubtotal[1, 2] = gSubtotal[1, 2] + gTotal2Ciclos[i, 1];//suma todos los estudiantes de ushauia
+            }
+            for (int i = 0; i <= 2; i++)//solo es para probar
+            {
+                gPruebaSubTotales = gPruebaSubTotales + " " + Convert.ToString(gSubtotal[0, i]) + " " + Convert.ToString(gSubtotal[1, i]);
+
+            }
+
+            //##arrays totales jurisdiccionales
+            for (int i = 0; i <= 20; i++)
+            {
+                totalJurisSecyEstudiates[0, i] = uSubtotalTurnos[0, i] + gSubtotalTurnos[0, i];
+                totalJurisSecyEstudiates[1, i] = uSubtotalTurnos[1, i] + gSubtotalTurnos[1, i];
+            }
+            //Totales generales
+            totalJurisdicional[0, 0] = uSubtotal[0, 0] + gSubtotal[0, 0];
+            totalJurisdicional[1, 0] = uSubtotal[1, 0] + gSubtotal[1, 0];
+            totalJurisdicional[0, 1] = uSubtotal[0, 1] + gSubtotal[0, 1];
+            totalJurisdicional[1, 1] = uSubtotal[1, 1] + gSubtotal[1, 1];
+            totalJurisdicional[0, 2] = uSubtotal[0, 2] + gSubtotal[0, 2];
+            totalJurisdicional[1, 2] = uSubtotal[1, 2] + gSubtotal[1, 2];
+            //###por año
+            //subtotales ushuaia por años
+            int counter = 0;
+            for (int i = 0; i <= 20; i = i + 3)
+            {
+                uSubtotalAños[0, counter] = uSubtotalTurnos[0, i] + uSubtotalTurnos[0, i + 1] + uSubtotalTurnos[0, i + 2];
+                uSubtotalAños[1, counter] = uSubtotalTurnos[1, i] + uSubtotalTurnos[1, i + 1] + uSubtotalTurnos[1, i + 2];
+                counter++;
+            }
+            //subtotales grande por años
+            counter = 0;
+            for (int i = 0; i <= 20; i = i + 3)
+            {
+                gSubtotalAños[0, counter] = gSubtotalTurnos[0, i] + gSubtotalTurnos[0, i + 1] + gSubtotalTurnos[0, i + 2];
+                gSubtotalAños[1, counter] = gSubtotalTurnos[1, i] + gSubtotalTurnos[1, i + 1] + gSubtotalTurnos[1, i + 2];
+                counter++;
+            }
+            //Totales TDF por años
+            counter = 0;
+            for (int i = 0; i <= 20; i = i + 3)
+            {
+                totalJurisdicionalAños[0, counter] = totalJurisSecyEstudiates[0, i] + totalJurisSecyEstudiates[0, i + 1] + totalJurisSecyEstudiates[0, i + 2];
+                totalJurisdicionalAños[1, counter] = totalJurisSecyEstudiates[1, i] + totalJurisSecyEstudiates[1, i + 1] + totalJurisSecyEstudiates[1, i + 2];
+                counter++;
+            }
+            lblProcesando.Visible = false;
+            MessageBox.Show("Estadistica generada.", "Sistema Informa");
+
+            btnCrearExcel.Enabled = true;
+            btnCrearExcel.BackColor = System.Drawing.Color.DodgerBlue;
+            colorExcel = 7;
         }
         private void btnCrearExcel_Click(object sender, EventArgs e)
         {

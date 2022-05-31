@@ -388,7 +388,7 @@ namespace SistemaEstudiantes
             {
                 string userName = Environment.UserName;
 
-                string sourceFile = @"//server/Compartida/Sistema/BDSistema Supervision/Estadistica EDI-POT/Estadisticas EDI Y POT " + cboxAñoEst.SelectedItem.ToString() + " " + cboxPeriodoEst.SelectedItem.ToString() + ".xlsx";
+                string sourceFile = @"//server/Compartida/Sistema/BDSistema Supervision/3-Estadistica EDI-POT/Estadisticas EDI Y POT " + cboxAñoEst.SelectedItem.ToString() + " " + cboxPeriodoEst.SelectedItem.ToString() + ".xlsx";
                 string destinationFile = @"C:/Users/" + userName + "/Downloads/Estadisticas EDI Y POT " + cboxAñoEst.SelectedItem.ToString() + " " + cboxPeriodoEst.SelectedItem.ToString() + ".xlsx";
 
                 // To move a file or folder to a new location:
@@ -604,156 +604,169 @@ namespace SistemaEstudiantes
 
             //##si se cargaron todas las plantillas comienza a resolver los arrays
             if (faltaCargar == true)
-            {
-                MessageBox.Show("Falta cargar las planillas de los siguientes Colegios:" + colegiosFaltantes, "Sistema Informa");
-                ordenar();
+            {                
+                DialogResult accionRealizar = MessageBox.Show("Falta cargar las planillas de los siguientes Colegios: " + colegiosFaltantes + "\nQuiere generar la Estadistica igualmente?", "Sistema Informa", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
+
+                if (accionRealizar == DialogResult.Yes)
+                {
+                    calculosEstadistica();
+                }
+                else if (accionRealizar == DialogResult.No)
+                {
+                    ordenar();
+                }
             }
             else
-            {   //##arrays ushuaia
-                /*Cargar array ciclo basico*/
-                for (int i = 0; i <= cantColegiosUshuaia - 1; i++)//mientras i sea menor o igual al numero de colegios que es 12
-                {
-                    for (int j = 0; j <= 8; j = j + 3)//mientras j sea menor o igual al numero de secciones en el primer ciclo que es 9
-                    {
-                        uTotalesCicloBasico[i, 0] = uTotalesCicloBasico[i, 0] + colegiosUshuaiaSEP[i, j];//cantidad de las secciones
-                        uTotalesCicloBasico[i, 1] = uTotalesCicloBasico[i, 1] + colegiosUshuaiaSEP[i, j + 1];//cantidad de EDI
-                        uTotalesCicloBasico[i, 2] = uTotalesCicloBasico[i, 2] + colegiosUshuaiaSEP[i, j + 2];//cantidad de POT
-                    }
-                }
-
-                /*Cargar array ciclo superior*/
-
-                for (int i = 0; i <= cantColegiosUshuaia - 1; i++)//mientras i sea menor o igual al numero de colegios que es 12
-                {
-                    for (int j = 9; j <= 20; j = j + 3)//mientras j sea menor o igual al numero de secciones en el CICLO SUPERIOR QUE ES 21
-                    {
-
-                        uTotalesCicloSuperior[i, 0] = uTotalesCicloSuperior[i, 0] + colegiosUshuaiaSEP[i, j];//cantidad de las secciones
-                        uTotalesCicloSuperior[i, 1] = uTotalesCicloSuperior[i, 1] + colegiosUshuaiaSEP[i, j + 1];//cantidad de EDI
-                        uTotalesCicloSuperior[i, 2] = uTotalesCicloSuperior[i, 2] + colegiosUshuaiaSEP[i, j + 2];//cantidad de POT
-                    }
-                }
-                /*Cargar array suma 2 ciclos*/
-
-                for (int i = 0; i <= cantColegiosUshuaia - 1; i++)//mientras i sea menor o igual al numero de colegios que es 12
-                {
-                    uTotal2Ciclos[i, 0] = uTotalesCicloBasico[i, 0] + uTotalesCicloSuperior[i, 0];//suma todas las secciones de un colegio
-                    uTotal2Ciclos[i, 1] = uTotalesCicloBasico[i, 1] + uTotalesCicloSuperior[i, 1];//suma todos lAS EDI
-                    uTotal2Ciclos[i, 2] = uTotalesCicloBasico[i, 2] + uTotalesCicloSuperior[i, 2];//suma todos lAS POT
-                }
-
-                /*Cargar array subtotal turnos POr ushuaia*/
-
-                int contadorColumnasTurnos;//es necesaria
-                for (int i = 0; i <= cantColegiosUshuaia - 1; i++)//mientras i sea menor o igual al numero de colegios que es 12
-                {
-                    contadorColumnasTurnos = 0;
-                    for (int j = 0; j <= 20; j++)
-                    {
-                        uSubtotalTurnos[0, contadorColumnasTurnos] = uSubtotalTurnos[0, contadorColumnasTurnos] + colegiosUshuaiaSEP[i, j];//suma todas las secciones, EDI Y POT por turno de un colegio
-                        contadorColumnasTurnos++;
-                    }
-                }
-
-                /*Cargar array subtotales de secciones EDI Y POT de ushuaia*/
-
-                for (int i = 0; i <= cantColegiosUshuaia - 1; i++)//mientras i sea menor o igual al numero de colegios que es 12
-                {
-                    uSubtotal[0, 0] = uSubtotal[0, 0] + uTotalesCicloBasico[i, 0];//suma todas las secciones del ciclo basico de ushauia 
-                    uSubtotal[0, 1] = uSubtotal[0, 1] + uTotalesCicloBasico[i, 1];//suma todos los EDI del ciclo basico de ushauia 
-                    uSubtotal[0, 2] = uSubtotal[0, 2] + uTotalesCicloBasico[i, 2];//suma todos los POT del ciclo basico de ushauia
-
-                    uSubtotal[0, 3] = uSubtotal[0, 3] + uTotalesCicloSuperior[i, 0];//suma todas las secciones del ciclo Superior de ushauia 
-                    uSubtotal[0, 4] = uSubtotal[0, 4] + uTotalesCicloSuperior[i, 1];//suma todos los EDI del ciclo Superior de ushauia 
-                    uSubtotal[0, 5] = uSubtotal[0, 5] + uTotalesCicloSuperior[i, 2];//suma todos los POT del ciclo Superior de ushauia 
-
-                    uSubtotal[0, 6] = uSubtotal[0, 6] + uTotal2Ciclos[i, 0];//suma todas las secciones de ushauia 
-                    uSubtotal[0, 7] = uSubtotal[0, 7] + uTotal2Ciclos[i, 1];//suma todos los EDI de ushauia 
-                    uSubtotal[0, 8] = uSubtotal[0, 8] + uTotal2Ciclos[i, 2];//suma todos los POT  de ushauia 
-
-                    uSubtotal[0, 9] = uSubtotal[0, 7] + uSubtotal[0, 8];//suma todos los EDI Y POT  de ushauia                   
-                }
-
-                //##arrays Rio grande
-                /*Cargar array ciclo basico*/
-                for (int i = 0; i <= cantColegiosGrande - 1; i++)//mientras i sea menor o igual al numero de colegios que es 13
-                {
-                    for (int j = 0; j <= 8; j = j + 3)//mientras j sea menor o igual al numero de secciones en el primer ciclo que es 9
-                    {
-                        gTotalesCicloBasico[i, 0] = gTotalesCicloBasico[i, 0] + colegiosGrandeSEP[i, j];//cantidad de las secciones
-                        gTotalesCicloBasico[i, 1] = gTotalesCicloBasico[i, 1] + colegiosGrandeSEP[i, j + 1];//cantidad de EDI
-                        gTotalesCicloBasico[i, 2] = gTotalesCicloBasico[i, 2] + colegiosGrandeSEP[i, j + 2];//cantidad de POT
-                    }
-                }
-
-                /*Cargar array ciclo superior*/
-                for (int i = 0; i <= cantColegiosGrande - 1; i++)//mientras i sea menor o igual al numero de colegios que es 13
-                {
-                    for (int j = 9; j <= 20; j = j + 3)//mientras j sea menor o igual al numero de secciones en el primer ciclo que es 18 - 2(16) y se suma de 2 en 2
-                    {
-                        gTotalesCicloSuperior[i, 0] = gTotalesCicloSuperior[i, 0] + colegiosGrandeSEP[i, j];//cantidad de las secciones
-                        gTotalesCicloSuperior[i, 1] = gTotalesCicloSuperior[i, 1] + colegiosGrandeSEP[i, j + 1];//cantidad de EDI
-                        gTotalesCicloSuperior[i, 2] = gTotalesCicloSuperior[i, 2] + colegiosGrandeSEP[i, j + 2];//cantidad de POT
-                    }
-                }
-
-                /*Cargar array suma 2 ciclos*/
-                for (int i = 0; i <= cantColegiosGrande - 1; i++)//mientras i sea menor o igual al numero de colegios que es 13
-                {
-                    gTotal2Ciclos[i, 0] = gTotalesCicloBasico[i, 0] + gTotalesCicloSuperior[i, 0];//suma todas las secciones de un colegio
-                    gTotal2Ciclos[i, 1] = gTotalesCicloBasico[i, 1] + gTotalesCicloSuperior[i, 1];//suma todos lAS EDI
-                    gTotal2Ciclos[i, 2] = gTotalesCicloBasico[i, 2] + gTotalesCicloSuperior[i, 2];//suma todos lAS POT
-                }
-
-                /*Cargar array subtotal turnos grande*/
-                int gContadorColumnasTurnos;//es necesaria
-                for (int i = 0; i <= cantColegiosGrande - 1; i++)//mientras i sea menor o igual al numero de colegios que es 13
-                {
-                    gContadorColumnasTurnos = 0;
-                    for (int j = 0; j <= 20; j++)
-                    {
-                        gSubtotalTurnos[0, gContadorColumnasTurnos] = gSubtotalTurnos[0, gContadorColumnasTurnos] + colegiosGrandeSEP[i, j];//suma todas las secciones por turno de un colegio
-                        gContadorColumnasTurnos++;
-                    }
-                }
-
-                /*Cargar array subtotales de secciones EDI Y POT de Rio grande*/
-                for (int i = 0; i <= cantColegiosGrande - 1; i++)//mientras i sea menor o igual al numero de colegios que es 13 por ahora
-                {
-                    gSubtotal[0, 0] = gSubtotal[0, 0] + gTotalesCicloBasico[i, 0];//suma todas las secciones del ciclo basico de Rio grande
-                    gSubtotal[0, 1] = gSubtotal[0, 1] + gTotalesCicloBasico[i, 1];//suma todos los EDI del ciclo basico de Rio grande
-                    gSubtotal[0, 2] = gSubtotal[0, 2] + gTotalesCicloBasico[i, 2];//suma todos los POT del ciclo basico de Rio grande
-
-                    gSubtotal[0, 3] = gSubtotal[0, 3] + gTotalesCicloSuperior[i, 0];//suma todas las secciones del ciclo Superior de Rio grande
-                    gSubtotal[0, 4] = gSubtotal[0, 4] + gTotalesCicloSuperior[i, 1];//suma todos los EDI del ciclo Superior de Rio grande 
-                    gSubtotal[0, 5] = gSubtotal[0, 5] + gTotalesCicloSuperior[i, 2];//suma todos los POT del ciclo Superior de Rio grande
-
-                    gSubtotal[0, 6] = gSubtotal[0, 6] + gTotal2Ciclos[i, 0];//suma todas las secciones de Rio grande 
-                    gSubtotal[0, 7] = gSubtotal[0, 7] + gTotal2Ciclos[i, 1];//suma todos los EDI de Rio grande
-                    gSubtotal[0, 8] = gSubtotal[0, 8] + gTotal2Ciclos[i, 2];//suma todos los POT  de Rio grande 
-
-                    gSubtotal[0, 9] = gSubtotal[0, 7] + gSubtotal[0, 8];//suma todos los EDI Y POT  de Rio grande
-                }
-
-                //##arrays totales jurisdiccionales
-                for (int i = 0; i <= 20; i++)
-                {
-                    totalesSEP[i] = uSubtotalTurnos[0, i] + gSubtotalTurnos[0, i];
-                }
-                //Totales generales
-                totalJurisdicional[0] = uSubtotal[0, 0] + gSubtotal[0, 0];
-                totalJurisdicional[1] = uSubtotal[0, 1] + gSubtotal[0, 1] + uSubtotal[0, 2] + gSubtotal[0, 2];
-                totalJurisdicional[2] = uSubtotal[0, 3] + gSubtotal[0, 3];
-                totalJurisdicional[3] = uSubtotal[0, 4] + gSubtotal[0, 4] + uSubtotal[0, 5] + gSubtotal[0, 5];
-                totalJurisdicional[4] = uSubtotal[0, 6] + gSubtotal[0, 6];
-                totalJurisdicional[5] = uSubtotal[0, 7] + gSubtotal[0, 7] + uSubtotal[0, 8] + gSubtotal[0, 8];
-
-                lblProcesando.Visible = false;
-                MessageBox.Show("Estadistica generada.", "Sistema Informa");
-                btnCrearExcel.Enabled = true;
-                btnCrearExcel.BackColor = System.Drawing.Color.DodgerBlue;
-                colorExcel = 7;
+            {
+                calculosEstadistica();
             }
+        }
+        private void calculosEstadistica()
+        {
+            //##arrays ushuaia
+            /*Cargar array ciclo basico*/
+            for (int i = 0; i <= cantColegiosUshuaia - 1; i++)//mientras i sea menor o igual al numero de colegios que es 12
+            {
+                for (int j = 0; j <= 8; j = j + 3)//mientras j sea menor o igual al numero de secciones en el primer ciclo que es 9
+                {
+                    uTotalesCicloBasico[i, 0] = uTotalesCicloBasico[i, 0] + colegiosUshuaiaSEP[i, j];//cantidad de las secciones
+                    uTotalesCicloBasico[i, 1] = uTotalesCicloBasico[i, 1] + colegiosUshuaiaSEP[i, j + 1];//cantidad de EDI
+                    uTotalesCicloBasico[i, 2] = uTotalesCicloBasico[i, 2] + colegiosUshuaiaSEP[i, j + 2];//cantidad de POT
+                }
+            }
+
+            /*Cargar array ciclo superior*/
+
+            for (int i = 0; i <= cantColegiosUshuaia - 1; i++)//mientras i sea menor o igual al numero de colegios que es 12
+            {
+                for (int j = 9; j <= 20; j = j + 3)//mientras j sea menor o igual al numero de secciones en el CICLO SUPERIOR QUE ES 21
+                {
+
+                    uTotalesCicloSuperior[i, 0] = uTotalesCicloSuperior[i, 0] + colegiosUshuaiaSEP[i, j];//cantidad de las secciones
+                    uTotalesCicloSuperior[i, 1] = uTotalesCicloSuperior[i, 1] + colegiosUshuaiaSEP[i, j + 1];//cantidad de EDI
+                    uTotalesCicloSuperior[i, 2] = uTotalesCicloSuperior[i, 2] + colegiosUshuaiaSEP[i, j + 2];//cantidad de POT
+                }
+            }
+            /*Cargar array suma 2 ciclos*/
+
+            for (int i = 0; i <= cantColegiosUshuaia - 1; i++)//mientras i sea menor o igual al numero de colegios que es 12
+            {
+                uTotal2Ciclos[i, 0] = uTotalesCicloBasico[i, 0] + uTotalesCicloSuperior[i, 0];//suma todas las secciones de un colegio
+                uTotal2Ciclos[i, 1] = uTotalesCicloBasico[i, 1] + uTotalesCicloSuperior[i, 1];//suma todos lAS EDI
+                uTotal2Ciclos[i, 2] = uTotalesCicloBasico[i, 2] + uTotalesCicloSuperior[i, 2];//suma todos lAS POT
+            }
+
+            /*Cargar array subtotal turnos POr ushuaia*/
+
+            int contadorColumnasTurnos;//es necesaria
+            for (int i = 0; i <= cantColegiosUshuaia - 1; i++)//mientras i sea menor o igual al numero de colegios que es 12
+            {
+                contadorColumnasTurnos = 0;
+                for (int j = 0; j <= 20; j++)
+                {
+                    uSubtotalTurnos[0, contadorColumnasTurnos] = uSubtotalTurnos[0, contadorColumnasTurnos] + colegiosUshuaiaSEP[i, j];//suma todas las secciones, EDI Y POT por turno de un colegio
+                    contadorColumnasTurnos++;
+                }
+            }
+
+            /*Cargar array subtotales de secciones EDI Y POT de ushuaia*/
+
+            for (int i = 0; i <= cantColegiosUshuaia - 1; i++)//mientras i sea menor o igual al numero de colegios que es 12
+            {
+                uSubtotal[0, 0] = uSubtotal[0, 0] + uTotalesCicloBasico[i, 0];//suma todas las secciones del ciclo basico de ushauia 
+                uSubtotal[0, 1] = uSubtotal[0, 1] + uTotalesCicloBasico[i, 1];//suma todos los EDI del ciclo basico de ushauia 
+                uSubtotal[0, 2] = uSubtotal[0, 2] + uTotalesCicloBasico[i, 2];//suma todos los POT del ciclo basico de ushauia
+
+                uSubtotal[0, 3] = uSubtotal[0, 3] + uTotalesCicloSuperior[i, 0];//suma todas las secciones del ciclo Superior de ushauia 
+                uSubtotal[0, 4] = uSubtotal[0, 4] + uTotalesCicloSuperior[i, 1];//suma todos los EDI del ciclo Superior de ushauia 
+                uSubtotal[0, 5] = uSubtotal[0, 5] + uTotalesCicloSuperior[i, 2];//suma todos los POT del ciclo Superior de ushauia 
+
+                uSubtotal[0, 6] = uSubtotal[0, 6] + uTotal2Ciclos[i, 0];//suma todas las secciones de ushauia 
+                uSubtotal[0, 7] = uSubtotal[0, 7] + uTotal2Ciclos[i, 1];//suma todos los EDI de ushauia 
+                uSubtotal[0, 8] = uSubtotal[0, 8] + uTotal2Ciclos[i, 2];//suma todos los POT  de ushauia 
+
+                uSubtotal[0, 9] = uSubtotal[0, 7] + uSubtotal[0, 8];//suma todos los EDI Y POT  de ushauia                   
+            }
+
+            //##arrays Rio grande
+            /*Cargar array ciclo basico*/
+            for (int i = 0; i <= cantColegiosGrande - 1; i++)//mientras i sea menor o igual al numero de colegios que es 13
+            {
+                for (int j = 0; j <= 8; j = j + 3)//mientras j sea menor o igual al numero de secciones en el primer ciclo que es 9
+                {
+                    gTotalesCicloBasico[i, 0] = gTotalesCicloBasico[i, 0] + colegiosGrandeSEP[i, j];//cantidad de las secciones
+                    gTotalesCicloBasico[i, 1] = gTotalesCicloBasico[i, 1] + colegiosGrandeSEP[i, j + 1];//cantidad de EDI
+                    gTotalesCicloBasico[i, 2] = gTotalesCicloBasico[i, 2] + colegiosGrandeSEP[i, j + 2];//cantidad de POT
+                }
+            }
+
+            /*Cargar array ciclo superior*/
+            for (int i = 0; i <= cantColegiosGrande - 1; i++)//mientras i sea menor o igual al numero de colegios que es 13
+            {
+                for (int j = 9; j <= 20; j = j + 3)//mientras j sea menor o igual al numero de secciones en el primer ciclo que es 18 - 2(16) y se suma de 2 en 2
+                {
+                    gTotalesCicloSuperior[i, 0] = gTotalesCicloSuperior[i, 0] + colegiosGrandeSEP[i, j];//cantidad de las secciones
+                    gTotalesCicloSuperior[i, 1] = gTotalesCicloSuperior[i, 1] + colegiosGrandeSEP[i, j + 1];//cantidad de EDI
+                    gTotalesCicloSuperior[i, 2] = gTotalesCicloSuperior[i, 2] + colegiosGrandeSEP[i, j + 2];//cantidad de POT
+                }
+            }
+
+            /*Cargar array suma 2 ciclos*/
+            for (int i = 0; i <= cantColegiosGrande - 1; i++)//mientras i sea menor o igual al numero de colegios que es 13
+            {
+                gTotal2Ciclos[i, 0] = gTotalesCicloBasico[i, 0] + gTotalesCicloSuperior[i, 0];//suma todas las secciones de un colegio
+                gTotal2Ciclos[i, 1] = gTotalesCicloBasico[i, 1] + gTotalesCicloSuperior[i, 1];//suma todos lAS EDI
+                gTotal2Ciclos[i, 2] = gTotalesCicloBasico[i, 2] + gTotalesCicloSuperior[i, 2];//suma todos lAS POT
+            }
+
+            /*Cargar array subtotal turnos grande*/
+            int gContadorColumnasTurnos;//es necesaria
+            for (int i = 0; i <= cantColegiosGrande - 1; i++)//mientras i sea menor o igual al numero de colegios que es 13
+            {
+                gContadorColumnasTurnos = 0;
+                for (int j = 0; j <= 20; j++)
+                {
+                    gSubtotalTurnos[0, gContadorColumnasTurnos] = gSubtotalTurnos[0, gContadorColumnasTurnos] + colegiosGrandeSEP[i, j];//suma todas las secciones por turno de un colegio
+                    gContadorColumnasTurnos++;
+                }
+            }
+
+            /*Cargar array subtotales de secciones EDI Y POT de Rio grande*/
+            for (int i = 0; i <= cantColegiosGrande - 1; i++)//mientras i sea menor o igual al numero de colegios que es 13 por ahora
+            {
+                gSubtotal[0, 0] = gSubtotal[0, 0] + gTotalesCicloBasico[i, 0];//suma todas las secciones del ciclo basico de Rio grande
+                gSubtotal[0, 1] = gSubtotal[0, 1] + gTotalesCicloBasico[i, 1];//suma todos los EDI del ciclo basico de Rio grande
+                gSubtotal[0, 2] = gSubtotal[0, 2] + gTotalesCicloBasico[i, 2];//suma todos los POT del ciclo basico de Rio grande
+
+                gSubtotal[0, 3] = gSubtotal[0, 3] + gTotalesCicloSuperior[i, 0];//suma todas las secciones del ciclo Superior de Rio grande
+                gSubtotal[0, 4] = gSubtotal[0, 4] + gTotalesCicloSuperior[i, 1];//suma todos los EDI del ciclo Superior de Rio grande 
+                gSubtotal[0, 5] = gSubtotal[0, 5] + gTotalesCicloSuperior[i, 2];//suma todos los POT del ciclo Superior de Rio grande
+
+                gSubtotal[0, 6] = gSubtotal[0, 6] + gTotal2Ciclos[i, 0];//suma todas las secciones de Rio grande 
+                gSubtotal[0, 7] = gSubtotal[0, 7] + gTotal2Ciclos[i, 1];//suma todos los EDI de Rio grande
+                gSubtotal[0, 8] = gSubtotal[0, 8] + gTotal2Ciclos[i, 2];//suma todos los POT  de Rio grande 
+
+                gSubtotal[0, 9] = gSubtotal[0, 7] + gSubtotal[0, 8];//suma todos los EDI Y POT  de Rio grande
+            }
+
+            //##arrays totales jurisdiccionales
+            for (int i = 0; i <= 20; i++)
+            {
+                totalesSEP[i] = uSubtotalTurnos[0, i] + gSubtotalTurnos[0, i];
+            }
+            //Totales generales
+            totalJurisdicional[0] = uSubtotal[0, 0] + gSubtotal[0, 0];
+            totalJurisdicional[1] = uSubtotal[0, 1] + gSubtotal[0, 1] + uSubtotal[0, 2] + gSubtotal[0, 2];
+            totalJurisdicional[2] = uSubtotal[0, 3] + gSubtotal[0, 3];
+            totalJurisdicional[3] = uSubtotal[0, 4] + gSubtotal[0, 4] + uSubtotal[0, 5] + gSubtotal[0, 5];
+            totalJurisdicional[4] = uSubtotal[0, 6] + gSubtotal[0, 6];
+            totalJurisdicional[5] = uSubtotal[0, 7] + gSubtotal[0, 7] + uSubtotal[0, 8] + gSubtotal[0, 8];
+
+            lblProcesando.Visible = false;
+            MessageBox.Show("Estadistica generada.", "Sistema Informa");
+            btnCrearExcel.Enabled = true;
+            btnCrearExcel.BackColor = System.Drawing.Color.DodgerBlue;
+            colorExcel = 7;
         }
 
         private void btnCrearExcel_Click(object sender, EventArgs e)

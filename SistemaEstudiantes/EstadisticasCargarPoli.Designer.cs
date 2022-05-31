@@ -230,7 +230,7 @@ namespace SistemaEstudiantes
             this.cboxPeriodo.FormattingEnabled = true;
             this.cboxPeriodo.Items.AddRange(new object[] {
             "Marzo",
-            "Octubre"});
+            "Septiembre"});
             this.cboxPeriodo.Location = new System.Drawing.Point(404, 196);
             this.cboxPeriodo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboxPeriodo.Name = "cboxPeriodo";

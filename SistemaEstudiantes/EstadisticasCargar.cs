@@ -269,9 +269,7 @@ namespace SistemaEstudiantes
             try
             {
                 DataTable miDataTable = new DataTable();
-
-                // string queryCargarBD = "SELECT Año, Periodo, Departamento, Colegio, Sección, División, Orientación, Horas, Pedagogica, Presupuestaria, Matriculas FROM Planilla WHERE Año LIKE  '%' + @Buscar + '%'";
-                //string queryCargarBD = "SELECT *FROM Planilla ";
+                
                 string queryCargarBD = "SELECT IdUnico FROM Planilla WHERE IdUnico = @Buscar";
                 OleDbCommand sqlComando = new OleDbCommand(queryCargarBD, conexionBaseDatos);
                 sqlComando.Parameters.AddWithValue("@idBuscar", idUnico);
@@ -282,9 +280,7 @@ namespace SistemaEstudiantes
 
                 if ((Convert.ToString(dataGridView1.Rows[0].Cells[0].Value) == idUnico))//revisa si hay se ha encontrado algo... esta escrito de esta forma sino tiraba error critico
                 {
-                    plantillaIngresada = true;
-
-                    //MessageBox.Show(Convert.ToString(myDataGridView.Rows[0].Cells[0].Value), "Sistema Informa");                        
+                    plantillaIngresada = true;                                         
                 }
             }
             catch (Exception ex)
@@ -328,14 +324,13 @@ namespace SistemaEstudiantes
             {
                 idUnico = idUnico + "S";
             }
-            idUnico = idUnico + abreColegio;//termina aca sumando la ultima parte            
-            MessageBox.Show(abreColegio + " " + numOrden + " " + idUnico);
+            idUnico = idUnico + abreColegio;//termina aca sumando la ultima parte      
+            
 
             for (int i = 0; Convert.ToInt32(myDataGridView.Rows[i].Cells[0].Value) > 0; i++)   //revisa en la primer columna que en la celda el valor sea mayor a 0              
             {
                 idNum = idUnico + Convert.ToString(i + 1);
-                //string queryAgregar = "INSERT INTO Planilla VALUES (@Año, @Periodo, @Depto, @ColegioSelect, @Sección, @División, " +
-                //"@Turno, @Orientación, @Horas, @Pedagógica, @Presupuestaria, @Matriculas, @ColegioIngre, @IdUnico, @IdNum, @NumOrdenColegio)";
+                
                 string queryAgregar = "INSERT INTO Planilla VALUES (@Año, @Periodo, @Depto, @ColegioSelect, @Sección, @División, " +
                 "@Turno, @Orientación, @Horas, @Pedagógica, @Presupuestaria, @Matriculas, @ColegioIngre, @IdUnico,@Fecha, @NumOrdenColegio)";
                 sqlComando = new OleDbCommand(queryAgregar, conexionBaseDatos);
@@ -382,7 +377,6 @@ namespace SistemaEstudiantes
                 ordenar();
             }
         }
-
         private void btnVolver_Click(object sender, EventArgs e)
         {
             EstadisticasPlanillas myEstadisticasPlanillas = new EstadisticasPlanillas(nombreUsuario, tipoUsuario, logueadoUsuario, conexionBaseDatos);

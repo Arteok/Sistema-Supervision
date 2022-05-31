@@ -13,9 +13,9 @@ namespace SistemaEstudiantes
 {
     public partial class Form1 : Form
     {
-        OleDbConnection conexionBaseDatos = new OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0; Data Source = |DataDirectory|BDNormativa.mdb");
+        //OleDbConnection conexionBaseDatos = new OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0; Data Source = |DataDirectory|BDNormativa.mdb");
         //OleDbConnection conexionBaseDatos = new OleDbConnection(@"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\bin\Debug\BDNormativa.mdb");
-        //OleDbConnection conexionBaseDatos = new OleDbConnection(@"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = \\server\Compartida\Sistema\BDSistema Supervision\BDSistSupervision.mdb");
+        OleDbConnection conexionBaseDatos = new OleDbConnection(@"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = \\server\Compartida\Sistema\BDSistema Supervision\BDSistSupervision.mdb");
 
         string nombreUsuario;
         string permisosUsuario;
