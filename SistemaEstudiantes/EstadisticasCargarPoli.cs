@@ -353,5 +353,46 @@ namespace SistemaEstudiantes
         {
             Application.Exit();
         }
+
+        private void btnRefresh_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnRefresh.BackColor = System.Drawing.Color.DimGray;
+        }
+
+        private void btnRefresh_MouseLeave(object sender, EventArgs e)
+        {
+            btnRefresh.BackColor = System.Drawing.Color.DodgerBlue;
+        }
+
+        private void btnImportar_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnImportar.BackColor = System.Drawing.Color.DimGray;
+        }
+
+        private void btnImportar_MouseLeave(object sender, EventArgs e)
+        {
+            btnImportar.BackColor = System.Drawing.Color.DodgerBlue;
+        }
+
+        private void btnVolver_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnVolver.BackColor = System.Drawing.Color.DimGray;
+        }
+
+        private void btnVolver_MouseLeave(object sender, EventArgs e)
+        {
+            btnVolver.BackColor = System.Drawing.Color.DodgerBlue;
+        }
+
+        private void btnSalir_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnSalir.BackColor = System.Drawing.Color.DimGray;
+        }
+
+        private void btnSalir_MouseLeave(object sender, EventArgs e)
+        {
+            btnSalir.BackColor = System.Drawing.Color.DodgerBlue;
+
+        }
     }
 }

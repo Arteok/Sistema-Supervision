@@ -65,6 +65,65 @@ namespace SistemaEstudiantes
             Application.Exit();
         }
 
+        private void btnCargarPlanillas_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnCargarPlanillas.BackColor = Color.DodgerBlue;
+        }
+        private void btnCargarPlanillas_MouseLeave(object sender, EventArgs e)
+        {
+            btnCargarPlanillas.BackColor = Color.DimGray;
+        }
+
+        private void btnEliminar_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnEliminar.BackColor = Color.DodgerBlue;
+        }
+
+        private void btnEliminar_MouseLeave(object sender, EventArgs e)
+        {
+            btnEliminar.BackColor = Color.DimGray;
+        }
+
+        private void btnPlantillaPoli_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnPlantillaPoli.BackColor = Color.DodgerBlue;
+        }
+
+        private void btnPlantillaPoli_MouseLeave(object sender, EventArgs e)
+        {
+            btnPlantillaPoli.BackColor = Color.DimGray;
+        }
+
+        private void btnEliminarPoli_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnEliminarPoli.BackColor = Color.DodgerBlue;
+        }
+
+        private void btnEliminarPoli_MouseLeave(object sender, EventArgs e)
+        {
+            btnEliminarPoli.BackColor = Color.DimGray;
+        }
+
+        private void btnVolver_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnVolver.BackColor = Color.DimGray;
+        }
+
+        private void btnVolver_MouseLeave(object sender, EventArgs e)
+        {
+            btnVolver.BackColor = Color.DodgerBlue;
+        }
+
+        private void btnSalir_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnSalir.BackColor = Color.DimGray;
+        }
+
+        private void btnSalir_MouseLeave(object sender, EventArgs e)
+        {
+            btnSalir.BackColor = Color.DodgerBlue;
+        }
+
         
     }
 }

@@ -75,6 +75,8 @@ namespace SistemaEstudiantes
             this.btnVolver.Text = "    Atrás";
             this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            this.btnVolver.MouseLeave += new System.EventHandler(this.btnVolver_MouseLeave);
+            this.btnVolver.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnVolver_MouseMove);
             // 
             // btnSalir
             // 
@@ -89,6 +91,8 @@ namespace SistemaEstudiantes
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.btnSalir.MouseLeave += new System.EventHandler(this.btnSalir_MouseLeave);
+            this.btnSalir.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnSalir_MouseMove);
             // 
             // lblNombre
             // 
@@ -166,6 +170,8 @@ namespace SistemaEstudiantes
             this.btnPlantillaPoli.Text = "Cargar Plantillas Polivalentes";
             this.btnPlantillaPoli.UseVisualStyleBackColor = false;
             this.btnPlantillaPoli.Click += new System.EventHandler(this.btnPlantillaPoli_Click);
+            this.btnPlantillaPoli.MouseLeave += new System.EventHandler(this.btnPlantillaPoli_MouseLeave);
+            this.btnPlantillaPoli.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnPlantillaPoli_MouseMove);
             // 
             // btnCargarPlanillas
             // 
@@ -179,6 +185,8 @@ namespace SistemaEstudiantes
             this.btnCargarPlanillas.Text = "Cargar Plantillas Generales";
             this.btnCargarPlanillas.UseVisualStyleBackColor = false;
             this.btnCargarPlanillas.Click += new System.EventHandler(this.btnCargarPlanillas_Click);
+            this.btnCargarPlanillas.MouseLeave += new System.EventHandler(this.btnCargarPlanillas_MouseLeave);
+            this.btnCargarPlanillas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnCargarPlanillas_MouseMove);
             // 
             // btnEliminar
             // 
@@ -192,6 +200,8 @@ namespace SistemaEstudiantes
             this.btnEliminar.Text = "Eliminar Plantillas Generales";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.btnEliminar.MouseLeave += new System.EventHandler(this.btnEliminar_MouseLeave);
+            this.btnEliminar.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnEliminar_MouseMove);
             // 
             // btnEliminarPoli
             // 
@@ -205,6 +215,8 @@ namespace SistemaEstudiantes
             this.btnEliminarPoli.Text = "Eliminar Plantillas Polivalentes";
             this.btnEliminarPoli.UseVisualStyleBackColor = false;
             this.btnEliminarPoli.Click += new System.EventHandler(this.btnEliminarPoli_Click);
+            this.btnEliminarPoli.MouseLeave += new System.EventHandler(this.btnEliminarPoli_MouseLeave);
+            this.btnEliminarPoli.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnEliminarPoli_MouseMove);
             // 
             // EstadisticasPlanillas
             // 
