@@ -50,29 +50,6 @@ namespace SistemaEstudiantes
         string[,] bachOrientado = new string[3, 12];
         string[,] bachEspecializado = new string[3, 9];
 
-        /* int[,] colegiosUshuaiaET = new int[25, 10];//array datos de estudiantes por orientacion Educación Técnica USHUAIA
-         int[,] colegiosGrandeET = new int[25, 10];//array datos de estudiantes por orientacion Educación Técnica RIO GRANDE
-
-         int[,] colegiosUshuaiaBO = new int[25, 12];//array datos de estudiantes por orientacion  bachiller orientado USHUAIA
-         int[,] colegiosGrandeBO = new int[25, 12];//array datos de estudiantes por orientacion bachiller orientado  RIO GRANDE
-
-         int[,] colegiosUshuaiaEsp = new int[25, 9];//array datos de estudiantes por orientacion  bachiller especializado USHUAIA
-         int[,] colegiosGrandeEsp = new int[25, 9];//array datos de estudiantes por orientacion bachiller especializado RIO GRANDE
-
-         int[] subTotalesUshuaiaET = new int[10];
-         int[] subTotalesUshuaiaBO = new int[12];
-         int[] subTotalesUshuaiaEsp = new int[9];
-
-         int[] subTotalesGrandeET = new int[10];
-         int[] subTotalesGrandeBO = new int[12];
-         int[] subTotalesGrandeEsp = new int[9];
-
-         int[] totalUshuaia = new int[25];
-         int[] totalGrande = new int[25];
-
-         int[] totalesProvET = new int[10];
-         int[] totalesProvBO = new int[12];
-         int[] totalesProvEsp = new int[9];*/
 
         int[,] colegiosUshuaiaET;//array datos de estudiantes por orientacion Educación Técnica USHUAIA
         int[,] colegiosGrandeET;//array datos de estudiantes por orientacion Educación Técnica RIO GRANDE
@@ -660,7 +637,7 @@ namespace SistemaEstudiantes
         {
             cboxAño.Enabled = false;
             cboxPeriodo.Enabled = true;
-            btnRefresh.Enabled = true;
+            
         }
 
         private void cboxPeriodo_SelectedIndexChanged(object sender, EventArgs e)
@@ -678,7 +655,7 @@ namespace SistemaEstudiantes
             lblProcesando.Refresh();
             int contadorFilas = 0;
             int lugarArray = 0;
-            btnRefresh.Enabled = false;
+            
 
             colorExcel = 4; //color par es igual a silver, sirve para que no se bugueee azul            
             btnCrearEstadistica.BackColor = System.Drawing.Color.Silver;

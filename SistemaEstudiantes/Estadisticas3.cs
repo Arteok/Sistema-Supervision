@@ -1474,6 +1474,7 @@ namespace SistemaEstudiantes
                 btnCrearExcel.Enabled = false;
                 lblCreando.Visible = false;
                 MessageBox.Show("Excel Generado", "Sistema Informa");
+                ordenar();
             }
             catch (Exception ex)
             {

@@ -72,9 +72,9 @@ namespace SistemaEstudiantes
 
             cboxAño.Enabled = true;
             cboxPeriodo.Enabled = false;
-            cboxDepto.Enabled = false;
-            btnRefresh.Enabled = false;
+            cboxDepto.Enabled = false;            
             btnEliminar.Enabled = false;
+            btnEliminar.BackColor = System.Drawing.Color.Silver;
             cboxColegiosUshuaia.Enabled = false;
             cboxColegiosGrande.Enabled = false;
             cboxColegiosUshuaia.Visible = true;
@@ -122,21 +122,18 @@ namespace SistemaEstudiantes
         private void cboxAño_SelectedIndexChanged(object sender, EventArgs e)
         {
             cboxAño.Enabled = false;
-            cboxPeriodo.Enabled = true;
-            btnRefresh.Enabled = true;
+            cboxPeriodo.Enabled = true;            
         }
 
         private void cboxPeriodo_SelectedIndexChanged(object sender, EventArgs e)
         {
             cboxPeriodo.Enabled = false;
-            cboxDepto.Enabled = true;
-            btnRefresh.Enabled = true;
+            cboxDepto.Enabled = true;            
         }
 
         private void cboxDepto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cboxDepto.Enabled = false;
-            btnRefresh.Enabled = true;
+            cboxDepto.Enabled = false;            
             if (cboxDepto.SelectedIndex == 0)
             {
                 cboxColegiosUshuaia.Enabled = true;
@@ -164,17 +161,15 @@ namespace SistemaEstudiantes
             }
             idUnico = idUnico + abreColegio;//termina aca sumando la ultima parte  
 
-            cboxColegiosUshuaia.Enabled = false;
-            btnRefresh.Enabled = true;
+            cboxColegiosUshuaia.Enabled = false;            
             btnEliminar.Enabled = true;
+            btnEliminar.BackColor = System.Drawing.Color.DodgerBlue;
 
             try
             {
                 DataTable miDataTable = new DataTable();
 
-                // string queryCargarBD = "SELECT Año, Periodo, Departamento, Colegio, Sección, División, Orientación, Horas, Pedagogica, Presupuestaria, Matriculas FROM Planilla WHERE Año LIKE  '%' + @Buscar + '%'";
-                //string queryCargarBD = "SELECT *FROM Planilla ";
-                string queryCargarBD = "SELECT Año, Periodo, Departamento, ColegioSelect, ColegioIngresado, Sección, División, Turno, Orientación, Horas, Pedagogica, Presupuestaria, Matriculas FROM Planilla WHERE IdUnico = @Buscar";
+                string queryCargarBD = "SELECT ColegioIngresado, Sección, División, Turno, Orientación, Horas, Pedagogica, Presupuestaria, Matriculas FROM Planilla WHERE IdUnico = @Buscar";
                 OleDbCommand sqlComando = new OleDbCommand(queryCargarBD, conexionBaseDatos);
                 sqlComando.Parameters.AddWithValue("@idBuscar", idUnico);
 
@@ -215,9 +210,9 @@ namespace SistemaEstudiantes
             }
             idUnico = idUnico + abreColegio;//termina aca sumando la ultima parte  
 
-            cboxColegiosGrande.Enabled = false;
-            btnRefresh.Enabled = true;
+            cboxColegiosGrande.Enabled = false;            
             btnEliminar.Enabled = true;
+            btnEliminar.BackColor = System.Drawing.Color.DodgerBlue;
 
             try
             {
@@ -225,7 +220,7 @@ namespace SistemaEstudiantes
 
                 // string queryCargarBD = "SELECT Año, Periodo, Departamento, Colegio, Sección, División, Orientación, Horas, Pedagogica, Presupuestaria, Matriculas FROM Planilla WHERE Año LIKE  '%' + @Buscar + '%'";
                 //string queryCargarBD = "SELECT *FROM Planilla ";
-                string queryCargarBD = "SELECT Año, Periodo, Departamento, ColegioSelect, ColegioIngresado, Sección, División, Turno, Orientación, Horas, Pedagogica, Presupuestaria, Matriculas FROM Planilla WHERE IdUnico = @Buscar";
+                string queryCargarBD = "SELECT  ColegioIngresado, Sección, División, Turno, Orientación, Horas, Pedagogica, Presupuestaria, Matriculas FROM Planilla WHERE IdUnico = @Buscar";
                 OleDbCommand sqlComando = new OleDbCommand(queryCargarBD, conexionBaseDatos);
                 sqlComando.Parameters.AddWithValue("@idBuscar", idUnico);
 
@@ -285,7 +280,6 @@ namespace SistemaEstudiantes
                 }
             }
         }
-
         private void btnVolver_Click(object sender, EventArgs e)
         {
             EstadisticasPlanillas myEstadisticasPlanillas = new EstadisticasPlanillas(nombreUsuario, tipoUsuario, logueadoUsuario, conexionBaseDatos);

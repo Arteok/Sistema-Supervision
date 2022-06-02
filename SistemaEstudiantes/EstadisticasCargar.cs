@@ -18,6 +18,10 @@ namespace SistemaEstudiantes
         OleDbConnection conexionBaseDatos;//variable que recibe la direccion de la base de datos
         OleDbCommand sqlComando;
         Colegios myColegios;
+
+        int colorBtnExcel;
+        int colorImportar;
+
         bool colegiosCreados = false;
         int cantColegiosUshuaia;
         int cantColegiosGrande;
@@ -27,10 +31,10 @@ namespace SistemaEstudiantes
         bool logueadoUsuario;
 
         string abreColegio;
-        bool plantillaIngresada;        
+        bool plantillaIngresada;
+        bool planillaSelec;
         string numOrden;
-        string colegio;
-        
+        string colegio;        
         
         string año;
         string periodo;
@@ -74,22 +78,27 @@ namespace SistemaEstudiantes
         private void ordenar()
         {
             plantillaIngresada = false;
+            planillaSelec = true;
 
             abreColegio = "";
             colegio = "";            
             numOrden = "";
             fecha = "";
 
-            cboxAño.SelectedIndex = -1;
-            cboxPeriodo.SelectedIndex = -1;
-            cboxDepto.SelectedIndex = -1;
-            //cboxColegiosUshuaia.SelectedIndex = -1; Traen problema es mejor resettext
-            //cboxColegiosGrande.SelectedIndex = -1;
+            cboxAño.ResetText();
+            cboxPeriodo.ResetText();
+            cboxDepto.ResetText();
+            
             cboxColegiosUshuaia.ResetText();
             cboxColegiosGrande.ResetText();
             btnSelecExcel.Enabled = false;
             btnImportar.Enabled = false;
             tbxColegioSel.Clear();
+
+            btnSelecExcel.BackColor = System.Drawing.Color.Silver;
+            btnImportar.BackColor = System.Drawing.Color.Silver;
+            lblIngresando.Visible = false;
+            lblCargando.Visible = false;
 
             cboxAño.Enabled = true;
             cboxPeriodo.Enabled = false;
@@ -99,7 +108,7 @@ namespace SistemaEstudiantes
             btnSelecExcel.Enabled = false;
             btnImportar.Enabled = false;
             tbxColegioSel.Enabled = false;
-            btnRefresh.Enabled = false;
+           
             cboxColegiosUshuaia.Visible = true;
             cboxColegiosGrande.Visible = true;
 
@@ -145,20 +154,18 @@ namespace SistemaEstudiantes
         private void cboxAño_SelectedIndexChanged(object sender, EventArgs e)
         {
             cboxAño.Enabled = false;
-            cboxPeriodo.Enabled = true;
-            btnRefresh.Enabled = true;
+            cboxPeriodo.Enabled = true;            
         }
 
         private void cboxPeriodo_SelectedIndexChanged(object sender, EventArgs e)
-        {            cboxPeriodo.Enabled = false;
-            cboxDepto.Enabled = true;
-            btnRefresh.Enabled = true;
+        {            
+            cboxPeriodo.Enabled = false;
+            cboxDepto.Enabled = true;            
         }
 
         private void cboxDepto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cboxDepto.Enabled = false;
-            btnRefresh.Enabled = true;
+            cboxDepto.Enabled = false;            
             if (cboxDepto.SelectedIndex == 0)
             {
                 cboxColegiosUshuaia.Enabled = true;
@@ -178,7 +185,7 @@ namespace SistemaEstudiantes
 
             cboxColegiosUshuaia.Enabled = false;
             btnSelecExcel.Enabled = true;
-            btnRefresh.Enabled = true;
+            btnSelecExcel.BackColor = System.Drawing.Color.DodgerBlue;
         }
 
         private void cboxColegiosGrande_SelectedIndexChanged(object sender, EventArgs e)
@@ -189,7 +196,9 @@ namespace SistemaEstudiantes
 
             cboxColegiosGrande.Enabled = false;
             btnSelecExcel.Enabled = true;
-            btnRefresh.Enabled = true;
+            btnSelecExcel.BackColor = System.Drawing.Color.DodgerBlue;
+            colorBtnExcel = 1;
+
         }
         private void btnRefresh_Click(object sender, EventArgs e)
         {
@@ -197,7 +206,8 @@ namespace SistemaEstudiantes
         }
         private void btnSelecExcel_Click(object sender, EventArgs e)
         {
-            btnRefresh.Enabled = true;
+                       
+           
             DataTable myDataTableColegios = new DataTable();
 
             myDataTableColegios.Columns.Add(new DataColumn("Sección", typeof(int)));
@@ -209,65 +219,68 @@ namespace SistemaEstudiantes
             myDataTableColegios.Columns.Add(new DataColumn("Presupuestaria", typeof(string)));
             myDataTableColegios.Columns.Add(new DataColumn("Matrícula", typeof(int)));
 
-            //para seleccionarlo manualmente
             string nombreHoja = "Sheet1";
             string ruta = "";
 
-            OpenFileDialog myOpenFileDialog = new OpenFileDialog();
-            myOpenFileDialog.Filter = "Excel Files |* .xlsx";
-            myOpenFileDialog.Title = "Seleccione el archivo Excel";
-
-            if (myOpenFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                if (myOpenFileDialog.FileName.Equals("") == false)
-                {
-                    ruta = myOpenFileDialog.FileName;
-                }
-            }
-
-            //llena el dgv con el contenido del dataset
-            int row;
-
-            using (SLDocument sl = new SLDocument(ruta, nombreHoja))//crear un document con el excel seleccionado
-            {
-                SLWorksheetStatistics stats = sl.GetWorksheetStatistics();
-                int iStartColumnIndex = stats.StartColumnIndex;
-
-                for (row = 8; row <= stats.EndRowIndex; ++row)//llena el date table con el documento
-                {
-                    myDataTableColegios.Rows.Add(
-                    sl.GetCellValueAsInt32(row, iStartColumnIndex + 1),
-                    sl.GetCellValueAsString(row, iStartColumnIndex + 2),
-                    sl.GetCellValueAsString(row, iStartColumnIndex + 3),
-                    sl.GetCellValueAsString(row, iStartColumnIndex + 4),
-                    sl.GetCellValueAsInt32(row, iStartColumnIndex + 5),
-                    sl.GetCellValueAsString(row, iStartColumnIndex + 6),
-                    sl.GetCellValueAsString(row, iStartColumnIndex + 7),
-                    sl.GetCellValueAsInt32(row, iStartColumnIndex + 8)
-
-                    );
-                }
-                tbxColegioSel.Text = sl.GetCellValueAsString(5, 5);
-                fecha = sl.GetCellValueAsString(7, 9);
-            }
-            myDataGridView.DataSource = myDataTableColegios;//llena el dataGV con data table
-                                                            //revisar si ya esta ingresada la plantilla
-
-            año = cboxAño.SelectedItem.ToString();
-            periodo = cboxPeriodo.SelectedItem.ToString();
-            idUnico = año;//Se calcula sumando 3 variables
-            if (periodo == "Marzo")
-            {
-                idUnico = idUnico + "M";
-            }
-            else
-            {
-                idUnico = idUnico + "S";
-            }
-            idUnico = idUnico + abreColegio;//termina aca sumando la ultima parte            
-
             try
             {
+                //para seleccionarlo manualmente                
+
+                OpenFileDialog myOpenFileDialog = new OpenFileDialog();
+                myOpenFileDialog.Filter = "Excel Files |* .xlsx";
+                myOpenFileDialog.Title = "Seleccione el archivo Excel";
+
+                if (myOpenFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    if (myOpenFileDialog.FileName.Equals("") == false)
+                    {
+                        ruta = myOpenFileDialog.FileName;
+                    }                    
+                }
+                lblIngresando.Visible = true;
+                lblIngresando.Refresh();
+                //llena el dgv con el contenido del dataset
+                int row;
+
+                using (SLDocument sl = new SLDocument(ruta, nombreHoja))//crear un document con el excel seleccionado
+                {
+                    SLWorksheetStatistics stats = sl.GetWorksheetStatistics();
+                    int iStartColumnIndex = stats.StartColumnIndex;
+
+                    for (row = 8; row <= stats.EndRowIndex; ++row)//llena el date table con el documento
+                    {
+                        myDataTableColegios.Rows.Add(
+                        sl.GetCellValueAsInt32(row, iStartColumnIndex + 1),
+                        sl.GetCellValueAsString(row, iStartColumnIndex + 2),
+                        sl.GetCellValueAsString(row, iStartColumnIndex + 3),
+                        sl.GetCellValueAsString(row, iStartColumnIndex + 4),
+                        sl.GetCellValueAsInt32(row, iStartColumnIndex + 5),
+                        sl.GetCellValueAsString(row, iStartColumnIndex + 6),
+                        sl.GetCellValueAsString(row, iStartColumnIndex + 7),
+                        sl.GetCellValueAsInt32(row, iStartColumnIndex + 8)
+
+                        );
+                    }
+                    tbxColegioSel.Text = sl.GetCellValueAsString(5, 5);
+                    fecha = sl.GetCellValueAsString(7, 9);
+                }
+                myDataGridView.DataSource = myDataTableColegios;//llena el dataGV con data table
+                                                                //revisar si ya esta ingresada la plantilla
+
+                año = cboxAño.SelectedItem.ToString();
+                periodo = cboxPeriodo.SelectedItem.ToString();
+                idUnico = año;//Se calcula sumando 3 variables
+                if (periodo == "Marzo")
+                {
+                    idUnico = idUnico + "M";
+                }
+                else
+                {
+                    idUnico = idUnico + "S";
+                }
+                idUnico = idUnico + abreColegio;//termina aca sumando la ultima parte               
+            
+            
                 DataTable miDataTable = new DataTable();
                 
                 string queryCargarBD = "SELECT IdUnico FROM Planilla WHERE IdUnico = @Buscar";
@@ -289,6 +302,12 @@ namespace SistemaEstudiantes
                 {
                     MessageBox.Show("Problema con la red.", "Sistema Informa");
                 }
+                else if (ex.Message.Contains("No se puede dejar vacío el nombre de la ruta de acceso"))
+                {
+                    MessageBox.Show("No se seleccionó ningún archivo.", "Sistema Informa");                    
+                    planillaSelec = false;
+
+                }
                 //falta hacer que salga si es que hay error
             }
 
@@ -297,16 +316,29 @@ namespace SistemaEstudiantes
                 MessageBox.Show("Esta plantilla ya está cargada y no puede volver a ser ingresada. Revise si la está cargando correctamente.", "Sistema Informa");
                 ordenar();
             }
+            else if ((plantillaIngresada == false) && (planillaSelec == false))
+            {
+                ordenar();
+            }
             else
             {
+                colorBtnExcel = 0;
                 btnSelecExcel.Enabled = false;
+                btnSelecExcel.BackColor = System.Drawing.Color.Silver;
                 btnImportar.Enabled = true;
+                btnImportar.BackColor = System.Drawing.Color.DodgerBlue;
+                colorImportar = 1;
             }
+            lblIngresando.Visible = false;
         }
 
         private void btnImportar_Click(object sender, EventArgs e)
         {
-            btnImportar.Enabled = false;
+            lblCargando.Visible = true;
+            lblCargando.Refresh();
+            colorImportar = 0;
+            btnImportar.BackColor = System.Drawing.Color.Silver;
+            btnImportar.Enabled = false;            
 
             bool seImporto = false;
 
@@ -396,7 +428,23 @@ namespace SistemaEstudiantes
 
         private void btnRefresh_MouseLeave(object sender, EventArgs e)
         {
-            btnRefresh.BackColor = System.Drawing.Color.DodgerBlue;
+            btnRefresh.BackColor = System.Drawing.Color.DodgerBlue;          
+        }
+        private void btnSelecExcel_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnSelecExcel.BackColor = System.Drawing.Color.DimGray;
+        }
+
+        private void btnSelecExcel_MouseLeave(object sender, EventArgs e)
+        {   
+            if (colorBtnExcel == 0)//unica forma de que funcione
+            {
+                btnSelecExcel.BackColor = System.Drawing.Color.Silver;
+            }
+            else if (colorBtnExcel == 1)
+            {
+                btnSelecExcel.BackColor = System.Drawing.Color.DodgerBlue;
+            }
         }
 
         private void btnImportar_MouseMove(object sender, MouseEventArgs e)
@@ -406,8 +454,15 @@ namespace SistemaEstudiantes
 
         private void btnImportar_MouseLeave(object sender, EventArgs e)
         {
-            btnImportar.BackColor = System.Drawing.Color.DodgerBlue;
-        }
+            if (colorImportar == 0)//unica forma de que funcione
+            {
+                btnImportar.BackColor = System.Drawing.Color.Silver;
+            }
+            else if (colorImportar == 1)
+            {
+                btnImportar.BackColor = System.Drawing.Color.DodgerBlue;
+            }
+        }    
 
         private void btnVolver_MouseMove(object sender, MouseEventArgs e)
         {
@@ -428,5 +483,6 @@ namespace SistemaEstudiantes
         {
             btnSalir.BackColor = System.Drawing.Color.DodgerBlue;
         }
+        
     }
 }

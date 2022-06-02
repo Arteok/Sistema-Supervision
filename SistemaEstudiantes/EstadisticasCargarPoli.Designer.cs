@@ -53,6 +53,8 @@ namespace SistemaEstudiantes
             this.btnSelecExcel = new System.Windows.Forms.Button();
             this.myDataGridView = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblIngresando = new System.Windows.Forms.Label();
+            this.lblCargando = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myDataGridView)).BeginInit();
@@ -337,9 +339,12 @@ namespace SistemaEstudiantes
             this.btnSelecExcel.Text = "Seleccionar Excel";
             this.btnSelecExcel.UseVisualStyleBackColor = false;
             this.btnSelecExcel.Click += new System.EventHandler(this.btnSelecExcel_Click);
+            this.btnSelecExcel.MouseLeave += new System.EventHandler(this.btnSelecExcel_MouseLeave);
+            this.btnSelecExcel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnSelecExcel_MouseMove);
             // 
             // myDataGridView
             // 
+            this.myDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.myDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.myDataGridView.Location = new System.Drawing.Point(13, 328);
             this.myDataGridView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -350,6 +355,8 @@ namespace SistemaEstudiantes
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel1.Controls.Add(this.lblCargando);
+            this.panel1.Controls.Add(this.lblIngresando);
             this.panel1.Controls.Add(this.btnSelecExcel);
             this.panel1.Controls.Add(this.cboxColegiosGrande);
             this.panel1.Controls.Add(this.label7);
@@ -367,6 +374,24 @@ namespace SistemaEstudiantes
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1320, 140);
             this.panel1.TabIndex = 79;
+            // 
+            // lblIngresando
+            // 
+            this.lblIngresando.AutoSize = true;
+            this.lblIngresando.Location = new System.Drawing.Point(145, 122);
+            this.lblIngresando.Name = "lblIngresando";
+            this.lblIngresando.Size = new System.Drawing.Size(70, 14);
+            this.lblIngresando.TabIndex = 91;
+            this.lblIngresando.Text = "Ingresando...";
+            // 
+            // lblCargando
+            // 
+            this.lblCargando.AutoSize = true;
+            this.lblCargando.Location = new System.Drawing.Point(1105, 122);
+            this.lblCargando.Name = "lblCargando";
+            this.lblCargando.Size = new System.Drawing.Size(63, 14);
+            this.lblCargando.TabIndex = 92;
+            this.lblCargando.Text = "Cargando...";
             // 
             // EstadisticasCargarPoli
             // 
@@ -417,5 +442,7 @@ namespace SistemaEstudiantes
         private System.Windows.Forms.Button btnSelecExcel;
         private System.Windows.Forms.DataGridView myDataGridView;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblIngresando;
+        private System.Windows.Forms.Label lblCargando;
     }
 }

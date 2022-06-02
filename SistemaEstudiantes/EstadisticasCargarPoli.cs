@@ -59,23 +59,29 @@ namespace SistemaEstudiantes
             cboxAño.SelectedIndex = -1;
             cboxPeriodo.SelectedIndex = -1;
             cboxDepto.SelectedIndex = -1;
-            //cboxColegiosUshuaia.SelectedIndex = -1; Traen problema es mejor resettext
-            //cboxColegiosGrande.SelectedIndex = -1;
+            
             cboxColegiosUshuaia.ResetText();
             cboxColegiosGrande.ResetText();
             btnSelecExcel.Enabled = false;
             btnImportar.Enabled = false;
             tbxColegioSel.Clear();
 
+            lblIngresando.Visible = false;
+            lblCargando.Visible = false;
+
             cboxAño.Enabled = true;
             cboxPeriodo.Enabled = false;
             cboxDepto.Enabled = false;
             cboxColegiosUshuaia.Enabled = false;
             cboxColegiosGrande.Enabled = false;
+            tbxColegioSel.Enabled = false;
+
             btnSelecExcel.Enabled = false;
             btnImportar.Enabled = false;
-            tbxColegioSel.Enabled = false;
-            btnRefresh.Enabled = false;
+            btnSelecExcel.BackColor = System.Drawing.Color.Silver;
+            btnImportar.BackColor = System.Drawing.Color.Silver;
+
+
             cboxColegiosUshuaia.Visible = true;
             cboxColegiosGrande.Visible = true;
 
@@ -128,7 +134,7 @@ namespace SistemaEstudiantes
 
             cboxColegiosUshuaia.Enabled = false;
             btnSelecExcel.Enabled = true;
-            btnRefresh.Enabled = true;
+            btnSelecExcel.BackColor = System.Drawing.Color.DodgerBlue;
         }
 
         private void cboxColegiosGrande_SelectedIndexChanged(object sender, EventArgs e)
@@ -139,7 +145,8 @@ namespace SistemaEstudiantes
 
             cboxColegiosGrande.Enabled = false;
             btnSelecExcel.Enabled = true;
-            btnRefresh.Enabled = true;
+            btnSelecExcel.BackColor = System.Drawing.Color.DodgerBlue;
+
         }
 
         private void btnSelecExcel_Click(object sender, EventArgs e)
@@ -175,6 +182,9 @@ namespace SistemaEstudiantes
                     }
 
                 }
+                lblIngresando.Visible = true;
+                lblIngresando.Refresh();
+                
                 //llena el dgv con el contenido del dataset
                 int row;
 
@@ -239,6 +249,11 @@ namespace SistemaEstudiantes
                 {
                     MessageBox.Show("El archivo excel que quiere cargar esta abierto, debe cerrarlo.", "Sistema Informa");
                 }
+                else if (ex.Message.Contains("No se puede dejar vacío el nombre de la ruta de acceso"))
+                {
+                    MessageBox.Show("No se seleccionó ningún archivo.", "Sistema Informa");
+                    ordenar();
+                }
                 else
                 {
                     MessageBox.Show(Convert.ToString(ex));
@@ -257,14 +272,18 @@ namespace SistemaEstudiantes
             }
             else//si se cargo normalmente
             {
+                btnSelecExcel.BackColor = System.Drawing.Color.Silver;
                 btnSelecExcel.Enabled = false;
                 btnImportar.Enabled = true;
+                btnImportar.BackColor = System.Drawing.Color.DodgerBlue;
             }
+            lblIngresando.Visible = false;            
         }
 
         private void btnImportar_Click(object sender, EventArgs e)
-        {
-            btnImportar.Enabled = false;
+        {            
+            lblCargando.Visible = true;
+            lblCargando.Refresh();          
 
             bool seImporto = false;
 
@@ -339,8 +358,12 @@ namespace SistemaEstudiantes
             if (seImporto == true)
             {
                 MessageBox.Show("Se agrego la planilla correctamente.", "Sistema Informa");
+                btnImportar.BackColor = System.Drawing.Color.Silver;
+                btnImportar.Enabled = false;
                 ordenar();
             }
+            
+            lblCargando.Visible = false;
         }
         private void btnVolver_Click(object sender, EventArgs e)
         {
@@ -362,6 +385,15 @@ namespace SistemaEstudiantes
         private void btnRefresh_MouseLeave(object sender, EventArgs e)
         {
             btnRefresh.BackColor = System.Drawing.Color.DodgerBlue;
+        }
+        private void btnSelecExcel_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnSelecExcel.BackColor = System.Drawing.Color.DimGray;
+        }
+
+        private void btnSelecExcel_MouseLeave(object sender, EventArgs e)
+        {
+            btnSelecExcel.BackColor = System.Drawing.Color.DodgerBlue;
         }
 
         private void btnImportar_MouseMove(object sender, MouseEventArgs e)
@@ -393,6 +425,6 @@ namespace SistemaEstudiantes
         {
             btnSalir.BackColor = System.Drawing.Color.DodgerBlue;
 
-        }
+        }      
     }
 }
