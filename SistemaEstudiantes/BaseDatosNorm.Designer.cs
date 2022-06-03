@@ -455,7 +455,7 @@ namespace SistemaEstudiantes
             this.MaximizeBox = false;
             this.Name = "BaseDatosNorm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Base de Datos";
+            this.Text = "Sistema Supervisión";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBD)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

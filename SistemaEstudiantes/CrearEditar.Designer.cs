@@ -376,7 +376,7 @@ namespace SistemaEstudiantes
             this.MaximizeBox = false;
             this.Name = "CrearEditar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Crear - editar usuarios";
+            this.Text = "Sistema Supervisión";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuarios)).EndInit();

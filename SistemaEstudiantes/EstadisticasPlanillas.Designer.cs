@@ -221,6 +221,7 @@ namespace SistemaEstudiantes
             // EstadisticasPlanillas
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1346, 725);
             this.Controls.Add(this.btnEliminarPoli);
             this.Controls.Add(this.btnEliminar);
@@ -230,9 +231,10 @@ namespace SistemaEstudiantes
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Arial", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EstadisticasPlanillas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EstadisticasPlanillas";
+            this.Text = "Sistema Supervisión";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);

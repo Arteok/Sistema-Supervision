@@ -541,7 +541,7 @@ namespace SistemaEstudiantes
             this.MaximizeBox = false;
             this.Name = "Normativa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Normativa";
+            this.Text = "Sistema Supervisión";
             ((System.ComponentModel.ISupportInitialize)(this.dataGVBusqueda)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

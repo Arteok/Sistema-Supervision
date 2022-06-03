@@ -53,8 +53,8 @@ namespace SistemaEstudiantes
             this.btnSelecExcel = new System.Windows.Forms.Button();
             this.myDataGridView = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblCargando = new System.Windows.Forms.Label();
             this.lblIngresando = new System.Windows.Forms.Label();
+            this.lblCargando = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myDataGridView)).BeginInit();
@@ -369,15 +369,6 @@ namespace SistemaEstudiantes
             this.panel1.Size = new System.Drawing.Size(1320, 140);
             this.panel1.TabIndex = 64;
             // 
-            // lblCargando
-            // 
-            this.lblCargando.AutoSize = true;
-            this.lblCargando.Location = new System.Drawing.Point(1110, 122);
-            this.lblCargando.Name = "lblCargando";
-            this.lblCargando.Size = new System.Drawing.Size(63, 14);
-            this.lblCargando.TabIndex = 89;
-            this.lblCargando.Text = "Cargando...";
-            // 
             // lblIngresando
             // 
             this.lblIngresando.AutoSize = true;
@@ -386,6 +377,15 @@ namespace SistemaEstudiantes
             this.lblIngresando.Size = new System.Drawing.Size(70, 14);
             this.lblIngresando.TabIndex = 90;
             this.lblIngresando.Text = "Ingresando...";
+            // 
+            // lblCargando
+            // 
+            this.lblCargando.AutoSize = true;
+            this.lblCargando.Location = new System.Drawing.Point(1110, 122);
+            this.lblCargando.Name = "lblCargando";
+            this.lblCargando.Size = new System.Drawing.Size(63, 14);
+            this.lblCargando.TabIndex = 89;
+            this.lblCargando.Text = "Cargando...";
             // 
             // EstadisticasCargar
             // 
@@ -398,9 +398,10 @@ namespace SistemaEstudiantes
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Arial", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EstadisticasCargar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Cargar Estadísticas";
+            this.Text = "Sistema Supervisión";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

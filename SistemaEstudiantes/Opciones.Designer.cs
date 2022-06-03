@@ -234,7 +234,7 @@ namespace SistemaEstudiantes
             this.MaximizeBox = false;
             this.Name = "Opciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Opciones";
+            this.Text = "Sistema Supervisión";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);

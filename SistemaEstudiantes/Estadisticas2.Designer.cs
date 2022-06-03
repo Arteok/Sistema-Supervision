@@ -60,6 +60,8 @@ namespace SistemaEstudiantes
             this.cboxDepto = new System.Windows.Forms.ComboBox();
             this.cboxColegiosUshuaia = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.lblDescargas = new System.Windows.Forms.Label();
             this.lblAbriendo = new System.Windows.Forms.Label();
@@ -70,16 +72,14 @@ namespace SistemaEstudiantes
             this.cboxAñoEst = new System.Windows.Forms.ComboBox();
             this.btnVerEstadistica = new System.Windows.Forms.Button();
             this.cboxPeriodoEst = new System.Windows.Forms.ComboBox();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.myDataGridView)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -158,9 +158,9 @@ namespace SistemaEstudiantes
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(40, 20);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(532, 32);
+            this.label4.Size = new System.Drawing.Size(541, 32);
             this.label4.TabIndex = 11;
-            this.label4.Text = "Matriculas por orientación y/o especialidad";
+            this.label4.Text = "Matriculas por Orientación y/o Especialidad";
             // 
             // btnRefresh
             // 
@@ -480,6 +480,25 @@ namespace SistemaEstudiantes
             this.panel1.Size = new System.Drawing.Size(450, 210);
             this.panel1.TabIndex = 111;
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.SystemColors.Control;
+            this.panel5.Controls.Add(this.label10);
+            this.panel5.Location = new System.Drawing.Point(126, 20);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(200, 23);
+            this.panel5.TabIndex = 107;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial", 12.25F);
+            this.label10.Location = new System.Drawing.Point(2, 2);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(195, 19);
+            this.label10.TabIndex = 75;
+            this.label10.Text = "Generador de Estadística";
+            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -607,25 +626,6 @@ namespace SistemaEstudiantes
             this.cboxPeriodoEst.TabIndex = 67;
             this.cboxPeriodoEst.SelectedIndexChanged += new System.EventHandler(this.cboxPeriodoEst_SelectedIndexChanged);
             // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.SystemColors.Control;
-            this.panel5.Controls.Add(this.label10);
-            this.panel5.Location = new System.Drawing.Point(126, 20);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(200, 23);
-            this.panel5.TabIndex = 107;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.label10.Location = new System.Drawing.Point(2, 2);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(195, 19);
-            this.label10.TabIndex = 75;
-            this.label10.Text = "Generador de Estadística";
-            // 
             // Estadisticas2
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -638,6 +638,7 @@ namespace SistemaEstudiantes
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Arial", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(58, 75);
             this.Name = "Estadisticas2";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -652,12 +653,12 @@ namespace SistemaEstudiantes
             this.panel4.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }

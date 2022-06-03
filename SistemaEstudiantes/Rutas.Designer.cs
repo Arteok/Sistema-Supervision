@@ -202,7 +202,7 @@ namespace SistemaEstudiantes
             this.MinimizeBox = false;
             this.Name = "Rutas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Rutas";
+            this.Text = "Sistema Supervisión";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

@@ -55,6 +55,7 @@ namespace SistemaEstudiantes
             this.btnCrearEstadistica = new System.Windows.Forms.Button();
             this.btnCrearExcel = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnDeclaracion = new System.Windows.Forms.Button();
             this.cboxColegiosGrande = new System.Windows.Forms.ComboBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
@@ -413,6 +414,7 @@ namespace SistemaEstudiantes
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel3.Controls.Add(this.btnDeclaracion);
             this.panel3.Controls.Add(this.cboxColegiosGrande);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Controls.Add(this.label8);
@@ -428,6 +430,21 @@ namespace SistemaEstudiantes
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(450, 210);
             this.panel3.TabIndex = 91;
+            // 
+            // btnDeclaracion
+            // 
+            this.btnDeclaracion.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnDeclaracion.Font = new System.Drawing.Font("Arial", 10.25F);
+            this.btnDeclaracion.ForeColor = System.Drawing.Color.White;
+            this.btnDeclaracion.Image = global::SistemaEstudiantes.Properties.Resources.Declaracion;
+            this.btnDeclaracion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeclaracion.Location = new System.Drawing.Point(263, 155);
+            this.btnDeclaracion.Name = "btnDeclaracion";
+            this.btnDeclaracion.Size = new System.Drawing.Size(140, 40);
+            this.btnDeclaracion.TabIndex = 75;
+            this.btnDeclaracion.Text = "      Ver Declaración";
+            this.btnDeclaracion.UseVisualStyleBackColor = false;
+            this.btnDeclaracion.Click += new System.EventHandler(this.btnDeclaracion_Click);
             // 
             // cboxColegiosGrande
             // 
@@ -503,11 +520,11 @@ namespace SistemaEstudiantes
             this.btnVerPlanilla.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnVerPlanilla.Font = new System.Drawing.Font("Arial", 10.25F);
             this.btnVerPlanilla.ForeColor = System.Drawing.Color.White;
-            this.btnVerPlanilla.Image = global::SistemaEstudiantes.Properties.Resources.Declaracion;
+            this.btnVerPlanilla.Image = global::SistemaEstudiantes.Properties.Resources.planillaSist;
             this.btnVerPlanilla.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVerPlanilla.Location = new System.Drawing.Point(165, 156);
+            this.btnVerPlanilla.Location = new System.Drawing.Point(53, 155);
             this.btnVerPlanilla.Name = "btnVerPlanilla";
-            this.btnVerPlanilla.Size = new System.Drawing.Size(120, 40);
+            this.btnVerPlanilla.Size = new System.Drawing.Size(140, 40);
             this.btnVerPlanilla.TabIndex = 65;
             this.btnVerPlanilla.Text = "   Ver Planilla";
             this.btnVerPlanilla.UseVisualStyleBackColor = false;
@@ -639,6 +656,7 @@ namespace SistemaEstudiantes
             this.Controls.Add(this.myDataGridView);
             this.Font = new System.Drawing.Font("Arial", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Estadisticas1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema Supervisión";
@@ -704,5 +722,6 @@ namespace SistemaEstudiantes
         private System.Windows.Forms.ComboBox cboxColegiosGrande;
         private System.Windows.Forms.Label lblAbriendo;
         private System.Windows.Forms.Label lblDescargas;
+        private System.Windows.Forms.Button btnDeclaracion;
     }
 }

@@ -167,7 +167,7 @@ namespace SistemaEstudiantes
             // 
             this.myDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.myDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.myDataGridView.Location = new System.Drawing.Point(99, 354);
+            this.myDataGridView.Location = new System.Drawing.Point(13, 328);
             this.myDataGridView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.myDataGridView.Name = "myDataGridView";
             this.myDataGridView.Size = new System.Drawing.Size(1320, 385);
@@ -322,9 +322,10 @@ namespace SistemaEstudiantes
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Arial", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EstadisticasEliminar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Eliminar Estadísticas";
+            this.Text = "Sistema Supervisión";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.myDataGridView)).EndInit();
