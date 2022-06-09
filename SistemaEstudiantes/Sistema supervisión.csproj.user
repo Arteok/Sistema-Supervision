@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <PublishUrlHistory>\\server\Compartida\Sistema\Instaladores Supervisión\Sistema Supervision\|\\server\Instrumentos Legales\BDatos\Db\|publish\</PublishUrlHistory>
+    <PublishUrlHistory>\\server\BASES\Instalador Sist. Supervision\|\\server\Sistema\Instaladores Supervisión\Sistema Supervision\|\\server\Compartida\Sistema\Instaladores Supervisión\Sistema Supervision\|\\server\Instrumentos Legales\BDatos\Db\|publish\</PublishUrlHistory>
     <InstallUrlHistory />
     <SupportUrlHistory />
-    <UpdateUrlHistory>\\server\Instrumentos Legales\BDatos\Db\</UpdateUrlHistory>
+    <UpdateUrlHistory>\\server\BASES\Instalador Sist. Supervision\|\\server\Compartida\Sistema\Instaladores Supervisión\Sistema Supervision\|\\server\Instrumentos Legales\BDatos\Db\</UpdateUrlHistory>
     <BootstrapperUrlHistory />
     <ErrorReportUrlHistory />
     <FallbackCulture>es-ES</FallbackCulture>

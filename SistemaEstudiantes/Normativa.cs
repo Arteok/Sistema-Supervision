@@ -252,7 +252,7 @@ namespace SistemaEstudiantes
             try
             {
                 Process proceso = new Process();                     
-                proceso.StartInfo.FileName = @"\\server\Compartida\Sistema\BDSistema Supervision\Resoluciones PDF\" + tbxNormaSelec.Text + ".pdf";
+                proceso.StartInfo.FileName = @"\\server\BASES\Sistema\BDSistema Supervision\Resoluciones PDF\" + tbxNormaSelec.Text + ".pdf";
                 //string pdfAbrir = "C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 15 -11\SistemaEstudiantes\carpetaPDF\" + tbxNormaSelec.Text + (".pdf");.pdf
                 proceso.Start();
                 

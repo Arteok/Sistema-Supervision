@@ -10,8 +10,9 @@ namespace SistemaEstudiantes
 {
     class Colegios
     {
-        OleDbConnection conexionBaseDatos = new OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0; Data Source = |DataDirectory|BDNormativa.mdb");  //variable que recibe la direccion de la base de datos
-        
+        //OleDbConnection conexionBaseDatos = new OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0; Data Source = |DataDirectory|BDNormativa.mdb");  //variable que recibe la direccion de la base de datos
+        OleDbConnection conexionBaseDatos = new OleDbConnection(@"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = \\server\BASES\Sistema\BDSistema Supervision\BDSistSupervision.mdb");
+
         string[,] ushuaiaColegios = new string[3, 25];//nombre,posicion,nombreAbreviado de los colegios de ushuaia ##tomo como cantidad maxima 25 colegios por depto
         string[,] grandeColegios = new string[3, 25];//nombre,posicion,nombreAbreviado de los colegios de rio grande
         int numColegiosUshuaia;

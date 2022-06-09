@@ -73,6 +73,7 @@ namespace SistemaEstudiantes
             this.label11 = new System.Windows.Forms.Label();
             this.btnVerEstadistica = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
+            this.lblAbriendoDec = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.myDataGridView)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -414,6 +415,7 @@ namespace SistemaEstudiantes
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel3.Controls.Add(this.lblAbriendoDec);
             this.panel3.Controls.Add(this.btnDeclaracion);
             this.panel3.Controls.Add(this.cboxColegiosGrande);
             this.panel3.Controls.Add(this.panel4);
@@ -445,6 +447,8 @@ namespace SistemaEstudiantes
             this.btnDeclaracion.Text = "      Ver Declaración";
             this.btnDeclaracion.UseVisualStyleBackColor = false;
             this.btnDeclaracion.Click += new System.EventHandler(this.btnDeclaracion_Click);
+            this.btnDeclaracion.MouseLeave += new System.EventHandler(this.btnDeclaracion_MouseLeave);
+            this.btnDeclaracion.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnDeclaracion_MouseMove);
             // 
             // cboxColegiosGrande
             // 
@@ -644,6 +648,16 @@ namespace SistemaEstudiantes
             this.btnRefresh.MouseLeave += new System.EventHandler(this.btnRefresh_MouseLeave);
             this.btnRefresh.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnRefresh_MouseMove);
             // 
+            // lblAbriendoDec
+            // 
+            this.lblAbriendoDec.AutoSize = true;
+            this.lblAbriendoDec.Location = new System.Drawing.Point(303, 195);
+            this.lblAbriendoDec.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.lblAbriendoDec.Name = "lblAbriendoDec";
+            this.lblAbriendoDec.Size = new System.Drawing.Size(60, 14);
+            this.lblAbriendoDec.TabIndex = 95;
+            this.lblAbriendoDec.Text = "Abriendo...";
+            // 
             // Estadisticas1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -723,5 +737,6 @@ namespace SistemaEstudiantes
         private System.Windows.Forms.Label lblAbriendo;
         private System.Windows.Forms.Label lblDescargas;
         private System.Windows.Forms.Button btnDeclaracion;
+        private System.Windows.Forms.Label lblAbriendoDec;
     }
 }

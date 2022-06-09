@@ -13,9 +13,9 @@ namespace SistemaEstudiantes
 {
     public partial class Form1 : Form
     {
-        OleDbConnection conexionBaseDatos = new OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0; Data Source = |DataDirectory|BDNormativa.mdb");
+        //OleDbConnection conexionBaseDatos = new OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0; Data Source = |DataDirectory|BDNormativa.mdb");
         //OleDbConnection conexionBaseDatos = new OleDbConnection(@"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\bin\Debug\BDNormativa.mdb");
-        //OleDbConnection conexionBaseDatos = new OleDbConnection(@"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = \\server\Compartida\Sistema\BDSistema Supervision\BDSistSupervision.mdb");
+        OleDbConnection conexionBaseDatos = new OleDbConnection(@"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = \\server\BASES\Sistema\BDSistema Supervision\BDSistSupervision.mdb");
 
         string nombreUsuario;
         string permisosUsuario;
@@ -24,14 +24,14 @@ namespace SistemaEstudiantes
         public Form1(string usuario, string permisos, bool logueado)
         {
             InitializeComponent();
-            btnNormativa.Enabled = false;
             btnNormativa.BackColor = Color.Silver;
-            btnPlantas.Enabled = false;
+            btnNormativa.Enabled = false;
             btnPlantas.BackColor = Color.Silver;
-            btnEstadisticas.Enabled = false;
+            btnPlantas.Enabled = false;
             btnEstadisticas.BackColor = Color.Silver;
-            btnOpciones.Enabled = false;
+            btnEstadisticas.Enabled = false;
             btnOpciones.BackColor = Color.Silver;
+            btnOpciones.Enabled = false;            
 
             this.Show();
             //codigo para hacer que 
@@ -77,7 +77,8 @@ namespace SistemaEstudiantes
                 btnNormativa.Enabled = true;
                 btnNormativa.BackColor = Color.DimGray;
                 btnPlantas.Enabled = false;
-                btnEstadisticas.Enabled = false;
+                //btnEstadisticas.BackColor = Color.DimGray;
+                //btnEstadisticas.Enabled = false;
                 btnOpciones.Enabled = true;
                 btnOpciones.BackColor = Color.DimGray;
 
@@ -89,8 +90,9 @@ namespace SistemaEstudiantes
                 btnNormativa.Enabled = true;
                 btnNormativa.BackColor = Color.DimGray;
                 btnPlantas.Enabled = false;
-                btnEstadisticas.Enabled = true;
-                btnEstadisticas.BackColor = Color.DimGray;
+               //btnEstadisticas.BackColor = Color.Silver;
+               // btnEstadisticas.Enabled = false;
+                
                 btnOpciones.Enabled = true;
                 btnOpciones.BackColor = Color.DimGray;
 
@@ -102,9 +104,10 @@ namespace SistemaEstudiantes
                 btnNormativa.Enabled = true;
                 btnNormativa.BackColor = Color.DimGray;
                 btnPlantas.Enabled = false;
-                btnEstadisticas.Enabled = false;
-                btnOpciones.Enabled = true;
-                btnOpciones.BackColor = Color.DimGray;
+               // btnEstadisticas.BackColor = Color.DimGray;
+                //btnEstadisticas.Enabled = false;
+                btnOpciones.Enabled = false;
+                //btnOpciones.BackColor = Color.DimGray;
 
                 opcionesPermisos = false;
                 permisosBD = false;
@@ -114,9 +117,10 @@ namespace SistemaEstudiantes
                 btnNormativa.Enabled = true;
                 btnNormativa.BackColor = Color.DimGray;
                 btnPlantas.Enabled = false;
-                btnEstadisticas.Enabled = false;
-                btnOpciones.Enabled = true;
-                btnOpciones.BackColor = Color.DimGray;
+               // btnEstadisticas.BackColor = Color.DimGray;
+               // btnEstadisticas.Enabled = false;
+                btnOpciones.Enabled = false;
+                //btnOpciones.BackColor = Color.DimGray;
 
                 opcionesPermisos = false;
                 permisosBD = false;
@@ -126,9 +130,10 @@ namespace SistemaEstudiantes
                 btnNormativa.Enabled = true;
                 btnNormativa.BackColor = Color.DimGray;
                 btnPlantas.Enabled = false;
-                btnEstadisticas.Enabled = false;
-                btnOpciones.Enabled = true;
-                btnOpciones.BackColor = Color.DimGray;
+               // btnEstadisticas.BackColor = Color.DimGray;
+               // btnEstadisticas.Enabled = false;
+                btnOpciones.Enabled = false;
+                //btnOpciones.BackColor = Color.DimGray;
 
                 opcionesPermisos = false;
                 permisosBD = false;
@@ -140,10 +145,10 @@ namespace SistemaEstudiantes
                     btnNormativa.Enabled = true;
                     btnNormativa.BackColor = Color.DimGray;
                     btnPlantas.Enabled = false;
-                    btnEstadisticas.Enabled = true;
-                    btnEstadisticas.BackColor = Color.DimGray;
-                    btnOpciones.Enabled = true;
-                    btnOpciones.BackColor = Color.DimGray;
+                   // btnEstadisticas.Enabled = false;
+                    //btnEstadisticas.BackColor = Color.DimGray;
+                    btnOpciones.Enabled = false;
+                    //btnOpciones.BackColor = Color.DimGray;
 
                     opcionesPermisos = false;
                     permisosBD = false;
@@ -153,10 +158,10 @@ namespace SistemaEstudiantes
                     btnNormativa.Enabled = true;
                     btnNormativa.BackColor = Color.DimGray;
                     btnPlantas.Enabled = false;
-                    btnEstadisticas.Enabled = true;
-                    btnEstadisticas.BackColor = Color.DimGray;
-                    btnOpciones.Enabled = true;
-                    btnOpciones.BackColor = Color.DimGray;
+                   // btnEstadisticas.Enabled = false;
+                   // btnEstadisticas.BackColor = Color.DimGray;
+                    btnOpciones.Enabled = false;
+                    //btnOpciones.BackColor = Color.DimGray;
 
                     opcionesPermisos = false;
                     permisosBD = false;

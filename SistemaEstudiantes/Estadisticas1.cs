@@ -21,6 +21,7 @@ namespace SistemaEstudiantes
         int colorPlantilla;//color de los botones.... para que no se buguee
         int colorEstadistica;
         int colorExcel;
+        int colorDecla;
 
         OleDbConnection conexionBaseDatos;//variable que recibe la direccion de la base de datos
         Colegios myColegios;
@@ -111,11 +112,14 @@ namespace SistemaEstudiantes
             cboxColegiosGrande.Visible = true;
             cboxColegiosUshuaia.Enabled = false;
             cboxColegiosGrande.Enabled = false;
-            
-            btnVerPlanilla.BackColor = System.Drawing.Color.Silver;
+
+            btnDeclaracion.BackColor = System.Drawing.Color.Silver;
             btnVerPlanilla.Enabled = false;
 
+            btnVerPlanilla.BackColor = System.Drawing.Color.Silver;
             btnDeclaracion.Enabled = false;
+
+            lblAbriendoDec.Visible = false;
 
             //Ver estadistica
             cboxPeriodoEst.ResetText();
@@ -259,6 +263,8 @@ namespace SistemaEstudiantes
             colorPlantilla = 1;
 
             btnDeclaracion.Enabled = true;
+            btnDeclaracion.BackColor = System.Drawing.Color.DodgerBlue;
+            colorDecla = 1;
         }
 
         private void cboxColegioGrande_SelectedIndexChanged(object sender, EventArgs e)
@@ -272,6 +278,9 @@ namespace SistemaEstudiantes
             btnVerPlanilla.Enabled = true;
             btnVerPlanilla.BackColor = System.Drawing.Color.DodgerBlue;
             colorPlantilla = 1;
+            btnDeclaracion.Enabled = true;
+            btnDeclaracion.BackColor = System.Drawing.Color.DodgerBlue;
+            colorDecla = 1;
         }
         private void btnVerPlanilla_Click(object sender, EventArgs e)
         {
@@ -378,38 +387,51 @@ namespace SistemaEstudiantes
         private void btnDeclaracion_Click(object sender, EventArgs e)
         {
             bool verDescarga = false;
-            lblAbriendo.Visible = true;
-            lblAbriendo.Refresh();
-            /*
-            colorEstadistica = 2; //color par es igual a silver, sirve para que no se bugueee azul
-            //string idUnicoVEst;
-            //string abreColegioVEst;
-            btnVerEstadistica.BackColor = System.Drawing.Color.Silver;
-            btnVerEstadistica.Enabled = false;*/
+            lblAbriendoDec.Visible = true;
+            lblAbriendoDec.Refresh();
+            string userName = Environment.UserName;
+
+            colorDecla = 0;
+            btnDeclaracion.BackColor = System.Drawing.Color.Silver;            
+            btnDeclaracion.Enabled = false;
 
             //try
             //{
-                if (deptoColegio == "Ushuaia")
-                {
-                    string userName = Environment.UserName;
-                    
-                    //string sourceFile = @"//server/Compartida/Sistema/BDSistema Supervision/1-Estadistica Matriculas/Estadisticas Secciones y Estudiantes " + cboxAñoEst.SelectedItem.ToString() + " " + cboxPeriodoEst.SelectedItem.ToString() + ".xlsx";
-                    //string sourceFile = @"C:/Users/Arteok/Desktop/Estadisticas casi final(2)/Estadisticas casi final/Declaraciones/Ushuaia/"+cboxColegiosUshuaia.SelectedItem.ToString() + "_"+ cboxAñoPla.SelectedItem.ToString() + "_" + cboxPeriodoPla.SelectedItem.ToString() + ".xlsx";
-                    string sourceFile = @"C:/Users/Arteok/Downloads/Prueba/" + cboxColegiosUshuaia.SelectedItem.ToString() + " " + cboxAñoPla.SelectedItem.ToString() + " " + cboxPeriodoPla.SelectedItem.ToString() + ".xlsx";
+            if (deptoColegio == "Ushuaia")
+            {
 
-                //string destinationFile = @"C:/Users/" + userName + "/Downloads/" + cboxColegiosUshuaia.SelectedItem.ToString() + " " + cboxAñoPla.SelectedItem.ToString() + " " + cboxPeriodoPla.SelectedItem.ToString() + ".xlsx";
-                string destinationFile = @"C:/Users/Arteok/Downloads/" + cboxColegiosUshuaia.SelectedItem.ToString() + " " + cboxAñoPla.SelectedItem.ToString() + " " + cboxPeriodoPla.SelectedItem.ToString() + ".xlsx";
 
-                    // To move a file or folder to a new location: C:\Users\Arteok\Downloads
-                    System.IO.File.Copy(sourceFile, destinationFile, true);//true es importante para que los sobre escriba       
+                string sourceFile = @"//server/BASES/Sistema/BDSistema Supervision/Declaraciones/Ushuaia/" + cboxAñoPla.SelectedItem.ToString() + "/" + cboxColegiosUshuaia.SelectedItem.ToString() + " " + cboxAñoPla.SelectedItem.ToString() + " " + cboxPeriodoPla.SelectedItem.ToString() + ".xlsx";
 
-                    Process proceso = new Process();
-                    proceso.StartInfo.FileName = destinationFile;
+                string destinationFile = @"C:/Users/" + userName + "/Downloads/" + cboxColegiosUshuaia.SelectedItem.ToString() + " " + cboxAñoPla.SelectedItem.ToString() + " " + cboxPeriodoPla.SelectedItem.ToString() + ".xlsx";
 
-                    proceso.Start();
-                    lblAbriendo.Visible = true;
-                    lblAbriendo.Refresh();
-                }                  
+                // To move a file or folder to a new location: C:\Users\Arteok\Downloads
+                System.IO.File.Copy(sourceFile, destinationFile, true);//true es importante para que los sobre escriba       
+
+                Process proceso = new Process();
+                proceso.StartInfo.FileName = destinationFile;
+
+                proceso.Start();
+                lblAbriendoDec.Visible = false;
+                lblAbriendoDec.Refresh();
+            }
+            else
+            {
+                string sourceFile = @"//server/BASES/Sistema/BDSistema Supervision/Declaraciones/Rio Grande/" + cboxAñoPla.SelectedItem.ToString() + "/" + cboxColegiosGrande.SelectedItem.ToString() + " " + cboxAñoPla.SelectedItem.ToString() + " " + cboxPeriodoPla.SelectedItem.ToString() + ".xlsx";
+
+                string destinationFile = @"C:/Users/" + userName + "/Downloads/" + cboxColegiosGrande.SelectedItem.ToString() + " " + cboxAñoPla.SelectedItem.ToString() + " " + cboxPeriodoPla.SelectedItem.ToString() + ".xlsx";
+
+                // To move a file or folder to a new location: C:\Users\Arteok\Downloads
+                System.IO.File.Copy(sourceFile, destinationFile, true);//true es importante para que los sobre escriba       
+
+                Process proceso = new Process();
+                proceso.StartInfo.FileName = destinationFile;
+
+                proceso.Start();
+                lblAbriendoDec.Visible = false;
+                lblAbriendoDec.Refresh();
+
+            }
             //}
 
            /* catch (Exception ex)
@@ -478,14 +500,14 @@ namespace SistemaEstudiantes
             {
                 string userName = Environment.UserName;
 
-                string sourceFile = @"//server/Compartida/Sistema/BDSistema Supervision/1-Estadistica Matriculas/Estadisticas Secciones y Estudiantes " + cboxAñoEst.SelectedItem.ToString() + " " + cboxPeriodoEst.SelectedItem.ToString() + ".xlsx";
+                string sourceFile = @"//server/BASES/Sistema/BDSistema Supervision/1-Estadistica Matriculas/Estadisticas Secciones y Estudiantes " + cboxAñoEst.SelectedItem.ToString() + " " + cboxPeriodoEst.SelectedItem.ToString() + ".xlsx";
                 string destinationFile = @"C:/Users/" + userName + "/Downloads/Estadisticas Secciones y Estudiantes " + cboxAñoEst.SelectedItem.ToString() + " " + cboxPeriodoEst.SelectedItem.ToString() + ".xlsx";
 
                 // To move a file or folder to a new location:
                 System.IO.File.Copy(sourceFile, destinationFile,true);//true es importante para que los sobre escriba       
                 
                 Process proceso = new Process();
-                proceso.StartInfo.FileName = @"C:/Users/" + userName + "/Downloads/Estadisticas Secciones y Estudiantes " + cboxAñoEst.SelectedItem.ToString() + " " + cboxPeriodoEst.SelectedItem.ToString() + ".xlsx";
+                proceso.StartInfo.FileName = destinationFile;
                               
                 proceso.Start();
                 lblAbriendo.Visible = true;
@@ -884,13 +906,23 @@ namespace SistemaEstudiantes
             colorExcel = 6; //color par es igual a silver, sirve para que no se bugueee azul            
             btnCrearExcel.BackColor = System.Drawing.Color.Silver;
             btnCrearExcel.Enabled = false;
-
+            
             try
             {
                 //creando Estadisticas
+                string userName = Environment.UserName;
+
+                string sourceFile = @"//server/BASES/Sistema/BDSistema Supervision/1-Estadistica Matriculas/Estadisticas Secciones y Estudiantes " + cboxAño.SelectedItem.ToString() + " " + cboxPeriodo.SelectedItem.ToString() + ".xlsx";
+                //string sourceFile = @"C:/Users/Arteok/Desktop/Estadisticas casi final(2)/Estadisticas casi final/Declaraciones/Ushuaia/"+cboxColegiosUshuaia.SelectedItem.ToString() + "_"+ cboxAñoPla.SelectedItem.ToString() + "_" + cboxPeriodoPla.SelectedItem.ToString() + ".xlsx";
+                //string sourceFile = @"C:/Users/Arteok/Downloads/Prueba/" + cboxColegiosUshuaia.SelectedItem.ToString() + " " + cboxAñoPla.SelectedItem.ToString() + " " + cboxPeriodoPla.SelectedItem.ToString() + ".xlsx";
+
+                string destinationFile = @"C:/Users/" + userName + "/Downloads/" + cboxColegiosUshuaia.SelectedItem.ToString() + " " + cboxAño.SelectedItem.ToString() + " " + cboxPeriodo.SelectedItem.ToString() + ".xlsx";
+                //string destinationFile = @"C:/Users/Arteok/Downloads/" + cboxColegiosUshuaia.SelectedItem.ToString() + " " + cboxAñoPla.SelectedItem.ToString() + " " + cboxPeriodoPla.SelectedItem.ToString() + ".xlsx";
+
+                
                 SLDocument sl = new SLDocument();
                 //string pathFile = @"C:\Users\Pablo\Downloads\Prueba\Estadisticas Secciones y Estudiantes " + cboxAño.SelectedItem.ToString() + " " + cboxPeriodo.SelectedItem.ToString() + ".xlsx";
-                string pathFile = @"C:\Users\Arteok\Downloads\Prueba\Estadisticas Secciones y Estudiantes " + cboxAño.SelectedItem.ToString() + " " + cboxPeriodo.SelectedItem.ToString() + ".xlsx";
+                string pathFile = destinationFile;
                 
                 sl.RenameWorksheet(SLDocument.DefaultFirstSheetName, "Secciones y estudiantes");//renombra la Hoja
 
@@ -2039,6 +2071,22 @@ namespace SistemaEstudiantes
             {
                 btnVerPlanilla.BackColor = System.Drawing.Color.DodgerBlue;
             }            
+        }
+        private void btnDeclaracion_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnDeclaracion.BackColor = System.Drawing.Color.DimGray;
+        }
+
+        private void btnDeclaracion_MouseLeave(object sender, EventArgs e)
+        {
+            if (colorDecla == 0)//unica forma de que funcione
+            {
+                btnDeclaracion.BackColor = System.Drawing.Color.Silver;
+            }
+            else if (colorDecla == 1)
+            {
+                btnDeclaracion.BackColor = System.Drawing.Color.DodgerBlue;
+            }
         }
 
         private void btnVerEstadistica_MouseMove(object sender, MouseEventArgs e)
