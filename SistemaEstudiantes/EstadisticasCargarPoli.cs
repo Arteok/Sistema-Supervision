@@ -16,7 +16,8 @@ namespace SistemaEstudiantes
     public partial class EstadisticasCargarPoli : Form
     {
         OleDbConnection conexionBaseDatos;//variable que recibe la direccion de la base de datos
-        OleDbCommand sqlComando;      
+        OleDbCommand sqlComando;
+        string ruta;
 
         string nombreUsuario;
         string tipoUsuario;
@@ -50,6 +51,8 @@ namespace SistemaEstudiantes
         }
         private void ordenar()
         {
+            ruta = "";
+
             plantillaRepetida = false;
 
             abreColegio = "";
@@ -167,8 +170,7 @@ namespace SistemaEstudiantes
                 myDataTableColegios.Columns.Add(new DataColumn("Matrícula", typeof(int)));
 
                 //para seleccionarlo manualmente
-                string nombreHoja = "Sheet1";
-                string ruta = "";
+                string nombreHoja = "Sheet1";                
 
                 OpenFileDialog myOpenFileDialog = new OpenFileDialog();
                 myOpenFileDialog.Filter = "Excel Files |* .xlsx";
@@ -307,7 +309,7 @@ namespace SistemaEstudiantes
             for (int i = 0; Convert.ToInt32(myDataGridView.Rows[i].Cells[0].Value) > 0; i++)   //revisa en la primer columna que en la celda el valor sea mayor a 0              
             {
                 string queryAgregar = "INSERT INTO PlanillasxOrientacion VALUES (@Año, @Periodo, @Depto, @ColegioSelect, @Sección, @División, " +
-                    "@Turno, @Orientación, @Perfil, @Horas, @Pedagógica, @Presupuestaria, @Matriculas, @ColegioIngre, @IdUnico, @Fecha, @NumOrdenColegio)";
+                    "@Turno, @Orientación, @Perfil, @Horas, @Pedagógica, @Presupuestaria, @Matriculas, @ColegioIngre, @IdUnico, @Fecha, @NumOrdenColegio, @RutaPlanilla)";
                 sqlComando = new OleDbCommand(queryAgregar, conexionBaseDatos);
 
                 sqlComando.Parameters.AddWithValue("@Año", año);
@@ -329,6 +331,7 @@ namespace SistemaEstudiantes
                 sqlComando.Parameters.AddWithValue("@IdUnico", idUnico);
                 sqlComando.Parameters.AddWithValue("@Fecha", fecha);
                 sqlComando.Parameters.AddWithValue("@NumOrdenColegio", numOrden);
+                sqlComando.Parameters.AddWithValue("@RutaPlanilla", ruta);
 
                 try
                 {

@@ -18,6 +18,7 @@ namespace SistemaEstudiantes
         OleDbConnection conexionBaseDatos;//variable que recibe la direccion de la base de datos
         OleDbCommand sqlComando;
         Colegios myColegios;
+        string ruta;
 
         int colorBtnExcel;
         int colorImportar;
@@ -53,7 +54,8 @@ namespace SistemaEstudiantes
             nombreUsuario = usuario;
             tipoUsuario = permisos;
             logueadoUsuario = logueado;
-            conexionBaseDatos = conexionBD;                       
+            conexionBaseDatos = conexionBD;
+            
 
             if (colegiosCreados == false)
             {
@@ -77,6 +79,8 @@ namespace SistemaEstudiantes
         }
         private void ordenar()
         {
+            ruta = "";
+
             plantillaIngresada = false;
             planillaSelec = true;
 
@@ -186,6 +190,7 @@ namespace SistemaEstudiantes
             cboxColegiosUshuaia.Enabled = false;
             btnSelecExcel.Enabled = true;
             btnSelecExcel.BackColor = System.Drawing.Color.DodgerBlue;
+            colorBtnExcel = 1;
         }
 
         private void cboxColegiosGrande_SelectedIndexChanged(object sender, EventArgs e)
@@ -219,8 +224,7 @@ namespace SistemaEstudiantes
             myDataTableColegios.Columns.Add(new DataColumn("Presupuestaria", typeof(string)));
             myDataTableColegios.Columns.Add(new DataColumn("Matrícula", typeof(int)));
 
-            string nombreHoja = "Sheet1";
-            string ruta = "";
+            string nombreHoja = "Sheet1";            
 
             try
             {
@@ -364,7 +368,7 @@ namespace SistemaEstudiantes
                 idNum = idUnico + Convert.ToString(i + 1);
                 
                 string queryAgregar = "INSERT INTO Planilla VALUES (@Año, @Periodo, @Depto, @ColegioSelect, @Sección, @División, " +
-                "@Turno, @Orientación, @Horas, @Pedagógica, @Presupuestaria, @Matriculas, @ColegioIngre, @IdUnico,@Fecha, @NumOrdenColegio)";
+                "@Turno, @Orientación, @Horas, @Pedagógica, @Presupuestaria, @Matriculas, @ColegioIngre, @IdUnico,@Fecha, @NumOrdenColegio, @RutaPlanilla)";
                 sqlComando = new OleDbCommand(queryAgregar, conexionBaseDatos);
 
                 sqlComando.Parameters.AddWithValue("@Año", año);
@@ -385,6 +389,7 @@ namespace SistemaEstudiantes
                 sqlComando.Parameters.AddWithValue("@IdUnico", idUnico);
                 sqlComando.Parameters.AddWithValue("@Fecha", fecha);
                 sqlComando.Parameters.AddWithValue("@NumOrdenColegio", numOrden);
+                sqlComando.Parameters.AddWithValue("@RutaPlanilla", ruta);
 
                 try
                 {
@@ -439,7 +444,7 @@ namespace SistemaEstudiantes
         {   
             if (colorBtnExcel == 0)//unica forma de que funcione
             {
-                btnSelecExcel.BackColor = System.Drawing.Color.Silver;
+                btnSelecExcel.BackColor = System.Drawing.Color.DimGray;
             }
             else if (colorBtnExcel == 1)
             {
@@ -483,6 +488,6 @@ namespace SistemaEstudiantes
         {
             btnSalir.BackColor = System.Drawing.Color.DodgerBlue;
         }
-        
+       
     }
 }

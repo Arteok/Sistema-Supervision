@@ -20,6 +20,7 @@ namespace SistemaEstudiantes
         int colorPlantilla;//color de los botones.... para que no se buguee.... colores pares son gris
         int colorEstadistica;
         int colorExcel;
+        int colorDecla;
 
         OleDbConnection conexionBaseDatos;//variable que recibe la direccion de la base de datos
         Colegios myColegios;
@@ -69,6 +70,8 @@ namespace SistemaEstudiantes
             conexionBaseDatos = conexionBD;
             lblNombre.Text = usuario;
 
+            myDataGridView1.Visible = false;
+
             idUnico = "";
 
             ordenar();
@@ -109,6 +112,10 @@ namespace SistemaEstudiantes
             btnVerPlanilla.BackColor = System.Drawing.Color.Silver;
             btnVerPlanilla.Enabled = false;
 
+            btnDeclaracion.BackColor = System.Drawing.Color.Silver;
+            btnDeclaracion.Enabled = false;
+
+            lblAbriendoDec.Visible = false;
             //Ver estadistica
             cboxPeriodoEst.ResetText();
             cboxAñoEst.ResetText();
@@ -245,6 +252,9 @@ namespace SistemaEstudiantes
             btnVerPlanilla.Enabled = true;
             btnVerPlanilla.BackColor = System.Drawing.Color.DodgerBlue;
             colorPlantilla = 1;
+            btnDeclaracion.Enabled = true;
+            btnDeclaracion.BackColor = System.Drawing.Color.DodgerBlue;
+            colorDecla = 1;
         }
         private void cboxColegiosGrande_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -257,6 +267,9 @@ namespace SistemaEstudiantes
             btnVerPlanilla.Enabled = true;
             btnVerPlanilla.BackColor = System.Drawing.Color.DodgerBlue;
             colorPlantilla = 1;
+            btnDeclaracion.Enabled = true;
+            btnDeclaracion.BackColor = System.Drawing.Color.DodgerBlue;
+            colorDecla = 1;
         }
         private void btnVerPlanilla_Click(object sender, EventArgs e)
         {
@@ -308,6 +321,23 @@ namespace SistemaEstudiantes
                     {
                         MessageBox.Show("Problema con la red.", "Sistema Informa");
                     }
+                    if (ex.Message.Contains("no es una ruta de acceso válida"))
+                    {
+                        MessageBox.Show("Problema con la red.", "Sistema Informa");
+                    }
+
+                    else if (ex.Message.Contains("porque está siendo utilizado en otro proceso"))
+                    {
+                        MessageBox.Show("El archivo excel que quiere cargar esta abierto, debe cerrarlo.", "Sistema Informa");
+                    }
+                    else if (ex.Message.Contains("datos duplicados"))// revisa en el mensaje de la excepcion si el error es por norma duplicada
+                    {
+                        MessageBox.Show("Datos duplicados en abse de datos.", "Sistema Informa");
+                    }
+                    else
+                    {
+                        MessageBox.Show(Convert.ToString(ex));
+                    }
                 }
             }
             else if (deptoColegio == "Grande")
@@ -357,9 +387,189 @@ namespace SistemaEstudiantes
                     {
                         MessageBox.Show("Problema con la red.", "Sistema Informa");
                     }
+                    if (ex.Message.Contains("no es una ruta de acceso válida"))
+                    {
+                        MessageBox.Show("Problema con la red.", "Sistema Informa");
+                    }
+
+                    else if (ex.Message.Contains("porque está siendo utilizado en otro proceso"))
+                    {
+                        MessageBox.Show("El archivo excel que quiere cargar esta abierto, debe cerrarlo.", "Sistema Informa");
+                    }
+                    else if (ex.Message.Contains("datos duplicados"))// revisa en el mensaje de la excepcion si el error es por norma duplicada
+                    {
+                        MessageBox.Show("Datos duplicados en abse de datos.", "Sistema Informa");
+                    }
+                    else
+                    {
+                        MessageBox.Show(Convert.ToString(ex));
+                    }
                 }
             }
         }
+        private void btnDeclaracion_Click(object sender, EventArgs e)
+        {
+            bool verDescarga = false;
+            lblAbriendoDec.Visible = true;
+            lblAbriendoDec.Refresh();
+            string userName = Environment.UserName;
+            string idUnicoVPla;
+            string abreColegioVPla;
+            string rutaInicio = "";
+
+            colorDecla = 0;
+            btnDeclaracion.BackColor = System.Drawing.Color.Silver;
+            btnDeclaracion.Enabled = false;
+
+
+            if (deptoColegio == "Ushuaia")
+            {
+                idUnicoVPla = cboxAñoPla.SelectedItem.ToString();//Se calcula sumando 3 variables
+                abreColegioVPla = ushuaiaColegios[1, cboxColegiosUshuaia.SelectedIndex];
+                if (cboxPeriodoPla.SelectedItem.ToString() == "Marzo")
+                {
+                    idUnicoVPla = idUnicoVPla + "M";
+                }
+                else
+                {
+                    idUnicoVPla = idUnicoVPla + "S";
+                }
+                idUnicoVPla = idUnicoVPla + abreColegioVPla;//termina aca sumando la ultima parte  
+
+                cboxColegiosUshuaia.Enabled = false;
+
+                try
+                {
+                    DataTable miDataTable = new DataTable();
+
+                    string queryCargarBD = "SELECT RutaPlanilla FROM Planilla WHERE IdUnico = @Buscar";
+                    OleDbCommand sqlComando = new OleDbCommand(queryCargarBD, conexionBaseDatos);
+                    sqlComando.Parameters.AddWithValue("@idBuscar", idUnicoVPla);
+
+                    OleDbDataAdapter miDataAdapter = new OleDbDataAdapter(sqlComando);
+                    miDataAdapter.Fill(miDataTable);
+                    myDataGridView1.DataSource = miDataTable;
+                    rutaInicio = Convert.ToString(myDataGridView1.Rows[0].Cells[0].Value);
+                    myDataGridView1.DataSource = null;//reinicia datagv
+                    myDataGridView1.Rows.Clear();
+                    myDataGridView1.Refresh();
+
+                    if ((rutaInicio == ""))//revisa si hay se ha encontrado algo... esta escrito de esta forma sino tiraba error critico
+                    {
+                        MessageBox.Show("No se encontró ninguna planilla para los parámetros especificados.", "Sistema Informa");
+                        lblAbriendoDec.Visible = false;
+                        lblAbriendoDec.Refresh();
+
+                    }
+                    else
+                    {
+                        string destinationFile = @"C:/Users/" + userName + "/Downloads/" + cboxColegiosUshuaia.SelectedItem.ToString() + " " + cboxAñoPla.SelectedItem.ToString() + " " + cboxPeriodoPla.SelectedItem.ToString() + ".xlsx";
+
+                        System.IO.File.Copy(rutaInicio, destinationFile, true);//true es importante para que los sobre escriba       
+
+                        Process proceso = new Process();
+                        proceso.StartInfo.FileName = destinationFile;
+
+                        proceso.Start();
+                        lblAbriendoDec.Visible = false;
+                        lblAbriendoDec.Refresh();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    if (ex.Message.Contains("no es una ruta de acceso válida"))
+                    {
+                        MessageBox.Show("Problema con la red.", "Sistema Informa");
+                    }
+                    else if (ex.Message.Contains("porque está siendo utilizado en otro proceso"))
+                    {
+                        MessageBox.Show("El archivo excel que quiere cargar esta abierto, debe cerrarlo.", "Sistema Informa");
+                    }
+                    else if (ex.Message.Contains("datos duplicados"))// revisa en el mensaje de la excepcion si el error es por norma duplicada
+                    {
+                        MessageBox.Show("Datos duplicados en abse de datos.", "Sistema Informa");
+                    }
+                    else
+                    {
+                        MessageBox.Show(Convert.ToString(ex));
+                    }
+                }
+
+            }
+            else if (deptoColegio == "Grande")
+            {
+                idUnicoVPla = cboxAñoPla.SelectedItem.ToString();//Se calcula sumando 3 variables
+                abreColegioVPla = grandeColegios[1, cboxColegiosGrande.SelectedIndex];
+                if (cboxPeriodoPla.SelectedItem.ToString() == "Marzo")
+                {
+                    idUnicoVPla = idUnicoVPla + "M";
+                }
+                else
+                {
+                    idUnicoVPla = idUnicoVPla + "S";
+                }
+                idUnicoVPla = idUnicoVPla + abreColegioVPla;//termina aca sumando la ultima parte  
+
+                cboxColegiosGrande.Enabled = false;
+
+                try
+                {
+                    DataTable miDataTable = new DataTable();
+
+                    string queryCargarBD = "SELECT RutaPlanilla FROM Planilla WHERE IdUnico = @Buscar";
+                    OleDbCommand sqlComando = new OleDbCommand(queryCargarBD, conexionBaseDatos);
+                    sqlComando.Parameters.AddWithValue("@idBuscar", idUnicoVPla);
+
+                    OleDbDataAdapter miDataAdapter = new OleDbDataAdapter(sqlComando);
+                    miDataAdapter.Fill(miDataTable);
+                    myDataGridView1.DataSource = miDataTable;
+                    rutaInicio = Convert.ToString(myDataGridView1.Rows[0].Cells[0].Value);
+                    myDataGridView1.DataSource = null;//reinicia datagv
+                    myDataGridView1.Rows.Clear();
+                    myDataGridView1.Refresh();
+
+                    if ((rutaInicio == ""))//revisa si hay se ha encontrado algo... esta escrito de esta forma sino tiraba error critico
+                    {
+                        MessageBox.Show("No se encontró ninguna planilla para los parámetros especificados.", "Sistema Informa");
+
+                    }
+                    else
+                    {
+                        string destinationFile = @"C:/Users/" + userName + "/Downloads/" + cboxColegiosGrande.SelectedItem.ToString() + " " + cboxAñoPla.SelectedItem.ToString() + " " + cboxPeriodoPla.SelectedItem.ToString() + ".xlsx";
+
+                        System.IO.File.Copy(rutaInicio, destinationFile, true);//true es importante para que los sobre escriba       
+
+                        Process proceso = new Process();
+                        proceso.StartInfo.FileName = destinationFile;
+
+                        proceso.Start();
+                        lblAbriendoDec.Visible = false;
+                        lblAbriendoDec.Refresh();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    if (ex.Message.Contains("no es una ruta de acceso válida"))
+                    {
+                        MessageBox.Show("Problema con la red.", "Sistema Informa");
+                    }
+                    else if (ex.Message.Contains("porque está siendo utilizado en otro proceso"))
+                    {
+                        MessageBox.Show("El archivo excel que quiere cargar esta abierto, debe cerrarlo.", "Sistema Informa");
+                    }
+                    else if (ex.Message.Contains("datos duplicados"))// revisa en el mensaje de la excepcion si el error es por norma duplicada
+                    {
+                        MessageBox.Show("Datos duplicados en abse de datos.", "Sistema Informa");
+                    }
+                    else
+                    {
+                        MessageBox.Show(Convert.ToString(ex));
+                    }
+                }
+            }
+
+        }
+
         private void cboxAñoEst_SelectedIndexChanged(object sender, EventArgs e)
         {
             cboxAñoEst.Enabled = false;
@@ -388,7 +598,7 @@ namespace SistemaEstudiantes
             {
                 string userName = Environment.UserName;
 
-                string sourceFile = @"//server/Compartida/Sistema/BDSistema Supervision/3-Estadistica EDI-POT/Estadisticas EDI Y POT " + cboxAñoEst.SelectedItem.ToString() + " " + cboxPeriodoEst.SelectedItem.ToString() + ".xlsx";
+                string sourceFile = @"//server/BASES/Sistema/BDSistema Supervision/3-Estadistica EDI-POT/Estadisticas EDI Y POT " + cboxAñoEst.SelectedItem.ToString() + " " + cboxPeriodoEst.SelectedItem.ToString() + ".xlsx";
                 string destinationFile = @"C:/Users/" + userName + "/Downloads/Estadisticas EDI Y POT " + cboxAñoEst.SelectedItem.ToString() + " " + cboxPeriodoEst.SelectedItem.ToString() + ".xlsx";
 
                 // To move a file or folder to a new location:
@@ -776,17 +986,19 @@ namespace SistemaEstudiantes
             colorExcel = 6; //color par es igual a silver, sirve para que no se bugueee azul            
             btnCrearExcel.BackColor = System.Drawing.Color.Silver;
             btnCrearExcel.Enabled = false;
+            
 
             try
             {
                 //creando Estadisticas
+                string userName = Environment.UserName;
+
+                string destinationFile = @"C:/Users/" + userName + "/Downloads/Estadisticas EDI Y POT " + " " + cboxAño.SelectedItem.ToString() + " " + cboxPeriodo.SelectedItem.ToString() + ".xlsx";
+
                 SLDocument sl = new SLDocument();
+                string pathFile = destinationFile;
 
-                string pathFile = @"C:\Users\Pablo\Downloads\Prueba\Estadisticas EDI Y POT " + cboxAño.SelectedItem.ToString() + " " + cboxPeriodo.SelectedItem.ToString() + ".xlsx";
-                //string pathFile = @"C:\Users\Arteok\Downloads\Prueba\Estadisticas EDI Y POT " + cboxAño.SelectedItem.ToString() + " " + cboxPeriodo.SelectedItem.ToString() + ".xlsx";
-
-                sl.RenameWorksheet(SLDocument.DefaultFirstSheetName, "EDI y POT");//renombra la Hoja
-                                                                                  //titulo estadistica
+                sl.RenameWorksheet(SLDocument.DefaultFirstSheetName, "EDI y POT");//renombra la Hoja                                                                                  
 
                 tituloEstadistica = "CANTIDAD DE HORAS EDI Y POT - " + cboxAño.SelectedItem.ToString() + " " + cboxPeriodo.SelectedItem.ToString();
 
@@ -1515,6 +1727,22 @@ namespace SistemaEstudiantes
             else if (colorPlantilla == 1)
             {
                 btnVerPlanilla.BackColor = System.Drawing.Color.DodgerBlue;
+            }
+        }
+        private void btnDeclaracion_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnDeclaracion.BackColor = System.Drawing.Color.DimGray;
+        }
+
+        private void btnDeclaracion_MouseLeave(object sender, EventArgs e)
+        {
+            if (colorDecla == 0)//unica forma de que funcione
+            {
+                btnDeclaracion.BackColor = System.Drawing.Color.Silver;
+            }
+            else if (colorDecla == 1)
+            {
+                btnDeclaracion.BackColor = System.Drawing.Color.DodgerBlue;
             }
         }
         private void btnVerEstadistica_MouseMove(object sender, MouseEventArgs e)

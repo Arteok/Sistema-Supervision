@@ -90,9 +90,8 @@ namespace SistemaEstudiantes
                 btnNormativa.Enabled = true;
                 btnNormativa.BackColor = Color.DimGray;
                 btnPlantas.Enabled = false;
-               //btnEstadisticas.BackColor = Color.Silver;
-               // btnEstadisticas.Enabled = false;
-                
+               btnEstadisticas.BackColor = Color.DimGray;
+                btnEstadisticas.Enabled = true;                
                 btnOpciones.Enabled = true;
                 btnOpciones.BackColor = Color.DimGray;
 
