@@ -52,7 +52,7 @@ namespace SistemaEstudiantes
             this.btnNormativa.BackColor = System.Drawing.Color.DimGray;
             this.btnNormativa.Font = new System.Drawing.Font("Arial", 14F);
             this.btnNormativa.ForeColor = System.Drawing.Color.White;
-            this.btnNormativa.Location = new System.Drawing.Point(575, 243);
+            this.btnNormativa.Location = new System.Drawing.Point(407, 213);
             this.btnNormativa.Name = "btnNormativa";
             this.btnNormativa.Size = new System.Drawing.Size(415, 54);
             this.btnNormativa.TabIndex = 5;
@@ -71,7 +71,7 @@ namespace SistemaEstudiantes
             this.panel1.Controls.Add(this.btnSalir);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1351, 97);
+            this.panel1.Size = new System.Drawing.Size(1006, 97);
             this.panel1.TabIndex = 6;
             // 
             // label3
@@ -113,7 +113,7 @@ namespace SistemaEstudiantes
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalir.Font = new System.Drawing.Font("Arial", 12.25F);
             this.btnSalir.ForeColor = System.Drawing.Color.White;
-            this.btnSalir.Location = new System.Drawing.Point(1230, 27);
+            this.btnSalir.Location = new System.Drawing.Point(900, 27);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(90, 43);
             this.btnSalir.TabIndex = 0;
@@ -158,7 +158,7 @@ namespace SistemaEstudiantes
             this.btnPlantas.BackColor = System.Drawing.Color.DimGray;
             this.btnPlantas.Font = new System.Drawing.Font("Arial", 14F);
             this.btnPlantas.ForeColor = System.Drawing.Color.White;
-            this.btnPlantas.Location = new System.Drawing.Point(575, 343);
+            this.btnPlantas.Location = new System.Drawing.Point(407, 313);
             this.btnPlantas.Name = "btnPlantas";
             this.btnPlantas.Size = new System.Drawing.Size(415, 54);
             this.btnPlantas.TabIndex = 8;
@@ -173,7 +173,7 @@ namespace SistemaEstudiantes
             this.btnEstadisticas.BackColor = System.Drawing.Color.DimGray;
             this.btnEstadisticas.Font = new System.Drawing.Font("Arial", 14F);
             this.btnEstadisticas.ForeColor = System.Drawing.Color.White;
-            this.btnEstadisticas.Location = new System.Drawing.Point(575, 443);
+            this.btnEstadisticas.Location = new System.Drawing.Point(407, 413);
             this.btnEstadisticas.Name = "btnEstadisticas";
             this.btnEstadisticas.Size = new System.Drawing.Size(415, 54);
             this.btnEstadisticas.TabIndex = 9;
@@ -188,7 +188,7 @@ namespace SistemaEstudiantes
             this.btnOpciones.BackColor = System.Drawing.Color.DimGray;
             this.btnOpciones.Font = new System.Drawing.Font("Arial", 14F);
             this.btnOpciones.ForeColor = System.Drawing.Color.White;
-            this.btnOpciones.Location = new System.Drawing.Point(575, 543);
+            this.btnOpciones.Location = new System.Drawing.Point(407, 513);
             this.btnOpciones.Name = "btnOpciones";
             this.btnOpciones.Size = new System.Drawing.Size(415, 54);
             this.btnOpciones.TabIndex = 10;
@@ -203,7 +203,7 @@ namespace SistemaEstudiantes
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.CancelButton = this.btnSalir;
-            this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.ClientSize = new System.Drawing.Size(1004, 685);
             this.Controls.Add(this.btnOpciones);
             this.Controls.Add(this.btnEstadisticas);
             this.Controls.Add(this.btnPlantas);

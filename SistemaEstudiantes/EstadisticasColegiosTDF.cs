@@ -443,6 +443,7 @@ namespace SistemaEstudiantes
         private void btnSalir_MouseLeave(object sender, EventArgs e)
         {
             btnSalir.BackColor = System.Drawing.Color.DodgerBlue;
-        }        
+        }      
+
     }      
 }

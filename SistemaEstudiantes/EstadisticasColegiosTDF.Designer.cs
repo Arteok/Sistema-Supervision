@@ -103,9 +103,9 @@ namespace SistemaEstudiantes
             // 
             // btnOkAbrevia
             // 
-            this.btnOkAbrevia.Location = new System.Drawing.Point(586, 97);
+            this.btnOkAbrevia.Location = new System.Drawing.Point(438, 99);
             this.btnOkAbrevia.Name = "btnOkAbrevia";
-            this.btnOkAbrevia.Size = new System.Drawing.Size(52, 23);
+            this.btnOkAbrevia.Size = new System.Drawing.Size(45, 23);
             this.btnOkAbrevia.TabIndex = 95;
             this.btnOkAbrevia.Text = "Ok";
             this.btnOkAbrevia.UseVisualStyleBackColor = true;
@@ -113,9 +113,9 @@ namespace SistemaEstudiantes
             // 
             // btnOkNombre
             // 
-            this.btnOkNombre.Location = new System.Drawing.Point(247, 97);
+            this.btnOkNombre.Location = new System.Drawing.Point(182, 99);
             this.btnOkNombre.Name = "btnOkNombre";
-            this.btnOkNombre.Size = new System.Drawing.Size(52, 23);
+            this.btnOkNombre.Size = new System.Drawing.Size(45, 23);
             this.btnOkNombre.TabIndex = 93;
             this.btnOkNombre.Text = "Ok";
             this.btnOkNombre.UseVisualStyleBackColor = true;
@@ -124,24 +124,24 @@ namespace SistemaEstudiantes
             // tbxAbrevia
             // 
             this.tbxAbrevia.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.tbxAbrevia.Location = new System.Drawing.Point(421, 96);
+            this.tbxAbrevia.Location = new System.Drawing.Point(333, 96);
             this.tbxAbrevia.Name = "tbxAbrevia";
-            this.tbxAbrevia.Size = new System.Drawing.Size(159, 26);
+            this.tbxAbrevia.Size = new System.Drawing.Size(100, 26);
             this.tbxAbrevia.TabIndex = 94;
             // 
             // tbxNombre
             // 
             this.tbxNombre.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.tbxNombre.Location = new System.Drawing.Point(82, 96);
+            this.tbxNombre.Location = new System.Drawing.Point(76, 96);
             this.tbxNombre.Name = "tbxNombre";
-            this.tbxNombre.Size = new System.Drawing.Size(159, 26);
+            this.tbxNombre.Size = new System.Drawing.Size(100, 26);
             this.tbxNombre.TabIndex = 92;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label4.Location = new System.Drawing.Point(919, 370);
+            this.label4.Location = new System.Drawing.Point(658, 370);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(188, 22);
             this.label4.TabIndex = 98;
@@ -151,7 +151,7 @@ namespace SistemaEstudiantes
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 14.25F);
-            this.label3.Location = new System.Drawing.Point(262, 370);
+            this.label3.Location = new System.Drawing.Point(175, 370);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(158, 22);
             this.label3.TabIndex = 97;
@@ -161,7 +161,7 @@ namespace SistemaEstudiantes
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.label2.Location = new System.Drawing.Point(309, 33);
+            this.label2.Location = new System.Drawing.Point(229, 33);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(102, 19);
@@ -194,10 +194,10 @@ namespace SistemaEstudiantes
             "18",
             "19",
             "20"});
-            this.cbxNOrden.Location = new System.Drawing.Point(420, 31);
+            this.cbxNOrden.Location = new System.Drawing.Point(333, 31);
             this.cbxNOrden.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbxNOrden.Name = "cbxNOrden";
-            this.cbxNOrden.Size = new System.Drawing.Size(160, 25);
+            this.cbxNOrden.Size = new System.Drawing.Size(100, 25);
             this.cbxNOrden.TabIndex = 91;
             this.cbxNOrden.TextChanged += new System.EventHandler(this.cbxNOrden_TextChanged);
             // 
@@ -205,7 +205,7 @@ namespace SistemaEstudiantes
             // 
             this.lavael7.AutoSize = true;
             this.lavael7.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.lavael7.Location = new System.Drawing.Point(312, 99);
+            this.lavael7.Location = new System.Drawing.Point(234, 99);
             this.lavael7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lavael7.Name = "lavael7";
             this.lavael7.Size = new System.Drawing.Size(97, 19);
@@ -216,7 +216,7 @@ namespace SistemaEstudiantes
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.label5.Location = new System.Drawing.Point(6, 99);
+            this.label5.Location = new System.Drawing.Point(4, 99);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(71, 19);
@@ -230,12 +230,12 @@ namespace SistemaEstudiantes
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
             this.btnRefresh.Image = global::SistemaEstudiantes.Properties.Resources.Button_Refresh_icon;
             this.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefresh.Location = new System.Drawing.Point(610, 103);
+            this.btnRefresh.Location = new System.Drawing.Point(440, 103);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(130, 40);
             this.btnRefresh.TabIndex = 200;
-            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.Text = "     Restablecer";
             this.btnRefresh.UseVisualStyleBackColor = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             this.btnRefresh.MouseLeave += new System.EventHandler(this.btnRefresh_MouseLeave);
@@ -246,7 +246,7 @@ namespace SistemaEstudiantes
             this.btnCrearColegios.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnCrearColegios.Font = new System.Drawing.Font("Arial", 10.25F);
             this.btnCrearColegios.ForeColor = System.Drawing.Color.White;
-            this.btnCrearColegios.Location = new System.Drawing.Point(237, 143);
+            this.btnCrearColegios.Location = new System.Drawing.Point(155, 139);
             this.btnCrearColegios.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnCrearColegios.Name = "btnCrearColegios";
             this.btnCrearColegios.Size = new System.Drawing.Size(180, 50);
@@ -265,10 +265,10 @@ namespace SistemaEstudiantes
             this.cboxDepto.Items.AddRange(new object[] {
             "Ushuaia",
             "Rio Grande"});
-            this.cboxDepto.Location = new System.Drawing.Point(80, 31);
+            this.cboxDepto.Location = new System.Drawing.Point(76, 31);
             this.cboxDepto.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboxDepto.Name = "cboxDepto";
-            this.cboxDepto.Size = new System.Drawing.Size(160, 25);
+            this.cboxDepto.Size = new System.Drawing.Size(100, 25);
             this.cboxDepto.TabIndex = 90;
             this.cboxDepto.TextChanged += new System.EventHandler(this.cboxDepto_TextChanged);
             // 
@@ -293,7 +293,7 @@ namespace SistemaEstudiantes
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1351, 97);
+            this.panel1.Size = new System.Drawing.Size(1006, 97);
             this.panel1.TabIndex = 88;
             // 
             // btnAtras
@@ -303,7 +303,7 @@ namespace SistemaEstudiantes
             this.btnAtras.ForeColor = System.Drawing.Color.White;
             this.btnAtras.Image = ((System.Drawing.Image)(resources.GetObject("btnAtras.Image")));
             this.btnAtras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAtras.Location = new System.Drawing.Point(1094, 25);
+            this.btnAtras.Location = new System.Drawing.Point(800, 27);
             this.btnAtras.Name = "btnAtras";
             this.btnAtras.Size = new System.Drawing.Size(90, 43);
             this.btnAtras.TabIndex = 19;
@@ -319,7 +319,7 @@ namespace SistemaEstudiantes
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalir.Font = new System.Drawing.Font("Arial", 12.25F);
             this.btnSalir.ForeColor = System.Drawing.Color.White;
-            this.btnSalir.Location = new System.Drawing.Point(1230, 25);
+            this.btnSalir.Location = new System.Drawing.Point(900, 27);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(90, 43);
             this.btnSalir.TabIndex = 17;
@@ -333,11 +333,11 @@ namespace SistemaEstudiantes
             // 
             this.myDGVGrande.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.myDGVGrande.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.myDGVGrande.Location = new System.Drawing.Point(685, 404);
+            this.myDGVGrande.Location = new System.Drawing.Point(508, 408);
             this.myDGVGrande.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.myDGVGrande.Name = "myDGVGrande";
             this.myDGVGrande.ReadOnly = true;
-            this.myDGVGrande.Size = new System.Drawing.Size(650, 315);
+            this.myDGVGrande.Size = new System.Drawing.Size(490, 269);
             this.myDGVGrande.TabIndex = 201;
             this.myDGVGrande.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.myDGVGrande_CellClick);
             // 
@@ -345,12 +345,12 @@ namespace SistemaEstudiantes
             // 
             this.myDGVUshuaia.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.myDGVUshuaia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.myDGVUshuaia.Location = new System.Drawing.Point(15, 404);
+            this.myDGVUshuaia.Location = new System.Drawing.Point(8, 408);
             this.myDGVUshuaia.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.myDGVUshuaia.MultiSelect = false;
             this.myDGVUshuaia.Name = "myDGVUshuaia";
             this.myDGVUshuaia.ReadOnly = true;
-            this.myDGVUshuaia.Size = new System.Drawing.Size(650, 315);
+            this.myDGVUshuaia.Size = new System.Drawing.Size(490, 269);
             this.myDGVUshuaia.TabIndex = 200;
             this.myDGVUshuaia.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.myDGVUshuaia_CellClick);
             // 
@@ -359,7 +359,7 @@ namespace SistemaEstudiantes
             this.btnEliminarColegiosUsh.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnEliminarColegiosUsh.Font = new System.Drawing.Font("Arial", 10.25F);
             this.btnEliminarColegiosUsh.ForeColor = System.Drawing.Color.White;
-            this.btnEliminarColegiosUsh.Location = new System.Drawing.Point(240, 143);
+            this.btnEliminarColegiosUsh.Location = new System.Drawing.Point(155, 139);
             this.btnEliminarColegiosUsh.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnEliminarColegiosUsh.Name = "btnEliminarColegiosUsh";
             this.btnEliminarColegiosUsh.Size = new System.Drawing.Size(180, 50);
@@ -373,7 +373,7 @@ namespace SistemaEstudiantes
             // tbxColegioEliminar
             // 
             this.tbxColegioEliminar.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.tbxColegioEliminar.Location = new System.Drawing.Point(161, 96);
+            this.tbxColegioEliminar.Location = new System.Drawing.Point(78, 92);
             this.tbxColegioEliminar.Name = "tbxColegioEliminar";
             this.tbxColegioEliminar.Size = new System.Drawing.Size(330, 26);
             this.tbxColegioEliminar.TabIndex = 106;
@@ -383,7 +383,7 @@ namespace SistemaEstudiantes
             this.btnEliminarColegiosGrande.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnEliminarColegiosGrande.Font = new System.Drawing.Font("Arial", 10.25F);
             this.btnEliminarColegiosGrande.ForeColor = System.Drawing.Color.White;
-            this.btnEliminarColegiosGrande.Location = new System.Drawing.Point(240, 143);
+            this.btnEliminarColegiosGrande.Location = new System.Drawing.Point(155, 139);
             this.btnEliminarColegiosGrande.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnEliminarColegiosGrande.Name = "btnEliminarColegiosGrande";
             this.btnEliminarColegiosGrande.Size = new System.Drawing.Size(180, 50);
@@ -401,16 +401,16 @@ namespace SistemaEstudiantes
             this.panel2.Controls.Add(this.btnEliminarColegiosGrande);
             this.panel2.Controls.Add(this.btnEliminarColegiosUsh);
             this.panel2.Controls.Add(this.tbxColegioEliminar);
-            this.panel2.Location = new System.Drawing.Point(683, 149);
+            this.panel2.Location = new System.Drawing.Point(508, 149);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(652, 210);
+            this.panel2.Size = new System.Drawing.Size(490, 210);
             this.panel2.TabIndex = 202;
             // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.SystemColors.Control;
             this.panel7.Controls.Add(this.label11);
-            this.panel7.Location = new System.Drawing.Point(190, 31);
+            this.panel7.Location = new System.Drawing.Point(105, 27);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(280, 23);
             this.panel7.TabIndex = 109;
@@ -439,15 +439,15 @@ namespace SistemaEstudiantes
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.tbxAbrevia);
             this.panel3.Controls.Add(this.tbxNombre);
-            this.panel3.Location = new System.Drawing.Point(15, 149);
+            this.panel3.Location = new System.Drawing.Point(8, 149);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(652, 210);
+            this.panel3.Size = new System.Drawing.Size(490, 210);
             this.panel3.TabIndex = 203;
             // 
             // EstadisticasColegiosTDF
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1346, 725);
+            this.ClientSize = new System.Drawing.Size(1004, 685);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.myDGVGrande);
