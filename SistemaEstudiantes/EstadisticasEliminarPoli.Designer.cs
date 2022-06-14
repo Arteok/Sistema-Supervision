@@ -64,7 +64,7 @@ namespace SistemaEstudiantes
             this.panel2.Controls.Add(this.label4);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1351, 97);
+            this.panel2.Size = new System.Drawing.Size(1006, 97);
             this.panel2.TabIndex = 49;
             // 
             // btnVolver
@@ -74,7 +74,7 @@ namespace SistemaEstudiantes
             this.btnVolver.ForeColor = System.Drawing.Color.White;
             this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
             this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVolver.Location = new System.Drawing.Point(1110, 27);
+            this.btnVolver.Location = new System.Drawing.Point(800, 27);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(90, 43);
             this.btnVolver.TabIndex = 12;
@@ -90,7 +90,7 @@ namespace SistemaEstudiantes
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalir.Font = new System.Drawing.Font("Arial", 12.25F);
             this.btnSalir.ForeColor = System.Drawing.Color.White;
-            this.btnSalir.Location = new System.Drawing.Point(1230, 27);
+            this.btnSalir.Location = new System.Drawing.Point(900, 27);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(90, 43);
             this.btnSalir.TabIndex = 13;
@@ -140,7 +140,7 @@ namespace SistemaEstudiantes
             this.cboxColegiosUshuaia.FormattingEnabled = true;
             this.cboxColegiosUshuaia.Items.AddRange(new object[] {
             "Polivalente Bustelo"});
-            this.cboxColegiosUshuaia.Location = new System.Drawing.Point(1103, 21);
+            this.cboxColegiosUshuaia.Location = new System.Drawing.Point(807, 21);
             this.cboxColegiosUshuaia.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboxColegiosUshuaia.Name = "cboxColegiosUshuaia";
             this.cboxColegiosUshuaia.Size = new System.Drawing.Size(160, 24);
@@ -153,7 +153,7 @@ namespace SistemaEstudiantes
             this.cboxColegiosGrande.FormattingEnabled = true;
             this.cboxColegiosGrande.Items.AddRange(new object[] {
             "Polivalente Cotorruelo"});
-            this.cboxColegiosGrande.Location = new System.Drawing.Point(1103, 21);
+            this.cboxColegiosGrande.Location = new System.Drawing.Point(808, 21);
             this.cboxColegiosGrande.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboxColegiosGrande.Name = "cboxColegiosGrande";
             this.cboxColegiosGrande.Size = new System.Drawing.Size(160, 24);
@@ -167,12 +167,12 @@ namespace SistemaEstudiantes
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
             this.btnRefresh.Image = global::SistemaEstudiantes.Properties.Resources.Button_Refresh_icon;
             this.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefresh.Location = new System.Drawing.Point(600, 113);
+            this.btnRefresh.Location = new System.Drawing.Point(440, 110);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(150, 40);
+            this.btnRefresh.Size = new System.Drawing.Size(130, 40);
             this.btnRefresh.TabIndex = 82;
-            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.Text = "     Restablecer";
             this.btnRefresh.UseVisualStyleBackColor = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             this.btnRefresh.MouseLeave += new System.EventHandler(this.btnRefresh_MouseLeave);
@@ -182,10 +182,10 @@ namespace SistemaEstudiantes
             // 
             this.myDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.myDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.myDataGridView.Location = new System.Drawing.Point(13, 328);
+            this.myDataGridView.Location = new System.Drawing.Point(8, 316);
             this.myDataGridView.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.myDataGridView.Name = "myDataGridView";
-            this.myDataGridView.Size = new System.Drawing.Size(1320, 385);
+            this.myDataGridView.Size = new System.Drawing.Size(990, 362);
             this.myDataGridView.TabIndex = 73;
             // 
             // btnEliminar
@@ -193,7 +193,7 @@ namespace SistemaEstudiantes
             this.btnEliminar.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnEliminar.Font = new System.Drawing.Font("Arial", 10.25F);
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(582, 71);
+            this.btnEliminar.Location = new System.Drawing.Point(417, 74);
             this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(160, 50);
@@ -208,7 +208,7 @@ namespace SistemaEstudiantes
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.label1.Location = new System.Drawing.Point(55, 24);
+            this.label1.Location = new System.Drawing.Point(16, 24);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 16);
@@ -219,7 +219,7 @@ namespace SistemaEstudiantes
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.label3.Location = new System.Drawing.Point(1019, 24);
+            this.label3.Location = new System.Drawing.Point(740, 24);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 16);
@@ -230,7 +230,7 @@ namespace SistemaEstudiantes
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.label5.Location = new System.Drawing.Point(353, 24);
+            this.label5.Location = new System.Drawing.Point(229, 24);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 16);
@@ -244,7 +244,7 @@ namespace SistemaEstudiantes
             this.cboxDepto.Items.AddRange(new object[] {
             "Ushuaia",
             "Rio Grande"});
-            this.cboxDepto.Location = new System.Drawing.Point(776, 21);
+            this.cboxDepto.Location = new System.Drawing.Point(569, 21);
             this.cboxDepto.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboxDepto.Name = "cboxDepto";
             this.cboxDepto.Size = new System.Drawing.Size(160, 24);
@@ -255,7 +255,7 @@ namespace SistemaEstudiantes
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.label6.Location = new System.Drawing.Point(666, 24);
+            this.label6.Location = new System.Drawing.Point(467, 24);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(102, 16);
@@ -269,7 +269,7 @@ namespace SistemaEstudiantes
             this.cboxPeriodo.Items.AddRange(new object[] {
             "Marzo",
             "Septiembre"});
-            this.cboxPeriodo.Location = new System.Drawing.Point(422, 21);
+            this.cboxPeriodo.Location = new System.Drawing.Point(290, 21);
             this.cboxPeriodo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboxPeriodo.Name = "cboxPeriodo";
             this.cboxPeriodo.Size = new System.Drawing.Size(160, 24);
@@ -291,7 +291,7 @@ namespace SistemaEstudiantes
             "2028",
             "2029",
             "2030"});
-            this.cboxAño.Location = new System.Drawing.Point(104, 21);
+            this.cboxAño.Location = new System.Drawing.Point(53, 21);
             this.cboxAño.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboxAño.Name = "cboxAño";
             this.cboxAño.Size = new System.Drawing.Size(160, 24);
@@ -311,15 +311,15 @@ namespace SistemaEstudiantes
             this.panel1.Controls.Add(this.btnEliminar);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(13, 170);
+            this.panel1.Location = new System.Drawing.Point(8, 163);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1320, 140);
+            this.panel1.Size = new System.Drawing.Size(990, 140);
             this.panel1.TabIndex = 85;
             // 
             // EstadisticasEliminarPoli
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1346, 725);
+            this.ClientSize = new System.Drawing.Size(1004, 685);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.myDataGridView);

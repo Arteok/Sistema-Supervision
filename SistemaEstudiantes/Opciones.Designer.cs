@@ -54,7 +54,7 @@ namespace SistemaEstudiantes
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalir.Font = new System.Drawing.Font("Arial", 12.25F);
             this.btnSalir.ForeColor = System.Drawing.Color.White;
-            this.btnSalir.Location = new System.Drawing.Point(1230, 27);
+            this.btnSalir.Location = new System.Drawing.Point(900, 27);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(90, 43);
             this.btnSalir.TabIndex = 13;
@@ -71,7 +71,7 @@ namespace SistemaEstudiantes
             this.btnVolver.ForeColor = System.Drawing.Color.White;
             this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
             this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVolver.Location = new System.Drawing.Point(1110, 27);
+            this.btnVolver.Location = new System.Drawing.Point(800, 27);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(90, 43);
             this.btnVolver.TabIndex = 12;
@@ -86,7 +86,7 @@ namespace SistemaEstudiantes
             this.btnEditUsuarios.BackColor = System.Drawing.Color.DimGray;
             this.btnEditUsuarios.Font = new System.Drawing.Font("Arial", 14F);
             this.btnEditUsuarios.ForeColor = System.Drawing.Color.White;
-            this.btnEditUsuarios.Location = new System.Drawing.Point(587, 235);
+            this.btnEditUsuarios.Location = new System.Drawing.Point(406, 210);
             this.btnEditUsuarios.Name = "btnEditUsuarios";
             this.btnEditUsuarios.Size = new System.Drawing.Size(415, 54);
             this.btnEditUsuarios.TabIndex = 17;
@@ -101,7 +101,7 @@ namespace SistemaEstudiantes
             this.btnRutas.BackColor = System.Drawing.Color.DimGray;
             this.btnRutas.Font = new System.Drawing.Font("Arial", 14F);
             this.btnRutas.ForeColor = System.Drawing.Color.White;
-            this.btnRutas.Location = new System.Drawing.Point(587, 335);
+            this.btnRutas.Location = new System.Drawing.Point(406, 310);
             this.btnRutas.Name = "btnRutas";
             this.btnRutas.Size = new System.Drawing.Size(415, 54);
             this.btnRutas.TabIndex = 18;
@@ -116,7 +116,7 @@ namespace SistemaEstudiantes
             this.btnResoPantalla.BackColor = System.Drawing.Color.DimGray;
             this.btnResoPantalla.Font = new System.Drawing.Font("Arial", 14F);
             this.btnResoPantalla.ForeColor = System.Drawing.Color.White;
-            this.btnResoPantalla.Location = new System.Drawing.Point(587, 535);
+            this.btnResoPantalla.Location = new System.Drawing.Point(406, 510);
             this.btnResoPantalla.Name = "btnResoPantalla";
             this.btnResoPantalla.Size = new System.Drawing.Size(415, 54);
             this.btnResoPantalla.TabIndex = 20;
@@ -131,7 +131,7 @@ namespace SistemaEstudiantes
             this.btnDepurarPDF.BackColor = System.Drawing.Color.DimGray;
             this.btnDepurarPDF.Font = new System.Drawing.Font("Arial", 14F);
             this.btnDepurarPDF.ForeColor = System.Drawing.Color.White;
-            this.btnDepurarPDF.Location = new System.Drawing.Point(587, 435);
+            this.btnDepurarPDF.Location = new System.Drawing.Point(406, 410);
             this.btnDepurarPDF.Name = "btnDepurarPDF";
             this.btnDepurarPDF.Size = new System.Drawing.Size(415, 54);
             this.btnDepurarPDF.TabIndex = 19;
@@ -151,7 +151,7 @@ namespace SistemaEstudiantes
             this.panel2.Controls.Add(this.label4);
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1351, 97);
+            this.panel2.Size = new System.Drawing.Size(1006, 97);
             this.panel2.TabIndex = 46;
             // 
             // lblNombre
@@ -221,7 +221,7 @@ namespace SistemaEstudiantes
             // Opciones
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1346, 725);
+            this.ClientSize = new System.Drawing.Size(1004, 685);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnDepurarPDF);

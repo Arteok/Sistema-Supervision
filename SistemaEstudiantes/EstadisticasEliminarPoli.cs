@@ -272,5 +272,7 @@ namespace SistemaEstudiantes
         {
             btnSalir.BackColor = System.Drawing.Color.DodgerBlue;
         }
+
+      
     }
 }

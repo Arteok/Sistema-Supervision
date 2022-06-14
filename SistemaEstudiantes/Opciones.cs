@@ -17,25 +17,26 @@ namespace SistemaEstudiantes
         OleDbConnection conexionBaseDatos;//variable que recibe la direccion de la base de datos
         string nombreUsuario;
         string tipoUsuario;
-        bool opcionesPermisos;       
-        public Opciones(string usuario, string permisos,bool permisosOpciones, OleDbConnection conexionBD)
+        bool logueado;
+        public Opciones(string usuario, string permisos, bool logueado, OleDbConnection conexionBD)
         {
             InitializeComponent();
             nombreUsuario = usuario;
             tipoUsuario = permisos;
-            opcionesPermisos = permisosOpciones;            
             lblNombre.Text = usuario;
-            conexionBaseDatos = conexionBD;
+            logueado = true;
+            conexionBaseDatos = conexionBD;            
 
-            if (opcionesPermisos == true)
+            if (tipoUsuario == "SuperUsuario")
             {
                 btnEditUsuarios.Enabled = true;
                 btnEditUsuarios.BackColor = Color.DimGray;
-                btnRutas.Enabled = true;
-                btnRutas.BackColor = Color.DimGray;
+                btnRutas.Enabled = false;
+                btnRutas.BackColor = Color.Silver;
+                btnDepurarPDF.Enabled = false;
+                btnDepurarPDF.BackColor = Color.Silver;
                 btnResoPantalla.Enabled = false;
-                btnResoPantalla.BackColor = Color.Silver;
-                
+                btnResoPantalla.BackColor = Color.Silver;                
             }
             else 
             {

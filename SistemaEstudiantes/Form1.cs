@@ -103,8 +103,8 @@ namespace SistemaEstudiantes
                 btnNormativa.Enabled = true;
                 btnNormativa.BackColor = Color.DimGray;
                 btnPlantas.Enabled = false;
-               // btnEstadisticas.BackColor = Color.DimGray;
-                //btnEstadisticas.Enabled = false;
+                btnEstadisticas.BackColor = Color.DimGray;
+                btnEstadisticas.Enabled = true;
                 btnOpciones.Enabled = false;
                 //btnOpciones.BackColor = Color.DimGray;
 
@@ -116,8 +116,8 @@ namespace SistemaEstudiantes
                 btnNormativa.Enabled = true;
                 btnNormativa.BackColor = Color.DimGray;
                 btnPlantas.Enabled = false;
-               // btnEstadisticas.BackColor = Color.DimGray;
-               // btnEstadisticas.Enabled = false;
+                btnEstadisticas.BackColor = Color.DimGray;
+                btnEstadisticas.Enabled = true;
                 btnOpciones.Enabled = false;
                 //btnOpciones.BackColor = Color.DimGray;
 
@@ -181,7 +181,7 @@ namespace SistemaEstudiantes
         }
         private void btnOpciones_Click(object sender, EventArgs e)
         {
-            Opciones miOpciones = new Opciones(nombreUsuario, permisosUsuario, opcionesPermisos, conexionBaseDatos);
+            Opciones miOpciones = new Opciones(nombreUsuario, permisosUsuario,true, conexionBaseDatos);
             this.Hide();
             miOpciones.Show();
         }

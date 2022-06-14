@@ -63,7 +63,7 @@ namespace SistemaEstudiantes
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalir.Font = new System.Drawing.Font("Arial", 12.25F);
             this.btnSalir.ForeColor = System.Drawing.Color.White;
-            this.btnSalir.Location = new System.Drawing.Point(1230, 25);
+            this.btnSalir.Location = new System.Drawing.Point(900, 27);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(90, 43);
             this.btnSalir.TabIndex = 13;
@@ -80,7 +80,7 @@ namespace SistemaEstudiantes
             this.btnVolver.ForeColor = System.Drawing.Color.White;
             this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
             this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVolver.Location = new System.Drawing.Point(1110, 25);
+            this.btnVolver.Location = new System.Drawing.Point(800, 27);
             this.btnVolver.Name = "btnVolver";
             this.btnVolver.Size = new System.Drawing.Size(90, 43);
             this.btnVolver.TabIndex = 12;
@@ -99,10 +99,11 @@ namespace SistemaEstudiantes
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.tbxContraseña);
-            this.panel2.Location = new System.Drawing.Point(12, 110);
+            this.panel2.Location = new System.Drawing.Point(8, 110);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1324, 68);
+            this.panel2.Size = new System.Drawing.Size(984, 68);
             this.panel2.TabIndex = 48;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // cbxPermisos
             // 
@@ -116,7 +117,7 @@ namespace SistemaEstudiantes
             "Secretario ",
             "Usuariolvl1",
             "UsuarioBasico"});
-            this.cbxPermisos.Location = new System.Drawing.Point(1167, 25);
+            this.cbxPermisos.Location = new System.Drawing.Point(811, 23);
             this.cbxPermisos.Name = "cbxPermisos";
             this.cbxPermisos.Size = new System.Drawing.Size(100, 24);
             this.cbxPermisos.TabIndex = 43;
@@ -133,7 +134,7 @@ namespace SistemaEstudiantes
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(544, 26);
+            this.label7.Location = new System.Drawing.Point(386, 26);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(86, 16);
             this.label7.TabIndex = 36;
@@ -153,7 +154,7 @@ namespace SistemaEstudiantes
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1091, 29);
+            this.label2.Location = new System.Drawing.Point(735, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 16);
             this.label2.TabIndex = 33;
@@ -162,7 +163,7 @@ namespace SistemaEstudiantes
             // tbxContraseña
             // 
             this.tbxContraseña.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbxContraseña.Location = new System.Drawing.Point(639, 23);
+            this.tbxContraseña.Location = new System.Drawing.Point(481, 23);
             this.tbxContraseña.Name = "tbxContraseña";
             this.tbxContraseña.PasswordChar = '*';
             this.tbxContraseña.Size = new System.Drawing.Size(100, 22);
@@ -176,7 +177,7 @@ namespace SistemaEstudiantes
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.Image = global::SistemaEstudiantes.Properties.Resources.Save;
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(206, 216);
+            this.btnAgregar.Location = new System.Drawing.Point(68, 204);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(95, 35);
             this.btnAgregar.TabIndex = 54;
@@ -194,7 +195,7 @@ namespace SistemaEstudiantes
             this.btnModificar.ForeColor = System.Drawing.Color.White;
             this.btnModificar.Image = global::SistemaEstudiantes.Properties.Resources.edit;
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnModificar.Location = new System.Drawing.Point(623, 216);
+            this.btnModificar.Location = new System.Drawing.Point(457, 204);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(95, 35);
             this.btnModificar.TabIndex = 52;
@@ -212,7 +213,7 @@ namespace SistemaEstudiantes
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(1043, 216);
+            this.btnEliminar.Location = new System.Drawing.Point(830, 204);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(95, 35);
             this.btnEliminar.TabIndex = 51;
@@ -230,7 +231,7 @@ namespace SistemaEstudiantes
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
             this.btnNuevo.Image = global::SistemaEstudiantes.Properties.Resources.newFile;
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(206, 216);
+            this.btnNuevo.Location = new System.Drawing.Point(68, 204);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(95, 35);
             this.btnNuevo.TabIndex = 49;
@@ -244,10 +245,10 @@ namespace SistemaEstudiantes
             // 
             this.dataGridViewUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewUsuarios.Location = new System.Drawing.Point(10, 309);
+            this.dataGridViewUsuarios.Location = new System.Drawing.Point(8, 276);
             this.dataGridViewUsuarios.Name = "dataGridViewUsuarios";
             this.dataGridViewUsuarios.RowTemplate.ReadOnly = true;
-            this.dataGridViewUsuarios.Size = new System.Drawing.Size(1324, 404);
+            this.dataGridViewUsuarios.Size = new System.Drawing.Size(990, 403);
             this.dataGridViewUsuarios.TabIndex = 55;
             this.dataGridViewUsuarios.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewUsuarios_CellMouseClick);
             // 
@@ -259,7 +260,7 @@ namespace SistemaEstudiantes
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(1043, 216);
+            this.btnCancelar.Location = new System.Drawing.Point(830, 204);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(95, 35);
             this.btnCancelar.TabIndex = 56;
@@ -277,7 +278,7 @@ namespace SistemaEstudiantes
             this.btnModificarA.ForeColor = System.Drawing.Color.White;
             this.btnModificarA.Image = global::SistemaEstudiantes.Properties.Resources.AcepModif;
             this.btnModificarA.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnModificarA.Location = new System.Drawing.Point(623, 216);
+            this.btnModificarA.Location = new System.Drawing.Point(457, 204);
             this.btnModificarA.Name = "btnModificarA";
             this.btnModificarA.Size = new System.Drawing.Size(95, 35);
             this.btnModificarA.TabIndex = 57;
@@ -291,7 +292,7 @@ namespace SistemaEstudiantes
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.label3.Location = new System.Drawing.Point(9, 290);
+            this.label3.Location = new System.Drawing.Point(9, 257);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(147, 16);
             this.label3.TabIndex = 58;
@@ -301,7 +302,7 @@ namespace SistemaEstudiantes
             // 
             this.lblCantidadUsuarios.AutoSize = true;
             this.lblCantidadUsuarios.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.lblCantidadUsuarios.Location = new System.Drawing.Point(162, 290);
+            this.lblCantidadUsuarios.Location = new System.Drawing.Point(162, 257);
             this.lblCantidadUsuarios.Name = "lblCantidadUsuarios";
             this.lblCantidadUsuarios.Size = new System.Drawing.Size(13, 16);
             this.lblCantidadUsuarios.TabIndex = 59;
@@ -317,7 +318,7 @@ namespace SistemaEstudiantes
             this.panel3.Controls.Add(this.label8);
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1351, 97);
+            this.panel3.Size = new System.Drawing.Size(1006, 97);
             this.panel3.TabIndex = 60;
             // 
             // lblNombre
@@ -357,7 +358,7 @@ namespace SistemaEstudiantes
             // CrearEditar
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1346, 725);
+            this.ClientSize = new System.Drawing.Size(1004, 685);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.lblCantidadUsuarios);
             this.Controls.Add(this.label3);

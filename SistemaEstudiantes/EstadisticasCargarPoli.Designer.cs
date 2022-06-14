@@ -184,7 +184,7 @@ namespace SistemaEstudiantes
             // tbxColegioSel
             // 
             this.tbxColegioSel.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.tbxColegioSel.Location = new System.Drawing.Point(362, 85);
+            this.tbxColegioSel.Location = new System.Drawing.Point(360, 85);
             this.tbxColegioSel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tbxColegioSel.Name = "tbxColegioSel";
             this.tbxColegioSel.Size = new System.Drawing.Size(420, 23);
@@ -194,7 +194,7 @@ namespace SistemaEstudiantes
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 10.25F);
-            this.label5.Location = new System.Drawing.Point(205, 88);
+            this.label5.Location = new System.Drawing.Point(203, 88);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(149, 16);

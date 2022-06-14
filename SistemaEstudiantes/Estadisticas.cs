@@ -33,18 +33,20 @@ namespace SistemaEstudiantes
             myColegios.CargarColegiosUshuaia();
             myColegios.CargarColegiosGrande();
 
-            if (permisosUsuario != "SuperUsuario")
-            {                
-                btnCantColegios.Enabled = false;
-                btnCantColegios.BackColor = Color.Silver;
-                btnPlantillas.Enabled = false;
-                btnPlantillas.BackColor = Color.Silver;
-            }
-            if (permisosUsuario != "falta realizar")
+            if (permisosUsuario == "SuperUsuario")
             {
                 btnMatriculaComp.Enabled = false;
                 btnMatriculaComp.BackColor = Color.Silver;
             }
+            else
+            { 
+                btnCantColegios.Enabled = false;
+                btnCantColegios.BackColor = Color.Silver;
+                btnPlantillas.Enabled = false;
+                btnPlantillas.BackColor = Color.Silver;
+                btnMatriculaComp.Enabled = false;
+                btnMatriculaComp.BackColor = Color.Silver;          
+            }          
         }       
         
         private void btnEstadistica1_Click_1(object sender, EventArgs e)

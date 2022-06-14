@@ -363,7 +363,10 @@ namespace SistemaEstudiantes
             btnCancelar.BackColor = Color.DodgerBlue;
         }
 
-      
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
 
         private void btnModificarA_Click_1(object sender, EventArgs e)
         {
