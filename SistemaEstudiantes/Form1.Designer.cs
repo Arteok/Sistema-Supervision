@@ -162,7 +162,7 @@ namespace SistemaEstudiantes
             this.btnPlantas.Name = "btnPlantas";
             this.btnPlantas.Size = new System.Drawing.Size(415, 54);
             this.btnPlantas.TabIndex = 8;
-            this.btnPlantas.Text = "Plantas Organicas Funcionales";
+            this.btnPlantas.Text = "Plantas Orgánicas Funcionales";
             this.btnPlantas.UseVisualStyleBackColor = false;
             this.btnPlantas.Click += new System.EventHandler(this.btnPlantas_Click);
             this.btnPlantas.MouseLeave += new System.EventHandler(this.btnPlantas_MouseLeave);
@@ -177,7 +177,7 @@ namespace SistemaEstudiantes
             this.btnEstadisticas.Name = "btnEstadisticas";
             this.btnEstadisticas.Size = new System.Drawing.Size(415, 54);
             this.btnEstadisticas.TabIndex = 9;
-            this.btnEstadisticas.Text = "Estadisticas";
+            this.btnEstadisticas.Text = "Estadísticas";
             this.btnEstadisticas.UseVisualStyleBackColor = false;
             this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
             this.btnEstadisticas.MouseLeave += new System.EventHandler(this.button1_MouseLeave);

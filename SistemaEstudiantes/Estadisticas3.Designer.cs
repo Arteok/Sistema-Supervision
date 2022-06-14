@@ -554,9 +554,9 @@ namespace SistemaEstudiantes
             this.lblDescargas.Location = new System.Drawing.Point(3, 153);
             this.lblDescargas.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblDescargas.Name = "lblDescargas";
-            this.lblDescargas.Size = new System.Drawing.Size(328, 14);
+            this.lblDescargas.Size = new System.Drawing.Size(331, 14);
             this.lblDescargas.TabIndex = 94;
-            this.lblDescargas.Text = "El Excel que fue abierto ha sido guardado en la carpeta descargas";
+            this.lblDescargas.Text = "El Excel que fue abierto, ha sido guardado en la carpeta descargas";
             // 
             // lblAbriendo
             // 

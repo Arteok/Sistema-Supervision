@@ -170,7 +170,7 @@ namespace SistemaEstudiantes
             this.btnMatriculaComp.Name = "btnMatriculaComp";
             this.btnMatriculaComp.Size = new System.Drawing.Size(415, 54);
             this.btnMatriculaComp.TabIndex = 54;
-            this.btnMatriculaComp.Text = "Matricula Comparada";
+            this.btnMatriculaComp.Text = "Matrícula Comparada";
             this.btnMatriculaComp.UseVisualStyleBackColor = false;
             this.btnMatriculaComp.MouseLeave += new System.EventHandler(this.btnMatriculaComp_MouseLeave);
             this.btnMatriculaComp.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnMatriculaComp_MouseMove);
@@ -199,7 +199,7 @@ namespace SistemaEstudiantes
             this.btnEstadistica2.Name = "btnEstadistica2";
             this.btnEstadistica2.Size = new System.Drawing.Size(415, 54);
             this.btnEstadistica2.TabIndex = 52;
-            this.btnEstadistica2.Text = "Matriculas por Orientación y/o Especialidad";
+            this.btnEstadistica2.Text = "Matrículas por Orientación y/o Especialidad";
             this.btnEstadistica2.UseVisualStyleBackColor = false;
             this.btnEstadistica2.Click += new System.EventHandler(this.btnEstadistica2_Click_1);
             this.btnEstadistica2.MouseLeave += new System.EventHandler(this.btnEstadistica2_MouseLeave);
@@ -214,7 +214,7 @@ namespace SistemaEstudiantes
             this.btnEstadistica1.Name = "btnEstadistica1";
             this.btnEstadistica1.Size = new System.Drawing.Size(415, 54);
             this.btnEstadistica1.TabIndex = 51;
-            this.btnEstadistica1.Text = "Declaración de Secciones y Matriculas";
+            this.btnEstadistica1.Text = "Declaración de Secciones y Matrículas";
             this.btnEstadistica1.UseVisualStyleBackColor = false;
             this.btnEstadistica1.Click += new System.EventHandler(this.btnEstadistica1_Click_1);
             this.btnEstadistica1.MouseLeave += new System.EventHandler(this.btnEstadistica1_MouseLeave);
