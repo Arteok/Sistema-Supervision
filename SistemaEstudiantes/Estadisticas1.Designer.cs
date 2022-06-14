@@ -34,10 +34,10 @@ namespace SistemaEstudiantes
             this.btnSalir = new System.Windows.Forms.Button();
             this.myDataGridView = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.myDataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnVolver = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.myDataGridView1 = new System.Windows.Forms.DataGridView();
             this.cboxPeriodoEst = new System.Windows.Forms.ComboBox();
             this.cboxColegiosUshuaia = new System.Windows.Forms.ComboBox();
             this.cboxDepto = new System.Windows.Forms.ComboBox();
@@ -136,15 +136,6 @@ namespace SistemaEstudiantes
             this.panel2.Size = new System.Drawing.Size(1006, 97);
             this.panel2.TabIndex = 50;
             // 
-            // myDataGridView1
-            // 
-            this.myDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.myDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.myDataGridView1.Location = new System.Drawing.Point(346, 110);
-            this.myDataGridView1.Name = "myDataGridView1";
-            this.myDataGridView1.Size = new System.Drawing.Size(20, 20);
-            this.myDataGridView1.TabIndex = 200;
-            // 
             // btnVolver
             // 
             this.btnVolver.BackColor = System.Drawing.Color.DodgerBlue;
@@ -183,6 +174,15 @@ namespace SistemaEstudiantes
             this.label4.Size = new System.Drawing.Size(486, 32);
             this.label4.TabIndex = 11;
             this.label4.Text = "Declaración de Secciones y Matriculas";
+            // 
+            // myDataGridView1
+            // 
+            this.myDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.myDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.myDataGridView1.Location = new System.Drawing.Point(346, 110);
+            this.myDataGridView1.Name = "myDataGridView1";
+            this.myDataGridView1.Size = new System.Drawing.Size(20, 20);
+            this.myDataGridView1.TabIndex = 200;
             // 
             // cboxPeriodoEst
             // 
@@ -633,6 +633,7 @@ namespace SistemaEstudiantes
             this.label11.Size = new System.Drawing.Size(251, 19);
             this.label11.TabIndex = 75;
             this.label11.Text = "Estadística Secciones-Matriculas";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // btnVerEstadistica
             // 
