@@ -58,16 +58,7 @@ namespace SistemaEstudiantes
             tbxFolio.Enabled = false;
             tbxTitulo.Enabled = false;
             tbxTipo.Enabled = false;
-            tbxSintesis.Enabled = false;
-
-            //tbxNorma.SelectionStart = 0;
-            /*tbxFecha.Enabled = false;
-            tbxTomo.Enabled = false;
-
-            tbxFolio.Enabled = false;
-            tbxTitulo.Enabled = false;
-            tbxTipo.Enabled = false;
-            tbxSintesis.Enabled = false;*/
+            tbxSintesis.Enabled = false;            
 
             btnAgregar.Visible = false;
             btnModificarA.Visible = false;
@@ -257,7 +248,7 @@ namespace SistemaEstudiantes
                     conexionBaseDatos.Open();
                     if (sqlComando.ExecuteNonQuery() > 0)
                     {
-                        MessageBox.Show("Se elimino el registro correctamente");
+                        MessageBox.Show("Se elimino el registro correctamente", "Sistema Informa");
                     }
                     else
                     {
@@ -304,11 +295,11 @@ namespace SistemaEstudiantes
                     conexionBaseDatos.Open();
                     if (sqlComando.ExecuteNonQuery() > 0)
                     {
-                        MessageBox.Show("Se agrego el registro correctamente");
+                        MessageBox.Show("Se agrego el registro correctamente", "Sistema Informa");
                     }
                     else
                     {
-                        MessageBox.Show("Registro no agregado. Se produzco un error.");
+                        MessageBox.Show("Registro no agregado. Se produzco un error.", "Sistema Informa");
                     }
                     conexionBaseDatos.Close();
                     CargarDataGVBaseDatos();
@@ -332,7 +323,7 @@ namespace SistemaEstudiantes
 
                         DialogResult accionRealizar = MessageBox.Show("Este documento ya esta ingresado en la base de datos.\n\nSi - Para realizar un cambio en el N° de Norma  del documento que se está ingresando.\n" +
                             "\nNo - Para modificar algún parámetro en la documento existente en la base de datos.\n" +
-                            "\nCancelar - Para salir y no realizar ninguna acción.", "Registro Informa", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation);
+                            "\nCancelar - Para salir y no realizar ninguna acción.", "Sistema Informa", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation);
 
                         if (accionRealizar == DialogResult.Yes)
                         {
@@ -406,11 +397,11 @@ namespace SistemaEstudiantes
                     conexionBaseDatos.Open();
                     if (sqlComando.ExecuteNonQuery() > 0)
                     {
-                        MessageBox.Show("Se MODIFICO el registro correctamente");
+                        MessageBox.Show("Se Modifico el registro correctamente", "Sistema Informa");
                     }
                     else
                     {
-                        MessageBox.Show("Registro no MODIFICADO. Se produzco un error.");
+                        MessageBox.Show("Registro no Modificado. Se produzco un error.", "Sistema Informa");
                     }
                     conexionBaseDatos.Close();
                     CargarDataGVBaseDatos();

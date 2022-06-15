@@ -126,7 +126,7 @@ namespace SistemaEstudiantes
                     else
                     {
                         lblCantidadRegistros.Text = "-";
-                        MessageBox.Show("No se encontró ninguna coincidencia con el parámetro ingresado.");
+                        MessageBox.Show("No se encontró ninguna coincidencia con el parámetro ingresado.", "Sistema Informa");
                     }
 
                 }
@@ -152,7 +152,7 @@ namespace SistemaEstudiantes
                     else
                     {
                         lblCantidadRegistros.Text = "-";
-                        MessageBox.Show("No se encontró ninguna coincidencia con el parámetro ingresado.");
+                        MessageBox.Show("No se encontró ninguna coincidencia con el parámetro ingresado.", "Sistema Informa");
                     }
                 }
                 else if (tbxFecha.Text != "")
@@ -177,7 +177,7 @@ namespace SistemaEstudiantes
                     else
                     {
                         lblCantidadRegistros.Text = "-";
-                        MessageBox.Show("No se encontró ninguna coincidencia con el parámetro ingresado.");
+                        MessageBox.Show("No se encontró ninguna coincidencia con el parámetro ingresado.", "Sistema Informa");
                     }
                 }
                 else if (tbxTipo.Text != "")
@@ -202,7 +202,7 @@ namespace SistemaEstudiantes
                     else
                     {
                         lblCantidadRegistros.Text = "-";
-                        MessageBox.Show("No se encontró ninguna coincidencia con el parámetro ingresado.");
+                        MessageBox.Show("No se encontró ninguna coincidencia con el parámetro ingresado.", "Sistema Informa");
                     }
                 }
                 else
@@ -261,7 +261,7 @@ namespace SistemaEstudiantes
             {
                 if (ex.Message.Contains("encontrar el archivo especificado"))
                 {
-                    MessageBox.Show("No se ha encontrado el archivo PDF perteneciente a esta Norma.");
+                    MessageBox.Show("No se ha encontrado el archivo PDF perteneciente a esta Norma.", "Sistema Informa");
                 }
                 else
                 {
@@ -347,13 +347,13 @@ namespace SistemaEstudiantes
         }
 
         private void btnBuscar_MouseMove(object sender, MouseEventArgs e)
-        {
-            btnBuscar.BackColor = Color.DimGray;
+        {            
+            btnBuscar.BackColor = Color.DodgerBlue;
         }
 
         private void btnBuscar_MouseLeave(object sender, EventArgs e)
         {
-            btnBuscar.BackColor = Color.DodgerBlue;
+            btnBuscar.BackColor = Color.DimGray;
         }
 
         private void btnVerPdf_MouseMove(object sender, MouseEventArgs e)

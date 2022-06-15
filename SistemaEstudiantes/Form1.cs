@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using System.Configuration;
 
 namespace SistemaEstudiantes
 {
@@ -15,7 +16,8 @@ namespace SistemaEstudiantes
     {
         //OleDbConnection conexionBaseDatos = new OleDbConnection("Provider = Microsoft.Jet.OLEDB.4.0; Data Source = |DataDirectory|BDNormativa.mdb");
         //OleDbConnection conexionBaseDatos = new OleDbConnection(@"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 06-12-2021\SistemaEstudiantes\bin\Debug\BDNormativa.mdb");
-        OleDbConnection conexionBaseDatos = new OleDbConnection(@"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = \\server\BASES\Sistema\BDSistema Supervision\BDSistSupervision.mdb");
+        //OleDbConnection conexionBaseDatos = new OleDbConnection(@"Provider = Microsoft.Jet.OLEDB.4.0; Data Source = \\server\BASES\Sistema\BDSistema Supervision\BDSistSupervision.mdb");
+        OleDbConnection conexionBaseDatos;
 
         string nombreUsuario;
         string permisosUsuario;
@@ -24,6 +26,13 @@ namespace SistemaEstudiantes
         public Form1(string usuario, string permisos, bool logueado)
         {
             InitializeComponent();
+
+            AppSettingsReader leerConfig = new AppSettingsReader();
+            string ruta = (string)leerConfig.GetValue("rutaBD", typeof(string));
+            //MessageBox.Show(ruta);
+            Route myRoute = new Route();
+            conexionBaseDatos = myRoute.ConexionBaseDatos(ruta);            
+
             btnNormativa.BackColor = Color.Silver;
             btnNormativa.Enabled = false;
             btnPlantas.BackColor = Color.Silver;

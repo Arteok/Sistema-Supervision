@@ -342,7 +342,7 @@ namespace SistemaEstudiantes
             // 
             // btnBuscar
             // 
-            this.btnBuscar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnBuscar.BackColor = System.Drawing.Color.DimGray;
             this.btnBuscar.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
             this.btnBuscar.Image = global::SistemaEstudiantes.Properties.Resources.Buscar;
