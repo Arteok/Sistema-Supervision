@@ -20,7 +20,7 @@ namespace SistemaEstudiantes
         OleDbConnection conexionBaseDatos;
 
         string nombreUsuario;
-        string permisosUsuario;
+        string permisosUsuario;        
         bool opcionesPermisos;//variable para permitir acceso a editarUsuarios y a rutas
         bool permisosBD;//variable para permitir acceso para editar la base de datos
         public Form1(string usuario, string permisos, bool logueado)
@@ -71,7 +71,7 @@ namespace SistemaEstudiantes
             else if (iniciarSeccion == DialogResult.Yes)
             {
                 nombreUsuario = miUsuario.NombreUsuario();
-                permisosUsuario = miUsuario.PermisosUsuario();
+                permisosUsuario = miUsuario.PermisosUsuario();                
                 ComprobarUsuario(nombreUsuario, permisosUsuario);
             }
             else
@@ -81,11 +81,11 @@ namespace SistemaEstudiantes
         }
         private void ComprobarUsuario(string usuario, string permisos)
         {
-            if (permisosUsuario == "Admin")//Necesario para arrancar el programa y no se puede eliminar este usuario
+            if (permisosUsuario == "Admin" || permisosUsuario == "admin")//Necesario para arrancar el programa y no se puede eliminar este usuario
             {
-                btnNormativa.Enabled = true;
-                btnNormativa.BackColor = Color.DimGray;
-                btnPlantas.Enabled = false;
+                //btnNormativa.Enabled = true;
+                //btnNormativa.BackColor = Color.DimGray;
+                //btnPlantas.Enabled = false;
                 //btnEstadisticas.BackColor = Color.DimGray;
                 //btnEstadisticas.Enabled = false;
                 btnOpciones.Enabled = true;

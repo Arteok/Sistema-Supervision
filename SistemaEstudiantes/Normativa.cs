@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SistemaEstudiantes;
 using System.Data.OleDb;
+using System.Configuration;
 using System.Diagnostics;
 
 
@@ -17,8 +18,8 @@ namespace SistemaEstudiantes
 {
     public partial class Normativa : Form
     {     
+        OleDbConnection conexionBaseDatos;//variable que recibe la direccion de la base de datos       
 
-        OleDbConnection conexionBaseDatos;//variable que recibe la direccion de la base de datos
         string nombreUsuario;
         string tipoUsuario;
         bool permisosDataBase;
@@ -35,7 +36,6 @@ namespace SistemaEstudiantes
             conexionBaseDatos = conexionBD;
             limpiarOrdenar();
             buscar();
-
         }
         private void limpiarOrdenar()
         {            
@@ -69,7 +69,6 @@ namespace SistemaEstudiantes
                 btnEditar.BackColor = Color.Silver;
             }            
         }
-
         private void dataGVBusqueda_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex != -1 && e.ColumnIndex != -1) //Evita que se haga click en la fila -1 y columna -1       
@@ -97,8 +96,7 @@ namespace SistemaEstudiantes
                 {
                     btnEditar.Enabled = true;
                     btnEditar.BackColor = Color.DodgerBlue;
-                }                
-                   
+                }                      
             }
         }
         private void buscar()
@@ -240,20 +238,25 @@ namespace SistemaEstudiantes
             }
         }
 
-
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            buscar();      
-            
+            buscar();                 
         }
 
         private void btnVerPdf_Click(object sender, EventArgs e)
         {
             try
             {
-                Process proceso = new Process();                     
-                proceso.StartInfo.FileName = @"\\server\BASES\Sistema\BDSistema Supervision\Resoluciones PDF\" + tbxNormaSelec.Text + ".pdf";
-                //string pdfAbrir = "C:\Users\Pablo\Desktop\Programas\SistemaEstudiantes 15 -11\SistemaEstudiantes\carpetaPDF\" + tbxNormaSelec.Text + (".pdf");.pdf
+                AppSettingsReader leerConfig = new AppSettingsReader();
+                string rutaPDF = (string)leerConfig.GetValue("rutaPDF", typeof(string));
+                string carpetaPDF;
+                Route myRoute = new Route();
+                carpetaPDF = myRoute.CarpetaPDF(rutaPDF);
+               
+
+                Process proceso = new Process();
+                // proceso.StartInfo.FileName = @"//server/BASES/Sistema/BDSistema Supervision/Resoluciones PDF/" + tbxNormaSelec.Text + ".pdf";
+                proceso.StartInfo.FileName = @""+ carpetaPDF +@"\"+ tbxNormaSelec.Text + ".pdf";
                 proceso.Start();
                 
             }
@@ -325,7 +328,6 @@ namespace SistemaEstudiantes
             tbxFecha.Clear();
             tbxTipo.Clear();
         }
-
         private void btnVolver_MouseMove(object sender, MouseEventArgs e)
         {
             btnVolver.BackColor = Color.DimGray;
