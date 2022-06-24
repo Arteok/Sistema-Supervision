@@ -42,6 +42,8 @@ namespace SistemaEstudiantes
             this.tbxReso = new System.Windows.Forms.TextBox();
             this.BtnIngresarBD = new System.Windows.Forms.Button();
             this.btnIngresarRR = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.lblActualBD = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -125,7 +127,7 @@ namespace SistemaEstudiantes
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.label2.Location = new System.Drawing.Point(12, 134);
+            this.label2.Location = new System.Drawing.Point(12, 213);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(177, 19);
             this.label2.TabIndex = 42;
@@ -135,7 +137,7 @@ namespace SistemaEstudiantes
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.label3.Location = new System.Drawing.Point(12, 210);
+            this.label3.Location = new System.Drawing.Point(12, 329);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(167, 19);
             this.label3.TabIndex = 43;
@@ -143,14 +145,14 @@ namespace SistemaEstudiantes
             // 
             // tbxBDN
             // 
-            this.tbxBDN.Location = new System.Drawing.Point(191, 135);
+            this.tbxBDN.Location = new System.Drawing.Point(191, 214);
             this.tbxBDN.Name = "tbxBDN";
             this.tbxBDN.Size = new System.Drawing.Size(672, 20);
             this.tbxBDN.TabIndex = 44;
             // 
             // tbxReso
             // 
-            this.tbxReso.Location = new System.Drawing.Point(191, 211);
+            this.tbxReso.Location = new System.Drawing.Point(191, 330);
             this.tbxReso.Name = "tbxReso";
             this.tbxReso.Size = new System.Drawing.Size(672, 20);
             this.tbxReso.TabIndex = 45;
@@ -161,7 +163,7 @@ namespace SistemaEstudiantes
             this.BtnIngresarBD.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnIngresarBD.Font = new System.Drawing.Font("Arial", 12.25F);
             this.BtnIngresarBD.ForeColor = System.Drawing.Color.White;
-            this.BtnIngresarBD.Location = new System.Drawing.Point(882, 123);
+            this.BtnIngresarBD.Location = new System.Drawing.Point(882, 202);
             this.BtnIngresarBD.Name = "BtnIngresarBD";
             this.BtnIngresarBD.Size = new System.Drawing.Size(100, 40);
             this.BtnIngresarBD.TabIndex = 17;
@@ -175,7 +177,7 @@ namespace SistemaEstudiantes
             this.btnIngresarRR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnIngresarRR.Font = new System.Drawing.Font("Arial", 12.25F);
             this.btnIngresarRR.ForeColor = System.Drawing.Color.White;
-            this.btnIngresarRR.Location = new System.Drawing.Point(882, 199);
+            this.btnIngresarRR.Location = new System.Drawing.Point(882, 318);
             this.btnIngresarRR.Name = "btnIngresarRR";
             this.btnIngresarRR.Size = new System.Drawing.Size(100, 40);
             this.btnIngresarRR.TabIndex = 46;
@@ -183,10 +185,32 @@ namespace SistemaEstudiantes
             this.btnIngresarRR.UseVisualStyleBackColor = false;
             this.btnIngresarRR.Click += new System.EventHandler(this.btnIngresarRR_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial", 12.25F);
+            this.label4.Location = new System.Drawing.Point(12, 147);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(238, 19);
+            this.label4.TabIndex = 47;
+            this.label4.Text = "Ruta actual a la Base de Datos:";
+            // 
+            // lblActualBD
+            // 
+            this.lblActualBD.AutoSize = true;
+            this.lblActualBD.Font = new System.Drawing.Font("Arial", 12.25F);
+            this.lblActualBD.Location = new System.Drawing.Point(257, 147);
+            this.lblActualBD.Name = "lblActualBD";
+            this.lblActualBD.Size = new System.Drawing.Size(15, 19);
+            this.lblActualBD.TabIndex = 48;
+            this.lblActualBD.Text = "-";
+            // 
             // Rutas
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1004, 685);
+            this.Controls.Add(this.lblActualBD);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnIngresarRR);
             this.Controls.Add(this.BtnIngresarBD);
             this.Controls.Add(this.tbxReso);
@@ -223,5 +247,7 @@ namespace SistemaEstudiantes
         private System.Windows.Forms.TextBox tbxReso;
         private System.Windows.Forms.Button BtnIngresarBD;
         private System.Windows.Forms.Button btnIngresarRR;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblActualBD;
     }
 }
