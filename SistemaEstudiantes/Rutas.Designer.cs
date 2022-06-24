@@ -55,7 +55,7 @@ namespace SistemaEstudiantes
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(810, 70);
+            this.panel1.Size = new System.Drawing.Size(1006, 97);
             this.panel1.TabIndex = 41;
             // 
             // label9
@@ -63,7 +63,7 @@ namespace SistemaEstudiantes
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(20, 42);
+            this.label9.Location = new System.Drawing.Point(49, 55);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(66, 18);
             this.label9.TabIndex = 16;
@@ -75,7 +75,7 @@ namespace SistemaEstudiantes
             this.lblNombre.BackColor = System.Drawing.Color.Transparent;
             this.lblNombre.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.White;
-            this.lblNombre.Location = new System.Drawing.Point(92, 42);
+            this.lblNombre.Location = new System.Drawing.Point(121, 55);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(50, 18);
             this.lblNombre.TabIndex = 14;
@@ -85,11 +85,11 @@ namespace SistemaEstudiantes
             // 
             this.btnSalir.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnSalir.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.Font = new System.Drawing.Font("Arial", 12.25F);
             this.btnSalir.ForeColor = System.Drawing.Color.White;
-            this.btnSalir.Location = new System.Drawing.Point(700, 20);
+            this.btnSalir.Location = new System.Drawing.Point(900, 27);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(90, 33);
+            this.btnSalir.Size = new System.Drawing.Size(90, 40);
             this.btnSalir.TabIndex = 13;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
@@ -98,13 +98,13 @@ namespace SistemaEstudiantes
             // btnVolver
             // 
             this.btnVolver.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnVolver.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVolver.Font = new System.Drawing.Font("Arial", 12.25F);
             this.btnVolver.ForeColor = System.Drawing.Color.White;
             this.btnVolver.Image = ((System.Drawing.Image)(resources.GetObject("btnVolver.Image")));
             this.btnVolver.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVolver.Location = new System.Drawing.Point(580, 20);
+            this.btnVolver.Location = new System.Drawing.Point(800, 27);
             this.btnVolver.Name = "btnVolver";
-            this.btnVolver.Size = new System.Drawing.Size(90, 33);
+            this.btnVolver.Size = new System.Drawing.Size(90, 40);
             this.btnVolver.TabIndex = 12;
             this.btnVolver.Text = "    Atrás";
             this.btnVolver.UseVisualStyleBackColor = false;
@@ -115,7 +115,7 @@ namespace SistemaEstudiantes
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 19.75F);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(12, 10);
+            this.label1.Location = new System.Drawing.Point(41, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(220, 32);
             this.label1.TabIndex = 11;
@@ -125,7 +125,7 @@ namespace SistemaEstudiantes
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.label2.Location = new System.Drawing.Point(12, 136);
+            this.label2.Location = new System.Drawing.Point(12, 134);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(177, 19);
             this.label2.TabIndex = 42;
@@ -135,7 +135,7 @@ namespace SistemaEstudiantes
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.label3.Location = new System.Drawing.Point(12, 212);
+            this.label3.Location = new System.Drawing.Point(12, 210);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(167, 19);
             this.label3.TabIndex = 43;
@@ -145,25 +145,25 @@ namespace SistemaEstudiantes
             // 
             this.tbxBDN.Location = new System.Drawing.Point(191, 135);
             this.tbxBDN.Name = "tbxBDN";
-            this.tbxBDN.Size = new System.Drawing.Size(479, 20);
+            this.tbxBDN.Size = new System.Drawing.Size(672, 20);
             this.tbxBDN.TabIndex = 44;
             // 
             // tbxReso
             // 
             this.tbxReso.Location = new System.Drawing.Point(191, 211);
             this.tbxReso.Name = "tbxReso";
-            this.tbxReso.Size = new System.Drawing.Size(479, 20);
+            this.tbxReso.Size = new System.Drawing.Size(672, 20);
             this.tbxReso.TabIndex = 45;
             // 
             // BtnIngresarBD
             // 
             this.BtnIngresarBD.BackColor = System.Drawing.Color.DodgerBlue;
             this.BtnIngresarBD.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.BtnIngresarBD.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnIngresarBD.Font = new System.Drawing.Font("Arial", 12.25F);
             this.BtnIngresarBD.ForeColor = System.Drawing.Color.White;
-            this.BtnIngresarBD.Location = new System.Drawing.Point(700, 127);
+            this.BtnIngresarBD.Location = new System.Drawing.Point(882, 123);
             this.BtnIngresarBD.Name = "BtnIngresarBD";
-            this.BtnIngresarBD.Size = new System.Drawing.Size(90, 33);
+            this.BtnIngresarBD.Size = new System.Drawing.Size(100, 40);
             this.BtnIngresarBD.TabIndex = 17;
             this.BtnIngresarBD.Text = "Ingresar";
             this.BtnIngresarBD.UseVisualStyleBackColor = false;
@@ -173,11 +173,11 @@ namespace SistemaEstudiantes
             // 
             this.btnIngresarRR.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnIngresarRR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnIngresarRR.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIngresarRR.Font = new System.Drawing.Font("Arial", 12.25F);
             this.btnIngresarRR.ForeColor = System.Drawing.Color.White;
-            this.btnIngresarRR.Location = new System.Drawing.Point(700, 203);
+            this.btnIngresarRR.Location = new System.Drawing.Point(882, 199);
             this.btnIngresarRR.Name = "btnIngresarRR";
-            this.btnIngresarRR.Size = new System.Drawing.Size(90, 33);
+            this.btnIngresarRR.Size = new System.Drawing.Size(100, 40);
             this.btnIngresarRR.TabIndex = 46;
             this.btnIngresarRR.Text = "Ingresar";
             this.btnIngresarRR.UseVisualStyleBackColor = false;
@@ -185,9 +185,8 @@ namespace SistemaEstudiantes
             // 
             // Rutas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(804, 561);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(1004, 685);
             this.Controls.Add(this.btnIngresarRR);
             this.Controls.Add(this.BtnIngresarBD);
             this.Controls.Add(this.tbxReso);

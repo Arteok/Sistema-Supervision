@@ -31,7 +31,7 @@ namespace SistemaEstudiantes
             {//codigo para loguear
                 if (tbxUsuario.Text == "admin" || tbxUsuario.Text == "Admin")
                 {
-                    if ((tbxUsuario.Text == "admin" || tbxUsuario.Text == "Admin") && tbxContraseña.Text == "1234")
+                    if ((tbxUsuario.Text == "admin" || tbxUsuario.Text == "Admin") && tbxContraseña.Text == "admin")
                     {
                         nombreUsuario = "Admin";
                         permisosUsuario = "Admin";

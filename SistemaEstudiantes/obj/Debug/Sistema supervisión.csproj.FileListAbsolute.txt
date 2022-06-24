@@ -322,3 +322,49 @@ C:\Users\Pablo\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaE
 C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Estadisticas2.resources
 C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Estadisticas3.resources
 C:\Users\Arteok\Desktop\Sistema Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.EstadisticasEliminarPoli.resources
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe.config
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe.manifest
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\bin\Debug\Sistema Supervisión.application
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\bin\Debug\Sistema Supervisión.exe
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\bin\Debug\Sistema Supervisión.pdb
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\bin\Debug\DocumentFormat.OpenXml.dll
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\bin\Debug\SpreadsheetLight.dll
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\bin\Debug\System.Drawing.Common.dll
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\bin\Debug\DocumentFormat.OpenXml.xml
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\bin\Debug\SpreadsheetLight.xml
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.AssemblyReference.cache
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.BaseDatosNorm.resources
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.CrearEditar.resources
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.DepurarPDF.resources
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Estadisticas.resources
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Estadisticas1.resources
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Estadisticas2.resources
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Estadisticas3.resources
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.EstadisticasCargar.resources
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.EstadisticasCargarPoli.resources
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.EstadisticasColegiosTDF.resources
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.EstadisticasEliminar.resources
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.EstadisticasEliminarPoli.resources
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.EstadisticasPlanillas.resources
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Form1.resources
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Normativa.resources
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Opciones.resources
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Properties.Resources.resources
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Rutas.resources
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Usuario.resources
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.GenerateResource.cache
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.CoreCompileInputs.cache
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.TrustInfo.xml
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.exe.manifest
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.application
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.CopyComplete
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.exe
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.pdb
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\bin\Debug\System.Security.AccessControl.dll
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\bin\Debug\System.Security.Permissions.dll
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\bin\Debug\System.Security.AccessControl.xml
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\bin\Debug\System.Security.Permissions.xml
+C:\Users\Usuario-06\Desktop\Sistema-Supervision\SistemaEstudiantes\bin\Debug\System.Security.Principal.Windows.xml

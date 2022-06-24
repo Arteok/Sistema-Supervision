@@ -27,12 +27,12 @@ namespace SistemaEstudiantes
             logueado = true;
             conexionBaseDatos = conexionBD;            
 
-            if (tipoUsuario == "SuperUsuario")
+            if (tipoUsuario == "SuperUsuario" || tipoUsuario  == "Admin" || tipoUsuario == "admin")
             {
                 btnEditUsuarios.Enabled = true;
                 btnEditUsuarios.BackColor = Color.DimGray;
-                btnRutas.Enabled = false;
-                btnRutas.BackColor = Color.Silver;
+                btnRutas.Enabled = true;
+                btnRutas.BackColor = Color.DimGray;
                 btnDepurarPDF.Enabled = false;
                 btnDepurarPDF.BackColor = Color.Silver;
                 btnResoPantalla.Enabled = false;

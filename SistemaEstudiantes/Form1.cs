@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.OleDb;
 using System.Configuration;
 
+
 namespace SistemaEstudiantes
 {
     public partial class Form1 : Form
@@ -26,7 +27,7 @@ namespace SistemaEstudiantes
         public Form1(string usuario, string permisos, bool logueado)
         {
             InitializeComponent();
-
+            
             AppSettingsReader leerConfig = new AppSettingsReader();
             string ruta = (string)leerConfig.GetValue("rutaBD", typeof(string));
             //MessageBox.Show(ruta);
