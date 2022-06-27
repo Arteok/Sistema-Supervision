@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Sistema Supervisión.exe" size="4763560">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Sistema Supervisión.exe" size="4766632">
       <assemblyIdentity name="Sistema Supervisión" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>BdVnJAtnGUqBudlXqcAtgElPjIubCBkEOw4XRIwHf3E=</dsig:DigestValue>
+        <dsig:DigestValue>fjXjshYgnOVBzMMAXfcWc5+peDZ0GVgWyOvA17XzHgI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -147,13 +147,13 @@
       <dsig:DigestValue>+TG2Wgy4uihBhrVpOr3iBJDsqKz3KTLIUOczk/Xbeqs=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Sistema Supervisión.exe.config" size="814">
+  <file name="Sistema Supervisión.exe.config" size="809">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>PYITMb82A5U5q9gququmFyVwjLGx5TEiwj0Brre7mh0=</dsig:DigestValue>
+      <dsig:DigestValue>CnbXchkX4k2NkVesai8QDuSyO4GhCplZqRWjknONzSo=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">

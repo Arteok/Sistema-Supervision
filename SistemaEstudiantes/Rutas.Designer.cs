@@ -44,7 +44,13 @@ namespace SistemaEstudiantes
             this.btnIngresarRR = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.lblActualBD = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblActualPDF = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -96,6 +102,8 @@ namespace SistemaEstudiantes
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.btnSalir.MouseLeave += new System.EventHandler(this.btnSalir_MouseLeave);
+            this.btnSalir.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnSalir_MouseMove);
             // 
             // btnVolver
             // 
@@ -111,6 +119,8 @@ namespace SistemaEstudiantes
             this.btnVolver.Text = "    Atrás";
             this.btnVolver.UseVisualStyleBackColor = false;
             this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
+            this.btnVolver.MouseLeave += new System.EventHandler(this.btnVolver_MouseLeave);
+            this.btnVolver.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnVolver_MouseMove);
             // 
             // label1
             // 
@@ -127,35 +137,37 @@ namespace SistemaEstudiantes
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.label2.Location = new System.Drawing.Point(12, 213);
+            this.label2.Location = new System.Drawing.Point(14, 64);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(177, 19);
+            this.label2.Size = new System.Drawing.Size(182, 19);
             this.label2.TabIndex = 42;
-            this.label2.Text = "Ruta de Base de Datos";
+            this.label2.Text = "Ruta de Base de Datos:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.label3.Location = new System.Drawing.Point(12, 329);
+            this.label3.Location = new System.Drawing.Point(14, 65);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(167, 19);
+            this.label3.Size = new System.Drawing.Size(212, 19);
             this.label3.TabIndex = 43;
-            this.label3.Text = "Ruta de Resoluciones";
+            this.label3.Text = "Ruta Carpeta Resoluciones:";
             // 
             // tbxBDN
             // 
-            this.tbxBDN.Location = new System.Drawing.Point(191, 214);
+            this.tbxBDN.Location = new System.Drawing.Point(202, 65);
             this.tbxBDN.Name = "tbxBDN";
             this.tbxBDN.Size = new System.Drawing.Size(672, 20);
             this.tbxBDN.TabIndex = 44;
+            this.tbxBDN.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tbxBDN_MouseClick);
             // 
             // tbxReso
             // 
-            this.tbxReso.Location = new System.Drawing.Point(191, 330);
+            this.tbxReso.Location = new System.Drawing.Point(232, 66);
             this.tbxReso.Name = "tbxReso";
-            this.tbxReso.Size = new System.Drawing.Size(672, 20);
+            this.tbxReso.Size = new System.Drawing.Size(642, 20);
             this.tbxReso.TabIndex = 45;
+            this.tbxReso.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tbxReso_MouseClick);
             // 
             // BtnIngresarBD
             // 
@@ -163,13 +175,15 @@ namespace SistemaEstudiantes
             this.BtnIngresarBD.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnIngresarBD.Font = new System.Drawing.Font("Arial", 12.25F);
             this.BtnIngresarBD.ForeColor = System.Drawing.Color.White;
-            this.BtnIngresarBD.Location = new System.Drawing.Point(882, 202);
+            this.BtnIngresarBD.Location = new System.Drawing.Point(886, 53);
             this.BtnIngresarBD.Name = "BtnIngresarBD";
             this.BtnIngresarBD.Size = new System.Drawing.Size(100, 40);
             this.BtnIngresarBD.TabIndex = 17;
             this.BtnIngresarBD.Text = "Ingresar";
             this.BtnIngresarBD.UseVisualStyleBackColor = false;
             this.BtnIngresarBD.Click += new System.EventHandler(this.BtnIngresarBD_Click);
+            this.BtnIngresarBD.MouseLeave += new System.EventHandler(this.BtnIngresarBD_MouseLeave);
+            this.BtnIngresarBD.MouseMove += new System.Windows.Forms.MouseEventHandler(this.BtnIngresarBD_MouseMove);
             // 
             // btnIngresarRR
             // 
@@ -177,19 +191,21 @@ namespace SistemaEstudiantes
             this.btnIngresarRR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnIngresarRR.Font = new System.Drawing.Font("Arial", 12.25F);
             this.btnIngresarRR.ForeColor = System.Drawing.Color.White;
-            this.btnIngresarRR.Location = new System.Drawing.Point(882, 318);
+            this.btnIngresarRR.Location = new System.Drawing.Point(886, 54);
             this.btnIngresarRR.Name = "btnIngresarRR";
             this.btnIngresarRR.Size = new System.Drawing.Size(100, 40);
             this.btnIngresarRR.TabIndex = 46;
             this.btnIngresarRR.Text = "Ingresar";
             this.btnIngresarRR.UseVisualStyleBackColor = false;
             this.btnIngresarRR.Click += new System.EventHandler(this.btnIngresarRR_Click);
+            this.btnIngresarRR.MouseLeave += new System.EventHandler(this.btnIngresarRR_MouseLeave);
+            this.btnIngresarRR.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnIngresarRR_MouseMove);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.label4.Location = new System.Drawing.Point(12, 147);
+            this.label4.Location = new System.Drawing.Point(14, 21);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(238, 19);
             this.label4.TabIndex = 47;
@@ -199,24 +215,66 @@ namespace SistemaEstudiantes
             // 
             this.lblActualBD.AutoSize = true;
             this.lblActualBD.Font = new System.Drawing.Font("Arial", 12.25F);
-            this.lblActualBD.Location = new System.Drawing.Point(257, 147);
+            this.lblActualBD.Location = new System.Drawing.Point(258, 21);
             this.lblActualBD.Name = "lblActualBD";
             this.lblActualBD.Size = new System.Drawing.Size(15, 19);
             this.lblActualBD.TabIndex = 48;
             this.lblActualBD.Text = "-";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 12.25F);
+            this.label5.Location = new System.Drawing.Point(14, 22);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(210, 19);
+            this.label5.TabIndex = 49;
+            this.label5.Text = "Ruta actual a Carpeta PDF:";
+            // 
+            // lblActualPDF
+            // 
+            this.lblActualPDF.AutoSize = true;
+            this.lblActualPDF.Font = new System.Drawing.Font("Arial", 12.25F);
+            this.lblActualPDF.Location = new System.Drawing.Point(230, 22);
+            this.lblActualPDF.Name = "lblActualPDF";
+            this.lblActualPDF.Size = new System.Drawing.Size(15, 19);
+            this.lblActualPDF.TabIndex = 50;
+            this.lblActualPDF.Text = "-";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.tbxBDN);
+            this.groupBox1.Controls.Add(this.lblActualBD);
+            this.groupBox1.Controls.Add(this.BtnIngresarBD);
+            this.groupBox1.Location = new System.Drawing.Point(0, 125);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1006, 105);
+            this.groupBox1.TabIndex = 51;
+            this.groupBox1.TabStop = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.lblActualPDF);
+            this.groupBox2.Controls.Add(this.btnIngresarRR);
+            this.groupBox2.Controls.Add(this.tbxReso);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Location = new System.Drawing.Point(0, 260);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1006, 105);
+            this.groupBox2.TabIndex = 52;
+            this.groupBox2.TabStop = false;
+            // 
             // Rutas
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1004, 685);
-            this.Controls.Add(this.lblActualBD);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.btnIngresarRR);
-            this.Controls.Add(this.BtnIngresarBD);
-            this.Controls.Add(this.tbxReso);
-            this.Controls.Add(this.tbxBDN);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -228,8 +286,11 @@ namespace SistemaEstudiantes
             this.Text = "Sistema Supervisión";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -249,5 +310,9 @@ namespace SistemaEstudiantes
         private System.Windows.Forms.Button btnIngresarRR;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblActualBD;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblActualPDF;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

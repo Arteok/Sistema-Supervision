@@ -1233,7 +1233,7 @@ namespace SistemaEstudiantes
                 //creando Estadisticas
                 string userName = Environment.UserName;
 
-                string destinationFile = @"C:/Users/" + userName + "/Downloads/Por Orientación " + " " + cboxAño.SelectedItem.ToString() + " " + cboxPeriodo.SelectedItem.ToString() + ".xlsx";
+                string destinationFile = @"C:/Users/" + userName + "/Downloads/Por Orientación " + cboxAño.SelectedItem.ToString() + " " + cboxPeriodo.SelectedItem.ToString() + ".xlsx";
 
                 SLDocument sl = new SLDocument();
 
