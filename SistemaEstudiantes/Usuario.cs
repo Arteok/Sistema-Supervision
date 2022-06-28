@@ -82,7 +82,7 @@ namespace SistemaEstudiantes
                 {
                     MessageBox.Show("Datos duplicados en base de datos.", "Sistema Informa");
                 }
-                else if (ex.Message.Contains("No se pudo encontrar el archivo"))
+                else if (ex.Message.Contains("La ruta de la base de datos no es correcta. Ingrese en modo admin y asigne una ruta válida"))
                 {
                     MessageBox.Show("No se encontró ninguna estadística para los parámetros especificados.", "Sistema Informa");
                 }

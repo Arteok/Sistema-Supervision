@@ -288,15 +288,7 @@ namespace SistemaEstudiantes
 
 
 
-        /*
-        private void btnSalir_MouseMove(object sender, MouseEventArgs e)
-        {
-            btnSalir.BackColor = Color.DimGray;
-        }
-
-        private void btnSalir_MouseLeave(object sender, EventArgs e)
-        {
-            btnSalir.BackColor = Color.DodgerBlue;*/
+        
 
     }
 }

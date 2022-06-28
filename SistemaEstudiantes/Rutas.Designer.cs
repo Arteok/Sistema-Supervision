@@ -139,9 +139,9 @@ namespace SistemaEstudiantes
             this.label2.Font = new System.Drawing.Font("Arial", 12.25F);
             this.label2.Location = new System.Drawing.Point(14, 64);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(182, 19);
+            this.label2.Size = new System.Drawing.Size(227, 19);
             this.label2.TabIndex = 42;
-            this.label2.Text = "Ruta de Base de Datos:";
+            this.label2.Text = "Nueva ruta de Base de Datos:";
             // 
             // label3
             // 
@@ -149,21 +149,21 @@ namespace SistemaEstudiantes
             this.label3.Font = new System.Drawing.Font("Arial", 12.25F);
             this.label3.Location = new System.Drawing.Point(14, 65);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(212, 19);
+            this.label3.Size = new System.Drawing.Size(207, 19);
             this.label3.TabIndex = 43;
-            this.label3.Text = "Ruta Carpeta Resoluciones:";
+            this.label3.Text = "Nueva ruta a Carpeta PDF:";
             // 
             // tbxBDN
             // 
-            this.tbxBDN.Location = new System.Drawing.Point(202, 65);
+            this.tbxBDN.Location = new System.Drawing.Point(247, 65);
             this.tbxBDN.Name = "tbxBDN";
-            this.tbxBDN.Size = new System.Drawing.Size(672, 20);
+            this.tbxBDN.Size = new System.Drawing.Size(622, 20);
             this.tbxBDN.TabIndex = 44;
             this.tbxBDN.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tbxBDN_MouseClick);
             // 
             // tbxReso
             // 
-            this.tbxReso.Location = new System.Drawing.Point(232, 66);
+            this.tbxReso.Location = new System.Drawing.Point(227, 66);
             this.tbxReso.Name = "tbxReso";
             this.tbxReso.Size = new System.Drawing.Size(642, 20);
             this.tbxReso.TabIndex = 45;
@@ -175,7 +175,7 @@ namespace SistemaEstudiantes
             this.BtnIngresarBD.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnIngresarBD.Font = new System.Drawing.Font("Arial", 12.25F);
             this.BtnIngresarBD.ForeColor = System.Drawing.Color.White;
-            this.BtnIngresarBD.Location = new System.Drawing.Point(886, 53);
+            this.BtnIngresarBD.Location = new System.Drawing.Point(890, 53);
             this.BtnIngresarBD.Name = "BtnIngresarBD";
             this.BtnIngresarBD.Size = new System.Drawing.Size(100, 40);
             this.BtnIngresarBD.TabIndex = 17;
@@ -191,7 +191,7 @@ namespace SistemaEstudiantes
             this.btnIngresarRR.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnIngresarRR.Font = new System.Drawing.Font("Arial", 12.25F);
             this.btnIngresarRR.ForeColor = System.Drawing.Color.White;
-            this.btnIngresarRR.Location = new System.Drawing.Point(886, 54);
+            this.btnIngresarRR.Location = new System.Drawing.Point(890, 54);
             this.btnIngresarRR.Name = "btnIngresarRR";
             this.btnIngresarRR.Size = new System.Drawing.Size(100, 40);
             this.btnIngresarRR.TabIndex = 46;
