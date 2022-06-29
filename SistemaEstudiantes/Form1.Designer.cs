@@ -42,6 +42,7 @@ namespace SistemaEstudiantes
             this.btnPlantas = new System.Windows.Forms.Button();
             this.btnEstadisticas = new System.Windows.Forms.Button();
             this.btnOpciones = new System.Windows.Forms.Button();
+            this.btnEstudiantes = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -52,15 +53,15 @@ namespace SistemaEstudiantes
             this.btnNormativa.BackColor = System.Drawing.Color.DimGray;
             this.btnNormativa.Font = new System.Drawing.Font("Arial", 14F);
             this.btnNormativa.ForeColor = System.Drawing.Color.White;
-            this.btnNormativa.Location = new System.Drawing.Point(407, 213);
+            this.btnNormativa.Location = new System.Drawing.Point(400, 165);
             this.btnNormativa.Name = "btnNormativa";
             this.btnNormativa.Size = new System.Drawing.Size(415, 54);
             this.btnNormativa.TabIndex = 5;
             this.btnNormativa.Text = "Normativa";
             this.btnNormativa.UseVisualStyleBackColor = false;
             this.btnNormativa.Click += new System.EventHandler(this.btnNormativa_Click);
-            this.btnNormativa.MouseLeave += new System.EventHandler(this.btnNormativa_MouseLeave);
-            this.btnNormativa.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnNormativa_MouseMove);
+            this.btnNormativa.MouseLeave += new System.EventHandler(this.btnEstudiantes_MouseLeave);
+            this.btnNormativa.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnEstudiantes_MouseMove);
             // 
             // panel1
             // 
@@ -128,7 +129,7 @@ namespace SistemaEstudiantes
             this.panel2.BackColor = System.Drawing.Color.DodgerBlue;
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(0, 96);
+            this.panel2.Location = new System.Drawing.Point(0, 97);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(215, 633);
             this.panel2.TabIndex = 7;
@@ -158,22 +159,22 @@ namespace SistemaEstudiantes
             this.btnPlantas.BackColor = System.Drawing.Color.DimGray;
             this.btnPlantas.Font = new System.Drawing.Font("Arial", 14F);
             this.btnPlantas.ForeColor = System.Drawing.Color.White;
-            this.btnPlantas.Location = new System.Drawing.Point(407, 313);
+            this.btnPlantas.Location = new System.Drawing.Point(400, 365);
             this.btnPlantas.Name = "btnPlantas";
             this.btnPlantas.Size = new System.Drawing.Size(415, 54);
             this.btnPlantas.TabIndex = 8;
             this.btnPlantas.Text = "Plantas Orgánicas Funcionales";
             this.btnPlantas.UseVisualStyleBackColor = false;
             this.btnPlantas.Click += new System.EventHandler(this.btnPlantas_Click);
-            this.btnPlantas.MouseLeave += new System.EventHandler(this.btnPlantas_MouseLeave);
-            this.btnPlantas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnPlantas_MouseMove);
+            this.btnPlantas.MouseLeave += new System.EventHandler(this.btnEstudiantes_MouseLeave);
+            this.btnPlantas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnEstudiantes_MouseMove);
             // 
             // btnEstadisticas
             // 
             this.btnEstadisticas.BackColor = System.Drawing.Color.DimGray;
             this.btnEstadisticas.Font = new System.Drawing.Font("Arial", 14F);
             this.btnEstadisticas.ForeColor = System.Drawing.Color.White;
-            this.btnEstadisticas.Location = new System.Drawing.Point(407, 413);
+            this.btnEstadisticas.Location = new System.Drawing.Point(400, 465);
             this.btnEstadisticas.Name = "btnEstadisticas";
             this.btnEstadisticas.Size = new System.Drawing.Size(415, 54);
             this.btnEstadisticas.TabIndex = 9;
@@ -188,7 +189,7 @@ namespace SistemaEstudiantes
             this.btnOpciones.BackColor = System.Drawing.Color.DimGray;
             this.btnOpciones.Font = new System.Drawing.Font("Arial", 14F);
             this.btnOpciones.ForeColor = System.Drawing.Color.White;
-            this.btnOpciones.Location = new System.Drawing.Point(407, 513);
+            this.btnOpciones.Location = new System.Drawing.Point(400, 565);
             this.btnOpciones.Name = "btnOpciones";
             this.btnOpciones.Size = new System.Drawing.Size(415, 54);
             this.btnOpciones.TabIndex = 10;
@@ -198,12 +199,28 @@ namespace SistemaEstudiantes
             this.btnOpciones.MouseLeave += new System.EventHandler(this.button2_MouseLeave);
             this.btnOpciones.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button2_MouseMove);
             // 
+            // btnEstudiantes
+            // 
+            this.btnEstudiantes.BackColor = System.Drawing.Color.DimGray;
+            this.btnEstudiantes.Font = new System.Drawing.Font("Arial", 14F);
+            this.btnEstudiantes.ForeColor = System.Drawing.Color.White;
+            this.btnEstudiantes.Location = new System.Drawing.Point(400, 265);
+            this.btnEstudiantes.Name = "btnEstudiantes";
+            this.btnEstudiantes.Size = new System.Drawing.Size(415, 54);
+            this.btnEstudiantes.TabIndex = 6;
+            this.btnEstudiantes.Text = "Estudiantes";
+            this.btnEstudiantes.UseVisualStyleBackColor = false;
+            this.btnEstudiantes.Click += new System.EventHandler(this.btnEstudiantes_Click);
+            this.btnEstudiantes.MouseLeave += new System.EventHandler(this.btnEstudiantes_MouseLeave);
+            this.btnEstudiantes.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnEstudiantes_MouseMove);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.CancelButton = this.btnSalir;
             this.ClientSize = new System.Drawing.Size(1004, 685);
+            this.Controls.Add(this.btnEstudiantes);
             this.Controls.Add(this.btnOpciones);
             this.Controls.Add(this.btnEstadisticas);
             this.Controls.Add(this.btnPlantas);
@@ -223,6 +240,7 @@ namespace SistemaEstudiantes
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
+
         }
 
         #endregion
@@ -239,6 +257,7 @@ namespace SistemaEstudiantes
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button btnEstudiantes;
     }
 }
 

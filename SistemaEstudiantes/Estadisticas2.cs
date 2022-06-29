@@ -23,7 +23,7 @@ namespace SistemaEstudiantes
         int colorDecla;
 
         OleDbConnection conexionBaseDatos;//variable que recibe la direccion de la base de datos
-        Colegios myColegios;
+        ColegiosEstadisticas myColegios;
         bool colegiosCreados = false;
         int cantColegiosUshuaia;
         int cantColegiosGrande;
@@ -78,8 +78,7 @@ namespace SistemaEstudiantes
 
         int totalGenUshuaia;
         int totalGenGrande;
-        int totalGenProvincial;
-            
+        int totalGenProvincial;            
 
         public Estadisticas2(string usuario, string permisos, bool logueado, OleDbConnection conexionBD)
         {
@@ -97,7 +96,8 @@ namespace SistemaEstudiantes
 
             if (colegiosCreados == false)
             {
-                myColegios = new Colegios();
+                myColegios = new ColegiosEstadisticas();
+                myColegios.ConexionBD(conexionBaseDatos);
                 myColegios.CargarColegiosUshuaia();
                 myColegios.CargarColegiosGrande();
                 cantColegiosUshuaia = myColegios.NumColegiosUshuaia;
@@ -135,6 +135,7 @@ namespace SistemaEstudiantes
             btnDeclaracion.BackColor = System.Drawing.Color.Silver;
             btnDeclaracion.Enabled = false;
             lblAbriendoDec.Visible = false;
+
             // Ver estadistica
             cboxPeriodoEst.ResetText();
             cboxAñoEst.ResetText();

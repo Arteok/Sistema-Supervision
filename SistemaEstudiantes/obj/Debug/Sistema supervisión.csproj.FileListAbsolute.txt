@@ -413,3 +413,4 @@ C:\Users\Lucas\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\Sistema 
 C:\Users\Lucas\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.csproj.CopyComplete
 C:\Users\Lucas\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.exe
 C:\Users\Lucas\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\Sistema Supervisión.pdb
+C:\Users\Lucas\Desktop\Sistema-Supervision\SistemaEstudiantes\obj\Debug\SistemaEstudiantes.Estudiantes.resources

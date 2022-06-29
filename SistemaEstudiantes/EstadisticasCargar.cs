@@ -17,7 +17,7 @@ namespace SistemaEstudiantes
     {
         OleDbConnection conexionBaseDatos;//variable que recibe la direccion de la base de datos
         OleDbCommand sqlComando;
-        Colegios myColegios;
+        ColegiosEstadisticas myColegios;
         string ruta;
 
         int colorBtnExcel;
@@ -59,7 +59,8 @@ namespace SistemaEstudiantes
 
             if (colegiosCreados == false)
             {
-                myColegios = new Colegios();
+                myColegios = new ColegiosEstadisticas();
+                myColegios.ConexionBD(conexionBaseDatos);
                 myColegios.CargarColegiosUshuaia();
                 myColegios.CargarColegiosGrande();
                 cantColegiosUshuaia = myColegios.NumColegiosUshuaia;

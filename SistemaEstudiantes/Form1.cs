@@ -189,11 +189,15 @@ namespace SistemaEstudiantes
             this.Hide();
             miNormativa.Show();
         }
-        private void btnOpciones_Click(object sender, EventArgs e)
+        private void btnEstudiantes_Click(object sender, EventArgs e)
         {
-            Opciones miOpciones = new Opciones(nombreUsuario, permisosUsuario,true, conexionBaseDatos);
+            Estudiantes myEstudiantes = new Estudiantes(nombreUsuario, permisosUsuario, opcionesPermisos, conexionBaseDatos);
             this.Hide();
-            miOpciones.Show();
+            myEstudiantes.Show();
+        }
+        private void btnPlantas_Click(object sender, EventArgs e)
+        {
+
         }
         private void btnEstadisticas_Click(object sender, EventArgs e)
         {
@@ -201,6 +205,13 @@ namespace SistemaEstudiantes
             this.Hide();
             miEstadisticas.Show();
         }
+        private void btnOpciones_Click(object sender, EventArgs e)
+        {
+            Opciones miOpciones = new Opciones(nombreUsuario, permisosUsuario,true, conexionBaseDatos);
+            this.Hide();
+            miOpciones.Show();
+        }
+        
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -210,7 +221,6 @@ namespace SistemaEstudiantes
         {
             btnSalir.BackColor = Color.DimGray;
         }
-
         private void btnSalir_MouseLeave(object sender, EventArgs e)
         {
             btnSalir.BackColor = Color.DodgerBlue;
@@ -225,6 +235,16 @@ namespace SistemaEstudiantes
         {
             btnNormativa.BackColor = Color.DimGray;
         }
+        private void btnEstudiantes_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnEstudiantes.BackColor = Color.DodgerBlue;
+        }
+
+        private void btnEstudiantes_MouseLeave(object sender, EventArgs e)
+        {
+            btnEstudiantes.BackColor = Color.DimGray;
+        }
+
 
         private void btnPlantas_MouseMove(object sender, MouseEventArgs e)
         {
@@ -236,6 +256,7 @@ namespace SistemaEstudiantes
             btnPlantas.BackColor = Color.DimGray;
         }
 
+        //Estadisticas
         private void button1_MouseMove(object sender, MouseEventArgs e)
         {
             btnEstadisticas.BackColor = Color.DodgerBlue;
@@ -246,6 +267,7 @@ namespace SistemaEstudiantes
             btnEstadisticas.BackColor = Color.DimGray;
         }
 
+        //opciones
         private void button2_MouseMove(object sender, MouseEventArgs e)
         {
             btnOpciones.BackColor = Color.DodgerBlue;
@@ -256,11 +278,6 @@ namespace SistemaEstudiantes
             btnOpciones.BackColor = Color.DimGray;
         }
 
-        private void btnPlantas_Click(object sender, EventArgs e)
-        {
-
-        }
-
-       
+      
     }        
 }

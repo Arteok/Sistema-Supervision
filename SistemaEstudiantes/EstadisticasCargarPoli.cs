@@ -353,7 +353,6 @@ namespace SistemaEstudiantes
                     {
                         MessageBox.Show(Convert.ToString(ex));
                     }
-
                     conexionBaseDatos.Close();
                 }
             }
@@ -364,8 +363,7 @@ namespace SistemaEstudiantes
                 btnImportar.BackColor = System.Drawing.Color.Silver;
                 btnImportar.Enabled = false;
                 ordenar();
-            }
-            
+            }            
             lblCargando.Visible = false;
         }
         private void btnVolver_Click(object sender, EventArgs e)
@@ -427,7 +425,6 @@ namespace SistemaEstudiantes
         private void btnSalir_MouseLeave(object sender, EventArgs e)
         {
             btnSalir.BackColor = System.Drawing.Color.DodgerBlue;
-
         }      
     }
 }

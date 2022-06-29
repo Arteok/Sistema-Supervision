@@ -23,7 +23,7 @@ namespace SistemaEstudiantes
         int colorDecla;
 
         OleDbConnection conexionBaseDatos;//variable que recibe la direccion de la base de datos
-        Colegios myColegios;
+        ColegiosEstadisticas myColegios;
         bool colegiosCreados = false;
         int cantColegiosUshuaia;
         int cantColegiosGrande;
@@ -78,7 +78,8 @@ namespace SistemaEstudiantes
 
             if (colegiosCreados == false)
             {
-                myColegios = new Colegios();
+                myColegios = new ColegiosEstadisticas();
+                myColegios.ConexionBD(conexionBaseDatos);
                 myColegios.CargarColegiosUshuaia();
                 myColegios.CargarColegiosGrande();
                 cantColegiosUshuaia = myColegios.NumColegiosUshuaia;

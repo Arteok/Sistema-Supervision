@@ -16,20 +16,21 @@ namespace SistemaEstudiantes
         OleDbConnection conexionBaseDatos;//variable que recibe la direccion de la base de datos
         string nombreUsuario;
         string permisosUsuario;
-        bool opcionesPermisos;
+        bool logueadoBool;
 
-        Colegios myColegios;
+        ColegiosEstadisticas myColegios;
 
-        public Estadisticas(string usuario, string permisos, bool permisosOpciones, OleDbConnection conexionBD)
+        public Estadisticas(string usuario, string permisos, bool logueado, OleDbConnection conexionBD)
         {
             InitializeComponent();
             nombreUsuario = usuario;
             permisosUsuario = permisos;
-            opcionesPermisos = permisosOpciones;
+            logueadoBool = logueado;
             lblNombre.Text = usuario;
             conexionBaseDatos = conexionBD;
 
-            myColegios = new Colegios();
+            myColegios = new ColegiosEstadisticas();
+            myColegios.ConexionBD(conexionBaseDatos);
             myColegios.CargarColegiosUshuaia();
             myColegios.CargarColegiosGrande();
 
@@ -51,15 +52,14 @@ namespace SistemaEstudiantes
         
         private void btnEstadistica1_Click_1(object sender, EventArgs e)
         {
-            Estadisticas1 miEstadisticas1 = new Estadisticas1(nombreUsuario, permisosUsuario, opcionesPermisos, conexionBaseDatos);
+            Estadisticas1 miEstadisticas1 = new Estadisticas1(nombreUsuario, permisosUsuario, logueadoBool, conexionBaseDatos);
             this.Hide();           
-            miEstadisticas1.Show();
-            
+            miEstadisticas1.Show();            
         }
 
         private void btnEstadistica2_Click_1(object sender, EventArgs e)
         {
-            Estadisticas2 miEstadisticas2 = new Estadisticas2(nombreUsuario, permisosUsuario, opcionesPermisos, conexionBaseDatos);
+            Estadisticas2 miEstadisticas2 = new Estadisticas2(nombreUsuario, permisosUsuario, logueadoBool, conexionBaseDatos);
             this.Hide();
             miEstadisticas2.Show();
 
@@ -67,21 +67,21 @@ namespace SistemaEstudiantes
 
         private void btnEstadistica3_Click(object sender, EventArgs e)
         {
-            Estadisticas3 miEstadisticas3 = new Estadisticas3(nombreUsuario, permisosUsuario, opcionesPermisos, conexionBaseDatos);
+            Estadisticas3 miEstadisticas3 = new Estadisticas3(nombreUsuario, permisosUsuario, logueadoBool, conexionBaseDatos);
             this.Hide();
             miEstadisticas3.Show();
         }
 
         private void btnCantColegios_Click(object sender, EventArgs e)
         {
-            EstadisticasColegiosTDF myEstadisticasColegiosTDF = new EstadisticasColegiosTDF(nombreUsuario, permisosUsuario, opcionesPermisos, conexionBaseDatos);
+            EstadisticasColegiosTDF myEstadisticasColegiosTDF = new EstadisticasColegiosTDF(nombreUsuario, permisosUsuario, logueadoBool, conexionBaseDatos);
             this.Hide();
             myEstadisticasColegiosTDF.Show();
         }
 
         private void btmPlantillas_Click(object sender, EventArgs e)
         {
-            EstadisticasPlanillas myEstadisticasPlanillas = new EstadisticasPlanillas(nombreUsuario, permisosUsuario, opcionesPermisos, conexionBaseDatos);
+            EstadisticasPlanillas myEstadisticasPlanillas = new EstadisticasPlanillas(nombreUsuario, permisosUsuario, logueadoBool, conexionBaseDatos);
             this.Hide();
             myEstadisticasPlanillas.Show();
 

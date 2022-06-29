@@ -126,7 +126,8 @@
     <Compile Include="BaseDatosNorm.Designer.cs">
       <DependentUpon>BaseDatosNorm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Colegios.cs" />
+    <Compile Include="ColegiosEstadisticas.cs" />
+    <Compile Include="ColegiosEstudiantes.cs" />
     <Compile Include="CrearEditar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +193,12 @@
     </Compile>
     <Compile Include="EstadisticasPlanillas.Designer.cs">
       <DependentUpon>EstadisticasPlanillas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Estudiantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estudiantes.Designer.cs">
+      <DependentUpon>Estudiantes.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -266,6 +273,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EstadisticasPlanillas.resx">
       <DependentUpon>EstadisticasPlanillas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estudiantes.resx">
+      <DependentUpon>Estudiantes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
