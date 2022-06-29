@@ -27,7 +27,7 @@
     <MinimumRequiredVersion>1.0.0.2</MinimumRequiredVersion>
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>11</ApplicationRevision>
+    <ApplicationRevision>12</ApplicationRevision>
     <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -107,6 +107,7 @@
     </Reference>
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -131,12 +132,6 @@
     </Compile>
     <Compile Include="CrearEditar.Designer.cs">
       <DependentUpon>CrearEditar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DepurarPDF.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DepurarPDF.Designer.cs">
-      <DependentUpon>DepurarPDF.cs</DependentUpon>
     </Compile>
     <Compile Include="Estadisticas.cs">
       <SubType>Form</SubType>
@@ -242,9 +237,6 @@
     <EmbeddedResource Include="CrearEditar.resx">
       <DependentUpon>CrearEditar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DepurarPDF.resx">
-      <DependentUpon>DepurarPDF.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Estadisticas.resx">
       <DependentUpon>Estadisticas.cs</DependentUpon>
     </EmbeddedResource>
@@ -346,6 +338,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Escudo Negro.ico" />
+    <None Include="Resources\Carpeta24x24.png" />
     <None Include="Resources\planillaSist.png" />
     <None Include="Resources\EstadisticaOK.png" />
     <None Include="Resources\ExcelOK.png" />

@@ -35,7 +35,6 @@ namespace SistemaEstudiantes
             this.btnEditUsuarios = new System.Windows.Forms.Button();
             this.btnRutas = new System.Windows.Forms.Button();
             this.btnResoPantalla = new System.Windows.Forms.Button();
-            this.btnDepurarPDF = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblNombre = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -101,7 +100,7 @@ namespace SistemaEstudiantes
             this.btnRutas.BackColor = System.Drawing.Color.DimGray;
             this.btnRutas.Font = new System.Drawing.Font("Arial", 14F);
             this.btnRutas.ForeColor = System.Drawing.Color.White;
-            this.btnRutas.Location = new System.Drawing.Point(406, 310);
+            this.btnRutas.Location = new System.Drawing.Point(406, 360);
             this.btnRutas.Name = "btnRutas";
             this.btnRutas.Size = new System.Drawing.Size(415, 54);
             this.btnRutas.TabIndex = 18;
@@ -116,7 +115,7 @@ namespace SistemaEstudiantes
             this.btnResoPantalla.BackColor = System.Drawing.Color.DimGray;
             this.btnResoPantalla.Font = new System.Drawing.Font("Arial", 14F);
             this.btnResoPantalla.ForeColor = System.Drawing.Color.White;
-            this.btnResoPantalla.Location = new System.Drawing.Point(406, 510);
+            this.btnResoPantalla.Location = new System.Drawing.Point(406, 520);
             this.btnResoPantalla.Name = "btnResoPantalla";
             this.btnResoPantalla.Size = new System.Drawing.Size(415, 54);
             this.btnResoPantalla.TabIndex = 20;
@@ -125,21 +124,6 @@ namespace SistemaEstudiantes
             this.btnResoPantalla.Click += new System.EventHandler(this.btnResoPantalla_Click);
             this.btnResoPantalla.MouseLeave += new System.EventHandler(this.button2_MouseLeave);
             this.btnResoPantalla.MouseMove += new System.Windows.Forms.MouseEventHandler(this.button2_MouseMove);
-            // 
-            // btnDepurarPDF
-            // 
-            this.btnDepurarPDF.BackColor = System.Drawing.Color.DimGray;
-            this.btnDepurarPDF.Font = new System.Drawing.Font("Arial", 14F);
-            this.btnDepurarPDF.ForeColor = System.Drawing.Color.White;
-            this.btnDepurarPDF.Location = new System.Drawing.Point(406, 410);
-            this.btnDepurarPDF.Name = "btnDepurarPDF";
-            this.btnDepurarPDF.Size = new System.Drawing.Size(415, 54);
-            this.btnDepurarPDF.TabIndex = 19;
-            this.btnDepurarPDF.Text = "Depurar Base de Datos de PDF";
-            this.btnDepurarPDF.UseVisualStyleBackColor = false;
-            this.btnDepurarPDF.Click += new System.EventHandler(this.btnDepurarPDF_Click);
-            this.btnDepurarPDF.MouseLeave += new System.EventHandler(this.btnDepurarPDF_MouseLeave);
-            this.btnDepurarPDF.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnDepurarPDF_MouseMove);
             // 
             // panel2
             // 
@@ -224,7 +208,6 @@ namespace SistemaEstudiantes
             this.ClientSize = new System.Drawing.Size(1004, 685);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.btnDepurarPDF);
             this.Controls.Add(this.btnResoPantalla);
             this.Controls.Add(this.btnRutas);
             this.Controls.Add(this.btnEditUsuarios);
@@ -250,7 +233,6 @@ namespace SistemaEstudiantes
         private System.Windows.Forms.Button btnEditUsuarios;
         private System.Windows.Forms.Button btnRutas;
         private System.Windows.Forms.Button btnResoPantalla;
-        private System.Windows.Forms.Button btnDepurarPDF;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label label3;

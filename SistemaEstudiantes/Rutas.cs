@@ -66,7 +66,7 @@ namespace SistemaEstudiantes
                 }
             }
         }
-        private void tbxBDN_MouseClick(object sender, MouseEventArgs e)
+        private void btnRutaBD_Click(object sender, EventArgs e)
         {
             OpenFileDialog myOpenFileDialog = new OpenFileDialog();
             myOpenFileDialog.Filter = "Access Files |* .mdb";
@@ -85,155 +85,169 @@ namespace SistemaEstudiantes
         private void BtnIngresarBD_Click(object sender, EventArgs e)
         {
             valorNuevoBD = tbxBDN.Text;//por si es necesario ponerlo manualmente
-            try
+            if (valorNuevoBD != "")
             {
-                XmlDocument xmlDoc = new XmlDocument();
-                xmlDoc.Load(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);//load el xml desde la direccion donde esta
-
-                foreach (XmlElement element in xmlDoc.DocumentElement)
+                try
                 {
-                    if (element.Name.Equals("appSettings"))
+                    XmlDocument xmlDoc = new XmlDocument();
+                    xmlDoc.Load(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);//load el xml desde la direccion donde esta
+
+                    foreach (XmlElement element in xmlDoc.DocumentElement)
                     {
-                        foreach (XmlNode node in element.ChildNodes)
+                        if (element.Name.Equals("appSettings"))
                         {
-                            if (node.Attributes[0].Value == "rutaBD")
+                            foreach (XmlNode node in element.ChildNodes)
                             {
-                                DialogResult accionRealizar = MessageBox.Show("Desea cambiar la ruta:\n" + node.Attributes[1].Value + "\n\nPor la siguiente:\n" + valorNuevoBD + "\n\nSi - Para realizar el cambio.\n" +
-                                "\nNo - Para no modificar ningun parametro.\n", "Sistema Informa", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-
-                                if (accionRealizar == DialogResult.Yes)
+                                if (node.Attributes[0].Value == "rutaBD")
                                 {
-                                    node.Attributes[1].Value = valorNuevoBD;
-                                    xmlDoc.Save(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
-                                    ConfigurationManager.RefreshSection("appSettings");
-                                    ordenar();
-                                    RutasActuales();
-                                    lblActualBD.Refresh();
+                                    DialogResult accionRealizar = MessageBox.Show("Desea cambiar la ruta:\n" + node.Attributes[1].Value + "\n\nPor la siguiente:\n" + valorNuevoBD + "\n\nSi - Para realizar el cambio.\n" +
+                                    "\nNo - Para no modificar ningun parametro.\n", "Sistema Informa", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 
-                                    MessageBox.Show("Ruta actualizada correctamente", "Sistema Informa");
+                                    if (accionRealizar == DialogResult.Yes)
+                                    {
+                                        node.Attributes[1].Value = valorNuevoBD;
+                                        xmlDoc.Save(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
+                                        ConfigurationManager.RefreshSection("appSettings");
+                                        ordenar();
+                                        RutasActuales();
+                                        lblActualBD.Refresh();
 
-                                }
-                                else if (accionRealizar == DialogResult.No)
-                                {
-                                    ordenar();
+                                        MessageBox.Show("Ruta actualizada correctamente", "Sistema Informa");
+
+                                    }
+                                    else if (accionRealizar == DialogResult.No)
+                                    {
+                                        ordenar();
+                                    }
                                 }
                             }
                         }
                     }
+                    ordenar();
                 }
-                ordenar();
-            }
-            catch (Exception ex)
-            {
-                if (ex.Message.Contains("no es una ruta de acceso válida"))
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Problema con la red.", "Sistema Informa");
-                }
+                    if (ex.Message.Contains("no es una ruta de acceso válida"))
+                    {
+                        MessageBox.Show("Problema con la red.", "Sistema Informa");
+                    }
 
-                else if (ex.Message.Contains("porque está siendo utilizado en otro proceso"))
-                {
-                    MessageBox.Show("El archivo excel que quiere cargar esta abierto, debe cerrarlo.", "Sistema Informa");
+                    else if (ex.Message.Contains("porque está siendo utilizado en otro proceso"))
+                    {
+                        MessageBox.Show("El archivo excel que quiere cargar esta abierto, debe cerrarlo.", "Sistema Informa");
+                    }
+                    else if (ex.Message.Contains("datos duplicados"))// revisa en el mensaje de la excepcion si el error es por norma duplicada
+                    {
+                        MessageBox.Show("Datos duplicados en base de datos.", "Sistema Informa");
+                    }
+                    else if (ex.Message.Contains("El motor de datos Microsoft Jet no puede abrir el archivo"))
+                    {
+                        MessageBox.Show("Ruta a base de datos incorrecta.", "Sistema Informa");
+                    }
+                    else
+                    {
+                        MessageBox.Show(Convert.ToString(ex), "Sistema Informa");
+                    }
+                    ordenar();
                 }
-                else if (ex.Message.Contains("datos duplicados"))// revisa en el mensaje de la excepcion si el error es por norma duplicada
-                {
-                    MessageBox.Show("Datos duplicados en base de datos.", "Sistema Informa");
-                }
-                else if (ex.Message.Contains("El motor de datos Microsoft Jet no puede abrir el archivo"))
-                {
-                    MessageBox.Show("Ruta a base de datos incorrecta.", "Sistema Informa");
-                }
-                else
-                {
-                    MessageBox.Show(Convert.ToString(ex));
-                }
+            }
+            else
+            {
+                MessageBox.Show("Parámetro en blanco no es válido.", "Sistema Informa");
                 ordenar();
             }
         }
-        private void tbxReso_MouseClick(object sender, MouseEventArgs e)
-        {   /*Es distinta a la anterior porque es la unica forma que funcione*/  
+        private void btnRutaPDF_Click(object sender, EventArgs e)
+        {
+            /*Es distinta a la anterior porque es la unica forma que funcione*/
             OpenFileDialog myOpenFileDialog = new OpenFileDialog();
             myOpenFileDialog.ValidateNames = false;
             myOpenFileDialog.CheckFileExists = false;
             myOpenFileDialog.CheckPathExists = true;
             // Always default to Folder Selection.
-            myOpenFileDialog.FileName = "Folder Selection.";
+            myOpenFileDialog.FileName = "Carpeta actual.";
             //myOpenFileDialog.Title = "Seleccione la carpeta de destino";
 
             if (myOpenFileDialog.ShowDialog() == DialogResult.OK)
             {
                 valorNuevoPDF = Path.GetDirectoryName(myOpenFileDialog.FileName);
-                tbxReso.Text = valorNuevoPDF;           
+                tbxReso.Text = valorNuevoPDF;
             }
         }
-
 
         private void btnIngresarRR_Click(object sender, EventArgs e)
         {
             valorNuevoPDF = tbxReso.Text; //por si es necesario ponerlo manualmente
-
-            try
+            if (valorNuevoPDF != "")
             {
-                XmlDocument xmlDoc = new XmlDocument();
-                xmlDoc.Load(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);//load el xml desde la direccion donde esta
-
-                foreach (XmlElement element in xmlDoc.DocumentElement)
+                try
                 {
-                    if (element.Name.Equals("appSettings"))
+                    XmlDocument xmlDoc = new XmlDocument();
+                    xmlDoc.Load(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);//load el xml desde la direccion donde esta
+
+                    foreach (XmlElement element in xmlDoc.DocumentElement)
                     {
-                        foreach (XmlNode node in element.ChildNodes)
+                        if (element.Name.Equals("appSettings"))
                         {
-                            if (node.Attributes[0].Value == "rutaPDF")
+                            foreach (XmlNode node in element.ChildNodes)
                             {
-                                DialogResult accionRealizar = MessageBox.Show("Desea cambiar la ruta:\n" + node.Attributes[1].Value + "\n\nPor la siguiente:\n" + valorNuevoPDF + "\n\nSi - Para realizar el cambio.\n" +
-                                "\nNo - Para no modificar ningun parametro.\n", "Sistema Informa", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
-
-                                if (accionRealizar == DialogResult.Yes)
+                                if (node.Attributes[0].Value == "rutaPDF")
                                 {
-                                    node.Attributes[1].Value = valorNuevoPDF;
-                                    xmlDoc.Save(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
-                                    ConfigurationManager.RefreshSection("appSettings");
-                                    ordenar();
-                                    RutasActuales();
-                                    lblActualPDF.Refresh();
+                                    DialogResult accionRealizar = MessageBox.Show("Desea cambiar la ruta:\n" + node.Attributes[1].Value + "\n\nPor la siguiente:\n" + valorNuevoPDF + "\n\nSi - Para realizar el cambio.\n" +
+                                    "\nNo - Para no modificar ningun parametro.\n", "Sistema Informa", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
 
-                                    MessageBox.Show("Ruta actualizada correctamente", "Sistema Informa");
-                                }
-                                else if (accionRealizar == DialogResult.No)
-                                {
-                                    ordenar();
+                                    if (accionRealizar == DialogResult.Yes)
+                                    {
+                                        node.Attributes[1].Value = valorNuevoPDF;
+                                        xmlDoc.Save(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
+                                        ConfigurationManager.RefreshSection("appSettings");
+                                        ordenar();
+                                        RutasActuales();
+                                        lblActualPDF.Refresh();
+
+                                        MessageBox.Show("Ruta actualizada correctamente", "Sistema Informa");
+                                    }
+                                    else if (accionRealizar == DialogResult.No)
+                                    {
+                                        ordenar();
+                                    }
                                 }
                             }
                         }
                     }
+                    ordenar();
                 }
-                ordenar();
+                catch (Exception ex)
+                {
+                    if (ex.Message.Contains("no es una ruta de acceso válida"))
+                    {
+                        MessageBox.Show("Problema con la red.", "Sistema Informa");
+                    }
+
+                    else if (ex.Message.Contains("porque está siendo utilizado en otro proceso"))
+                    {
+                        MessageBox.Show("El archivo excel que quiere cargar esta abierto, debe cerrarlo.", "Sistema Informa");
+                    }
+                    else if (ex.Message.Contains("datos duplicados"))// revisa en el mensaje de la excepcion si el error es por norma duplicada
+                    {
+                        MessageBox.Show("Datos duplicados en base de datos.", "Sistema Informa");
+                    }
+                    else if (ex.Message.Contains("El motor de datos Microsoft Jet no puede abrir el archivo"))
+                    {
+                        MessageBox.Show("Ruta a base de datos incorrecta.", "Sistema Informa");
+                    }
+                    else
+                    {
+                        MessageBox.Show(Convert.ToString(ex));
+                    }
+                    ordenar();
+                }
             }
-            catch (Exception ex)
+            else
             {
-                if (ex.Message.Contains("no es una ruta de acceso válida"))
-                {
-                    MessageBox.Show("Problema con la red.", "Sistema Informa");
-                }
-
-                else if (ex.Message.Contains("porque está siendo utilizado en otro proceso"))
-                {
-                    MessageBox.Show("El archivo excel que quiere cargar esta abierto, debe cerrarlo.", "Sistema Informa");
-                }
-                else if (ex.Message.Contains("datos duplicados"))// revisa en el mensaje de la excepcion si el error es por norma duplicada
-                {
-                    MessageBox.Show("Datos duplicados en base de datos.", "Sistema Informa");
-                }
-                else if (ex.Message.Contains("El motor de datos Microsoft Jet no puede abrir el archivo"))
-                {
-                    MessageBox.Show("Ruta a base de datos incorrecta.", "Sistema Informa");
-                }
-                else
-                {
-                    MessageBox.Show(Convert.ToString(ex));
-                }
+                MessageBox.Show("Parámetro en blanco no es válido.", "Sistema Informa");
                 ordenar();
             }
-
         }
         private void btnVolver_Click(object sender, EventArgs e)
         {
@@ -285,10 +299,24 @@ namespace SistemaEstudiantes
             btnIngresarRR.BackColor = Color.DodgerBlue;
         }
 
+        private void btnRutaBD_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnRutaBD.BackColor = Color.DimGray;
+        }
 
+        private void btnRutaBD_MouseLeave(object sender, EventArgs e)
+        {
+            btnRutaBD.BackColor = Color.DodgerBlue;
+        }
 
+        private void btnRutaPDF_MouseMove(object sender, MouseEventArgs e)
+        {
+            btnRutaPDF.BackColor = Color.DimGray;
+        }
 
-        
-
+        private void btnRutaPDF_MouseLeave(object sender, EventArgs e)
+        {
+            btnRutaPDF.BackColor = Color.DodgerBlue;
+        }
     }
 }

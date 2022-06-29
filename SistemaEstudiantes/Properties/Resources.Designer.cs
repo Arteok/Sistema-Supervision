@@ -93,6 +93,16 @@ namespace SistemaEstudiantes.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Carpeta24x24 {
+            get {
+                object obj = ResourceManager.GetObject("Carpeta24x24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DataBase {
             get {
                 object obj = ResourceManager.GetObject("DataBase", resourceCulture);

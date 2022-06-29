@@ -47,7 +47,9 @@ namespace SistemaEstudiantes
             this.label5 = new System.Windows.Forms.Label();
             this.lblActualPDF = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnRutaBD = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnRutaPDF = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -157,17 +159,15 @@ namespace SistemaEstudiantes
             // 
             this.tbxBDN.Location = new System.Drawing.Point(247, 65);
             this.tbxBDN.Name = "tbxBDN";
-            this.tbxBDN.Size = new System.Drawing.Size(622, 20);
+            this.tbxBDN.Size = new System.Drawing.Size(569, 20);
             this.tbxBDN.TabIndex = 44;
-            this.tbxBDN.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tbxBDN_MouseClick);
             // 
             // tbxReso
             // 
             this.tbxReso.Location = new System.Drawing.Point(227, 66);
             this.tbxReso.Name = "tbxReso";
-            this.tbxReso.Size = new System.Drawing.Size(642, 20);
+            this.tbxReso.Size = new System.Drawing.Size(589, 20);
             this.tbxReso.TabIndex = 45;
-            this.tbxReso.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tbxReso_MouseClick);
             // 
             // BtnIngresarBD
             // 
@@ -179,7 +179,7 @@ namespace SistemaEstudiantes
             this.BtnIngresarBD.Name = "BtnIngresarBD";
             this.BtnIngresarBD.Size = new System.Drawing.Size(100, 40);
             this.BtnIngresarBD.TabIndex = 17;
-            this.BtnIngresarBD.Text = "Ingresar";
+            this.BtnIngresarBD.Text = "Cambiar";
             this.BtnIngresarBD.UseVisualStyleBackColor = false;
             this.BtnIngresarBD.Click += new System.EventHandler(this.BtnIngresarBD_Click);
             this.BtnIngresarBD.MouseLeave += new System.EventHandler(this.BtnIngresarBD_MouseLeave);
@@ -195,7 +195,7 @@ namespace SistemaEstudiantes
             this.btnIngresarRR.Name = "btnIngresarRR";
             this.btnIngresarRR.Size = new System.Drawing.Size(100, 40);
             this.btnIngresarRR.TabIndex = 46;
-            this.btnIngresarRR.Text = "Ingresar";
+            this.btnIngresarRR.Text = "Cambiar";
             this.btnIngresarRR.UseVisualStyleBackColor = false;
             this.btnIngresarRR.Click += new System.EventHandler(this.btnIngresarRR_Click);
             this.btnIngresarRR.MouseLeave += new System.EventHandler(this.btnIngresarRR_MouseLeave);
@@ -244,6 +244,7 @@ namespace SistemaEstudiantes
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox1.Controls.Add(this.btnRutaBD);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.tbxBDN);
@@ -255,9 +256,23 @@ namespace SistemaEstudiantes
             this.groupBox1.TabIndex = 51;
             this.groupBox1.TabStop = false;
             // 
+            // btnRutaBD
+            // 
+            this.btnRutaBD.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnRutaBD.Image = global::SistemaEstudiantes.Properties.Resources.Carpeta24x24;
+            this.btnRutaBD.Location = new System.Drawing.Point(836, 53);
+            this.btnRutaBD.Name = "btnRutaBD";
+            this.btnRutaBD.Size = new System.Drawing.Size(40, 40);
+            this.btnRutaBD.TabIndex = 49;
+            this.btnRutaBD.UseVisualStyleBackColor = false;
+            this.btnRutaBD.Click += new System.EventHandler(this.btnRutaBD_Click);
+            this.btnRutaBD.MouseLeave += new System.EventHandler(this.btnRutaBD_MouseLeave);
+            this.btnRutaBD.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnRutaBD_MouseMove);
+            // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox2.Controls.Add(this.btnRutaPDF);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.lblActualPDF);
             this.groupBox2.Controls.Add(this.btnIngresarRR);
@@ -268,6 +283,19 @@ namespace SistemaEstudiantes
             this.groupBox2.Size = new System.Drawing.Size(1006, 105);
             this.groupBox2.TabIndex = 52;
             this.groupBox2.TabStop = false;
+            // 
+            // btnRutaPDF
+            // 
+            this.btnRutaPDF.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnRutaPDF.Image = global::SistemaEstudiantes.Properties.Resources.Carpeta24x24;
+            this.btnRutaPDF.Location = new System.Drawing.Point(836, 54);
+            this.btnRutaPDF.Name = "btnRutaPDF";
+            this.btnRutaPDF.Size = new System.Drawing.Size(40, 40);
+            this.btnRutaPDF.TabIndex = 51;
+            this.btnRutaPDF.UseVisualStyleBackColor = false;
+            this.btnRutaPDF.Click += new System.EventHandler(this.btnRutaPDF_Click);
+            this.btnRutaPDF.MouseLeave += new System.EventHandler(this.btnRutaPDF_MouseLeave);
+            this.btnRutaPDF.MouseMove += new System.Windows.Forms.MouseEventHandler(this.btnRutaPDF_MouseMove);
             // 
             // Rutas
             // 
@@ -314,5 +342,7 @@ namespace SistemaEstudiantes
         private System.Windows.Forms.Label lblActualPDF;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnRutaBD;
+        private System.Windows.Forms.Button btnRutaPDF;
     }
 }

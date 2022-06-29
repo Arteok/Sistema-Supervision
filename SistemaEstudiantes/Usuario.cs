@@ -72,23 +72,26 @@ namespace SistemaEstudiantes
                 if (ex.Message.Contains("no es una ruta de acceso válida"))
                 {
                     MessageBox.Show("Asegúrese de estar conectado a la red adecuada o el servidor no esta ON en este momento.", "Sistema Informa");
-                }               
-
+                }             
                 else if (ex.Message.Contains("porque está siendo utilizado en otro proceso"))
                 {
-                    MessageBox.Show("El archivo que quiere actualizar y abrir, se encuentra activo, debe cerrarlo.", "Sistema Informa");
+                    MessageBox.Show("El archivo que quiere abrir y actualizar se encuentra activo, debe cerrarlo.", "Sistema Informa");
                 }
                 else if (ex.Message.Contains("datos duplicados"))
                 {
                     MessageBox.Show("Datos duplicados en base de datos.", "Sistema Informa");
-                }
-                else if (ex.Message.Contains("La ruta de la base de datos no es correcta. Ingrese en modo admin y asigne una ruta válida"))
-                {
-                    MessageBox.Show("No se encontró ninguna estadística para los parámetros especificados.", "Sistema Informa");
-                }
+                }               
                 else if (ex.Message.Contains("No es un nombre de archivo válido"))
                 {                    
                     MessageBox.Show("La ruta de la base de datos no es correcta. Ingrese en modo admin y asigne una ruta válida.", "Sistema Informa");                   
+                }
+                else if (ex.Message.Contains("No se pudo encontrar el archivo"))
+                {
+                    MessageBox.Show("La ruta de la base de datos no es correcta. Ingrese en modo admin y asigne una ruta válida.", "Sistema Informa");
+                }
+                else if (ex.Message.Contains("El motor de datos Microsoft Jet no puede abrir el archivo"))
+                {
+                    MessageBox.Show("Ruta a base de datos incorrecta.", "Sistema Informa");
                 }
                 else
                 {

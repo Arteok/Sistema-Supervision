@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
 
-
 namespace SistemaEstudiantes
 {
     public partial class Opciones : Form
@@ -25,20 +24,27 @@ namespace SistemaEstudiantes
             tipoUsuario = permisos;
             lblNombre.Text = usuario;
             logueado = true;
-            conexionBaseDatos = conexionBD;            
+            conexionBaseDatos = conexionBD;
 
-            if (tipoUsuario == "SuperUsuario" || tipoUsuario  == "Admin" || tipoUsuario == "admin")
+            if (tipoUsuario == "SuperUsuario")
             {
                 btnEditUsuarios.Enabled = true;
                 btnEditUsuarios.BackColor = Color.DimGray;
                 btnRutas.Enabled = true;
                 btnRutas.BackColor = Color.DimGray;
-                btnDepurarPDF.Enabled = false;
-                btnDepurarPDF.BackColor = Color.Silver;
                 btnResoPantalla.Enabled = false;
-                btnResoPantalla.BackColor = Color.Silver;                
+                btnResoPantalla.BackColor = Color.Silver;
             }
-            else 
+            else if (tipoUsuario == "Admin" || tipoUsuario == "admin")
+            {
+                btnEditUsuarios.Enabled = false;
+                btnEditUsuarios.BackColor = Color.Silver;
+                btnRutas.Enabled = true;
+                btnRutas.BackColor = Color.DimGray;
+                btnResoPantalla.Enabled = false;
+                btnResoPantalla.BackColor = Color.Silver;
+            }
+            else
             {
                 btnEditUsuarios.Enabled = false;
                 btnEditUsuarios.BackColor = Color.Silver;
@@ -46,24 +52,19 @@ namespace SistemaEstudiantes
                 btnRutas.BackColor = Color.Silver;
                 btnResoPantalla.Enabled = false;
                 btnResoPantalla.BackColor = Color.Silver;
-                btnDepurarPDF.Enabled = false;
-                btnDepurarPDF.BackColor = Color.Silver;
             }            
         }
-
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            Form1 miForm1 = new Form1(nombreUsuario, tipoUsuario, true);
+            Form1 miForm1 = new Form1(nombreUsuario, tipoUsuario, logueado);
             miForm1.Visible = true;
             miForm1.Enabled = true;
             this.Close();
         }
-
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
         private void btnEditUsuarios_Click(object sender, EventArgs e)
         {
             CrearEditar miCrearEditarU = new CrearEditar(nombreUsuario, tipoUsuario, conexionBaseDatos);
@@ -76,23 +77,15 @@ namespace SistemaEstudiantes
             this.Visible = false;
             misRutas.Show();
         }
-        private void btnDepurarPDF_Click(object sender, EventArgs e)
-        {
-            DepurarPDF miDepurar = new DepurarPDF(nombreUsuario, tipoUsuario, conexionBaseDatos);
-            this.Visible = false;
-            miDepurar.Show();
-        }
-
+       
         private void btnResoPantalla_Click(object sender, EventArgs e)
         {
 
         }
-
         private void btnSalir_MouseMove(object sender, MouseEventArgs e)
         {
             btnSalir.BackColor = Color.DimGray;
         }
-
         private void btnSalir_MouseLeave(object sender, EventArgs e)
         {
             btnSalir.BackColor = Color.DodgerBlue;
@@ -134,16 +127,6 @@ namespace SistemaEstudiantes
         private void button2_MouseLeave(object sender, EventArgs e)
         {
             btnResoPantalla.BackColor = Color.DimGray;
-        }
-        private void btnDepurarPDF_MouseMove(object sender, MouseEventArgs e)
-        {
-            btnDepurarPDF.BackColor = Color.DodgerBlue;
-        }
-        private void btnDepurarPDF_MouseLeave(object sender, EventArgs e)
-        {
-            btnDepurarPDF.BackColor = Color.DimGray;
-        }
-
-       
+        }         
     }
 }
